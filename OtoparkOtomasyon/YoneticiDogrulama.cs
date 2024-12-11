@@ -24,7 +24,7 @@ namespace OtoparkOtomasyon
             
             string YoneticiAdi = txtYoneticiAdiGiris.Text;
             string YoneticiSifre = txtYoneticiSifreGiris.Text;
-            SqlConnection baglanti = new SqlConnection(@"Data Source=VIEWSONIC\SQLEXPRESS;Initial Catalog=OtoparkOtomasyon;Integrated Security=True;");
+            SqlConnection baglanti = new SqlConnection(@"Data Source=FATIH\SQLEXPRESS;Initial Catalog=OtoparkOtomasyon;Integrated Security=True;");
             try
             {
                 if (YoneticiAdi == "" || YoneticiSifre == "")

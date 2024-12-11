@@ -1,0 +1,852 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="OtoparkOtomasyonModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Abonelikler">
+          <Key>
+            <PropertyRef Name="AboneID" />
+          </Key>
+          <Property Name="AboneID" Type="int" Nullable="false" />
+          <Property Name="AbonePlaka" Type="varchar" MaxLength="30" />
+          <Property Name="AbonelikBaslangicTarihi" Type="datetime" />
+          <Property Name="AbonelikBitisTarihi" Type="datetime" />
+          <Property Name="AbonelikTipi" Type="nvarchar" MaxLength="20" />
+          <Property Name="AboneUcretID" Type="int" />
+        </EntityType>
+        <EntityType Name="AboneUcret">
+          <Key>
+            <PropertyRef Name="AboneUcretID" />
+          </Key>
+          <Property Name="AboneUcretID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AboneSuresi" Type="int" />
+          <Property Name="AboneAracTuru" Type="nvarchar" MaxLength="30" />
+          <Property Name="AboneUcret" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="AracCikis">
+          <Key>
+            <PropertyRef Name="CikisID" />
+          </Key>
+          <Property Name="CikisID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Plaka" Type="nvarchar" MaxLength="30" />
+          <Property Name="CikisTarihi" Type="datetime" />
+          <Property Name="ToplamUcret" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="OdemeTuru" Type="nvarchar" MaxLength="20" />
+          <Property Name="DogrulamaKodu" Type="nvarchar" MaxLength="10" />
+          <Property Name="UcretsizGirisID" Type="int" />
+          <Property Name="AracUcretID" Type="int" />
+          <Property Name="AboneID" Type="int" />
+          <Property Name="GirisID" Type="int" />
+        </EntityType>
+        <EntityType Name="AracGiris">
+          <Key>
+            <PropertyRef Name="GirisID" />
+          </Key>
+          <Property Name="GirisID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MusteriAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MusteriSoyadi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Plaka" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="AracTuru" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="TelefonNo" Type="int" />
+          <Property Name="DogrulamaKodu" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ParkYeri" Type="int" Nullable="false" />
+          <Property Name="GirisTarihi" Type="datetime" Nullable="false" />
+          <Property Name="UcretsizGirisID" Type="int" />
+        </EntityType>
+        <EntityType Name="AracKapasitesi">
+          <Key>
+            <PropertyRef Name="KapasiteID" />
+          </Key>
+          <Property Name="KapasiteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kapasite" Type="int" />
+        </EntityType>
+        <EntityType Name="AracTuru">
+          <Key>
+            <PropertyRef Name="AracTurID" />
+          </Key>
+          <Property Name="AracTurID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AracTurAdi" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="AracUcretleri">
+          <Key>
+            <PropertyRef Name="AracUcretID" />
+          </Key>
+          <Property Name="AracUcretID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AracTurID" Type="int" />
+          <Property Name="AracUcret03" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="AracUcret36" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="AracUcret61" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="AracUcretBirGunUzeri" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="OtoparkDurumu">
+          <Key>
+            <PropertyRef Name="OtoparkID" />
+          </Key>
+          <Property Name="OtoparkID" Type="int" Nullable="false" />
+          <Property Name="KapasiteID" Type="int" />
+          <Property Name="Doluluk" Type="int" />
+          <Property Name="BosAlan" Type="int" />
+        </EntityType>
+        <EntityType Name="PersonelGirisTanimla">
+          <Key>
+            <PropertyRef Name="KullaniciID" />
+          </Key>
+          <Property Name="KullaniciID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullaniciAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="KullaniciSifre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TanimlanmaTarihi" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'OtoparkOtomasyon.dbo.Rapor' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Rapor">
+          <Key>
+            <PropertyRef Name="OtoparkID" />
+          </Key>
+          <Property Name="OtoparkID" Type="int" Nullable="false" />
+          <Property Name="GirisID" Type="int" />
+          <Property Name="CikisID" Type="int" />
+          <Property Name="ToplamUcret" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="UcretsizGiris">
+          <Key>
+            <PropertyRef Name="UcretsizGirisID" />
+          </Key>
+          <Property Name="UcretsizGirisID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TanimlanmaTarihi" Type="datetime" />
+          <Property Name="Plaka" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Yonetici">
+          <Key>
+            <PropertyRef Name="YoneticiID" />
+          </Key>
+          <Property Name="YoneticiID" Type="int" Nullable="false" />
+          <Property Name="YoneticiAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="YoneticiSifre" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Abonelikler_AboneUcret">
+          <End Role="AboneUcret" Type="Self.AboneUcret" Multiplicity="0..1" />
+          <End Role="Abonelikler" Type="Self.Abonelikler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AboneUcret">
+              <PropertyRef Name="AboneUcretID" />
+            </Principal>
+            <Dependent Role="Abonelikler">
+              <PropertyRef Name="AboneUcretID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AracCikis_Abonelikler">
+          <End Role="Abonelikler" Type="Self.Abonelikler" Multiplicity="0..1" />
+          <End Role="AracCikis" Type="Self.AracCikis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Abonelikler">
+              <PropertyRef Name="AboneID" />
+            </Principal>
+            <Dependent Role="AracCikis">
+              <PropertyRef Name="AboneID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AracCikis_AracGiris">
+          <End Role="AracGiris" Type="Self.AracGiris" Multiplicity="0..1" />
+          <End Role="AracCikis" Type="Self.AracCikis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AracGiris">
+              <PropertyRef Name="GirisID" />
+            </Principal>
+            <Dependent Role="AracCikis">
+              <PropertyRef Name="GirisID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AracCikis_AracUcretleri">
+          <End Role="AracUcretleri" Type="Self.AracUcretleri" Multiplicity="0..1" />
+          <End Role="AracCikis" Type="Self.AracCikis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AracUcretleri">
+              <PropertyRef Name="AracUcretID" />
+            </Principal>
+            <Dependent Role="AracCikis">
+              <PropertyRef Name="AracUcretID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AracCikis_UcretsizGiris">
+          <End Role="UcretsizGiris" Type="Self.UcretsizGiris" Multiplicity="0..1" />
+          <End Role="AracCikis" Type="Self.AracCikis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UcretsizGiris">
+              <PropertyRef Name="UcretsizGirisID" />
+            </Principal>
+            <Dependent Role="AracCikis">
+              <PropertyRef Name="UcretsizGirisID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AracGiris_UcretsizGiris">
+          <End Role="UcretsizGiris" Type="Self.UcretsizGiris" Multiplicity="0..1" />
+          <End Role="AracGiris" Type="Self.AracGiris" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UcretsizGiris">
+              <PropertyRef Name="UcretsizGirisID" />
+            </Principal>
+            <Dependent Role="AracGiris">
+              <PropertyRef Name="UcretsizGirisID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AracUcretleri_AracTuru">
+          <End Role="AracTuru" Type="Self.AracTuru" Multiplicity="0..1" />
+          <End Role="AracUcretleri" Type="Self.AracUcretleri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AracTuru">
+              <PropertyRef Name="AracTurID" />
+            </Principal>
+            <Dependent Role="AracUcretleri">
+              <PropertyRef Name="AracTurID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OtoparkDurumu_AracKapasitesi">
+          <End Role="AracKapasitesi" Type="Self.AracKapasitesi" Multiplicity="0..1" />
+          <End Role="OtoparkDurumu" Type="Self.OtoparkDurumu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AracKapasitesi">
+              <PropertyRef Name="KapasiteID" />
+            </Principal>
+            <Dependent Role="OtoparkDurumu">
+              <PropertyRef Name="KapasiteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rapor_AracCikis">
+          <End Role="AracCikis" Type="Self.AracCikis" Multiplicity="0..1" />
+          <End Role="Rapor" Type="Self.Rapor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AracCikis">
+              <PropertyRef Name="CikisID" />
+            </Principal>
+            <Dependent Role="Rapor">
+              <PropertyRef Name="CikisID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rapor_AracGiris">
+          <End Role="AracGiris" Type="Self.AracGiris" Multiplicity="0..1" />
+          <End Role="Rapor" Type="Self.Rapor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AracGiris">
+              <PropertyRef Name="GirisID" />
+            </Principal>
+            <Dependent Role="Rapor">
+              <PropertyRef Name="GirisID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rapor_OtoparkDurumu">
+          <End Role="OtoparkDurumu" Type="Self.OtoparkDurumu" Multiplicity="1" />
+          <End Role="Rapor" Type="Self.Rapor" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="OtoparkDurumu">
+              <PropertyRef Name="OtoparkID" />
+            </Principal>
+            <Dependent Role="Rapor">
+              <PropertyRef Name="OtoparkID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OtoparkOtomasyonModelStoreContainer">
+          <EntitySet Name="Abonelikler" EntityType="Self.Abonelikler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AboneUcret" EntityType="Self.AboneUcret" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AracCikis" EntityType="Self.AracCikis" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AracGiris" EntityType="Self.AracGiris" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AracKapasitesi" EntityType="Self.AracKapasitesi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AracTuru" EntityType="Self.AracTuru" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AracUcretleri" EntityType="Self.AracUcretleri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OtoparkDurumu" EntityType="Self.OtoparkDurumu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PersonelGirisTanimla" EntityType="Self.PersonelGirisTanimla" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UcretsizGiris" EntityType="Self.UcretsizGiris" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Yonetici" EntityType="Self.Yonetici" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rapor" EntityType="Self.Rapor" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Rapor].[OtoparkID] AS [OtoparkID], 
+    [Rapor].[GirisID] AS [GirisID], 
+    [Rapor].[CikisID] AS [CikisID], 
+    [Rapor].[ToplamUcret] AS [ToplamUcret]
+    FROM [dbo].[Rapor] AS [Rapor]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Abonelikler_AboneUcret" Association="Self.FK_Abonelikler_AboneUcret">
+            <End Role="AboneUcret" EntitySet="AboneUcret" />
+            <End Role="Abonelikler" EntitySet="Abonelikler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AracCikis_Abonelikler" Association="Self.FK_AracCikis_Abonelikler">
+            <End Role="Abonelikler" EntitySet="Abonelikler" />
+            <End Role="AracCikis" EntitySet="AracCikis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AracCikis_AracGiris" Association="Self.FK_AracCikis_AracGiris">
+            <End Role="AracGiris" EntitySet="AracGiris" />
+            <End Role="AracCikis" EntitySet="AracCikis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AracCikis_AracUcretleri" Association="Self.FK_AracCikis_AracUcretleri">
+            <End Role="AracUcretleri" EntitySet="AracUcretleri" />
+            <End Role="AracCikis" EntitySet="AracCikis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AracCikis_UcretsizGiris" Association="Self.FK_AracCikis_UcretsizGiris">
+            <End Role="UcretsizGiris" EntitySet="UcretsizGiris" />
+            <End Role="AracCikis" EntitySet="AracCikis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AracGiris_UcretsizGiris" Association="Self.FK_AracGiris_UcretsizGiris">
+            <End Role="UcretsizGiris" EntitySet="UcretsizGiris" />
+            <End Role="AracGiris" EntitySet="AracGiris" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AracUcretleri_AracTuru" Association="Self.FK_AracUcretleri_AracTuru">
+            <End Role="AracTuru" EntitySet="AracTuru" />
+            <End Role="AracUcretleri" EntitySet="AracUcretleri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OtoparkDurumu_AracKapasitesi" Association="Self.FK_OtoparkDurumu_AracKapasitesi">
+            <End Role="AracKapasitesi" EntitySet="AracKapasitesi" />
+            <End Role="OtoparkDurumu" EntitySet="OtoparkDurumu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rapor_AracCikis" Association="Self.FK_Rapor_AracCikis">
+            <End Role="AracCikis" EntitySet="AracCikis" />
+            <End Role="Rapor" EntitySet="Rapor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rapor_AracGiris" Association="Self.FK_Rapor_AracGiris">
+            <End Role="AracGiris" EntitySet="AracGiris" />
+            <End Role="Rapor" EntitySet="Rapor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rapor_OtoparkDurumu" Association="Self.FK_Rapor_OtoparkDurumu">
+            <End Role="OtoparkDurumu" EntitySet="OtoparkDurumu" />
+            <End Role="Rapor" EntitySet="Rapor" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OtoparkOtomasyonModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Abonelikler">
+          <Key>
+            <PropertyRef Name="AboneID" />
+          </Key>
+          <Property Name="AboneID" Type="Int32" Nullable="false" />
+          <Property Name="AbonePlaka" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="AbonelikBaslangicTarihi" Type="DateTime" Precision="3" />
+          <Property Name="AbonelikBitisTarihi" Type="DateTime" Precision="3" />
+          <Property Name="AbonelikTipi" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="AboneUcretID" Type="Int32" />
+          <NavigationProperty Name="AboneUcret" Relationship="Self.FK_Abonelikler_AboneUcret" FromRole="Abonelikler" ToRole="AboneUcret" />
+          <NavigationProperty Name="AracCikis" Relationship="Self.FK_AracCikis_Abonelikler" FromRole="Abonelikler" ToRole="AracCikis" />
+        </EntityType>
+        <EntityType Name="AboneUcret">
+          <Key>
+            <PropertyRef Name="AboneUcretID" />
+          </Key>
+          <Property Name="AboneUcretID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AboneSuresi" Type="Int32" />
+          <Property Name="AboneAracTuru" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="AboneUcret1" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="Abonelikler" Relationship="Self.FK_Abonelikler_AboneUcret" FromRole="AboneUcret" ToRole="Abonelikler" />
+        </EntityType>
+        <EntityType Name="AracCikis">
+          <Key>
+            <PropertyRef Name="CikisID" />
+          </Key>
+          <Property Name="CikisID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Plaka" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CikisTarihi" Type="DateTime" Precision="3" />
+          <Property Name="ToplamUcret" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="OdemeTuru" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DogrulamaKodu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="UcretsizGirisID" Type="Int32" />
+          <Property Name="AracUcretID" Type="Int32" />
+          <Property Name="AboneID" Type="Int32" />
+          <Property Name="GirisID" Type="Int32" />
+          <NavigationProperty Name="Abonelikler" Relationship="Self.FK_AracCikis_Abonelikler" FromRole="AracCikis" ToRole="Abonelikler" />
+          <NavigationProperty Name="AracGiris" Relationship="Self.FK_AracCikis_AracGiris" FromRole="AracCikis" ToRole="AracGiris" />
+          <NavigationProperty Name="AracUcretleri" Relationship="Self.FK_AracCikis_AracUcretleri" FromRole="AracCikis" ToRole="AracUcretleri" />
+          <NavigationProperty Name="UcretsizGiris" Relationship="Self.FK_AracCikis_UcretsizGiris" FromRole="AracCikis" ToRole="UcretsizGiris" />
+          <NavigationProperty Name="Rapor" Relationship="Self.FK_Rapor_AracCikis" FromRole="AracCikis" ToRole="Rapor" />
+        </EntityType>
+        <EntityType Name="AracGiris">
+          <Key>
+            <PropertyRef Name="GirisID" />
+          </Key>
+          <Property Name="GirisID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MusteriAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MusteriSoyadi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Plaka" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AracTuru" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TelefonNo" Type="Int32" />
+          <Property Name="DogrulamaKodu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ParkYeri" Type="Int32" Nullable="false" />
+          <Property Name="GirisTarihi" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UcretsizGirisID" Type="Int32" />
+          <NavigationProperty Name="AracCikis" Relationship="Self.FK_AracCikis_AracGiris" FromRole="AracGiris" ToRole="AracCikis" />
+          <NavigationProperty Name="UcretsizGiris" Relationship="Self.FK_AracGiris_UcretsizGiris" FromRole="AracGiris" ToRole="UcretsizGiris" />
+          <NavigationProperty Name="Rapor" Relationship="Self.FK_Rapor_AracGiris" FromRole="AracGiris" ToRole="Rapor" />
+        </EntityType>
+        <EntityType Name="AracKapasitesi">
+          <Key>
+            <PropertyRef Name="KapasiteID" />
+          </Key>
+          <Property Name="KapasiteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kapasite" Type="Int32" />
+          <NavigationProperty Name="OtoparkDurumu" Relationship="Self.FK_OtoparkDurumu_AracKapasitesi" FromRole="AracKapasitesi" ToRole="OtoparkDurumu" />
+        </EntityType>
+        <EntityType Name="AracTuru">
+          <Key>
+            <PropertyRef Name="AracTurID" />
+          </Key>
+          <Property Name="AracTurID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AracTurAdi" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AracUcretleri" Relationship="Self.FK_AracUcretleri_AracTuru" FromRole="AracTuru" ToRole="AracUcretleri" />
+        </EntityType>
+        <EntityType Name="AracUcretleri">
+          <Key>
+            <PropertyRef Name="AracUcretID" />
+          </Key>
+          <Property Name="AracUcretID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AracTurID" Type="Int32" />
+          <Property Name="AracUcret03" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="AracUcret36" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="AracUcret61" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="AracUcretBirGunUzeri" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="AracCikis" Relationship="Self.FK_AracCikis_AracUcretleri" FromRole="AracUcretleri" ToRole="AracCikis" />
+          <NavigationProperty Name="AracTuru" Relationship="Self.FK_AracUcretleri_AracTuru" FromRole="AracUcretleri" ToRole="AracTuru" />
+        </EntityType>
+        <EntityType Name="OtoparkDurumu">
+          <Key>
+            <PropertyRef Name="OtoparkID" />
+          </Key>
+          <Property Name="OtoparkID" Type="Int32" Nullable="false" />
+          <Property Name="KapasiteID" Type="Int32" />
+          <Property Name="Doluluk" Type="Int32" />
+          <Property Name="BosAlan" Type="Int32" />
+          <NavigationProperty Name="AracKapasitesi" Relationship="Self.FK_OtoparkDurumu_AracKapasitesi" FromRole="OtoparkDurumu" ToRole="AracKapasitesi" />
+          <NavigationProperty Name="Rapor" Relationship="Self.FK_Rapor_OtoparkDurumu" FromRole="OtoparkDurumu" ToRole="Rapor" />
+        </EntityType>
+        <EntityType Name="PersonelGirisTanimla">
+          <Key>
+            <PropertyRef Name="KullaniciID" />
+          </Key>
+          <Property Name="KullaniciID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KullaniciSifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TanimlanmaTarihi" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="UcretsizGiris">
+          <Key>
+            <PropertyRef Name="UcretsizGirisID" />
+          </Key>
+          <Property Name="UcretsizGirisID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TanimlanmaTarihi" Type="DateTime" Precision="3" />
+          <Property Name="Plaka" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AracCikis" Relationship="Self.FK_AracCikis_UcretsizGiris" FromRole="UcretsizGiris" ToRole="AracCikis" />
+          <NavigationProperty Name="AracGiris" Relationship="Self.FK_AracGiris_UcretsizGiris" FromRole="UcretsizGiris" ToRole="AracGiris" />
+        </EntityType>
+        <EntityType Name="Yonetici">
+          <Key>
+            <PropertyRef Name="YoneticiID" />
+          </Key>
+          <Property Name="YoneticiID" Type="Int32" Nullable="false" />
+          <Property Name="YoneticiAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="YoneticiSifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rapor">
+          <Key>
+            <PropertyRef Name="OtoparkID" />
+          </Key>
+          <Property Name="OtoparkID" Type="Int32" Nullable="false" />
+          <Property Name="GirisID" Type="Int32" />
+          <Property Name="CikisID" Type="Int32" />
+          <Property Name="ToplamUcret" Type="Int32" />
+          <NavigationProperty Name="AracCikis" Relationship="Self.FK_Rapor_AracCikis" FromRole="Rapor" ToRole="AracCikis" />
+          <NavigationProperty Name="AracGiris" Relationship="Self.FK_Rapor_AracGiris" FromRole="Rapor" ToRole="AracGiris" />
+          <NavigationProperty Name="OtoparkDurumu" Relationship="Self.FK_Rapor_OtoparkDurumu" FromRole="Rapor" ToRole="OtoparkDurumu" />
+        </EntityType>
+        <Association Name="FK_Abonelikler_AboneUcret">
+          <End Role="AboneUcret" Type="Self.AboneUcret" Multiplicity="0..1" />
+          <End Role="Abonelikler" Type="Self.Abonelikler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AboneUcret">
+              <PropertyRef Name="AboneUcretID" />
+            </Principal>
+            <Dependent Role="Abonelikler">
+              <PropertyRef Name="AboneUcretID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AracCikis_Abonelikler">
+          <End Role="Abonelikler" Type="Self.Abonelikler" Multiplicity="0..1" />
+          <End Role="AracCikis" Type="Self.AracCikis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Abonelikler">
+              <PropertyRef Name="AboneID" />
+            </Principal>
+            <Dependent Role="AracCikis">
+              <PropertyRef Name="AboneID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AracCikis_AracGiris">
+          <End Role="AracGiris" Type="Self.AracGiris" Multiplicity="0..1" />
+          <End Role="AracCikis" Type="Self.AracCikis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AracGiris">
+              <PropertyRef Name="GirisID" />
+            </Principal>
+            <Dependent Role="AracCikis">
+              <PropertyRef Name="GirisID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AracCikis_AracUcretleri">
+          <End Role="AracUcretleri" Type="Self.AracUcretleri" Multiplicity="0..1" />
+          <End Role="AracCikis" Type="Self.AracCikis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AracUcretleri">
+              <PropertyRef Name="AracUcretID" />
+            </Principal>
+            <Dependent Role="AracCikis">
+              <PropertyRef Name="AracUcretID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AracCikis_UcretsizGiris">
+          <End Role="UcretsizGiris" Type="Self.UcretsizGiris" Multiplicity="0..1" />
+          <End Role="AracCikis" Type="Self.AracCikis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UcretsizGiris">
+              <PropertyRef Name="UcretsizGirisID" />
+            </Principal>
+            <Dependent Role="AracCikis">
+              <PropertyRef Name="UcretsizGirisID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rapor_AracCikis">
+          <End Role="AracCikis" Type="Self.AracCikis" Multiplicity="0..1" />
+          <End Role="Rapor" Type="Self.Rapor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AracCikis">
+              <PropertyRef Name="CikisID" />
+            </Principal>
+            <Dependent Role="Rapor">
+              <PropertyRef Name="CikisID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AracGiris_UcretsizGiris">
+          <End Role="UcretsizGiris" Type="Self.UcretsizGiris" Multiplicity="0..1" />
+          <End Role="AracGiris" Type="Self.AracGiris" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UcretsizGiris">
+              <PropertyRef Name="UcretsizGirisID" />
+            </Principal>
+            <Dependent Role="AracGiris">
+              <PropertyRef Name="UcretsizGirisID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rapor_AracGiris">
+          <End Role="AracGiris" Type="Self.AracGiris" Multiplicity="0..1" />
+          <End Role="Rapor" Type="Self.Rapor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AracGiris">
+              <PropertyRef Name="GirisID" />
+            </Principal>
+            <Dependent Role="Rapor">
+              <PropertyRef Name="GirisID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OtoparkDurumu_AracKapasitesi">
+          <End Role="AracKapasitesi" Type="Self.AracKapasitesi" Multiplicity="0..1" />
+          <End Role="OtoparkDurumu" Type="Self.OtoparkDurumu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AracKapasitesi">
+              <PropertyRef Name="KapasiteID" />
+            </Principal>
+            <Dependent Role="OtoparkDurumu">
+              <PropertyRef Name="KapasiteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AracUcretleri_AracTuru">
+          <End Role="AracTuru" Type="Self.AracTuru" Multiplicity="0..1" />
+          <End Role="AracUcretleri" Type="Self.AracUcretleri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AracTuru">
+              <PropertyRef Name="AracTurID" />
+            </Principal>
+            <Dependent Role="AracUcretleri">
+              <PropertyRef Name="AracTurID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rapor_OtoparkDurumu">
+          <End Role="OtoparkDurumu" Type="Self.OtoparkDurumu" Multiplicity="1" />
+          <End Role="Rapor" Type="Self.Rapor" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="OtoparkDurumu">
+              <PropertyRef Name="OtoparkID" />
+            </Principal>
+            <Dependent Role="Rapor">
+              <PropertyRef Name="OtoparkID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OtoparkOtomasyonEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Abonelikler" EntityType="Self.Abonelikler" />
+          <EntitySet Name="AboneUcret" EntityType="Self.AboneUcret" />
+          <EntitySet Name="AracCikis" EntityType="Self.AracCikis" />
+          <EntitySet Name="AracGiris" EntityType="Self.AracGiris" />
+          <EntitySet Name="AracKapasitesi" EntityType="Self.AracKapasitesi" />
+          <EntitySet Name="AracTuru" EntityType="Self.AracTuru" />
+          <EntitySet Name="AracUcretleri" EntityType="Self.AracUcretleri" />
+          <EntitySet Name="OtoparkDurumu" EntityType="Self.OtoparkDurumu" />
+          <EntitySet Name="PersonelGirisTanimla" EntityType="Self.PersonelGirisTanimla" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="UcretsizGiris" EntityType="Self.UcretsizGiris" />
+          <EntitySet Name="Yonetici" EntityType="Self.Yonetici" />
+          <EntitySet Name="Rapor" EntityType="Self.Rapor" />
+          <AssociationSet Name="FK_Abonelikler_AboneUcret" Association="Self.FK_Abonelikler_AboneUcret">
+            <End Role="AboneUcret" EntitySet="AboneUcret" />
+            <End Role="Abonelikler" EntitySet="Abonelikler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AracCikis_Abonelikler" Association="Self.FK_AracCikis_Abonelikler">
+            <End Role="Abonelikler" EntitySet="Abonelikler" />
+            <End Role="AracCikis" EntitySet="AracCikis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AracCikis_AracGiris" Association="Self.FK_AracCikis_AracGiris">
+            <End Role="AracGiris" EntitySet="AracGiris" />
+            <End Role="AracCikis" EntitySet="AracCikis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AracCikis_AracUcretleri" Association="Self.FK_AracCikis_AracUcretleri">
+            <End Role="AracUcretleri" EntitySet="AracUcretleri" />
+            <End Role="AracCikis" EntitySet="AracCikis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AracCikis_UcretsizGiris" Association="Self.FK_AracCikis_UcretsizGiris">
+            <End Role="UcretsizGiris" EntitySet="UcretsizGiris" />
+            <End Role="AracCikis" EntitySet="AracCikis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rapor_AracCikis" Association="Self.FK_Rapor_AracCikis">
+            <End Role="AracCikis" EntitySet="AracCikis" />
+            <End Role="Rapor" EntitySet="Rapor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AracGiris_UcretsizGiris" Association="Self.FK_AracGiris_UcretsizGiris">
+            <End Role="UcretsizGiris" EntitySet="UcretsizGiris" />
+            <End Role="AracGiris" EntitySet="AracGiris" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rapor_AracGiris" Association="Self.FK_Rapor_AracGiris">
+            <End Role="AracGiris" EntitySet="AracGiris" />
+            <End Role="Rapor" EntitySet="Rapor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OtoparkDurumu_AracKapasitesi" Association="Self.FK_OtoparkDurumu_AracKapasitesi">
+            <End Role="AracKapasitesi" EntitySet="AracKapasitesi" />
+            <End Role="OtoparkDurumu" EntitySet="OtoparkDurumu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AracUcretleri_AracTuru" Association="Self.FK_AracUcretleri_AracTuru">
+            <End Role="AracTuru" EntitySet="AracTuru" />
+            <End Role="AracUcretleri" EntitySet="AracUcretleri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rapor_OtoparkDurumu" Association="Self.FK_Rapor_OtoparkDurumu">
+            <End Role="OtoparkDurumu" EntitySet="OtoparkDurumu" />
+            <End Role="Rapor" EntitySet="Rapor" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OtoparkOtomasyonModelStoreContainer" CdmEntityContainer="OtoparkOtomasyonEntities">
+          <EntitySetMapping Name="Abonelikler">
+            <EntityTypeMapping TypeName="OtoparkOtomasyonModel.Abonelikler">
+              <MappingFragment StoreEntitySet="Abonelikler">
+                <ScalarProperty Name="AboneID" ColumnName="AboneID" />
+                <ScalarProperty Name="AbonePlaka" ColumnName="AbonePlaka" />
+                <ScalarProperty Name="AbonelikBaslangicTarihi" ColumnName="AbonelikBaslangicTarihi" />
+                <ScalarProperty Name="AbonelikBitisTarihi" ColumnName="AbonelikBitisTarihi" />
+                <ScalarProperty Name="AbonelikTipi" ColumnName="AbonelikTipi" />
+                <ScalarProperty Name="AboneUcretID" ColumnName="AboneUcretID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AboneUcret">
+            <EntityTypeMapping TypeName="OtoparkOtomasyonModel.AboneUcret">
+              <MappingFragment StoreEntitySet="AboneUcret">
+                <ScalarProperty Name="AboneUcretID" ColumnName="AboneUcretID" />
+                <ScalarProperty Name="AboneSuresi" ColumnName="AboneSuresi" />
+                <ScalarProperty Name="AboneAracTuru" ColumnName="AboneAracTuru" />
+                <ScalarProperty Name="AboneUcret1" ColumnName="AboneUcret" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AracCikis">
+            <EntityTypeMapping TypeName="OtoparkOtomasyonModel.AracCikis">
+              <MappingFragment StoreEntitySet="AracCikis">
+                <ScalarProperty Name="CikisID" ColumnName="CikisID" />
+                <ScalarProperty Name="Plaka" ColumnName="Plaka" />
+                <ScalarProperty Name="CikisTarihi" ColumnName="CikisTarihi" />
+                <ScalarProperty Name="ToplamUcret" ColumnName="ToplamUcret" />
+                <ScalarProperty Name="OdemeTuru" ColumnName="OdemeTuru" />
+                <ScalarProperty Name="DogrulamaKodu" ColumnName="DogrulamaKodu" />
+                <ScalarProperty Name="UcretsizGirisID" ColumnName="UcretsizGirisID" />
+                <ScalarProperty Name="AracUcretID" ColumnName="AracUcretID" />
+                <ScalarProperty Name="AboneID" ColumnName="AboneID" />
+                <ScalarProperty Name="GirisID" ColumnName="GirisID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AracGiris">
+            <EntityTypeMapping TypeName="OtoparkOtomasyonModel.AracGiris">
+              <MappingFragment StoreEntitySet="AracGiris">
+                <ScalarProperty Name="GirisID" ColumnName="GirisID" />
+                <ScalarProperty Name="MusteriAdi" ColumnName="MusteriAdi" />
+                <ScalarProperty Name="MusteriSoyadi" ColumnName="MusteriSoyadi" />
+                <ScalarProperty Name="Plaka" ColumnName="Plaka" />
+                <ScalarProperty Name="AracTuru" ColumnName="AracTuru" />
+                <ScalarProperty Name="TelefonNo" ColumnName="TelefonNo" />
+                <ScalarProperty Name="DogrulamaKodu" ColumnName="DogrulamaKodu" />
+                <ScalarProperty Name="ParkYeri" ColumnName="ParkYeri" />
+                <ScalarProperty Name="GirisTarihi" ColumnName="GirisTarihi" />
+                <ScalarProperty Name="UcretsizGirisID" ColumnName="UcretsizGirisID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AracKapasitesi">
+            <EntityTypeMapping TypeName="OtoparkOtomasyonModel.AracKapasitesi">
+              <MappingFragment StoreEntitySet="AracKapasitesi">
+                <ScalarProperty Name="KapasiteID" ColumnName="KapasiteID" />
+                <ScalarProperty Name="Kapasite" ColumnName="Kapasite" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AracTuru">
+            <EntityTypeMapping TypeName="OtoparkOtomasyonModel.AracTuru">
+              <MappingFragment StoreEntitySet="AracTuru">
+                <ScalarProperty Name="AracTurID" ColumnName="AracTurID" />
+                <ScalarProperty Name="AracTurAdi" ColumnName="AracTurAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AracUcretleri">
+            <EntityTypeMapping TypeName="OtoparkOtomasyonModel.AracUcretleri">
+              <MappingFragment StoreEntitySet="AracUcretleri">
+                <ScalarProperty Name="AracUcretID" ColumnName="AracUcretID" />
+                <ScalarProperty Name="AracTurID" ColumnName="AracTurID" />
+                <ScalarProperty Name="AracUcret03" ColumnName="AracUcret03" />
+                <ScalarProperty Name="AracUcret36" ColumnName="AracUcret36" />
+                <ScalarProperty Name="AracUcret61" ColumnName="AracUcret61" />
+                <ScalarProperty Name="AracUcretBirGunUzeri" ColumnName="AracUcretBirGunUzeri" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OtoparkDurumu">
+            <EntityTypeMapping TypeName="OtoparkOtomasyonModel.OtoparkDurumu">
+              <MappingFragment StoreEntitySet="OtoparkDurumu">
+                <ScalarProperty Name="OtoparkID" ColumnName="OtoparkID" />
+                <ScalarProperty Name="KapasiteID" ColumnName="KapasiteID" />
+                <ScalarProperty Name="Doluluk" ColumnName="Doluluk" />
+                <ScalarProperty Name="BosAlan" ColumnName="BosAlan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PersonelGirisTanimla">
+            <EntityTypeMapping TypeName="OtoparkOtomasyonModel.PersonelGirisTanimla">
+              <MappingFragment StoreEntitySet="PersonelGirisTanimla">
+                <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+                <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+                <ScalarProperty Name="KullaniciSifre" ColumnName="KullaniciSifre" />
+                <ScalarProperty Name="TanimlanmaTarihi" ColumnName="TanimlanmaTarihi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="OtoparkOtomasyonModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UcretsizGiris">
+            <EntityTypeMapping TypeName="OtoparkOtomasyonModel.UcretsizGiris">
+              <MappingFragment StoreEntitySet="UcretsizGiris">
+                <ScalarProperty Name="UcretsizGirisID" ColumnName="UcretsizGirisID" />
+                <ScalarProperty Name="TanimlanmaTarihi" ColumnName="TanimlanmaTarihi" />
+                <ScalarProperty Name="Plaka" ColumnName="Plaka" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Yonetici">
+            <EntityTypeMapping TypeName="OtoparkOtomasyonModel.Yonetici">
+              <MappingFragment StoreEntitySet="Yonetici">
+                <ScalarProperty Name="YoneticiID" ColumnName="YoneticiID" />
+                <ScalarProperty Name="YoneticiAdi" ColumnName="YoneticiAdi" />
+                <ScalarProperty Name="YoneticiSifre" ColumnName="YoneticiSifre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rapor">
+            <EntityTypeMapping TypeName="OtoparkOtomasyonModel.Rapor">
+              <MappingFragment StoreEntitySet="Rapor">
+                <ScalarProperty Name="OtoparkID" ColumnName="OtoparkID" />
+                <ScalarProperty Name="GirisID" ColumnName="GirisID" />
+                <ScalarProperty Name="CikisID" ColumnName="CikisID" />
+                <ScalarProperty Name="ToplamUcret" ColumnName="ToplamUcret" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

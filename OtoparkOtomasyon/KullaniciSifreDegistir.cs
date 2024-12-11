@@ -33,7 +33,7 @@ namespace OtoparkOtomasyon
             // yonetici adı ve şifresi değiştirildi
             string YoneticiAdi = txtYoneticiAdi.Text;
             string YoneticiSifre = txtYoneticiSifre.Text;
-            SqlConnection baglanti = new SqlConnection(@"Data Source=VIEWSONIC\SQLEXPRESS;Initial Catalog=OtoparkOtomasyon;Integrated Security=True;");
+            SqlConnection baglanti = new SqlConnection(@"Data Source=FATIH\SQLEXPRESS;Initial Catalog=OtoparkOtomasyon;Integrated Security=True;");
             try
             {
                 if (YoneticiAdi == "" || YoneticiSifre == "")

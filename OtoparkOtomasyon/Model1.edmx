@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="OtoparkOtomasyonModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="OtoparkOtomasyonModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Abonelikler">
           <Key>
             <PropertyRef Name="AboneID" />
@@ -62,19 +62,12 @@
           <Property Name="KapasiteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Kapasite" Type="int" />
         </EntityType>
-        <EntityType Name="AracTuru">
-          <Key>
-            <PropertyRef Name="AracTurID" />
-          </Key>
-          <Property Name="AracTurID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="AracTurAdi" Type="nvarchar" MaxLength="30" />
-        </EntityType>
         <EntityType Name="AracUcretleri">
           <Key>
             <PropertyRef Name="AracUcretID" />
           </Key>
-          <Property Name="AracUcretID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="AracTurID" Type="int" />
+          <Property Name="AracUcretID" Type="int" Nullable="false" />
+          <Property Name="AracTuru" Type="nvarchar" MaxLength="30" />
           <Property Name="AracUcret03" Type="decimal" Precision="18" Scale="2" />
           <Property Name="AracUcret36" Type="decimal" Precision="18" Scale="2" />
           <Property Name="AracUcret61" Type="decimal" Precision="18" Scale="2" />
@@ -98,16 +91,15 @@
           <Property Name="KullaniciSifre" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="TanimlanmaTarihi" Type="datetime" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'OtoparkOtomasyon.dbo.Rapor' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Rapor">
           <Key>
-            <PropertyRef Name="OtoparkID" />
+            <PropertyRef Name="RaporID" />
           </Key>
-          <Property Name="OtoparkID" Type="int" Nullable="false" />
+          <Property Name="OtoparkID" Type="int" />
           <Property Name="GirisID" Type="int" />
           <Property Name="CikisID" Type="int" />
           <Property Name="ToplamUcret" Type="int" />
+          <Property Name="RaporID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -207,18 +199,6 @@ warning 6002: The table/view 'OtoparkOtomasyon.dbo.Rapor' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_AracUcretleri_AracTuru">
-          <End Role="AracTuru" Type="Self.AracTuru" Multiplicity="0..1" />
-          <End Role="AracUcretleri" Type="Self.AracUcretleri" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AracTuru">
-              <PropertyRef Name="AracTurID" />
-            </Principal>
-            <Dependent Role="AracUcretleri">
-              <PropertyRef Name="AracTurID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_OtoparkDurumu_AracKapasitesi">
           <End Role="AracKapasitesi" Type="Self.AracKapasitesi" Multiplicity="0..1" />
           <End Role="OtoparkDurumu" Type="Self.OtoparkDurumu" Multiplicity="*" />
@@ -256,8 +236,8 @@ warning 6002: The table/view 'OtoparkOtomasyon.dbo.Rapor' does not have a primar
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Rapor_OtoparkDurumu">
-          <End Role="OtoparkDurumu" Type="Self.OtoparkDurumu" Multiplicity="1" />
-          <End Role="Rapor" Type="Self.Rapor" Multiplicity="0..1" />
+          <End Role="OtoparkDurumu" Type="Self.OtoparkDurumu" Multiplicity="0..1" />
+          <End Role="Rapor" Type="Self.Rapor" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="OtoparkDurumu">
               <PropertyRef Name="OtoparkID" />
@@ -273,21 +253,13 @@ warning 6002: The table/view 'OtoparkOtomasyon.dbo.Rapor' does not have a primar
           <EntitySet Name="AracCikis" EntityType="Self.AracCikis" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AracGiris" EntityType="Self.AracGiris" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AracKapasitesi" EntityType="Self.AracKapasitesi" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AracTuru" EntityType="Self.AracTuru" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AracUcretleri" EntityType="Self.AracUcretleri" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OtoparkDurumu" EntityType="Self.OtoparkDurumu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PersonelGirisTanimla" EntityType="Self.PersonelGirisTanimla" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rapor" EntityType="Self.Rapor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UcretsizGiris" EntityType="Self.UcretsizGiris" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Yonetici" EntityType="Self.Yonetici" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Rapor" EntityType="Self.Rapor" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Rapor].[OtoparkID] AS [OtoparkID], 
-    [Rapor].[GirisID] AS [GirisID], 
-    [Rapor].[CikisID] AS [CikisID], 
-    [Rapor].[ToplamUcret] AS [ToplamUcret]
-    FROM [dbo].[Rapor] AS [Rapor]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_Abonelikler_AboneUcret" Association="Self.FK_Abonelikler_AboneUcret">
             <End Role="AboneUcret" EntitySet="AboneUcret" />
             <End Role="Abonelikler" EntitySet="Abonelikler" />
@@ -312,10 +284,6 @@ warning 6002: The table/view 'OtoparkOtomasyon.dbo.Rapor' does not have a primar
             <End Role="UcretsizGiris" EntitySet="UcretsizGiris" />
             <End Role="AracGiris" EntitySet="AracGiris" />
           </AssociationSet>
-          <AssociationSet Name="FK_AracUcretleri_AracTuru" Association="Self.FK_AracUcretleri_AracTuru">
-            <End Role="AracTuru" EntitySet="AracTuru" />
-            <End Role="AracUcretleri" EntitySet="AracUcretleri" />
-          </AssociationSet>
           <AssociationSet Name="FK_OtoparkDurumu_AracKapasitesi" Association="Self.FK_OtoparkDurumu_AracKapasitesi">
             <End Role="AracKapasitesi" EntitySet="AracKapasitesi" />
             <End Role="OtoparkDurumu" EntitySet="OtoparkDurumu" />
@@ -333,8 +301,7 @@ warning 6002: The table/view 'OtoparkOtomasyon.dbo.Rapor' does not have a primar
             <End Role="Rapor" EntitySet="Rapor" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="OtoparkOtomasyonModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -407,26 +374,17 @@ warning 6002: The table/view 'OtoparkOtomasyon.dbo.Rapor' does not have a primar
           <Property Name="Kapasite" Type="Int32" />
           <NavigationProperty Name="OtoparkDurumu" Relationship="Self.FK_OtoparkDurumu_AracKapasitesi" FromRole="AracKapasitesi" ToRole="OtoparkDurumu" />
         </EntityType>
-        <EntityType Name="AracTuru">
-          <Key>
-            <PropertyRef Name="AracTurID" />
-          </Key>
-          <Property Name="AracTurID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="AracTurAdi" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AracUcretleri" Relationship="Self.FK_AracUcretleri_AracTuru" FromRole="AracTuru" ToRole="AracUcretleri" />
-        </EntityType>
         <EntityType Name="AracUcretleri">
           <Key>
             <PropertyRef Name="AracUcretID" />
           </Key>
-          <Property Name="AracUcretID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="AracTurID" Type="Int32" />
+          <Property Name="AracUcretID" Type="Int32" Nullable="false" />
           <Property Name="AracUcret03" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="AracUcret36" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="AracUcret61" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="AracUcretBirGunUzeri" Type="Decimal" Precision="18" Scale="2" />
           <NavigationProperty Name="AracCikis" Relationship="Self.FK_AracCikis_AracUcretleri" FromRole="AracUcretleri" ToRole="AracCikis" />
-          <NavigationProperty Name="AracTuru" Relationship="Self.FK_AracUcretleri_AracTuru" FromRole="AracUcretleri" ToRole="AracTuru" />
+          <Property Name="AracTuru" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="OtoparkDurumu">
           <Key>
@@ -447,6 +405,19 @@ warning 6002: The table/view 'OtoparkOtomasyon.dbo.Rapor' does not have a primar
           <Property Name="KullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="KullaniciSifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TanimlanmaTarihi" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Rapor">
+          <Key>
+            <PropertyRef Name="RaporID" />
+          </Key>
+          <Property Name="OtoparkID" Type="Int32" />
+          <Property Name="GirisID" Type="Int32" />
+          <Property Name="CikisID" Type="Int32" />
+          <Property Name="ToplamUcret" Type="Int32" />
+          <Property Name="RaporID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="AracCikis" Relationship="Self.FK_Rapor_AracCikis" FromRole="Rapor" ToRole="AracCikis" />
+          <NavigationProperty Name="AracGiris" Relationship="Self.FK_Rapor_AracGiris" FromRole="Rapor" ToRole="AracGiris" />
+          <NavigationProperty Name="OtoparkDurumu" Relationship="Self.FK_Rapor_OtoparkDurumu" FromRole="Rapor" ToRole="OtoparkDurumu" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -475,18 +446,6 @@ warning 6002: The table/view 'OtoparkOtomasyon.dbo.Rapor' does not have a primar
           <Property Name="YoneticiID" Type="Int32" Nullable="false" />
           <Property Name="YoneticiAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="YoneticiSifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Rapor">
-          <Key>
-            <PropertyRef Name="OtoparkID" />
-          </Key>
-          <Property Name="OtoparkID" Type="Int32" Nullable="false" />
-          <Property Name="GirisID" Type="Int32" />
-          <Property Name="CikisID" Type="Int32" />
-          <Property Name="ToplamUcret" Type="Int32" />
-          <NavigationProperty Name="AracCikis" Relationship="Self.FK_Rapor_AracCikis" FromRole="Rapor" ToRole="AracCikis" />
-          <NavigationProperty Name="AracGiris" Relationship="Self.FK_Rapor_AracGiris" FromRole="Rapor" ToRole="AracGiris" />
-          <NavigationProperty Name="OtoparkDurumu" Relationship="Self.FK_Rapor_OtoparkDurumu" FromRole="Rapor" ToRole="OtoparkDurumu" />
         </EntityType>
         <Association Name="FK_Abonelikler_AboneUcret">
           <End Role="AboneUcret" Type="Self.AboneUcret" Multiplicity="0..1" />
@@ -596,21 +555,9 @@ warning 6002: The table/view 'OtoparkOtomasyon.dbo.Rapor' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_AracUcretleri_AracTuru">
-          <End Role="AracTuru" Type="Self.AracTuru" Multiplicity="0..1" />
-          <End Role="AracUcretleri" Type="Self.AracUcretleri" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AracTuru">
-              <PropertyRef Name="AracTurID" />
-            </Principal>
-            <Dependent Role="AracUcretleri">
-              <PropertyRef Name="AracTurID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Rapor_OtoparkDurumu">
-          <End Role="OtoparkDurumu" Type="Self.OtoparkDurumu" Multiplicity="1" />
-          <End Role="Rapor" Type="Self.Rapor" Multiplicity="0..1" />
+          <End Role="OtoparkDurumu" Type="Self.OtoparkDurumu" Multiplicity="0..1" />
+          <End Role="Rapor" Type="Self.Rapor" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="OtoparkDurumu">
               <PropertyRef Name="OtoparkID" />
@@ -626,14 +573,13 @@ warning 6002: The table/view 'OtoparkOtomasyon.dbo.Rapor' does not have a primar
           <EntitySet Name="AracCikis" EntityType="Self.AracCikis" />
           <EntitySet Name="AracGiris" EntityType="Self.AracGiris" />
           <EntitySet Name="AracKapasitesi" EntityType="Self.AracKapasitesi" />
-          <EntitySet Name="AracTuru" EntityType="Self.AracTuru" />
           <EntitySet Name="AracUcretleri" EntityType="Self.AracUcretleri" />
           <EntitySet Name="OtoparkDurumu" EntityType="Self.OtoparkDurumu" />
           <EntitySet Name="PersonelGirisTanimla" EntityType="Self.PersonelGirisTanimla" />
+          <EntitySet Name="Rapor" EntityType="Self.Rapor" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="UcretsizGiris" EntityType="Self.UcretsizGiris" />
           <EntitySet Name="Yonetici" EntityType="Self.Yonetici" />
-          <EntitySet Name="Rapor" EntityType="Self.Rapor" />
           <AssociationSet Name="FK_Abonelikler_AboneUcret" Association="Self.FK_Abonelikler_AboneUcret">
             <End Role="AboneUcret" EntitySet="AboneUcret" />
             <End Role="Abonelikler" EntitySet="Abonelikler" />
@@ -669,10 +615,6 @@ warning 6002: The table/view 'OtoparkOtomasyon.dbo.Rapor' does not have a primar
           <AssociationSet Name="FK_OtoparkDurumu_AracKapasitesi" Association="Self.FK_OtoparkDurumu_AracKapasitesi">
             <End Role="AracKapasitesi" EntitySet="AracKapasitesi" />
             <End Role="OtoparkDurumu" EntitySet="OtoparkDurumu" />
-          </AssociationSet>
-          <AssociationSet Name="FK_AracUcretleri_AracTuru" Association="Self.FK_AracUcretleri_AracTuru">
-            <End Role="AracTuru" EntitySet="AracTuru" />
-            <End Role="AracUcretleri" EntitySet="AracUcretleri" />
           </AssociationSet>
           <AssociationSet Name="FK_Rapor_OtoparkDurumu" Association="Self.FK_Rapor_OtoparkDurumu">
             <End Role="OtoparkDurumu" EntitySet="OtoparkDurumu" />
@@ -747,19 +689,11 @@ warning 6002: The table/view 'OtoparkOtomasyon.dbo.Rapor' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="AracTuru">
-            <EntityTypeMapping TypeName="OtoparkOtomasyonModel.AracTuru">
-              <MappingFragment StoreEntitySet="AracTuru">
-                <ScalarProperty Name="AracTurID" ColumnName="AracTurID" />
-                <ScalarProperty Name="AracTurAdi" ColumnName="AracTurAdi" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="AracUcretleri">
             <EntityTypeMapping TypeName="OtoparkOtomasyonModel.AracUcretleri">
               <MappingFragment StoreEntitySet="AracUcretleri">
+                <ScalarProperty Name="AracTuru" ColumnName="AracTuru" />
                 <ScalarProperty Name="AracUcretID" ColumnName="AracUcretID" />
-                <ScalarProperty Name="AracTurID" ColumnName="AracTurID" />
                 <ScalarProperty Name="AracUcret03" ColumnName="AracUcret03" />
                 <ScalarProperty Name="AracUcret36" ColumnName="AracUcret36" />
                 <ScalarProperty Name="AracUcret61" ColumnName="AracUcret61" />
@@ -784,6 +718,17 @@ warning 6002: The table/view 'OtoparkOtomasyon.dbo.Rapor' does not have a primar
                 <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
                 <ScalarProperty Name="KullaniciSifre" ColumnName="KullaniciSifre" />
                 <ScalarProperty Name="TanimlanmaTarihi" ColumnName="TanimlanmaTarihi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rapor">
+            <EntityTypeMapping TypeName="OtoparkOtomasyonModel.Rapor">
+              <MappingFragment StoreEntitySet="Rapor">
+                <ScalarProperty Name="OtoparkID" ColumnName="OtoparkID" />
+                <ScalarProperty Name="GirisID" ColumnName="GirisID" />
+                <ScalarProperty Name="CikisID" ColumnName="CikisID" />
+                <ScalarProperty Name="ToplamUcret" ColumnName="ToplamUcret" />
+                <ScalarProperty Name="RaporID" ColumnName="RaporID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -813,16 +758,6 @@ warning 6002: The table/view 'OtoparkOtomasyon.dbo.Rapor' does not have a primar
                 <ScalarProperty Name="YoneticiID" ColumnName="YoneticiID" />
                 <ScalarProperty Name="YoneticiAdi" ColumnName="YoneticiAdi" />
                 <ScalarProperty Name="YoneticiSifre" ColumnName="YoneticiSifre" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Rapor">
-            <EntityTypeMapping TypeName="OtoparkOtomasyonModel.Rapor">
-              <MappingFragment StoreEntitySet="Rapor">
-                <ScalarProperty Name="OtoparkID" ColumnName="OtoparkID" />
-                <ScalarProperty Name="GirisID" ColumnName="GirisID" />
-                <ScalarProperty Name="CikisID" ColumnName="CikisID" />
-                <ScalarProperty Name="ToplamUcret" ColumnName="ToplamUcret" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

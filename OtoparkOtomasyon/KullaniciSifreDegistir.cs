@@ -31,8 +31,8 @@ namespace OtoparkOtomasyon
         private void btnKaydet_Click(object sender, EventArgs e)
         {
             // yonetici adı ve şifresi değiştirildi
-            string YoneticiAdi = txtYoneticiAdi.Text;
-            string YoneticiSifre = txtYoneticiSifre.Text;
+            string YoneticiAdi = txtYoneticiAdi.Text.Trim();
+            string YoneticiSifre = txtYoneticiSifre.Text.Trim();
             SqlConnection baglanti = new SqlConnection(@"Data Source=FATIH\SQLEXPRESS;Initial Catalog=OtoparkOtomasyon;Integrated Security=True;");
             try
             {

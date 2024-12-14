@@ -14,12 +14,19 @@ namespace OtoparkOtomasyon
     
     public partial class OtoparkDurumu
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public OtoparkDurumu()
+        {
+            this.Rapor = new HashSet<Rapor>();
+        }
+    
         public int OtoparkID { get; set; }
         public Nullable<int> KapasiteID { get; set; }
         public Nullable<int> Doluluk { get; set; }
         public Nullable<int> BosAlan { get; set; }
     
         public virtual AracKapasitesi AracKapasitesi { get; set; }
-        public virtual Rapor Rapor { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Rapor> Rapor { get; set; }
     }
 }

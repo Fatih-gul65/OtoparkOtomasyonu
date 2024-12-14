@@ -59,10 +59,10 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(263, 10);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(351, 12);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(408, 80);
+            this.pictureBox1.Size = new System.Drawing.Size(544, 98);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -72,10 +72,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(344, 92);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(459, 113);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(288, 19);
+            this.label1.Size = new System.Drawing.Size(360, 24);
             this.label1.TabIndex = 9;
             this.label1.Text = "Otopark Yönetiminde Ustalık Zamanı!";
             // 
@@ -84,19 +83,18 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(251, 404);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(335, 497);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(358, 19);
+            this.label2.Size = new System.Drawing.Size(453, 24);
             this.label2.TabIndex = 17;
             this.label2.Text = "Yeni Belirlenen Ücreti Giriniz(3-6 Saat arası)   : ";
             // 
             // txt_0_3_Saat
             // 
-            this.txt_0_3_Saat.Location = new System.Drawing.Point(616, 366);
-            this.txt_0_3_Saat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_0_3_Saat.Location = new System.Drawing.Point(821, 450);
+            this.txt_0_3_Saat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_0_3_Saat.Name = "txt_0_3_Saat";
-            this.txt_0_3_Saat.Size = new System.Drawing.Size(90, 20);
+            this.txt_0_3_Saat.Size = new System.Drawing.Size(119, 22);
             this.txt_0_3_Saat.TabIndex = 18;
             // 
             // label3
@@ -104,10 +102,9 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(251, 366);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(335, 450);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(358, 19);
+            this.label3.Size = new System.Drawing.Size(453, 24);
             this.label3.TabIndex = 19;
             this.label3.Text = "Yeni Belirlenen Ücreti Giriniz(0-3 Saat arası)   : ";
             // 
@@ -116,27 +113,26 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(251, 441);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(335, 543);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(357, 19);
+            this.label4.Size = new System.Drawing.Size(453, 24);
             this.label4.TabIndex = 20;
             this.label4.Text = "Yeni Belirlenen Ücreti Giriniz(6 Saat - 1 Gün)  : ";
             // 
             // txt_6_24_Saat
             // 
-            this.txt_6_24_Saat.Location = new System.Drawing.Point(616, 441);
-            this.txt_6_24_Saat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_6_24_Saat.Location = new System.Drawing.Point(821, 543);
+            this.txt_6_24_Saat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_6_24_Saat.Name = "txt_6_24_Saat";
-            this.txt_6_24_Saat.Size = new System.Drawing.Size(90, 20);
+            this.txt_6_24_Saat.Size = new System.Drawing.Size(119, 22);
             this.txt_6_24_Saat.TabIndex = 21;
             // 
             // txt_3_6_Saat
             // 
-            this.txt_3_6_Saat.Location = new System.Drawing.Point(616, 404);
-            this.txt_3_6_Saat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_3_6_Saat.Location = new System.Drawing.Point(821, 497);
+            this.txt_3_6_Saat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_3_6_Saat.Name = "txt_3_6_Saat";
-            this.txt_3_6_Saat.Size = new System.Drawing.Size(90, 20);
+            this.txt_3_6_Saat.Size = new System.Drawing.Size(119, 22);
             this.txt_3_6_Saat.TabIndex = 22;
             // 
             // label5
@@ -144,19 +140,18 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(252, 479);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(336, 590);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(357, 19);
+            this.label5.Size = new System.Drawing.Size(453, 24);
             this.label5.TabIndex = 25;
             this.label5.Text = "Yeni Belirlenen Ücreti Giriniz(1 Gün Üzeri)      : ";
             // 
             // txt_24_SaatUzeri
             // 
-            this.txt_24_SaatUzeri.Location = new System.Drawing.Point(616, 479);
-            this.txt_24_SaatUzeri.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_24_SaatUzeri.Location = new System.Drawing.Point(821, 590);
+            this.txt_24_SaatUzeri.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_24_SaatUzeri.Name = "txt_24_SaatUzeri";
-            this.txt_24_SaatUzeri.Size = new System.Drawing.Size(90, 20);
+            this.txt_24_SaatUzeri.Size = new System.Drawing.Size(119, 22);
             this.txt_24_SaatUzeri.TabIndex = 26;
             // 
             // btnKaydet
@@ -172,13 +167,14 @@
             this.btnKaydet.Image = ((System.Drawing.Image)(resources.GetObject("btnKaydet.Image")));
             this.btnKaydet.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnKaydet.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnKaydet.Location = new System.Drawing.Point(795, 515);
-            this.btnKaydet.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnKaydet.Location = new System.Drawing.Point(1060, 634);
+            this.btnKaydet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnKaydet.Name = "btnKaydet";
-            this.btnKaydet.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnKaydet.Size = new System.Drawing.Size(135, 37);
+            this.btnKaydet.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnKaydet.Size = new System.Drawing.Size(180, 46);
             this.btnKaydet.TabIndex = 28;
             this.btnKaydet.Text = "Kaydet ";
+            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
             // 
             // btnGeri
             // 
@@ -193,10 +189,10 @@
             this.btnGeri.Image = ((System.Drawing.Image)(resources.GetObject("btnGeri.Image")));
             this.btnGeri.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnGeri.ImageSize = new System.Drawing.Size(30, 35);
-            this.btnGeri.Location = new System.Drawing.Point(38, 515);
-            this.btnGeri.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGeri.Location = new System.Drawing.Point(51, 634);
+            this.btnGeri.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGeri.Name = "btnGeri";
-            this.btnGeri.Size = new System.Drawing.Size(135, 37);
+            this.btnGeri.Size = new System.Drawing.Size(180, 46);
             this.btnGeri.TabIndex = 29;
             this.btnGeri.Text = "Geri";
             this.btnGeri.Click += new System.EventHandler(this.btnGeri_Click);
@@ -204,10 +200,10 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(394, 36);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Location = new System.Drawing.Point(525, 44);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(138, 111);
+            this.pictureBox2.Size = new System.Drawing.Size(184, 137);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 33;
             this.pictureBox2.TabStop = false;
@@ -215,10 +211,10 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(740, 36);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Location = new System.Drawing.Point(987, 44);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(138, 111);
+            this.pictureBox3.Size = new System.Drawing.Size(184, 137);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 34;
             this.pictureBox3.TabStop = false;
@@ -226,10 +222,10 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(40, 36);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox4.Location = new System.Drawing.Point(53, 44);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(138, 111);
+            this.pictureBox4.Size = new System.Drawing.Size(184, 137);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 35;
             this.pictureBox4.TabStop = false;
@@ -244,11 +240,11 @@
             this.groupBox1.Controls.Add(this.pictureBox2);
             this.groupBox1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(26, 121);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Location = new System.Drawing.Point(35, 149);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Size = new System.Drawing.Size(916, 215);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(1221, 265);
             this.groupBox1.TabIndex = 36;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Araç Türü Seçiniz !";
@@ -263,16 +259,17 @@
             this.rdbtnMinibus.CheckedState.InnerOffset = -4;
             this.rdbtnMinibus.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.rdbtnMinibus.ForeColor = System.Drawing.Color.White;
-            this.rdbtnMinibus.Location = new System.Drawing.Point(740, 152);
-            this.rdbtnMinibus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdbtnMinibus.Location = new System.Drawing.Point(987, 187);
+            this.rdbtnMinibus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdbtnMinibus.Name = "rdbtnMinibus";
-            this.rdbtnMinibus.Size = new System.Drawing.Size(163, 23);
+            this.rdbtnMinibus.Size = new System.Drawing.Size(200, 28);
             this.rdbtnMinibus.TabIndex = 38;
             this.rdbtnMinibus.Text = "Minibüs / Kamyon";
             this.rdbtnMinibus.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.rdbtnMinibus.UncheckedState.BorderThickness = 2;
             this.rdbtnMinibus.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.rdbtnMinibus.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.rdbtnMinibus.CheckedChanged += new System.EventHandler(this.rdbtnMinibus_CheckedChanged);
             // 
             // rdbtnKamyonet
             // 
@@ -284,16 +281,17 @@
             this.rdbtnKamyonet.CheckedState.InnerOffset = -4;
             this.rdbtnKamyonet.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.rdbtnKamyonet.ForeColor = System.Drawing.Color.White;
-            this.rdbtnKamyonet.Location = new System.Drawing.Point(394, 152);
-            this.rdbtnKamyonet.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdbtnKamyonet.Location = new System.Drawing.Point(525, 187);
+            this.rdbtnKamyonet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdbtnKamyonet.Name = "rdbtnKamyonet";
-            this.rdbtnKamyonet.Size = new System.Drawing.Size(105, 23);
+            this.rdbtnKamyonet.Size = new System.Drawing.Size(126, 28);
             this.rdbtnKamyonet.TabIndex = 37;
             this.rdbtnKamyonet.Text = "Kamyonet";
             this.rdbtnKamyonet.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.rdbtnKamyonet.UncheckedState.BorderThickness = 2;
             this.rdbtnKamyonet.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.rdbtnKamyonet.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.rdbtnKamyonet.CheckedChanged += new System.EventHandler(this.rdbtnKamyonet_CheckedChanged);
             // 
             // rdbtnOtomobil
             // 
@@ -305,23 +303,24 @@
             this.rdbtnOtomobil.CheckedState.InnerOffset = -4;
             this.rdbtnOtomobil.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.rdbtnOtomobil.ForeColor = System.Drawing.Color.White;
-            this.rdbtnOtomobil.Location = new System.Drawing.Point(40, 152);
-            this.rdbtnOtomobil.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdbtnOtomobil.Location = new System.Drawing.Point(53, 187);
+            this.rdbtnOtomobil.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdbtnOtomobil.Name = "rdbtnOtomobil";
-            this.rdbtnOtomobil.Size = new System.Drawing.Size(96, 23);
+            this.rdbtnOtomobil.Size = new System.Drawing.Size(117, 28);
             this.rdbtnOtomobil.TabIndex = 36;
             this.rdbtnOtomobil.Text = "Otomobil";
             this.rdbtnOtomobil.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.rdbtnOtomobil.UncheckedState.BorderThickness = 2;
             this.rdbtnOtomobil.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.rdbtnOtomobil.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.rdbtnOtomobil.CheckedChanged += new System.EventHandler(this.rdbtnOtomobil_CheckedChanged);
             // 
             // AracUcretDuzenle
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(42)))), ((int)(((byte)(59)))));
-            this.ClientSize = new System.Drawing.Size(968, 569);
+            this.ClientSize = new System.Drawing.Size(1291, 700);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnGeri);
             this.Controls.Add(this.btnKaydet);
@@ -336,11 +335,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AracUcretDuzenle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AracUcretDuzenle";
-            this.Load += new System.EventHandler(this.AracUcretDuzenle_Load);
+            
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

@@ -20,19 +20,25 @@ namespace OtoparkOtomasyon
 
         private void btnGiris_Click(object sender, EventArgs e)
         {
-            
+            try
+            {
 
-                var kullanici = entities.PersonelGirisTanimla.FirstOrDefault(x => x.KullaniciAdi == txtKullaniciAdiGiris.Text && x.KullaniciSifre == txtKullaniciSifreGiris.Text);
-                if (kullanici != null) {
+                bool kullanici = entities.PersonelGirisTanimla.Any(x => x.KullaniciAdi == txtKullaniciAdiGiris.Text && x.KullaniciSifre == txtKullaniciSifreGiris.Text);
+                if (kullanici)
+                {
                     PersonelGirisi personelGirisi = new PersonelGirisi();
                     personelGirisi.Show();
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Kullanıcı Adı Veya Şifresi Yanlış \n Lütfen Bilgileri Kontrol Edip Tekrar Deneyin !" , "Hata" , MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Kullanıcı Adı Veya Şifresi Yanlış \n Lütfen Bilgileri Kontrol Edip Tekrar Deneyin !", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            
+            }
+            catch (Exception ex) {
+      
+                MessageBox.Show("Bir hata ile karşılaşıldı : " + ex.Message);
+            }
         }
         private void btnGeri_Click(object sender, EventArgs e)
         {
@@ -43,20 +49,26 @@ namespace OtoparkOtomasyon
 
         private void PersonelDogrula_Load(object sender, EventArgs e)
         {
-            bool KullaniciVarMi = entities.PersonelGirisTanimla.Any();
+            try { 
+                bool KullaniciVarMi = entities.PersonelGirisTanimla.Any();
 
-            if (KullaniciVarMi == false)
-            {
-                MessageBox.Show("Herhangi Bir Kullanıcı Bulunamadı ! \n Yönetici ,Panelden Kullanıcı Tanımlayın Ve Sonra Tekrar Deneyiniz. \n Sayfa Açılacak Fakat Giriş İçin Gerekli Elemanlar Gelmeyecektir. \n Giriş Elemanlarının Gelmesi İçin Yönetici Panelinden Kullanıcı Tanımlayınız !", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                btnGiris.Visible = false;
+                if (KullaniciVarMi == false)
+                {
+                    MessageBox.Show("Herhangi Bir Kullanıcı Bulunamadı ! \n Yönetici ,Panelden Kullanıcı Tanımlayın Ve Sonra Tekrar Deneyiniz. \n Sayfa Açılacak Fakat Giriş İçin Gerekli Elemanlar Gelmeyecektir. \n Giriş Elemanlarının Gelmesi İçin Yönetici Panelinden Kullanıcı Tanımlayınız !", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnGiris.Visible = false;
+                }
+                else
+                {
+                    // Eğer Kayıtlı Kullanıcı Varsa Label Ve TextBox'ları göster
+                    txtKullaniciAdiGiris.Visible = true;
+                    txtKullaniciSifreGiris.Visible = true;
+                    lblKullaniciAdi.Visible = true;
+                    lblKullaniciSifre.Visible = true;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                // Eğer Kayıtlı Kullanıcı Varsa Label Ve TextBox'ları göster
-                txtKullaniciAdiGiris.Visible = true;
-                txtKullaniciSifreGiris.Visible = true;
-                lblKullaniciAdi.Visible = true;
-                lblKullaniciSifre.Visible = true;
+                MessageBox.Show("Bir hata ile karşılaşıldı : " + ex.Message);
             }
         }
     }

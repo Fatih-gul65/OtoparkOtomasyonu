@@ -43,21 +43,21 @@ namespace OtoparkOtomasyon
         {
             try
             {
-                if (txtKullaniciAdi.Text == "" || txtKullaniciSifre.Text == "")
+                if (string.IsNullOrEmpty(txtKullaniciAdi.Text.Trim()) || string.IsNullOrEmpty(txtKullaniciSifre.Text.Trim()))
                 {
                     MessageBox.Show("Lütfen Boş Olan Alanları Doldurunuz","Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else {
 
-                    bool kullaniciVarMi = entities.PersonelGirisTanimla.Any(x => x.KullaniciAdi == txtKullaniciAdi.Text);
+                    bool kullaniciVarMi = entities.PersonelGirisTanimla.Any(x => x.KullaniciAdi == txtKullaniciAdi.Text.Trim());
 
                     if (kullaniciVarMi) {
                         MessageBox.Show("Bu Kullanıcı Adına Sahip Başka Bir Kayıt Bulunmaktadır \n Başka Bir Kullanıcı Adı Belirleyiniz Veya Varolan Kullanıcıyı Güncelleyiniz !", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else {
                         PersonelGirisTanimla Ekle = new PersonelGirisTanimla();
-                        Ekle.KullaniciAdi = txtKullaniciAdi.Text;
-                        Ekle.KullaniciSifre = txtKullaniciSifre.Text;
+                        Ekle.KullaniciAdi = txtKullaniciAdi.Text.Trim();
+                        Ekle.KullaniciSifre = txtKullaniciSifre.Text.Trim();
                         Ekle.TanimlanmaTarihi = DateTime.Now;
                         entities.PersonelGirisTanimla.Add(Ekle);
                         entities.SaveChanges();

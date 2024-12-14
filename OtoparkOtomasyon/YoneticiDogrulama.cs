@@ -22,8 +22,8 @@ namespace OtoparkOtomasyon
         private void btnGiris_Click(object sender, EventArgs e)
         {
             
-            string YoneticiAdi = txtYoneticiAdiGiris.Text;
-            string YoneticiSifre = txtYoneticiSifreGiris.Text;
+            string YoneticiAdi = txtYoneticiAdiGiris.Text.Trim();
+            string YoneticiSifre = txtYoneticiSifreGiris.Text.Trim();
             SqlConnection baglanti = new SqlConnection(@"Data Source=FATIH\SQLEXPRESS;Initial Catalog=OtoparkOtomasyon;Integrated Security=True;");
             try
             {
@@ -65,9 +65,10 @@ namespace OtoparkOtomasyon
             
             
             
-            
+           
             
         }
+
         private void btnGeri_Click(object sender, EventArgs e)
         {
             Anasayfa anasayfa = new Anasayfa();

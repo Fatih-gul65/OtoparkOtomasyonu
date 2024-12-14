@@ -27,8 +27,8 @@ namespace OtoparkOtomasyon
         public string AbonelikTipi { get; set; }
         public Nullable<int> AboneUcretID { get; set; }
     
-        public virtual AboneUcret AboneUcret { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AracCikis> AracCikis { get; set; }
+        public virtual AboneUcret AboneUcret { get; set; }
     }
 }

@@ -55,10 +55,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(356, 92);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(475, 113);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(288, 19);
+            this.label1.Size = new System.Drawing.Size(360, 24);
             this.label1.TabIndex = 11;
             this.label1.Text = "Otopark Yönetiminde Ustalık Zamanı!";
             // 
@@ -66,10 +65,10 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(286, 10);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(381, 12);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(408, 80);
+            this.pictureBox1.Size = new System.Drawing.Size(544, 98);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
@@ -87,13 +86,14 @@
             this.btnKaydet.Image = ((System.Drawing.Image)(resources.GetObject("btnKaydet.Image")));
             this.btnKaydet.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnKaydet.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnKaydet.Location = new System.Drawing.Point(795, 515);
-            this.btnKaydet.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnKaydet.Location = new System.Drawing.Point(1060, 634);
+            this.btnKaydet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnKaydet.Name = "btnKaydet";
-            this.btnKaydet.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnKaydet.Size = new System.Drawing.Size(135, 37);
+            this.btnKaydet.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnKaydet.Size = new System.Drawing.Size(180, 46);
             this.btnKaydet.TabIndex = 24;
             this.btnKaydet.Text = "Kaydet ";
+            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
             // 
             // btnGeri
             // 
@@ -108,10 +108,10 @@
             this.btnGeri.Image = ((System.Drawing.Image)(resources.GetObject("btnGeri.Image")));
             this.btnGeri.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnGeri.ImageSize = new System.Drawing.Size(30, 35);
-            this.btnGeri.Location = new System.Drawing.Point(38, 515);
-            this.btnGeri.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGeri.Location = new System.Drawing.Point(51, 634);
+            this.btnGeri.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGeri.Name = "btnGeri";
-            this.btnGeri.Size = new System.Drawing.Size(135, 37);
+            this.btnGeri.Size = new System.Drawing.Size(180, 46);
             this.btnGeri.TabIndex = 28;
             this.btnGeri.Text = "Geri";
             this.btnGeri.Click += new System.EventHandler(this.btnGeri_Click);
@@ -130,11 +130,11 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(58, 148);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Location = new System.Drawing.Point(77, 182);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Size = new System.Drawing.Size(856, 314);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(1141, 386);
             this.groupBox1.TabIndex = 29;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Lütfen Ücretini Belirleyeceğiniz Seçeneği Seçiniz";
@@ -148,16 +148,17 @@
             this.rdbtnMinibus.CheckedState.InnerColor = System.Drawing.Color.White;
             this.rdbtnMinibus.CheckedState.InnerOffset = -4;
             this.rdbtnMinibus.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.rdbtnMinibus.Location = new System.Drawing.Point(665, 203);
-            this.rdbtnMinibus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdbtnMinibus.Location = new System.Drawing.Point(887, 250);
+            this.rdbtnMinibus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdbtnMinibus.Name = "rdbtnMinibus";
-            this.rdbtnMinibus.Size = new System.Drawing.Size(163, 23);
+            this.rdbtnMinibus.Size = new System.Drawing.Size(200, 28);
             this.rdbtnMinibus.TabIndex = 26;
             this.rdbtnMinibus.Text = "Minibüs / Kamyon";
             this.rdbtnMinibus.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.rdbtnMinibus.UncheckedState.BorderThickness = 2;
             this.rdbtnMinibus.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.rdbtnMinibus.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.rdbtnMinibus.CheckedChanged += new System.EventHandler(this.rdbtnMinibus_CheckedChanged);
             // 
             // rdbtnKamyonet
             // 
@@ -168,16 +169,17 @@
             this.rdbtnKamyonet.CheckedState.InnerColor = System.Drawing.Color.White;
             this.rdbtnKamyonet.CheckedState.InnerOffset = -4;
             this.rdbtnKamyonet.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.rdbtnKamyonet.Location = new System.Drawing.Point(352, 203);
-            this.rdbtnKamyonet.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdbtnKamyonet.Location = new System.Drawing.Point(469, 250);
+            this.rdbtnKamyonet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdbtnKamyonet.Name = "rdbtnKamyonet";
-            this.rdbtnKamyonet.Size = new System.Drawing.Size(105, 23);
+            this.rdbtnKamyonet.Size = new System.Drawing.Size(126, 28);
             this.rdbtnKamyonet.TabIndex = 25;
             this.rdbtnKamyonet.Text = "Kamyonet";
             this.rdbtnKamyonet.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.rdbtnKamyonet.UncheckedState.BorderThickness = 2;
             this.rdbtnKamyonet.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.rdbtnKamyonet.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.rdbtnKamyonet.CheckedChanged += new System.EventHandler(this.rdbtnKamyonet_CheckedChanged);
             // 
             // rdbtnOtomobil
             // 
@@ -188,24 +190,25 @@
             this.rdbtnOtomobil.CheckedState.InnerColor = System.Drawing.Color.White;
             this.rdbtnOtomobil.CheckedState.InnerOffset = -4;
             this.rdbtnOtomobil.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.rdbtnOtomobil.Location = new System.Drawing.Point(46, 203);
-            this.rdbtnOtomobil.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdbtnOtomobil.Location = new System.Drawing.Point(61, 250);
+            this.rdbtnOtomobil.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdbtnOtomobil.Name = "rdbtnOtomobil";
-            this.rdbtnOtomobil.Size = new System.Drawing.Size(96, 23);
+            this.rdbtnOtomobil.Size = new System.Drawing.Size(117, 28);
             this.rdbtnOtomobil.TabIndex = 24;
             this.rdbtnOtomobil.Text = "Otomobil";
             this.rdbtnOtomobil.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.rdbtnOtomobil.UncheckedState.BorderThickness = 2;
             this.rdbtnOtomobil.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.rdbtnOtomobil.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.rdbtnOtomobil.CheckedChanged += new System.EventHandler(this.rdbtnOtomobil_CheckedChanged);
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(352, 89);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Location = new System.Drawing.Point(469, 110);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(138, 111);
+            this.pictureBox2.Size = new System.Drawing.Size(184, 137);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 21;
             this.pictureBox2.TabStop = false;
@@ -213,10 +216,10 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(665, 89);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Location = new System.Drawing.Point(887, 110);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(138, 111);
+            this.pictureBox3.Size = new System.Drawing.Size(184, 137);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 22;
             this.pictureBox3.TabStop = false;
@@ -224,10 +227,10 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(46, 89);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox4.Location = new System.Drawing.Point(61, 110);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(138, 111);
+            this.pictureBox4.Size = new System.Drawing.Size(184, 137);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 23;
             this.pictureBox4.TabStop = false;
@@ -235,44 +238,42 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(330, 42);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(440, 52);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(177, 19);
+            this.label3.Size = new System.Drawing.Size(222, 24);
             this.label3.TabIndex = 20;
             this.label3.Text = "Bir Araç Türü Seçiniz !";
             // 
             // txtAboneUcreti
             // 
-            this.txtAboneUcreti.Location = new System.Drawing.Point(534, 261);
-            this.txtAboneUcreti.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtAboneUcreti.Location = new System.Drawing.Point(712, 321);
+            this.txtAboneUcreti.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtAboneUcreti.Name = "txtAboneUcreti";
-            this.txtAboneUcreti.Size = new System.Drawing.Size(96, 26);
+            this.txtAboneUcreti.Size = new System.Drawing.Size(127, 30);
             this.txtAboneUcreti.TabIndex = 17;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(197, 263);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(263, 324);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(344, 19);
+            this.label2.Size = new System.Drawing.Size(427, 24);
             this.label2.TabIndex = 16;
             this.label2.Text = "Yeni Belirlediğiniz Abonelik Ücretini Giriniz : ";
             // 
             // AboneUcretDuzenle
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(42)))), ((int)(((byte)(59)))));
-            this.ClientSize = new System.Drawing.Size(968, 569);
+            this.ClientSize = new System.Drawing.Size(1291, 700);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnGeri);
             this.Controls.Add(this.btnKaydet);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AboneUcretDuzenle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AboneUcretDuzenle";

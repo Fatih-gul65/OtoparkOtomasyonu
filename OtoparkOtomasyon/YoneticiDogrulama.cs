@@ -68,7 +68,6 @@ namespace OtoparkOtomasyon
             
             
         }
-
         private void btnGeri_Click(object sender, EventArgs e)
         {
             Anasayfa anasayfa = new Anasayfa();

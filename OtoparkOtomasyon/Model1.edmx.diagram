@@ -4,18 +4,20 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5c37a0c95b974c878cc4674ff9d6252d" Name="Diagram1">
+      <Diagram DiagramId="6789400ea99d401a9d35ca3b271a34b3" Name="Diagram1">
         <EntityTypeShape EntityType="OtoparkOtomasyonModel.Abonelikler" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="OtoparkOtomasyonModel.AracCikis" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="OtoparkOtomasyonModel.AracGiris" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="OtoparkOtomasyonModel.AracKapasitesi" Width="1.5" PointX="3" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OtoparkOtomasyonModel.AboneUcret" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OtoparkOtomasyonModel.AracCikis" Width="1.5" PointX="5.25" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OtoparkOtomasyonModel.AracGiris" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OtoparkOtomasyonModel.AracKapasitesi" Width="1.5" PointX="3" PointY="13.5" IsExpanded="true" />
         <EntityTypeShape EntityType="OtoparkOtomasyonModel.AracUcretleri" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="OtoparkOtomasyonModel.OtoparkDurumu" Width="1.5" PointX="5.25" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OtoparkOtomasyonModel.OtoparkDurumu" Width="1.5" PointX="5.25" PointY="13.375" IsExpanded="true" />
         <EntityTypeShape EntityType="OtoparkOtomasyonModel.PersonelGirisTanimla" Width="1.5" PointX="5.75" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="OtoparkOtomasyonModel.Rapor" Width="1.5" PointX="7.5" PointY="8.125" IsExpanded="true" />
         <EntityTypeShape EntityType="OtoparkOtomasyonModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="OtoparkOtomasyonModel.UcretsizGiris" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OtoparkOtomasyonModel.UcretsizGiris" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
         <EntityTypeShape EntityType="OtoparkOtomasyonModel.Yonetici" Width="1.5" PointX="7.75" PointY="4.25" IsExpanded="true" />
+        <AssociationConnector Association="OtoparkOtomasyonModel.FK_Abonelikler_AboneUcret" ManuallyRouted="false" />
         <AssociationConnector Association="OtoparkOtomasyonModel.FK_AracCikis_Abonelikler" ManuallyRouted="false" />
         <AssociationConnector Association="OtoparkOtomasyonModel.FK_AracCikis_AracGiris" ManuallyRouted="false" />
         <AssociationConnector Association="OtoparkOtomasyonModel.FK_AracCikis_AracUcretleri" ManuallyRouted="false" />
@@ -25,8 +27,6 @@
         <AssociationConnector Association="OtoparkOtomasyonModel.FK_Rapor_AracGiris" ManuallyRouted="false" />
         <AssociationConnector Association="OtoparkOtomasyonModel.FK_OtoparkDurumu_AracKapasitesi" ManuallyRouted="false" />
         <AssociationConnector Association="OtoparkOtomasyonModel.FK_Rapor_OtoparkDurumu" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="OtoparkOtomasyonModel.AboneUcret" Width="1.5" PointX="0.75" PointY="1" />
-        <AssociationConnector Association="OtoparkOtomasyonModel.FK_Abonelikler_AboneUcret" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

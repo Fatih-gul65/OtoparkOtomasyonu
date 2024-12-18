@@ -21,7 +21,9 @@ namespace OtoparkOtomasyon
         }
     
         public int KapasiteID { get; set; }
-        public Nullable<int> Kapasite { get; set; }
+        public Nullable<int> OtomobilKapasitesi { get; set; }
+        public Nullable<int> KamyonetKapasitesi { get; set; }
+        public Nullable<int> MinibusKapasitesi { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OtoparkDurumu> OtoparkDurumu { get; set; }

@@ -184,6 +184,7 @@
     <Compile Include="PersonelTanimla.Designer.cs">
       <DependentUpon>PersonelTanimla.cs</DependentUpon>
     </Compile>
+    <Compile Include="PlakaKontrolu.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rapor.cs">

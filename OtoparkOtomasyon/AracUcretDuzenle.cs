@@ -6,7 +6,7 @@ namespace OtoparkOtomasyon
 {
     public partial class AracUcretDuzenle : Form
     {
-        OtoparkOtomasyonEntities entities = new OtoparkOtomasyonEntities();
+        OtoparkOtomasyonEntities2 entities = new OtoparkOtomasyonEntities2();
         int AracID = 0;
         string aracTuru = "";
         public AracUcretDuzenle()

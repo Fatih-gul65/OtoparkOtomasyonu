@@ -12,7 +12,7 @@ namespace OtoparkOtomasyon
 {
     public partial class PersonelDogrula : Form
     {
-        OtoparkOtomasyonEntities entities = new OtoparkOtomasyonEntities();
+        OtoparkOtomasyonEntities2 entities = new OtoparkOtomasyonEntities2();
         public PersonelDogrula()
         {
             InitializeComponent();

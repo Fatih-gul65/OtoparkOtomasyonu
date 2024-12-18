@@ -31,12 +31,21 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AracKapasitesiAyarla));
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.txtKapasiteAyarla = new System.Windows.Forms.TextBox();
             this.btnGeri = new Guna.UI2.WinForms.Guna2Button();
             this.btnKaydet = new Guna.UI2.WinForms.Guna2Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rdbtnMinibus = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.rdbtnKamyonet = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.rdbtnOtomobil = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,10 +54,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(344, 92);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(459, 113);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(288, 19);
+            this.label1.Size = new System.Drawing.Size(360, 24);
             this.label1.TabIndex = 11;
             this.label1.Text = "Otopark Yönetiminde Ustalık Zamanı!";
             // 
@@ -56,45 +64,23 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(263, 10);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(351, 12);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(408, 80);
+            this.pictureBox1.Size = new System.Drawing.Size(544, 98);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(386, 167);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(208, 145);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 31;
-            this.pictureBox2.TabStop = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(233, 356);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(291, 19);
-            this.label2.TabIndex = 32;
-            this.label2.Text = "Otopark\'ın Araç Kapasitesini Giriniz : ";
-            // 
             // txtKapasiteAyarla
             // 
-            this.txtKapasiteAyarla.Location = new System.Drawing.Point(525, 358);
-            this.txtKapasiteAyarla.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtKapasiteAyarla.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtKapasiteAyarla.Location = new System.Drawing.Point(824, 527);
+            this.txtKapasiteAyarla.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtKapasiteAyarla.Name = "txtKapasiteAyarla";
-            this.txtKapasiteAyarla.Size = new System.Drawing.Size(134, 20);
+            this.txtKapasiteAyarla.Size = new System.Drawing.Size(177, 30);
             this.txtKapasiteAyarla.TabIndex = 33;
+            this.txtKapasiteAyarla.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKapasiteAyarla_KeyPress);
             // 
             // btnGeri
             // 
@@ -109,10 +95,10 @@
             this.btnGeri.Image = ((System.Drawing.Image)(resources.GetObject("btnGeri.Image")));
             this.btnGeri.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnGeri.ImageSize = new System.Drawing.Size(30, 35);
-            this.btnGeri.Location = new System.Drawing.Point(38, 515);
-            this.btnGeri.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGeri.Location = new System.Drawing.Point(51, 634);
+            this.btnGeri.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGeri.Name = "btnGeri";
-            this.btnGeri.Size = new System.Drawing.Size(135, 37);
+            this.btnGeri.Size = new System.Drawing.Size(180, 46);
             this.btnGeri.TabIndex = 34;
             this.btnGeri.Text = "Geri";
             this.btnGeri.Click += new System.EventHandler(this.btnGeri_Click);
@@ -130,34 +116,168 @@
             this.btnKaydet.Image = ((System.Drawing.Image)(resources.GetObject("btnKaydet.Image")));
             this.btnKaydet.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnKaydet.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnKaydet.Location = new System.Drawing.Point(795, 515);
-            this.btnKaydet.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnKaydet.Location = new System.Drawing.Point(1060, 634);
+            this.btnKaydet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnKaydet.Name = "btnKaydet";
-            this.btnKaydet.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnKaydet.Size = new System.Drawing.Size(135, 37);
+            this.btnKaydet.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnKaydet.Size = new System.Drawing.Size(180, 46);
             this.btnKaydet.TabIndex = 35;
             this.btnKaydet.Text = "Kaydet ";
+            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rdbtnMinibus);
+            this.groupBox1.Controls.Add(this.rdbtnKamyonet);
+            this.groupBox1.Controls.Add(this.rdbtnOtomobil);
+            this.groupBox1.Controls.Add(this.pictureBox4);
+            this.groupBox1.Controls.Add(this.pictureBox3);
+            this.groupBox1.Controls.Add(this.pictureBox2);
+            this.groupBox1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(33, 168);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(1221, 265);
+            this.groupBox1.TabIndex = 37;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Araç Türü Seçiniz !";
+            // 
+            // rdbtnMinibus
+            // 
+            this.rdbtnMinibus.AutoSize = true;
+            this.rdbtnMinibus.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rdbtnMinibus.CheckedState.BorderThickness = 0;
+            this.rdbtnMinibus.CheckedState.FillColor = System.Drawing.Color.LimeGreen;
+            this.rdbtnMinibus.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.rdbtnMinibus.CheckedState.InnerOffset = -4;
+            this.rdbtnMinibus.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.rdbtnMinibus.ForeColor = System.Drawing.Color.White;
+            this.rdbtnMinibus.Location = new System.Drawing.Point(987, 187);
+            this.rdbtnMinibus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rdbtnMinibus.Name = "rdbtnMinibus";
+            this.rdbtnMinibus.Size = new System.Drawing.Size(200, 28);
+            this.rdbtnMinibus.TabIndex = 38;
+            this.rdbtnMinibus.Text = "Minibüs / Kamyon";
+            this.rdbtnMinibus.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.rdbtnMinibus.UncheckedState.BorderThickness = 2;
+            this.rdbtnMinibus.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rdbtnMinibus.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.rdbtnMinibus.CheckedChanged += new System.EventHandler(this.rdbtnMinibus_CheckedChanged);
+            // 
+            // rdbtnKamyonet
+            // 
+            this.rdbtnKamyonet.AutoSize = true;
+            this.rdbtnKamyonet.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rdbtnKamyonet.CheckedState.BorderThickness = 0;
+            this.rdbtnKamyonet.CheckedState.FillColor = System.Drawing.Color.LimeGreen;
+            this.rdbtnKamyonet.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.rdbtnKamyonet.CheckedState.InnerOffset = -4;
+            this.rdbtnKamyonet.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.rdbtnKamyonet.ForeColor = System.Drawing.Color.White;
+            this.rdbtnKamyonet.Location = new System.Drawing.Point(525, 187);
+            this.rdbtnKamyonet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rdbtnKamyonet.Name = "rdbtnKamyonet";
+            this.rdbtnKamyonet.Size = new System.Drawing.Size(126, 28);
+            this.rdbtnKamyonet.TabIndex = 37;
+            this.rdbtnKamyonet.Text = "Kamyonet";
+            this.rdbtnKamyonet.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.rdbtnKamyonet.UncheckedState.BorderThickness = 2;
+            this.rdbtnKamyonet.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rdbtnKamyonet.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.rdbtnKamyonet.CheckedChanged += new System.EventHandler(this.rdbtnKamyonet_CheckedChanged);
+            // 
+            // rdbtnOtomobil
+            // 
+            this.rdbtnOtomobil.AutoSize = true;
+            this.rdbtnOtomobil.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rdbtnOtomobil.CheckedState.BorderThickness = 0;
+            this.rdbtnOtomobil.CheckedState.FillColor = System.Drawing.Color.LimeGreen;
+            this.rdbtnOtomobil.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.rdbtnOtomobil.CheckedState.InnerOffset = -4;
+            this.rdbtnOtomobil.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.rdbtnOtomobil.ForeColor = System.Drawing.Color.White;
+            this.rdbtnOtomobil.Location = new System.Drawing.Point(53, 187);
+            this.rdbtnOtomobil.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rdbtnOtomobil.Name = "rdbtnOtomobil";
+            this.rdbtnOtomobil.Size = new System.Drawing.Size(117, 28);
+            this.rdbtnOtomobil.TabIndex = 36;
+            this.rdbtnOtomobil.Text = "Otomobil";
+            this.rdbtnOtomobil.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.rdbtnOtomobil.UncheckedState.BorderThickness = 2;
+            this.rdbtnOtomobil.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rdbtnOtomobil.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.rdbtnOtomobil.CheckedChanged += new System.EventHandler(this.rdbtnOtomobil_CheckedChanged);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(53, 44);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(184, 137);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 35;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(987, 44);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(184, 137);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 34;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(525, 44);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(184, 137);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 33;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(255, 530);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(520, 24);
+            this.label3.TabIndex = 38;
+            this.label3.Text = "Seçtiğiniz Araç Türünün Otopark Kapasitesini Giriniz :";
             // 
             // AracKapasitesiAyarla
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(42)))), ((int)(((byte)(59)))));
-            this.ClientSize = new System.Drawing.Size(968, 569);
+            this.ClientSize = new System.Drawing.Size(1291, 700);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnKaydet);
             this.Controls.Add(this.btnGeri);
             this.Controls.Add(this.txtKapasiteAyarla);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AracKapasitesiAyarla";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AracKapasitesiAyarla";
             this.Load += new System.EventHandler(this.AracKapasitesiAyarla_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -168,10 +288,16 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtKapasiteAyarla;
         private Guna.UI2.WinForms.Guna2Button btnGeri;
         private Guna.UI2.WinForms.Guna2Button btnKaydet;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private Guna.UI2.WinForms.Guna2RadioButton rdbtnMinibus;
+        private Guna.UI2.WinForms.Guna2RadioButton rdbtnKamyonet;
+        private Guna.UI2.WinForms.Guna2RadioButton rdbtnOtomobil;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label3;
     }
 }

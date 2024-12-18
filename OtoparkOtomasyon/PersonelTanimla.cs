@@ -7,7 +7,7 @@ namespace OtoparkOtomasyon
 {
     public partial class PersonelTanimla : Form
     {
-        OtoparkOtomasyonEntities entities = new OtoparkOtomasyonEntities();
+        OtoparkOtomasyonEntities2 entities = new OtoparkOtomasyonEntities2();
 
         public PersonelTanimla()
         {
@@ -121,8 +121,8 @@ namespace OtoparkOtomasyon
                         }
                         else
                         {
-                            kullanici.KullaniciAdi = txtKullaniciAdi.Text;
-                            kullanici.KullaniciSifre = txtKullaniciSifre.Text;
+                            kullanici.KullaniciAdi = txtKullaniciAdi.Text.Trim();
+                            kullanici.KullaniciSifre = txtKullaniciSifre.Text.Trim();
                             entities.SaveChanges();
                             MessageBox.Show("Seçili Kayıt Güncellendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             tumKayitlariGoster();

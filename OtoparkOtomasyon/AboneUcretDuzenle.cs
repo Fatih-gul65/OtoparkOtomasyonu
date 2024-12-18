@@ -12,7 +12,7 @@ namespace OtoparkOtomasyon
 {
     public partial class AboneUcretDuzenle : Form
     {
-        OtoparkOtomasyonEntities entities = new OtoparkOtomasyonEntities();
+        OtoparkOtomasyonEntities2 entities = new OtoparkOtomasyonEntities2();
         public AboneUcretDuzenle()
         {
             InitializeComponent();
@@ -118,5 +118,7 @@ namespace OtoparkOtomasyon
 
 
         }
+
+        
     }
 }

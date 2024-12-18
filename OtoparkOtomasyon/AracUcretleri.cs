@@ -21,11 +21,11 @@ namespace OtoparkOtomasyon
         }
     
         public int AracUcretID { get; set; }
+        public string AracTuru { get; set; }
         public Nullable<decimal> AracUcret03 { get; set; }
         public Nullable<decimal> AracUcret36 { get; set; }
         public Nullable<decimal> AracUcret61 { get; set; }
         public Nullable<decimal> AracUcretBirGunUzeri { get; set; }
-        public string AracTuru { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AracCikis> AracCikis { get; set; }

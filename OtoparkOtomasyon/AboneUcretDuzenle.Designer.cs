@@ -251,6 +251,7 @@
             this.txtAboneUcreti.Name = "txtAboneUcreti";
             this.txtAboneUcreti.Size = new System.Drawing.Size(127, 30);
             this.txtAboneUcreti.TabIndex = 17;
+            
             // 
             // label2
             // 

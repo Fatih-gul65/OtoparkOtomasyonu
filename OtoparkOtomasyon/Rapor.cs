@@ -14,11 +14,11 @@ namespace OtoparkOtomasyon
     
     public partial class Rapor
     {
+        public int RaporID { get; set; }
         public Nullable<int> OtoparkID { get; set; }
         public Nullable<int> GirisID { get; set; }
         public Nullable<int> CikisID { get; set; }
         public Nullable<int> ToplamUcret { get; set; }
-        public int RaporID { get; set; }
     
         public virtual AracCikis AracCikis { get; set; }
         public virtual AracGiris AracGiris { get; set; }

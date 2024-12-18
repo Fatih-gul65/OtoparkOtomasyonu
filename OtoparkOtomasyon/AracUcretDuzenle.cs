@@ -6,7 +6,7 @@ namespace OtoparkOtomasyon
 {
     public partial class AracUcretDuzenle : Form
     {
-        OtoparkOtomasyonEntities2 entities = new OtoparkOtomasyonEntities2();
+
         int AracID = 0;
         string aracTuru = "";
         public AracUcretDuzenle()
@@ -17,21 +17,31 @@ namespace OtoparkOtomasyon
         // text box ların içini dolduran fonksiyon yazıldı
         private void UcretYazdir(int aracID)
         {
-            var Yazdir = entities.AracUcretleri.FirstOrDefault(x => x.AracUcretID == aracID);
-            if (Yazdir != null)
-            {
-                txt_0_3_Saat.Text = Yazdir.AracUcret03.ToString();
-                txt_3_6_Saat.Text = Yazdir.AracUcret36.ToString();
-                txt_6_24_Saat.Text = Yazdir.AracUcret61.ToString();
-                txt_24_SaatUzeri.Text = Yazdir.AracUcretBirGunUzeri.ToString();
+            try {
+                Baglanti baglanti = new Baglanti();
+                var entities = baglanti.Entity();
+
+                var Yazdir = entities.AracUcretleri.FirstOrDefault(x => x.AracUcretID == aracID);
+                if (Yazdir != null)
+                {
+                    txt_0_3_Saat.Text = Yazdir.AracUcret03.ToString();
+                    txt_3_6_Saat.Text = Yazdir.AracUcret36.ToString();
+                    txt_6_24_Saat.Text = Yazdir.AracUcret61.ToString();
+                    txt_24_SaatUzeri.Text = Yazdir.AracUcretBirGunUzeri.ToString();
+                }
+                else
+                {
+                    txt_0_3_Saat.Clear();
+                    txt_3_6_Saat.Clear();
+                    txt_6_24_Saat.Clear();
+                    txt_24_SaatUzeri.Clear();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                txt_0_3_Saat.Clear();
-                txt_3_6_Saat.Clear();
-                txt_6_24_Saat.Clear();
-                txt_24_SaatUzeri.Clear();
+                MessageBox.Show("Bir hata ile karşılaşıldı : " + ex.Message);
             }
+
         }
 
 
@@ -54,7 +64,10 @@ namespace OtoparkOtomasyon
 
             else {
 
-                try { 
+                try {
+                    Baglanti baglanti = new Baglanti();
+                    var entities = baglanti.Entity();
+
                     if (AracID == 1 || AracID == 2 || AracID == 3) { 
                         var aracUcret = entities.AracUcretleri.FirstOrDefault(x => x.AracUcretID == AracID);
                         if (aracUcret != null) {

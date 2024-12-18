@@ -6,7 +6,7 @@ namespace OtoparkOtomasyon
 {
     public partial class UcretsizAraçGirisiTanimla : Form
     {
-        OtoparkOtomasyonEntities2 entities = new OtoparkOtomasyonEntities2();
+        
         public UcretsizAraçGirisiTanimla()
         {
             InitializeComponent();
@@ -14,7 +14,11 @@ namespace OtoparkOtomasyon
 
         private void tumKayitlariGoster()
         {
-            var UcretsizGirisler = (from liste in entities.UcretsizGiris 
+            try { 
+                Baglanti baglanti = new Baglanti();
+                var entities = baglanti.Entity();
+
+                var UcretsizGirisler = (from liste in entities.UcretsizGiris 
                                     select new
                                     {
                                         liste.UcretsizGirisID,
@@ -26,7 +30,13 @@ namespace OtoparkOtomasyon
             datagridUcretsizGiris.ClearSelection();
             txtUcretsizPlaka.Clear();
             lblUcretsizGiris.Text = "";
-            
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bir hata ile karşılaşıldı : " + ex.Message);
+            }
+
+
         }
 
         private void btnGeri_Click(object sender, EventArgs e)
@@ -54,13 +64,27 @@ namespace OtoparkOtomasyon
                 {
                     try
                     {
+                        Baglanti baglanti = new Baglanti();
+                        var entities = baglanti.Entity();
+
+                        var plakaVarMi = entities.UcretsizGiris.Any(x => x.Plaka == plaka);
+
+                        if (plakaVarMi)
+                        {
+                            MessageBox.Show("Bu Plaka Zaten Sistemde Kayıtlı!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else { 
+
                         UcretsizGiris ekle = new UcretsizGiris();
                         ekle.Plaka = plaka;
                         ekle.TanimlanmaTarihi = DateTime.Now;
+                        
                         entities.UcretsizGiris.Add(ekle);
                         entities.SaveChanges();
                         MessageBox.Show("Kayıt Eklendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtUcretsizPlaka.Clear();
                         tumKayitlariGoster();
+                        }
                     }
 
                     catch (Exception ex) {
@@ -83,13 +107,16 @@ namespace OtoparkOtomasyon
         }
         private void btnSecilenPlakayiSil_Click(object sender, EventArgs e)
         {
-            try { 
-            int ucretsizGirisID = Convert.ToInt32(lblUcretsizGiris.Text.Replace("Ücretsiz Giriş ID : " , ""));
-            var Ugiris = entities.UcretsizGiris.Find(ucretsizGirisID);
-            entities.UcretsizGiris.Remove(Ugiris);
-            MessageBox.Show("Seçili Kayıt Silindi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            entities.SaveChanges();
-            tumKayitlariGoster();
+            try {
+                Baglanti baglanti = new Baglanti();
+                var entities = baglanti.Entity();
+
+                int ucretsizGirisID = Convert.ToInt32(lblUcretsizGiris.Text.Replace("Ücretsiz Giriş ID : " , ""));
+                var Ugiris = entities.UcretsizGiris.Find(ucretsizGirisID);
+                entities.UcretsizGiris.Remove(Ugiris);
+                MessageBox.Show("Seçili Kayıt Silindi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                entities.SaveChanges();
+                tumKayitlariGoster();
             }
             catch (Exception ex)
             {

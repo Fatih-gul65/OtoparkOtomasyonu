@@ -33,9 +33,12 @@ namespace OtoparkOtomasyon
             // yonetici adı ve şifresi değiştirildi
             string YoneticiAdi = txtYoneticiAdi.Text.Trim();
             string YoneticiSifre = txtYoneticiSifre.Text.Trim();
-            SqlConnection baglanti = new SqlConnection(@"Data Source=FATIH\SQLEXPRESS;Initial Catalog=OtoparkOtomasyon;Integrated Security=True;");
+            SqlConnection baglanti = null;
             try
             {
+                Baglanti con = new Baglanti();
+                baglanti = con.SqlBaglanti();
+
                 if (YoneticiAdi == "" || YoneticiSifre == "")
                 {
                     MessageBox.Show("Lütfen Boş Olan Alanları Doldurunuz");
@@ -52,6 +55,8 @@ namespace OtoparkOtomasyon
                     if (sonuc == 1)
                     {
                         MessageBox.Show("Yönetici Adınız : "+ YoneticiAdi + "\n Yönetici Şifreniz : " + YoneticiSifre + "\n Olarak belirlenmiştir !" , "Bilgi" , MessageBoxButtons.OK , MessageBoxIcon.Information);
+                        txtYoneticiAdi.Clear();
+                        txtYoneticiSifre.Clear();
                     }
                     else {
                         MessageBox.Show("Güncelleme tamamlanamadı" ,"Hata" ,MessageBoxButtons.OK , MessageBoxIcon.Error);
@@ -62,6 +67,7 @@ namespace OtoparkOtomasyon
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+
             }
             finally
             {

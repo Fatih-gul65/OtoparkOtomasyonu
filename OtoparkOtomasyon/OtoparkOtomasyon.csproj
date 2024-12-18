@@ -133,6 +133,7 @@
     <Compile Include="AracUcretleri.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Baglanti.cs" />
     <Compile Include="KullaniciSifreDegistir.cs">
       <SubType>Form</SubType>
     </Compile>

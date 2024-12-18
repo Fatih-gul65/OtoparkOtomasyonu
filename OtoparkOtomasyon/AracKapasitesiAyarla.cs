@@ -7,7 +7,7 @@ namespace OtoparkOtomasyon
 {
     public partial class AracKapasitesiAyarla : Form
     {
-        OtoparkOtomasyonEntities2 entities = new OtoparkOtomasyonEntities2();
+        
         public AracKapasitesiAyarla()
         {
             InitializeComponent();
@@ -27,7 +27,11 @@ namespace OtoparkOtomasyon
 
         private void AracKapasitesiniYazdir(string secim)
         {
-            var kapasite = entities.AracKapasitesi.FirstOrDefault(x => x.KapasiteID == 1);
+            try {
+                Baglanti baglanti = new Baglanti();
+                var entities = baglanti.Entity();
+
+                var kapasite = entities.AracKapasitesi.FirstOrDefault(x => x.KapasiteID == 1);
 
             if (kapasite != null)
             {
@@ -45,25 +49,38 @@ namespace OtoparkOtomasyon
                     txtKapasiteAyarla.Text = kapasite.MinibusKapasitesi.ToString();
                 }
             }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bir hata ile karşılaşıldı : " + ex.Message);
+            }
         }
 
         private void KaydetVeyaGuncelle(string secim, int kapasiteDegeri)
         {
-            var kontrol = entities.AracKapasitesi.FirstOrDefault(x => x.KapasiteID == 1);
+            try {
+                Baglanti baglanti = new Baglanti();
+                var entities = baglanti.Entity();
 
-            if (kontrol == null)
-            {
-                kontrol = new AracKapasitesi();
-                kontrol.KapasiteID = 1;
-                entities.AracKapasitesi.Add(kontrol);
-            }
+                var kontrol = entities.AracKapasitesi.FirstOrDefault(x => x.KapasiteID == 1);
+
+                if (kontrol == null)
+                {
+                    kontrol = new AracKapasitesi();
+                    kontrol.KapasiteID = 1;
+                    entities.AracKapasitesi.Add(kontrol);
+                }
           
-            if (secim == "Otomobil") kontrol.OtomobilKapasitesi = kapasiteDegeri;
-            else if (secim == "Kamyonet") kontrol.KamyonetKapasitesi = kapasiteDegeri;
-            else if (secim == "Minibüs/Kamyon") kontrol.MinibusKapasitesi = kapasiteDegeri;
+                if (secim == "Otomobil") kontrol.OtomobilKapasitesi = kapasiteDegeri;
+                else if (secim == "Kamyonet") kontrol.KamyonetKapasitesi = kapasiteDegeri;
+                else if (secim == "Minibüs/Kamyon") kontrol.MinibusKapasitesi = kapasiteDegeri;
 
-            entities.SaveChanges();
-            
+                entities.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bir hata ile karşılaşıldı : " + ex.Message);
+            }
         }
 
 
@@ -80,17 +97,13 @@ namespace OtoparkOtomasyon
             }
 
             else { 
-               
-                try
-                {
+                
+
                     int kapasiteDegeri = Convert.ToInt32(txtKapasiteAyarla.Text);
                     KaydetVeyaGuncelle(secim, kapasiteDegeri);
                     MessageBox.Show(secim + " Kapasiteniz : " + txtKapasiteAyarla.Text + " Olarak Belirlendi.","Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    txtKapasiteAyarla.Clear();
-                }
-                catch(Exception ex) {
-                    MessageBox.Show("Bir hata ile karşılaşıldı : " + ex.Message);
-                }
+                    txtKapasiteAyarla.Clear();               
+                
             }
         }
 

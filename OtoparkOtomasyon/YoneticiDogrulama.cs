@@ -24,9 +24,12 @@ namespace OtoparkOtomasyon
             
             string YoneticiAdi = txtYoneticiAdiGiris.Text.Trim();
             string YoneticiSifre = txtYoneticiSifreGiris.Text.Trim();
-            SqlConnection baglanti = new SqlConnection(@"Data Source=FATIH\SQLEXPRESS;Initial Catalog=OtoparkOtomasyon;Integrated Security=True;");
+            SqlConnection baglanti = null;
             try
             {
+                Baglanti con = new Baglanti();
+                baglanti = con.SqlBaglanti();
+
                 if (YoneticiAdi == "" || YoneticiSifre == "")
                 {
                     MessageBox.Show("Lütfen Boş Olan Alanları Doldurunuz");

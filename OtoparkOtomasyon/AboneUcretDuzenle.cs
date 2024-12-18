@@ -12,7 +12,7 @@ namespace OtoparkOtomasyon
 {
     public partial class AboneUcretDuzenle : Form
     {
-        OtoparkOtomasyonEntities2 entities = new OtoparkOtomasyonEntities2();
+  
         public AboneUcretDuzenle()
         {
             InitializeComponent();
@@ -23,15 +23,24 @@ namespace OtoparkOtomasyon
 
         private void UcretYazdir(int aucretID)
         {
-            var Yazdir = entities.AboneUcret.FirstOrDefault(x => x.AboneUcretID == aucretID);
-            if (Yazdir != null)
-            {
-                txtAboneUcreti.Text = Yazdir.AboneUcret1.ToString();
+            try {
+                Baglanti baglanti = new Baglanti();
+                var entities = baglanti.Entity();
 
+                var Yazdir = entities.AboneUcret.FirstOrDefault(x => x.AboneUcretID == aucretID);
+                if (Yazdir != null)
+                {
+                    txtAboneUcreti.Text = Yazdir.AboneUcret1.ToString();
+
+                }
+                else
+                {
+                    txtAboneUcreti.Clear();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                txtAboneUcreti.Clear();
+                MessageBox.Show("Bir hata ile karşılaşıldı : " + ex.Message);
             }
         }
 
@@ -88,6 +97,9 @@ namespace OtoparkOtomasyon
             {
                 try
                 {
+                    Baglanti baglanti = new Baglanti();
+                    var entities = baglanti.Entity();
+
                     var aboneUcret = entities.AboneUcret.FirstOrDefault(x => x.AboneUcretID == AUcretID);
 
                     if (aboneUcret != null)
@@ -119,6 +131,6 @@ namespace OtoparkOtomasyon
 
         }
 
-        
+      
     }
 }

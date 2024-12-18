@@ -7,7 +7,7 @@ namespace OtoparkOtomasyon
 {
     public partial class PersonelTanimla : Form
     {
-        OtoparkOtomasyonEntities2 entities = new OtoparkOtomasyonEntities2();
+        
 
         public PersonelTanimla()
         {
@@ -17,6 +17,8 @@ namespace OtoparkOtomasyon
         }
         private void tumKayitlariGoster()
         {
+            Baglanti baglanti = new Baglanti();
+            var entities = baglanti.Entity();
             var personeller = entities.PersonelGirisTanimla.ToList();
             datagridPersonelTanimla.DataSource = personeller;
             datagridPersonelTanimla.ClearSelection();
@@ -43,6 +45,9 @@ namespace OtoparkOtomasyon
         {
             try
             {
+                Baglanti baglanti = new Baglanti();
+                var entities = baglanti.Entity();
+
                 if (string.IsNullOrEmpty(txtKullaniciAdi.Text.Trim()) || string.IsNullOrEmpty(txtKullaniciSifre.Text.Trim()))
                 {
                     MessageBox.Show("Lütfen Boş Olan Alanları Doldurunuz","Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -82,7 +87,10 @@ namespace OtoparkOtomasyon
 
         private void btnKullaniciSil_Click(object sender, EventArgs e)
         {
-            try { 
+            try {
+                Baglanti baglanti = new Baglanti();
+                var entities = baglanti.Entity();
+
             int KullaniciId = Convert.ToInt32(txtKullaniciID.Text);
             var kullanici = entities.PersonelGirisTanimla.Find(KullaniciId);
             entities.PersonelGirisTanimla.Remove(kullanici);
@@ -100,6 +108,9 @@ namespace OtoparkOtomasyon
         {
             try
             {
+                Baglanti baglanti = new Baglanti();
+                var entities = baglanti.Entity();
+
                 int KullaniciId = Convert.ToInt32(txtKullaniciID.Text);
                 var kullanici = entities.PersonelGirisTanimla.Find(KullaniciId);
 

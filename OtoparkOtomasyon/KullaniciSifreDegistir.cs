@@ -13,12 +13,12 @@ namespace OtoparkOtomasyon
 {
     public partial class KullaniciSifreDegistir : Form
     {
+        YoneticiSifre _islemler;
         public KullaniciSifreDegistir()
         {
             InitializeComponent();
+            _islemler = new YoneticiSifre(txtYoneticiAdi, txtYoneticiSifre);
         }
-
-
 
         private void btnGeri_Click(object sender, EventArgs e)
         {
@@ -27,58 +27,9 @@ namespace OtoparkOtomasyon
             this.Close();
 
         }
-
         private void btnKaydet_Click(object sender, EventArgs e)
         {
-            // yonetici adı ve şifresi değiştirildi
-            string YoneticiAdi = txtYoneticiAdi.Text.Trim();
-            string YoneticiSifre = txtYoneticiSifre.Text.Trim();
-            SqlConnection baglanti = null;
-            try
-            {
-                Baglanti con = new Baglanti();
-                baglanti = con.SqlBaglanti();
-
-                if (YoneticiAdi == "" || YoneticiSifre == "")
-                {
-                    MessageBox.Show("Lütfen Boş Olan Alanları Doldurunuz");
-                }
-                else
-                {
-                    baglanti.Open();
-                    string guncelle = "update Yonetici SET YoneticiAdi = @YoneticiAdi , YoneticiSifre = @YoneticiSifre where YoneticiID = 1";
-                    SqlCommand komut = new SqlCommand(guncelle, baglanti);
-                    komut.Parameters.AddWithValue("@YoneticiAdi", YoneticiAdi);
-                    komut.Parameters.AddWithValue("@YoneticiSifre", YoneticiSifre);
-                    int sonuc = komut.ExecuteNonQuery();
-                    
-                    if (sonuc == 1)
-                    {
-                        MessageBox.Show("Yönetici Adınız : "+ YoneticiAdi + "\n Yönetici Şifreniz : " + YoneticiSifre + "\n Olarak belirlenmiştir !" , "Bilgi" , MessageBoxButtons.OK , MessageBoxIcon.Information);
-                        txtYoneticiAdi.Clear();
-                        txtYoneticiSifre.Clear();
-                    }
-                    else {
-                        MessageBox.Show("Güncelleme tamamlanamadı" ,"Hata" ,MessageBoxButtons.OK , MessageBoxIcon.Error);
-                    }
-                    
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-
-            }
-            finally
-            {
-                baglanti.Close();
-            }
-
-        }
-
-        private void KullaniciSifreDegistir_Load(object sender, EventArgs e)
-        {
-
+            _islemler.Ekle();
         }
     }
 }

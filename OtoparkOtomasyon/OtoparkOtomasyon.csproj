@@ -85,6 +85,7 @@
     <Compile Include="AboneUcretDuzenle.Designer.cs">
       <DependentUpon>AboneUcretDuzenle.cs</DependentUpon>
     </Compile>
+    <Compile Include="AboneUcretleriDuzenle.cs" />
     <Compile Include="Anasayfa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,13 +134,16 @@
     <Compile Include="AracUcretleri.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="AracUcretleriDuzenle.cs" />
     <Compile Include="Baglanti.cs" />
+    <Compile Include="KapasiteAyarla.cs" />
     <Compile Include="KullaniciSifreDegistir.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="KullaniciSifreDegistir.Designer.cs">
       <DependentUpon>KullaniciSifreDegistir.cs</DependentUpon>
     </Compile>
+    <Compile Include="MesajGoster.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -164,6 +168,7 @@
     <Compile Include="OtoparkDurumu.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Personel.cs" />
     <Compile Include="PersonelDogrula.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +205,7 @@
     <Compile Include="sysdiagrams.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="UcretsizAracGiris.cs" />
     <Compile Include="UcretsizAraçGirisiTanimla.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,6 +230,7 @@
     <Compile Include="YoneticiGiris.Designer.cs">
       <DependentUpon>YoneticiGiris.cs</DependentUpon>
     </Compile>
+    <Compile Include="YoneticiSifre.cs" />
     <EmbeddedResource Include="abonelikForm4.resx">
       <DependentUpon>abonelikForm4.cs</DependentUpon>
     </EmbeddedResource>

@@ -272,7 +272,6 @@
             this.Name = "AracKapasitesiAyarla";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AracKapasitesiAyarla";
-            this.Load += new System.EventHandler(this.AracKapasitesiAyarla_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

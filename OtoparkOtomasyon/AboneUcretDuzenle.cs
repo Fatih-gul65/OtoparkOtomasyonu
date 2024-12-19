@@ -12,43 +12,21 @@ namespace OtoparkOtomasyon
 {
     public partial class AboneUcretDuzenle : Form
     {
-  
+        private AboneUcretleriDuzenle _islemler;
         public AboneUcretDuzenle()
         {
             InitializeComponent();
+            _islemler = new AboneUcretleriDuzenle(rdbtnOtomobil, rdbtnKamyonet, rdbtnMinibus, txtAboneUcreti);
         }
 
         int AUcretID = 0;
         string AracTuru = "";
 
-        private void UcretYazdir(int aucretID)
-        {
-            try {
-                Baglanti baglanti = new Baglanti();
-                var entities = baglanti.Entity();
-
-                var Yazdir = entities.AboneUcret.FirstOrDefault(x => x.AboneUcretID == aucretID);
-                if (Yazdir != null)
-                {
-                    txtAboneUcreti.Text = Yazdir.AboneUcret1.ToString();
-
-                }
-                else
-                {
-                    txtAboneUcreti.Clear();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Bir hata ile karşılaşıldı : " + ex.Message);
-            }
-        }
-
         private void btnGeri_Click(object sender, EventArgs e)
         {
             YoneticiGiris geri = new YoneticiGiris();
             geri.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void rdbtnOtomobil_CheckedChanged(object sender, EventArgs e)
@@ -57,7 +35,7 @@ namespace OtoparkOtomasyon
             {
                 AUcretID = 1;
                 AracTuru = "Otomobil";
-                UcretYazdir(AUcretID);
+                _islemler.UcretYazdir(AUcretID);
             }
         }
 
@@ -67,7 +45,7 @@ namespace OtoparkOtomasyon
             {
                 AUcretID = 2;
                 AracTuru = "Kamyonet";
-                UcretYazdir(AUcretID);
+                _islemler.UcretYazdir(AUcretID);
             }
         }
 
@@ -77,7 +55,7 @@ namespace OtoparkOtomasyon
             {
                 AUcretID = 3;
                 AracTuru = "Minibüs / Kamyon";
-                UcretYazdir(AUcretID);
+                _islemler.UcretYazdir(AUcretID);
             }
         }
 
@@ -88,49 +66,19 @@ namespace OtoparkOtomasyon
 
         private void btnKaydet_Click(object sender, EventArgs e)
         {
-            if (AUcretID == 0 || string.IsNullOrWhiteSpace(txtAboneUcreti.Text))
-            {
-                MessageBox.Show("Lütfen bir araç türü seçin ve abone ücretini girin!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-
-            else
-            {
-                try
-                {
-                    Baglanti baglanti = new Baglanti();
-                    var entities = baglanti.Entity();
-
-                    var aboneUcret = entities.AboneUcret.FirstOrDefault(x => x.AboneUcretID == AUcretID);
-
-                    if (aboneUcret != null)
-                    {
-                        aboneUcret.AboneUcret1 = Convert.ToDecimal(txtAboneUcreti.Text.Trim());
-                        entities.SaveChanges();
-                        MessageBox.Show("Abone ücreti başarıyla güncellendi!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        AboneUcret Ekle = new AboneUcret();
-
-                        Ekle.AboneUcretID = AUcretID;
-                        Ekle.AboneAracTuru = AracTuru;
-                        Ekle.AboneUcret1 = Convert.ToDecimal(txtAboneUcreti.Text.Trim());
-                        Ekle.AboneSuresi = 30;
-
-                        entities.AboneUcret.Add(Ekle);
-                        entities.SaveChanges();
-                        MessageBox.Show("Yeni abone ücreti başarıyla eklendi!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Bir hata ile karşılaşıldı : " + ex.Message);
-                }
-            }
-
-
+            _islemler.Ekle(AUcretID, AracTuru);
         }
 
-      
+        private void txtAboneUcreti_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            else if (txtAboneUcreti.Text.Length >= 10 && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

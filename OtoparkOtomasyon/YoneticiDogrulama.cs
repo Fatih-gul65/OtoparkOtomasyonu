@@ -15,52 +15,58 @@ namespace OtoparkOtomasyon
     {
         public YoneticiDogrulama()
         {
-            InitializeComponent();
+            InitializeComponent();           
         }
-        
+
 
         private void btnGiris_Click(object sender, EventArgs e)
         {
-            
             string YoneticiAdi = txtYoneticiAdiGiris.Text.Trim();
             string YoneticiSifre = txtYoneticiSifreGiris.Text.Trim();
-            SqlConnection baglanti = null;
+            SqlConnection con = null;
             try
             {
-                Baglanti con = new Baglanti();
-                baglanti = con.SqlBaglanti();
+                Baglanti baglanti  = new Baglanti();
+
+                con = baglanti.SqlBaglanti();
 
                 if (YoneticiAdi == "" || YoneticiSifre == "")
                 {
-                    MessageBox.Show("Lütfen Boş Olan Alanları Doldurunuz");
+                    MesajGoster.Uyari("Lütfen Boş Olan Alanları Doldurunuz");
                 }
                 else
                 {
-                    baglanti.Open();
+                    con.Open();
                     string kontrol = "Select * from Yonetici where YoneticiAdi = @YoneticiAdi AND YoneticiSifre = @YoneticiSifre";
-                    SqlCommand komut = new SqlCommand(kontrol, baglanti);
+                    SqlCommand komut = new SqlCommand(kontrol, con);
                     komut.Parameters.AddWithValue("@YoneticiAdi", YoneticiAdi);
                     komut.Parameters.AddWithValue("@YoneticiSifre", YoneticiSifre);
                     SqlDataReader sdr = komut.ExecuteReader();
                     if (sdr.Read())
                     {
                         YoneticiGiris giris = new YoneticiGiris();
+                        YoneticiDogrulama sayfa = new YoneticiDogrulama();
                         giris.Show();
-                        this.Hide();
+                        sayfa.Close();
                     }
                     else
                     {
-                        MessageBox.Show("Hatalı Bilgi Girişi Yaptınız , Lütfen Tekrar Deneyiniz !", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MesajGoster.Hata("Hatalı Bilgi Girişi Yaptınız , Lütfen Tekrar Deneyiniz !");
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MesajGoster.Hata(ex.Message);
             }
-            finally { 
-                baglanti.Close();
+            finally
+            {
+                con.Close();
             }
+        }
+            
+            
+            
 
             
             
@@ -70,7 +76,7 @@ namespace OtoparkOtomasyon
             
            
             
-        }
+        
 
         private void btnGeri_Click(object sender, EventArgs e)
         {

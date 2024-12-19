@@ -251,7 +251,7 @@
             this.txtAboneUcreti.Name = "txtAboneUcreti";
             this.txtAboneUcreti.Size = new System.Drawing.Size(127, 30);
             this.txtAboneUcreti.TabIndex = 17;
-            
+            this.txtAboneUcreti.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAboneUcreti_KeyPress);
             // 
             // label2
             // 

@@ -12,7 +12,7 @@ namespace OtoparkOtomasyon
 {
     public partial class PersonelDogrula : Form
     {
-        OtoparkOtomasyonEntities3 entities = new OtoparkOtomasyonEntities3();
+        Baglanti baglanti = new Baglanti();
         public PersonelDogrula()
         {
             InitializeComponent();
@@ -22,6 +22,7 @@ namespace OtoparkOtomasyon
         {
             try
             {
+                var entities = baglanti.Entity();
 
                 bool kullanici = entities.PersonelGirisTanimla.Any(x => x.KullaniciAdi == txtKullaniciAdiGiris.Text && x.KullaniciSifre == txtKullaniciSifreGiris.Text);
                 if (kullanici)
@@ -49,7 +50,8 @@ namespace OtoparkOtomasyon
 
         private void PersonelDogrula_Load(object sender, EventArgs e)
         {
-            try { 
+            try {
+                var entities = baglanti.Entity();
                 bool KullaniciVarMi = entities.PersonelGirisTanimla.Any();
 
                 if (KullaniciVarMi == false)

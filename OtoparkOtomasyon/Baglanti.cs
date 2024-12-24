@@ -15,7 +15,7 @@ namespace OtoparkOtomasyon
         }
         public SqlConnection SqlBaglanti()
         {
-            return new SqlConnection(@"Data Source=FATIH\SQLEXPRESS;Initial Catalog=OtoparkOtomasyon;Integrated Security=True;");
+            return new SqlConnection(@"Data Source=VIEWSONIC\SQLEXPRESS;Initial Catalog=OtoparkOtomasyon;Integrated Security=True;");
         }
     }
 }

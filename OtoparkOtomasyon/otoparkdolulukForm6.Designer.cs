@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(otoparkdolulukForm6));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblKapasite = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblBosAlan = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblDoluAlan = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -50,7 +50,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
-            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.lblKapasite);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(95, 212);
             this.groupBox1.Name = "groupBox1";
@@ -58,16 +58,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
-            // label4
+            // lblKapasite
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label4.Location = new System.Drawing.Point(120, 138);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(36, 19);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "000";
+            this.lblKapasite.AutoSize = true;
+            this.lblKapasite.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKapasite.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.lblKapasite.Location = new System.Drawing.Point(120, 138);
+            this.lblKapasite.Name = "lblKapasite";
+            this.lblKapasite.Size = new System.Drawing.Size(36, 19);
+            this.lblKapasite.TabIndex = 1;
+            this.lblKapasite.Text = "000";
             // 
             // label1
             // 
@@ -83,7 +83,7 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.White;
-            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.lblBosAlan);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Location = new System.Drawing.Point(489, 212);
             this.groupBox2.Name = "groupBox2";
@@ -91,16 +91,16 @@
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             // 
-            // label5
+            // lblBosAlan
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label5.Location = new System.Drawing.Point(128, 138);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(27, 19);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "00";
+            this.lblBosAlan.AutoSize = true;
+            this.lblBosAlan.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBosAlan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.lblBosAlan.Location = new System.Drawing.Point(128, 138);
+            this.lblBosAlan.Name = "lblBosAlan";
+            this.lblBosAlan.Size = new System.Drawing.Size(27, 19);
+            this.lblBosAlan.TabIndex = 1;
+            this.lblBosAlan.Text = "00";
             // 
             // label3
             // 
@@ -115,7 +115,7 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.White;
-            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.lblDoluAlan);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Location = new System.Drawing.Point(875, 212);
             this.groupBox3.Name = "groupBox3";
@@ -123,16 +123,16 @@
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             // 
-            // label6
+            // lblDoluAlan
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label6.Location = new System.Drawing.Point(144, 138);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(18, 19);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "0";
+            this.lblDoluAlan.AutoSize = true;
+            this.lblDoluAlan.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDoluAlan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblDoluAlan.Location = new System.Drawing.Point(144, 138);
+            this.lblDoluAlan.Name = "lblDoluAlan";
+            this.lblDoluAlan.Size = new System.Drawing.Size(18, 19);
+            this.lblDoluAlan.TabIndex = 1;
+            this.lblDoluAlan.Text = "0";
             // 
             // label2
             // 
@@ -226,9 +226,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblKapasite;
+        private System.Windows.Forms.Label lblBosAlan;
+        private System.Windows.Forms.Label lblDoluAlan;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox1;
         private Guna.UI2.WinForms.Guna2Button btnGeri;

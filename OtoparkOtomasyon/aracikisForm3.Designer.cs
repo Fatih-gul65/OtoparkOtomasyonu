@@ -44,6 +44,8 @@
             this.btnGeri = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.lblKalinanSure = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -240,12 +242,36 @@
             this.pictureBox3.TabIndex = 19;
             this.pictureBox3.TabStop = false;
             // 
+            // lblKalinanSure
+            // 
+            this.lblKalinanSure.AutoSize = true;
+            this.lblKalinanSure.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKalinanSure.ForeColor = System.Drawing.Color.White;
+            this.lblKalinanSure.Location = new System.Drawing.Point(709, 456);
+            this.lblKalinanSure.Name = "lblKalinanSure";
+            this.lblKalinanSure.Size = new System.Drawing.Size(45, 19);
+            this.lblKalinanSure.TabIndex = 20;
+            this.lblKalinanSure.Text = "Süre";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(501, 456);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(113, 19);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "Kalınan Süre:";
+            // 
             // aracikisForm3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(42)))), ((int)(((byte)(56)))));
             this.ClientSize = new System.Drawing.Size(1292, 708);
+            this.Controls.Add(this.lblKalinanSure);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.btnGeri);
@@ -291,5 +317,7 @@
         private Guna.UI2.WinForms.Guna2Button btnGeri;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label lblKalinanSure;
+        private System.Windows.Forms.Label label5;
     }
 }

@@ -142,6 +142,7 @@
             this.txtTelefonNo.Name = "txtTelefonNo";
             this.txtTelefonNo.Size = new System.Drawing.Size(100, 20);
             this.txtTelefonNo.TabIndex = 2;
+            this.txtTelefonNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefonNo_KeyPress);
             // 
             // label6
             // 
@@ -203,6 +204,7 @@
             this.btnKaydet.Size = new System.Drawing.Size(243, 83);
             this.btnKaydet.TabIndex = 4;
             this.btnKaydet.Text = "Aracı Kaydet";
+            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click_1);
             // 
             // btnIptal
             // 
@@ -220,6 +222,7 @@
             this.btnIptal.Size = new System.Drawing.Size(243, 83);
             this.btnIptal.TabIndex = 4;
             this.btnIptal.Text = "İptal";
+            this.btnIptal.Click += new System.EventHandler(this.btnIptal_Click_1);
             // 
             // label10
             // 

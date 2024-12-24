@@ -84,6 +84,7 @@
             // 
             // datagridAboneListele
             // 
+            this.datagridAboneListele.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.datagridAboneListele.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datagridAboneListele.Location = new System.Drawing.Point(196, 158);
             this.datagridAboneListele.Name = "datagridAboneListele";

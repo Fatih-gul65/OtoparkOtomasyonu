@@ -38,5 +38,7 @@ namespace OtoparkOtomasyon
             // DataGridView'e verileri aktar
             datagridAboneListele.DataSource = aboneler;
         }
+
+       
     }
 }

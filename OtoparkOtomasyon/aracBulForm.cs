@@ -38,7 +38,7 @@ namespace OtoparkOtomasyon
 
                 if (aracgiris != null)
                 {
-                    _lblAracYeri.Text = $"Şurada: {aracgiris.ParkYeri}";
+                    _lblAracYeri.Text = $"Şurada: P{aracgiris.ParkYeri}";
                 }
                 else
                 {

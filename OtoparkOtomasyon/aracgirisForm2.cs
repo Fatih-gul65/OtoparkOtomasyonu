@@ -38,12 +38,16 @@ namespace OtoparkOtomasyon
         private void btnKaydet_Click_1(object sender, EventArgs e)
         {
             _islemler.kaydet();
+
         }
 
-        private void btnIptal_Click_1(object sender, EventArgs e)
+        private async void btnIptal_Click_1(object sender, EventArgs e)
         {
             _islemler.TemizleForm();
             MesajGoster.Bilgi("İşlem iptal edildi. Alanlar temizlendi.");
+            await Task.Delay(1000); // 1 saniye bekle
+            _islemler.yukle();
+            
         }
 
         private void txtTelefonNo_KeyPress(object sender, KeyPressEventArgs e)

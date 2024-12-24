@@ -48,11 +48,14 @@ namespace OtoparkOtomasyon
             _txtPlaka.Text = "";
             _txtTelefonNo.Text = "";
             _cmbAracTuru.SelectedIndex = -1; // ComboBox'u sıfırla
+            _lblDogrulamaKodu.Text = "";
+            _lblParkYeri.Text = "";
+
            
         }
         
 
-        public void kaydet()
+        public async void kaydet()
         {
             try
             {
@@ -110,7 +113,12 @@ namespace OtoparkOtomasyon
                 MesajGoster.Bilgi("Araç başarıyla kaydedildi!");
 
                 // Formu temizle
-                TemizleForm();
+                 TemizleForm();
+
+                await Task.Delay(1000); // 1 saniye bekle
+
+                yukle();
+
             }
             catch (Exception ex)
             {

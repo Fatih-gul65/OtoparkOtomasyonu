@@ -23,7 +23,7 @@ namespace OtoparkOtomasyon
         {
             try
             {
-                var entities = _baglanti.Entity();
+                var entities = _baglanti.Entity ();
                 // AracGiris tablosundaki kayıtları sayıyoruz
                 var aracGirisSayisi = entities.AracGiris.Count();
 
@@ -44,6 +44,13 @@ namespace OtoparkOtomasyon
                     // Labellere bu verileri yazıyoruz
                     _lblDoluAlan.Text = $"Dolu Alan: {doluAlanlar} araç";
                     _lblBosAlan.Text = $"Boş Alan: {bosAlanlar} araç";
+
+                    // Kapasiteyi de yazmak isterseniz
+                    _lblKapasite.Text = $"Toplam Kapasite: {kapasite} araç";
+                }
+                else
+                {
+                    MesajGoster.Uyari("Otopark kapasitesi bulunamadı.");
                 }
             }
             catch (Exception ex)

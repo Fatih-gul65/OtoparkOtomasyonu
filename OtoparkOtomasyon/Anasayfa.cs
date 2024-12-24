@@ -29,10 +29,7 @@ namespace OtoparkOtomasyon
             Application.Exit();
         }
 
-        private void Anasayfa_Load(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void btnPersonelGiris_Click(object sender, EventArgs e)
         {

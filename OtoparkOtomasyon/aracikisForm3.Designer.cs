@@ -46,6 +46,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lblKalinanSure = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnKaydet = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -114,6 +115,7 @@
             this.btnUcretHesapla.Size = new System.Drawing.Size(242, 83);
             this.btnUcretHesapla.TabIndex = 3;
             this.btnUcretHesapla.Text = "Ücret Hesapla";
+            this.btnUcretHesapla.Click += new System.EventHandler(this.btnUcretHesapla_Click_1);
             // 
             // label4
             // 
@@ -264,12 +266,35 @@
             this.label5.TabIndex = 21;
             this.label5.Text = "Kalınan Süre:";
             // 
+            // btnKaydet
+            // 
+            this.btnKaydet.BorderRadius = 15;
+            this.btnKaydet.BorderThickness = 1;
+            this.btnKaydet.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnKaydet.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnKaydet.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnKaydet.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnKaydet.FillColor = System.Drawing.Color.White;
+            this.btnKaydet.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.btnKaydet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(42)))), ((int)(((byte)(56)))));
+            this.btnKaydet.Image = ((System.Drawing.Image)(resources.GetObject("btnKaydet.Image")));
+            this.btnKaydet.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnKaydet.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnKaydet.Location = new System.Drawing.Point(1060, 634);
+            this.btnKaydet.Name = "btnKaydet";
+            this.btnKaydet.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnKaydet.Size = new System.Drawing.Size(180, 45);
+            this.btnKaydet.TabIndex = 24;
+            this.btnKaydet.Text = "Kaydet";
+            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
+            // 
             // aracikisForm3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(42)))), ((int)(((byte)(56)))));
             this.ClientSize = new System.Drawing.Size(1292, 708);
+            this.Controls.Add(this.btnKaydet);
             this.Controls.Add(this.lblKalinanSure);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.pictureBox3);
@@ -291,7 +316,7 @@
             this.Name = "aracikisForm3";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "aracikisForm3";
-            this.Load += new System.EventHandler(this.aracikisForm3_Load);
+           
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -319,5 +344,6 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label lblKalinanSure;
         private System.Windows.Forms.Label label5;
+        private Guna.UI2.WinForms.Guna2Button btnKaydet;
     }
 }

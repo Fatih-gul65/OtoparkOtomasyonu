@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(abonelikForm4));
             this.btnGeri = new Guna.UI2.WinForms.Guna2Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnFiyatGoster = new Guna.UI2.WinForms.Guna2Button();
             this.cmbAracTuru = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cmbAbonelikSuresi = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txtAracPlakasi = new System.Windows.Forms.TextBox();
@@ -70,7 +70,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.guna2Button1);
+            this.groupBox1.Controls.Add(this.btnFiyatGoster);
             this.groupBox1.Controls.Add(this.cmbAracTuru);
             this.groupBox1.Controls.Add(this.cmbAbonelikSuresi);
             this.groupBox1.Controls.Add(this.txtAracPlakasi);
@@ -88,24 +88,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Abonelik İşlemleri";
             // 
-            // guna2Button1
+            // btnFiyatGoster
             // 
-            this.guna2Button1.BorderRadius = 15;
-            this.guna2Button1.BorderThickness = 1;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.White;
-            this.guna2Button1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.guna2Button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(42)))), ((int)(((byte)(56)))));
-            this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button1.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button1.Location = new System.Drawing.Point(503, 241);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(180, 45);
-            this.guna2Button1.TabIndex = 22;
-            this.guna2Button1.Text = "Fiyat Göster";
+            this.btnFiyatGoster.BorderRadius = 15;
+            this.btnFiyatGoster.BorderThickness = 1;
+            this.btnFiyatGoster.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnFiyatGoster.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnFiyatGoster.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnFiyatGoster.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnFiyatGoster.FillColor = System.Drawing.Color.White;
+            this.btnFiyatGoster.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.btnFiyatGoster.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(42)))), ((int)(((byte)(56)))));
+            this.btnFiyatGoster.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnFiyatGoster.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnFiyatGoster.Location = new System.Drawing.Point(503, 241);
+            this.btnFiyatGoster.Name = "btnFiyatGoster";
+            this.btnFiyatGoster.Size = new System.Drawing.Size(180, 45);
+            this.btnFiyatGoster.TabIndex = 22;
+            this.btnFiyatGoster.Text = "Fiyat Göster";
+            this.btnFiyatGoster.Click += new System.EventHandler(this.btnFiyatGoster_Click);
             // 
             // cmbAracTuru
             // 
@@ -245,6 +246,7 @@
             this.btnKaydet.Size = new System.Drawing.Size(180, 45);
             this.btnKaydet.TabIndex = 22;
             this.btnKaydet.Text = "Kaydet";
+            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
             // 
             // abonelikForm4
             // 
@@ -284,6 +286,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblTutar;
         private System.Windows.Forms.Label label5;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button btnFiyatGoster;
     }
 }

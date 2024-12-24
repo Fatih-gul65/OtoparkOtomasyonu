@@ -21,6 +21,15 @@ namespace OtoparkOtomasyon
 
         }
 
+     
+
+        private void btnGeri_Click(object sender, EventArgs e)
+        {
+            PersonelGirisi personelGirisi = new PersonelGirisi();
+            personelGirisi.Show();
+            this.Close();
+        }
+
         private void abonelistele_Load(object sender, EventArgs e)
         {
             var entities = baglanti.Entity();
@@ -28,13 +37,6 @@ namespace OtoparkOtomasyon
 
             // DataGridView'e verileri aktar
             datagridAboneListele.DataSource = aboneler;
-        }
-
-        private void btnGeri_Click(object sender, EventArgs e)
-        {
-            PersonelGirisi personelGirisi = new PersonelGirisi();
-            personelGirisi.Show();
-            this.Close();
         }
     }
 }

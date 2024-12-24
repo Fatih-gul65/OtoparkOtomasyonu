@@ -17,7 +17,7 @@ namespace OtoparkOtomasyon
 
         public aracGirisForm(Baglanti baglanti, TextBox txtMusteriAdi, TextBox txtMusteriSoyadi, TextBox txtPlaka, TextBox txtTelefonNo, ComboBox cmbAracTuru, Label lblDogrulamaKodu, Label lblParkYeri)
         {
-            _baglanti = new Baglanti();
+            _baglanti = baglanti;
             _txtMusteriAdi = txtMusteriAdi;
             _txtMusteriSoyadi = txtMusteriSoyadi;
             _txtPlaka = txtPlaka;

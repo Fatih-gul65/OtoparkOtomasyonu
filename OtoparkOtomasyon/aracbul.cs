@@ -14,10 +14,11 @@ namespace OtoparkOtomasyon
     public partial class aracbul : Form
     {
         Baglanti baglanti = new Baglanti();
-
+        aracBulForm _islemler;
         public aracbul()
         {
             InitializeComponent();
+            _islemler = new aracBulForm(baglanti, txtPlaka, lblAracYeri);
 
         }
 
@@ -28,37 +29,11 @@ namespace OtoparkOtomasyon
             this.Close();
         }
 
-        private void btnAracBul_Click(object sender, EventArgs e)
+       
+
+        private void btnAracBul_Click_1(object sender, EventArgs e)
         {
-            string plaka = txtPlaka.Text.Trim(); // Kullanıcıdan alınan plaka
-
-            if (string.IsNullOrEmpty(plaka))
-            {
-                MessageBox.Show("Lütfen bir plaka girin!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            try
-            {
-                var entities = baglanti.Entity();
-                // Plakaya göre araç arama (case-insensitive)
-                var aracgiris = entities.AracGiris
-                    .FirstOrDefault(a => a.Plaka.ToLower() == plaka.ToLower());
-
-                if (aracgiris != null)
-                {
-                    lblAracYeri.Text = $"Şurada: {aracgiris.ParkYeri}";
-                }
-                else
-                {
-                    lblAracYeri.Text = "Araç bulunamadı!";
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Hata: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            _islemler.aracBul();
         }
-
     }
 }

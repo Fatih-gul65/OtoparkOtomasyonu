@@ -58,6 +58,7 @@
             this.btnAracBul.Size = new System.Drawing.Size(180, 45);
             this.btnAracBul.TabIndex = 16;
             this.btnAracBul.Text = "Araç Bul";
+            this.btnAracBul.Click += new System.EventHandler(this.btnAracBul_Click_1);
             // 
             // txtPlaka
             // 
@@ -174,7 +175,6 @@
             this.Name = "aracbul";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "aracbul";
-            
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);

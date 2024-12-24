@@ -125,8 +125,8 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Anasayfa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Anasayfa";
-            this.Load += new System.EventHandler(this.Anasayfa_Load);
+            this.Text = "  ";
+           
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);

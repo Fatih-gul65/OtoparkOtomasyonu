@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="AboneID" />
           </Key>
-          <Property Name="AboneID" Type="int" Nullable="false" />
+          <Property Name="AboneID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="AbonePlaka" Type="varchar" MaxLength="30" />
           <Property Name="AbonelikBaslangicTarihi" Type="datetime" />
           <Property Name="AbonelikBitisTarihi" Type="datetime" />
@@ -93,6 +93,8 @@
           <Property Name="KullaniciSifre" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="TanimlanmaTarihi" Type="datetime" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'OtoparkOtomasyon.dbo.Rapor' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Rapor">
           <Key>
             <PropertyRef Name="RaporID" />
@@ -258,10 +260,18 @@
           <EntitySet Name="AracUcretleri" EntityType="Self.AracUcretleri" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OtoparkDurumu" EntityType="Self.OtoparkDurumu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PersonelGirisTanimla" EntityType="Self.PersonelGirisTanimla" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Rapor" EntityType="Self.Rapor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UcretsizGiris" EntityType="Self.UcretsizGiris" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Yonetici" EntityType="Self.Yonetici" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rapor" EntityType="Self.Rapor" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Rapor].[RaporID] AS [RaporID], 
+    [Rapor].[OtoparkID] AS [OtoparkID], 
+    [Rapor].[GirisID] AS [GirisID], 
+    [Rapor].[CikisID] AS [CikisID], 
+    [Rapor].[ToplamUcret] AS [ToplamUcret]
+    FROM [dbo].[Rapor] AS [Rapor]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_Abonelikler_AboneUcret" Association="Self.FK_Abonelikler_AboneUcret">
             <End Role="AboneUcret" EntitySet="AboneUcret" />
             <End Role="Abonelikler" EntitySet="Abonelikler" />
@@ -312,7 +322,7 @@
           <Key>
             <PropertyRef Name="AboneID" />
           </Key>
-          <Property Name="AboneID" Type="Int32" Nullable="false" />
+          <Property Name="AboneID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="AbonePlaka" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="AbonelikBaslangicTarihi" Type="DateTime" Precision="3" />
           <Property Name="AbonelikBitisTarihi" Type="DateTime" Precision="3" />
@@ -411,19 +421,6 @@
           <Property Name="KullaniciSifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TanimlanmaTarihi" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
-        <EntityType Name="Rapor">
-          <Key>
-            <PropertyRef Name="RaporID" />
-          </Key>
-          <Property Name="RaporID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="OtoparkID" Type="Int32" />
-          <Property Name="GirisID" Type="Int32" />
-          <Property Name="CikisID" Type="Int32" />
-          <Property Name="ToplamUcret" Type="Int32" />
-          <NavigationProperty Name="AracCikis" Relationship="Self.FK_Rapor_AracCikis" FromRole="Rapor" ToRole="AracCikis" />
-          <NavigationProperty Name="AracGiris" Relationship="Self.FK_Rapor_AracGiris" FromRole="Rapor" ToRole="AracGiris" />
-          <NavigationProperty Name="OtoparkDurumu" Relationship="Self.FK_Rapor_OtoparkDurumu" FromRole="Rapor" ToRole="OtoparkDurumu" />
-        </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -451,6 +448,19 @@
           <Property Name="YoneticiID" Type="Int32" Nullable="false" />
           <Property Name="YoneticiAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="YoneticiSifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rapor">
+          <Key>
+            <PropertyRef Name="RaporID" />
+          </Key>
+          <Property Name="RaporID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OtoparkID" Type="Int32" />
+          <Property Name="GirisID" Type="Int32" />
+          <Property Name="CikisID" Type="Int32" />
+          <Property Name="ToplamUcret" Type="Int32" />
+          <NavigationProperty Name="AracCikis" Relationship="Self.FK_Rapor_AracCikis" FromRole="Rapor" ToRole="AracCikis" />
+          <NavigationProperty Name="AracGiris" Relationship="Self.FK_Rapor_AracGiris" FromRole="Rapor" ToRole="AracGiris" />
+          <NavigationProperty Name="OtoparkDurumu" Relationship="Self.FK_Rapor_OtoparkDurumu" FromRole="Rapor" ToRole="OtoparkDurumu" />
         </EntityType>
         <Association Name="FK_Abonelikler_AboneUcret">
           <End Role="AboneUcret" Type="Self.AboneUcret" Multiplicity="0..1" />
@@ -572,7 +582,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="OtoparkOtomasyonEntities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="OtoparkOtomasyonEntities3" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Abonelikler" EntityType="Self.Abonelikler" />
           <EntitySet Name="AboneUcret" EntityType="Self.AboneUcret" />
           <EntitySet Name="AracCikis" EntityType="Self.AracCikis" />
@@ -581,10 +591,10 @@
           <EntitySet Name="AracUcretleri" EntityType="Self.AracUcretleri" />
           <EntitySet Name="OtoparkDurumu" EntityType="Self.OtoparkDurumu" />
           <EntitySet Name="PersonelGirisTanimla" EntityType="Self.PersonelGirisTanimla" />
-          <EntitySet Name="Rapor" EntityType="Self.Rapor" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="UcretsizGiris" EntityType="Self.UcretsizGiris" />
           <EntitySet Name="Yonetici" EntityType="Self.Yonetici" />
+          <EntitySet Name="Rapor" EntityType="Self.Rapor" />
           <AssociationSet Name="FK_Abonelikler_AboneUcret" Association="Self.FK_Abonelikler_AboneUcret">
             <End Role="AboneUcret" EntitySet="AboneUcret" />
             <End Role="Abonelikler" EntitySet="Abonelikler" />
@@ -631,7 +641,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="OtoparkOtomasyonModelStoreContainer" CdmEntityContainer="OtoparkOtomasyonEntities2">
+        <EntityContainerMapping StorageEntityContainer="OtoparkOtomasyonModelStoreContainer" CdmEntityContainer="OtoparkOtomasyonEntities3">
           <EntitySetMapping Name="Abonelikler">
             <EntityTypeMapping TypeName="OtoparkOtomasyonModel.Abonelikler">
               <MappingFragment StoreEntitySet="Abonelikler">
@@ -728,17 +738,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Rapor">
-            <EntityTypeMapping TypeName="OtoparkOtomasyonModel.Rapor">
-              <MappingFragment StoreEntitySet="Rapor">
-                <ScalarProperty Name="RaporID" ColumnName="RaporID" />
-                <ScalarProperty Name="OtoparkID" ColumnName="OtoparkID" />
-                <ScalarProperty Name="GirisID" ColumnName="GirisID" />
-                <ScalarProperty Name="CikisID" ColumnName="CikisID" />
-                <ScalarProperty Name="ToplamUcret" ColumnName="ToplamUcret" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="OtoparkOtomasyonModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
@@ -765,6 +764,17 @@
                 <ScalarProperty Name="YoneticiID" ColumnName="YoneticiID" />
                 <ScalarProperty Name="YoneticiAdi" ColumnName="YoneticiAdi" />
                 <ScalarProperty Name="YoneticiSifre" ColumnName="YoneticiSifre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rapor">
+            <EntityTypeMapping TypeName="OtoparkOtomasyonModel.Rapor">
+              <MappingFragment StoreEntitySet="Rapor">
+                <ScalarProperty Name="RaporID" ColumnName="RaporID" />
+                <ScalarProperty Name="OtoparkID" ColumnName="OtoparkID" />
+                <ScalarProperty Name="GirisID" ColumnName="GirisID" />
+                <ScalarProperty Name="CikisID" ColumnName="CikisID" />
+                <ScalarProperty Name="ToplamUcret" ColumnName="ToplamUcret" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

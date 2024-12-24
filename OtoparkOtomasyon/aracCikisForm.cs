@@ -53,15 +53,33 @@ namespace OtoparkOtomasyon
                     MesajGoster.Hata("Bu plakaya ait giriş kaydı bulunamadı!");
                     return;
                 }
-
-                // Ücret hesaplama
-                double saatlikUcret = 20; // Örnek saatlik ücret
-                DateTime cikisTarihi = DateTime.Now; // Çıkış anını alıyoruz
+                var aracTuru = girisKaydi.AracTuru;
+                var UcretTarifesi = entities.AracUcretleri.FirstOrDefault(u => u.AracTuru == aracTuru);
+                DateTime cikisTarihi = DateTime.Now;
                 TimeSpan kalinanSure = cikisTarihi - girisKaydi.GirisTarihi;
-                double toplamUcret = Math.Ceiling(kalinanSure.TotalHours) * saatlikUcret;
+                double toplamSaat = Math.Ceiling(kalinanSure.TotalHours);
+                decimal ToplamUcret = 0;
+                if (toplamSaat <= 3)
+                {
+                    ToplamUcret = Convert.ToDecimal(UcretTarifesi.AracUcret03);
+                }
+                else if (toplamSaat > 3 && toplamSaat <= 6)
+                {
+                    ToplamUcret = Convert.ToDecimal(UcretTarifesi.AracUcret36);
+                }
+                else if (toplamSaat > 6 && toplamSaat <= 24)
+                {
+                    ToplamUcret = Convert.ToDecimal(UcretTarifesi.AracUcret61);
+                }
+                else
+                {
+                    int gunSayisi = (int)Math.Ceiling(toplamSaat / 24.0);
+                    ToplamUcret = gunSayisi * Convert.ToDecimal(UcretTarifesi.AracUcretBirGunUzeri);
+                }
 
-                // Toplam ücreti ekranda göster
-                _lblTutar.Text = $"{toplamUcret} TL";
+
+
+                _lblTutar.Text = $"{ToplamUcret} TL";
                 _lblKalinanSure.Text = $"{Math.Ceiling(kalinanSure.TotalHours)} saat"; // Kalınan süreyi göster
             }
             catch (Exception ex)

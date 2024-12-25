@@ -23,34 +23,40 @@ namespace OtoparkOtomasyon
         {
             try
             {
-                var entities = _baglanti.Entity ();
-                // AracGiris tablosundaki kayıtları sayıyoruz
-                var aracGirisSayisi = entities.AracGiris.Count();
+                var entities = _baglanti.Entity();
 
-                // Otopark kapasitesini öğreniyoruz
-                var otopark = entities.OtoparkDurumu.FirstOrDefault();
-
-                if (otopark != null)
+                var kapasiteBilgisi = entities.AracKapasitesi.FirstOrDefault();
+                if (kapasiteBilgisi != null)
                 {
-                    // Kapasiteyi nullable int'den int'e dönüştürüyoruz
-                    int kapasite = otopark.KapasiteID.HasValue ? otopark.KapasiteID.Value : 0;
+                    int otomobilKapasite = kapasiteBilgisi.OtomobilKapasitesi.HasValue ? kapasiteBilgisi.OtomobilKapasitesi.Value : 0;
+                    int otomobilGiris = entities.AracGiris.Count(ag => ag.AracTuru == "Otomobil");
+                    int otomobilCikis = entities.AracCikis.Count(ac => entities.AracGiris.Any(ag => ag.GirisID == ac.GirisID && ag.AracTuru == "Otomobil"));
+                    int otomobilDolu = otomobilGiris - otomobilCikis;
+                    int otomobilBos = otomobilKapasite - otomobilDolu;
 
-                    // Dolu alanları belirliyoruz
-                    int doluAlanlar = aracGirisSayisi;
+                    int kamyonetKapasite = kapasiteBilgisi.KamyonetKapasitesi.HasValue ? kapasiteBilgisi.KamyonetKapasitesi.Value : 0;
+                    int kamyonetGiris = entities.AracGiris.Count(ag => ag.AracTuru == "Kamyonet");
+                    int kamyonetCikis = entities.AracCikis.Count(ac => entities.AracGiris.Any(ag => ag.GirisID == ac.GirisID && ag.AracTuru == "Kamyonet"));
+                    int kamyonetDolu = kamyonetGiris - kamyonetCikis;
+                    int kamyonetBos = kamyonetKapasite - kamyonetDolu;
 
-                    // Boş alanları hesaplıyoruz
-                    int bosAlanlar = kapasite - doluAlanlar;
+                    int minibusKapasite = kapasiteBilgisi.MinibusKapasitesi.HasValue ? kapasiteBilgisi.MinibusKapasitesi.Value : 0;
+                    int minibusGiris = entities.AracGiris.Count(ag => ag.AracTuru == "Minibüs/Kamyon");
+                    int minibusCikis = entities.AracCikis.Count(ac => entities.AracGiris.Any(ag => ag.GirisID == ac.GirisID && ag.AracTuru == "Minibüs/Kamyon"));
+                    int minibusDolu = minibusGiris - minibusCikis;
+                    int minibusBos = minibusKapasite - minibusDolu;
 
-                    // Labellere bu verileri yazıyoruz
-                    _lblDoluAlan.Text = $"Dolu Alan: {doluAlanlar} araç";
-                    _lblBosAlan.Text = $"Boş Alan: {bosAlanlar} araç";
-
-                    // Kapasiteyi de yazmak isterseniz
-                    _lblKapasite.Text = $"Toplam Kapasite: {kapasite} araç";
+                    string sonucKapasite = $"Otomobil Kapasitesi : {otomobilKapasite} \nKamyonet Kapasitesi : {kamyonetKapasite} \nMinibüs/Kamyon Kapasitesi : {minibusKapasite} \n \nToplam Kapasite : " + (otomobilKapasite + kamyonetKapasite + minibusKapasite);
+                    string sonucDolu = $"Otomobil Dolu Alan : {otomobilDolu} \nKamyonet Dolu Alan : {kamyonetDolu} \nMinibüs/Kamyon Dolu Alan : {minibusDolu} \n \nToplam Dolu Alan : " + (otomobilDolu + kamyonetDolu + minibusDolu);
+                    string sonucBos = $"Otomobil Bos Alan : {otomobilBos} \nKamyonet Bos Alan : {kamyonetBos} \nMinibüs/Kamyon Bos Alan : {minibusBos} \n \nToplam Bos Alan : " + (otomobilBos + kamyonetBos + minibusBos);
+                    
+                    _lblKapasite.Text = sonucKapasite;
+                    _lblDoluAlan.Text = sonucDolu; 
+                    _lblBosAlan.Text = sonucBos;                    
                 }
                 else
                 {
-                    MesajGoster.Uyari("Otopark kapasitesi bulunamadı.");
+                    MesajGoster.Uyari("Otopark kapasitesi bilgileri bulunamadı.");
                 }
             }
             catch (Exception ex)

@@ -59,6 +59,7 @@ namespace OtoparkOtomasyon
                 TimeSpan kalinanSure = cikisTarihi - girisKaydi.GirisTarihi;
                 double toplamSaat = Math.Ceiling(kalinanSure.TotalHours);
                 decimal ToplamUcret = 0;
+                
                 if (toplamSaat <= 3)
                 {
                     ToplamUcret = Convert.ToDecimal(UcretTarifesi.AracUcret03);
@@ -107,6 +108,13 @@ namespace OtoparkOtomasyon
                     return;
                 }
 
+                var UcretTarifesi = entities.AracUcretleri.FirstOrDefault(u => u.AracTuru == girisKaydi.AracTuru);
+
+                if (UcretTarifesi == null)
+                {
+                    MesajGoster.Hata("ücret tarifesi bulunamadı!");
+                    return;
+                }
                 // Çıkış işlemi için kaydı oluştur
                 DateTime cikisTarihi = DateTime.Now; // Çıkış anı
                 decimal? toplamUcret = Convert.ToDecimal(_lblTutar.Text.Replace(" TL", ""));
@@ -119,13 +127,14 @@ namespace OtoparkOtomasyon
                     ToplamUcret = toplamUcret,
                     OdemeTuru = _rdbtnNakit.Checked ? "Nakit" : "Kredi Kartı",
                     DogrulamaKodu = dogrulamaKodu,
-                    GirisID = girisKaydi.GirisID
+                    GirisID = girisKaydi.GirisID,
+                    AracUcretID = UcretTarifesi.AracUcretID
                 };
 
                 // Veritabanına kaydet
                 entities.AracCikis.Add(aracCikis);
                 // Giriş kaydını sil 
-                entities.AracGiris.Remove(girisKaydi);
+                //entities.AracGiris.Remove(girisKaydi);
                 entities.SaveChanges();
 
                 MesajGoster.Bilgi("Çıkış başarıyla kaydedildi!");

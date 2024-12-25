@@ -30,7 +30,7 @@ namespace OtoparkOtomasyon
         {    
             // Araç türleri ComboBox'a ekleniyor
             _cmbAracTuru.Items.Add("Otomobil");
-            _cmbAracTuru.Items.Add("Minibüs");
+            _cmbAracTuru.Items.Add("Minibüs/Kamyon");
             _cmbAracTuru.Items.Add("Kamyonet");
 
             // Doğrulama kodu oluştur

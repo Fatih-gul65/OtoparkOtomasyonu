@@ -14,7 +14,6 @@ namespace OtoparkOtomasyon
     {
         Baglanti baglanti = new Baglanti();
         otoParkDolulukForm _islemler;
-
         public otoparkdolulukForm6()
         {
             InitializeComponent();
@@ -22,12 +21,10 @@ namespace OtoparkOtomasyon
 
 
         }
-
         private void otoparkdolulukForm6_Load(object sender, EventArgs e)
         {
             _islemler.GuncelleDoluluk();
         }
-
         private void btnGeri_Click(object sender, EventArgs e)
         {
             PersonelGirisi personelGirisi = new PersonelGirisi();

@@ -18,7 +18,7 @@ namespace OtoparkOtomasyon
         public abonelikForm4()
         {
             InitializeComponent();
-            _islemler = new abonelikForm(baglanti, cmbAracTuru, cmbAbonelikSuresi, txtAracPlakasi, lblTutar);
+            _islemler = new abonelikForm(baglanti, cmbAracTuru, cmbAbonelikSuresi, txtAracPlakasi, rdbtnNakit ,rdbtnKrediKart,lblTutar);
 
         }
 

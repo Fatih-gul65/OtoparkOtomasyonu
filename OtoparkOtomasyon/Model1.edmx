@@ -23,7 +23,7 @@
           <Property Name="AboneUcretID" Type="int" Nullable="false" />
           <Property Name="AboneSuresi" Type="int" />
           <Property Name="AboneAracTuru" Type="nvarchar" MaxLength="30" />
-          <Property Name="AboneUcret" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="AboneUcreti" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <EntityType Name="AracCikis">
           <Key>
@@ -83,6 +83,7 @@
           <Property Name="KapasiteID" Type="int" />
           <Property Name="Doluluk" Type="int" />
           <Property Name="BosAlan" Type="int" />
+          <Property Name="ParkYeriDurumu" Type="bit" />
         </EntityType>
         <EntityType Name="PersonelGirisTanimla">
           <Key>
@@ -338,7 +339,7 @@ warning 6002: The table/view 'OtoparkOtomasyon.dbo.Rapor' does not have a primar
           <Property Name="AboneUcretID" Type="Int32" Nullable="false" />
           <Property Name="AboneSuresi" Type="Int32" />
           <Property Name="AboneAracTuru" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="AboneUcret1" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="AboneUcreti" Type="Decimal" Precision="18" Scale="2" />
           <NavigationProperty Name="Abonelikler" Relationship="Self.FK_Abonelikler_AboneUcret" FromRole="AboneUcret" ToRole="Abonelikler" />
         </EntityType>
         <EntityType Name="AracCikis">
@@ -409,6 +410,7 @@ warning 6002: The table/view 'OtoparkOtomasyon.dbo.Rapor' does not have a primar
           <Property Name="KapasiteID" Type="Int32" />
           <Property Name="Doluluk" Type="Int32" />
           <Property Name="BosAlan" Type="Int32" />
+          <Property Name="ParkYeriDurumu" Type="Boolean" />
           <NavigationProperty Name="AracKapasitesi" Relationship="Self.FK_OtoparkDurumu_AracKapasitesi" FromRole="OtoparkDurumu" ToRole="AracKapasitesi" />
           <NavigationProperty Name="Rapor" Relationship="Self.FK_Rapor_OtoparkDurumu" FromRole="OtoparkDurumu" ToRole="Rapor" />
         </EntityType>
@@ -582,7 +584,7 @@ warning 6002: The table/view 'OtoparkOtomasyon.dbo.Rapor' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="OtoparkOtomasyonEntities3" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="OtoparkOtomasyonEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Abonelikler" EntityType="Self.Abonelikler" />
           <EntitySet Name="AboneUcret" EntityType="Self.AboneUcret" />
           <EntitySet Name="AracCikis" EntityType="Self.AracCikis" />
@@ -641,7 +643,7 @@ warning 6002: The table/view 'OtoparkOtomasyon.dbo.Rapor' does not have a primar
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="OtoparkOtomasyonModelStoreContainer" CdmEntityContainer="OtoparkOtomasyonEntities3">
+        <EntityContainerMapping StorageEntityContainer="OtoparkOtomasyonModelStoreContainer" CdmEntityContainer="OtoparkOtomasyonEntities">
           <EntitySetMapping Name="Abonelikler">
             <EntityTypeMapping TypeName="OtoparkOtomasyonModel.Abonelikler">
               <MappingFragment StoreEntitySet="Abonelikler">
@@ -660,7 +662,7 @@ warning 6002: The table/view 'OtoparkOtomasyon.dbo.Rapor' does not have a primar
                 <ScalarProperty Name="AboneUcretID" ColumnName="AboneUcretID" />
                 <ScalarProperty Name="AboneSuresi" ColumnName="AboneSuresi" />
                 <ScalarProperty Name="AboneAracTuru" ColumnName="AboneAracTuru" />
-                <ScalarProperty Name="AboneUcret1" ColumnName="AboneUcret" />
+                <ScalarProperty Name="AboneUcreti" ColumnName="AboneUcreti" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -725,6 +727,7 @@ warning 6002: The table/view 'OtoparkOtomasyon.dbo.Rapor' does not have a primar
                 <ScalarProperty Name="KapasiteID" ColumnName="KapasiteID" />
                 <ScalarProperty Name="Doluluk" ColumnName="Doluluk" />
                 <ScalarProperty Name="BosAlan" ColumnName="BosAlan" />
+                <ScalarProperty Name="ParkYeriDurumu" ColumnName="ParkYeriDurumu" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -4,14 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b7f2f3116c504b1481144d4ca1fc12e0" Name="Diagram1" ZoomLevel="46">
+      <Diagram DiagramId="2bdd1fbfbf6d4ebaac22a06bc8e08974" Name="Diagram1">
         <EntityTypeShape EntityType="OtoparkOtomasyonModel.Abonelikler" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="OtoparkOtomasyonModel.AboneUcret" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="OtoparkOtomasyonModel.AracCikis" Width="1.5" PointX="5.25" PointY="6.625" IsExpanded="true" />
         <EntityTypeShape EntityType="OtoparkOtomasyonModel.AracGiris" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="OtoparkOtomasyonModel.AracKapasitesi" Width="1.5" PointX="3" PointY="13.5" IsExpanded="true" />
         <EntityTypeShape EntityType="OtoparkOtomasyonModel.AracUcretleri" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="OtoparkOtomasyonModel.OtoparkDurumu" Width="1.5" PointX="5.25" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OtoparkOtomasyonModel.OtoparkDurumu" Width="1.5" PointX="5.25" PointY="13.25" IsExpanded="true" />
         <EntityTypeShape EntityType="OtoparkOtomasyonModel.PersonelGirisTanimla" Width="1.5" PointX="5.75" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="OtoparkOtomasyonModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="OtoparkOtomasyonModel.UcretsizGiris" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />

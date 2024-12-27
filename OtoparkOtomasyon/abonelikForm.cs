@@ -116,7 +116,7 @@ namespace OtoparkOtomasyon
             {
                 var entities = _baglanti.Entity();
                 // AboneUcret tablosunda geçerli bir ücret ile eşleşen satırı almak
-                var aboneUcret = entities.AboneUcret.FirstOrDefault(u => u.AboneUcret1 == tutar);
+                var aboneUcret = entities.AboneUcret.FirstOrDefault(u => u.AboneUcreti == tutar);
                 if (aboneUcret == null)
                 {
                     MessageBox.Show("Geçerli bir ücret bulunamadı! Lütfen ücret tablosunu kontrol edin.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -13,10 +13,10 @@ namespace OtoparkOtomasyon
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class OtoparkOtomasyonEntities3 : DbContext
+    public partial class OtoparkOtomasyonEntities : DbContext
     {
-        public OtoparkOtomasyonEntities3()
-            : base("name=OtoparkOtomasyonEntities3")
+        public OtoparkOtomasyonEntities()
+            : base("name=OtoparkOtomasyonEntities")
         {
         }
     

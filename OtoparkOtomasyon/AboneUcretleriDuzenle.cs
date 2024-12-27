@@ -31,7 +31,7 @@ namespace OtoparkOtomasyon
                 var Yazdir = entities.AboneUcret.FirstOrDefault(x => x.AboneUcretID == aucretID);
                 if (Yazdir != null)
                 {
-                    _txtAboneUcreti.Text = Yazdir.AboneUcret1.ToString();
+                    _txtAboneUcreti.Text = Yazdir.AboneUcreti.ToString();
 
                 }
                 else
@@ -62,7 +62,7 @@ namespace OtoparkOtomasyon
 
                     if (aboneUcret != null)
                     {
-                        aboneUcret.AboneUcret1 = Convert.ToDecimal(_txtAboneUcreti.Text.Trim());
+                        aboneUcret.AboneUcreti = Convert.ToDecimal(_txtAboneUcreti.Text.Trim());
                         entities.SaveChanges();
                         MesajGoster.Bilgi("Abone ücreti başarıyla güncellendi!");
                     }
@@ -72,7 +72,7 @@ namespace OtoparkOtomasyon
 
                         Ekle.AboneUcretID = AUcretID;
                         Ekle.AboneAracTuru = AracTuru;
-                        Ekle.AboneUcret1 = Convert.ToDecimal(_txtAboneUcreti.Text.Trim());
+                        Ekle.AboneUcreti = Convert.ToDecimal(_txtAboneUcreti.Text.Trim());
                         Ekle.AboneSuresi = 30;
 
                         entities.AboneUcret.Add(Ekle);

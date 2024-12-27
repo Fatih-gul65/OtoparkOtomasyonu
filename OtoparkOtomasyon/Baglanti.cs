@@ -9,9 +9,9 @@ namespace OtoparkOtomasyon
 {
     internal class Baglanti
     {
-        public OtoparkOtomasyonEntities3 Entity()
+        public OtoparkOtomasyonEntities Entity()
         {
-            return new OtoparkOtomasyonEntities3();
+            return new OtoparkOtomasyonEntities();
         }
         public SqlConnection SqlBaglanti()
         {

@@ -24,6 +24,7 @@ namespace OtoparkOtomasyon
         public Nullable<int> KapasiteID { get; set; }
         public Nullable<int> Doluluk { get; set; }
         public Nullable<int> BosAlan { get; set; }
+        public Nullable<bool> ParkYeriDurumu { get; set; }
     
         public virtual AracKapasitesi AracKapasitesi { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -16,9 +16,10 @@ namespace OtoparkOtomasyon
         private Label _lblTutar;
         private Label _lblKalinanSure;
         private RadioButton _rdbtnNakit;
+        private RadioButton _rdbtnKrediKart;
 
 
-        public aracCikisForm(Baglanti baglanti,TextBox txtAracPlakasi, TextBox txtDogrulamaKodu, Label lblTutar, Label lblKalinanSure, RadioButton rdbtnNakit )
+        public aracCikisForm(Baglanti baglanti, TextBox txtAracPlakasi, TextBox txtDogrulamaKodu, Label lblTutar, Label lblKalinanSure, RadioButton rdbtnNakit, RadioButton rdbtnKrediKart)
         {
             _baglanti = baglanti;
             _txtAracPlakasi = txtAracPlakasi;
@@ -26,12 +27,12 @@ namespace OtoparkOtomasyon
             _lblTutar = lblTutar;
             _lblKalinanSure = lblKalinanSure;
             _rdbtnNakit = rdbtnNakit;
-
+            _rdbtnKrediKart = rdbtnKrediKart;
         }
         public void TemizleForm()
         {
-            _txtAracPlakasi.Text="";
-            _txtDogrulamaKodu.Text="";
+            _txtAracPlakasi.Text = "";
+            _txtDogrulamaKodu.Text = "";
             _lblTutar.Text = "0 TL";
             _lblKalinanSure.Text = "0 saat";
             _rdbtnNakit.Checked = true;
@@ -53,13 +54,19 @@ namespace OtoparkOtomasyon
                     MesajGoster.Hata("Bu plakaya ait giriş kaydı bulunamadı!");
                     return;
                 }
+                // Ödeme türü seçimi kontrolü
+                if (!_rdbtnNakit.Checked && !_rdbtnKrediKart.Checked)
+                {
+                    MesajGoster.Uyari("Lütfen bir ödeme türü seçiniz!");
+                    return;
+                }
                 var aracTuru = girisKaydi.AracTuru;
                 var UcretTarifesi = entities.AracUcretleri.FirstOrDefault(u => u.AracTuru == aracTuru);
                 DateTime cikisTarihi = DateTime.Now;
                 TimeSpan kalinanSure = cikisTarihi - girisKaydi.GirisTarihi;
                 double toplamSaat = Math.Ceiling(kalinanSure.TotalHours);
                 decimal ToplamUcret = 0;
-                
+
                 if (toplamSaat <= 3)
                 {
                     ToplamUcret = Convert.ToDecimal(UcretTarifesi.AracUcret03);
@@ -98,6 +105,12 @@ namespace OtoparkOtomasyon
                 string plaka = _txtAracPlakasi.Text.Trim();
                 string dogrulamaKodu = _txtDogrulamaKodu.Text.Trim();
 
+                // Ödeme türü seçimi kontrolü
+                if (!_rdbtnNakit.Checked && !_rdbtnKrediKart.Checked)
+                {
+                    MesajGoster.Uyari("Lütfen bir ödeme türü seçiniz!");
+                    return;
+                }
                 // Giris kaydı kontrol et
                 var girisKaydi = entities.AracGiris
                                         .FirstOrDefault(g => g.Plaka == plaka && g.DogrulamaKodu == dogrulamaKodu);
@@ -133,7 +146,39 @@ namespace OtoparkOtomasyon
 
                 // Veritabanına kaydet
                 entities.AracCikis.Add(aracCikis);
-                // Giriş kaydını sil 
+
+                // Araç türüne göre harfi belirlemek için switch kullanımı
+                string harf = "";
+                switch (girisKaydi.AracTuru)
+                {
+                    case "Otomobil":
+                        harf = "A";  // Otomobil türü için A harfi
+                        break;
+                    case "Minibüs/Kamyon":
+                        harf = "C";  // Minibüs/Kamyon türü için C harfi
+                        break;
+                    case "Kamyonet":
+                        harf = "B";  // Kamyonet türü için B harfi
+                        break;
+                }
+
+                // Park yerini aldık
+                string parkYeri = girisKaydi.ParkYeri.ToString();
+
+                // Park yerinin tam kodunu oluşturuyoruz (örneğin A1, B2, vb.)
+
+
+                parkYeri = $"{harf}{parkYeri}";
+
+                // Dolu park yerleri listesinden bu park yerini kaldırıyoruz
+                var silinecek = entities.AracKapasitesi.FirstOrDefault(a => a.ParkYeri == parkYeri);
+                if (silinecek != null)
+                {
+                    entities.AracKapasitesi.Remove(silinecek);
+                    entities.SaveChanges();
+                }
+                // Park yeri artık boşaldı
+                //Giriş kaydını sil 
                 //entities.AracGiris.Remove(girisKaydi);
                 entities.SaveChanges();
 
@@ -151,5 +196,5 @@ namespace OtoparkOtomasyon
 
 
     }
-    
+
 }

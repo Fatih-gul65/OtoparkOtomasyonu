@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace OtoparkOtomasyon
 {
     internal class aracGirisForm
@@ -14,6 +13,11 @@ namespace OtoparkOtomasyon
         private TextBox _txtMusteriAdi, _txtMusteriSoyadi, _txtPlaka, _txtTelefonNo;
         private ComboBox _cmbAracTuru;
         private Label _lblDogrulamaKodu, _lblParkYeri;
+        private Random _rnd = new Random();
+        private Dictionary<string, int> _aracTuruKapasiteleri = new Dictionary<string, int>();
+
+
+
 
         public aracGirisForm(Baglanti baglanti, TextBox txtMusteriAdi, TextBox txtMusteriSoyadi, TextBox txtPlaka, TextBox txtTelefonNo, ComboBox cmbAracTuru, Label lblDogrulamaKodu, Label lblParkYeri)
         {
@@ -25,42 +29,96 @@ namespace OtoparkOtomasyon
             _cmbAracTuru = cmbAracTuru;
             _lblDogrulamaKodu = lblDogrulamaKodu;
             _lblParkYeri = lblParkYeri;
+
         }
+
         public void yukle()
-        {    
+        {
+            _cmbAracTuru.Items.Clear();
+
             // Araç türleri ComboBox'a ekleniyor
-            _cmbAracTuru.Items.Add("Otomobil");
-            _cmbAracTuru.Items.Add("Minibüs/Kamyon");
-            _cmbAracTuru.Items.Add("Kamyonet");
+            _cmbAracTuru.Items.AddRange(new[] { "Otomobil", "Minibüs/Kamyon", "Kamyonet" });
 
-            // Doğrulama kodu oluştur
-            Random rnd = new Random();
-            int dogrulamaKodu = rnd.Next(1000, 9999); // 4 haneli kod
-            _lblDogrulamaKodu.Text = dogrulamaKodu.ToString();
+            _lblDogrulamaKodu.Text = _rnd.Next(1000, 9999).ToString();
+            _cmbAracTuru.SelectedIndexChanged += CmbAracTuru_SelectedIndexChanged;
 
-            // Park yeri numarası örneği
-            _lblParkYeri.Text = "P" + rnd.Next(1, 100); // Örneğin: P23
+            // Araç kapasitelerini yükle
+            Task.Run(AraçKapasiteleriniYukle);
         }
+
+        private async Task AraçKapasiteleriniYukle()
+        {
+            var aracKapasiteleri = await Task.Run(() => _baglanti.Entity().AracKapasitesi.ToList());
+
+            _aracTuruKapasiteleri.Clear(); // Önce dictionary'yi temizle
+            foreach (var aracKapasitesi in aracKapasiteleri)
+            {
+                _aracTuruKapasiteleri["Otomobil"] = aracKapasitesi.OtomobilKapasitesi ?? 0;
+                _aracTuruKapasiteleri["Minibüs/Kamyon"] = aracKapasitesi.MinibusKapasitesi ?? 0;
+                _aracTuruKapasiteleri["Kamyonet"] = aracKapasitesi.KamyonetKapasitesi ?? 0;
+            }
+        }
+
+
+        private void CmbAracTuru_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            var entities = _baglanti.Entity();
+            if (_cmbAracTuru.SelectedItem == null)
+            {
+                _lblParkYeri.Text = "Seçim yapılmadı";
+                return;
+            }
+
+            string aracTuru = _cmbAracTuru.SelectedItem.ToString();
+            string harf = "";
+            // Araç türüne göre harfi belirlemek için switch kullanımı
+            switch (aracTuru)
+            {
+                case "Otomobil":
+                    harf = "A";
+                    break;
+                case "Minibüs/Kamyon":
+                    harf = "C";
+                    break;
+                case "Kamyonet":
+                    harf = "B";
+                    break;
+            }
+
+            if (!_aracTuruKapasiteleri.TryGetValue(aracTuru, out int kapasite))
+            {
+                _lblParkYeri.Text = "Kapasite bilgisi bulunamadı.";
+                return;
+            }
+
+            string parkYeri;
+            do
+            {
+                parkYeri = $"{harf}{_rnd.Next(1, kapasite + 1)}";
+            } while (entities.AracKapasitesi.Any(a => a.ParkYeri == parkYeri));
+
+
+            _lblParkYeri.Text = parkYeri;
+        }
+
         public void TemizleForm()
         {
-            _txtMusteriAdi.Text = "";
-            _txtMusteriSoyadi.Text = "";
-            _txtPlaka.Text = "";
-            _txtTelefonNo.Text = "";
-            _cmbAracTuru.SelectedIndex = -1; // ComboBox'u sıfırla
-            _lblDogrulamaKodu.Text = "";
-            _lblParkYeri.Text = "";
-
-           
+            _txtMusteriAdi.Clear();
+            _txtMusteriSoyadi.Clear();
+            _txtPlaka.Clear();
+            _txtTelefonNo.Clear();
+            _cmbAracTuru.SelectedIndex = -1;
+            _lblDogrulamaKodu.Text = string.Empty;
+            _lblParkYeri.Text = string.Empty;
         }
-        
 
         public async void kaydet()
         {
             try
             {
                 var entities = _baglanti.Entity();
-                // Zorunlu alanların kontrolü
+
                 if (string.IsNullOrWhiteSpace(_txtMusteriAdi.Text) ||
                     string.IsNullOrWhiteSpace(_txtMusteriSoyadi.Text) ||
                     string.IsNullOrWhiteSpace(_txtPlaka.Text) ||
@@ -73,59 +131,47 @@ namespace OtoparkOtomasyon
                     return;
                 }
 
+                int parkYeri = int.Parse(_lblParkYeri.Text.Substring(1));
 
-
-                // Park yeri numarasını kontrol et
-                int parkYeri;
-                if (!int.TryParse(_lblParkYeri.Text.Substring(1), out parkYeri))
+                if (entities.AracGiris.Any(x => x.Plaka == _txtPlaka.Text))
                 {
-                    MesajGoster.Hata("Park yeri geçerli bir sayı olmalıdır.");
+                    MesajGoster.Uyari("Bu plaka  zaten var. Lütfen başka bir plaka seçiniz.");
                     return;
                 }
 
-                var mevcutParkYeri = entities.AracGiris.FirstOrDefault(x => x.ParkYeri == parkYeri);
+                DateTime tarihGiris = DateTime.Now;
 
-                if (mevcutParkYeri != null)
-                {
-                    MesajGoster.Uyari("Bu park yeri zaten dolu. Lütfen başka bir park yeri seçiniz.");
-                    return;
-                }
-                // Tarih verisini al ve datetime türünde ayarla
-                DateTime tarihGiris = DateTime.Now; // Mevcut tarih
-
-                // Yeni araç girişi oluştur
                 AracGiris yeniKayit = new AracGiris
                 {
                     MusteriAdi = _txtMusteriAdi.Text,
                     MusteriSoyadi = _txtMusteriSoyadi.Text,
                     Plaka = _txtPlaka.Text.Trim().ToUpper(),
                     AracTuru = _cmbAracTuru.SelectedItem.ToString(),
-                    TelefonNo = Convert.ToInt32(_txtTelefonNo.Text),  // Telefon numarasını string olarak kaydediyoruz
+                    TelefonNo = Convert.ToInt32(_txtTelefonNo.Text),
                     DogrulamaKodu = _lblDogrulamaKodu.Text,
-                    ParkYeri = parkYeri,  // Park yerini string olarak kaydediyoruz
-                    GirisTarihi = tarihGiris // Burada tarih verisini datetime türüyle kaydediyoruz
+                    ParkYeri = parkYeri,
+                    GirisTarihi = tarihGiris
                 };
 
-                // Veriyi veritabanına ekle
                 entities.AracGiris.Add(yeniKayit);
-                entities.SaveChanges();
 
                 MesajGoster.Bilgi("Araç başarıyla kaydedildi!");
 
-                // Formu temizle
-                 TemizleForm();
+                entities.AracKapasitesi.Add(new AracKapasitesi
+                {
+                    ParkYeri = _lblParkYeri.Text
+                });
 
-                await Task.Delay(1000); // 1 saniye bekle
+                entities.SaveChanges();
 
+                TemizleForm();
+                await Task.Delay(1000);
                 yukle();
-
             }
             catch (Exception ex)
             {
-               MesajGoster.Hata(ex.Message);
+                MesajGoster.Hata(ex.Message);
             }
-            
         }
     }
-  
 }

@@ -21,34 +21,64 @@ namespace OtoparkOtomasyon
         }
         public void aracBul()
         {
-            string plaka = _txtPlaka.Text.Trim(); // Kullanıcıdan alınan plaka
-
-            if (string.IsNullOrEmpty(plaka))
-            {
-                MesajGoster.Uyari("Lütfen bir plaka girin!");
-                return;
-            }
-
             try
             {
                 var entities = _baglanti.Entity();
-                // Plakaya göre araç arama (case-insensitive)
-                var aracgiris = entities.AracGiris
-                    .FirstOrDefault(a => a.Plaka.ToLower() == plaka.ToLower());
+                string plaka = _txtPlaka.Text.Trim(); // Kullanıcıdan alınan plaka
 
-                if (aracgiris != null)
+                if (string.IsNullOrEmpty(plaka))
                 {
-                    _lblAracYeri.Text = $"Şurada: P{aracgiris.ParkYeri}";
+                    MesajGoster.Uyari("Lütfen bir plaka girin!");
+                    return;
+                }
+
+                // Plakaya göre aracın bilgilerini alıyoruz
+                var arac = entities.AracGiris.FirstOrDefault(a => a.Plaka.ToLower() == plaka.ToLower());
+
+                if (arac == null)
+                {
+                    MesajGoster.Uyari("Araç bulunamadı!");
+                    return;
+                }
+
+                // Araç türüne göre harfi belirlemek için switch kullanımı
+                string harf = "";
+                switch (arac.AracTuru)
+                {
+                    case "Otomobil":
+                        harf = "A";  // Otomobil türü için A harfi
+                        break;
+                    case "Minibüs/Kamyon":
+                        harf = "C";  // Minibüs/Kamyon türü için C harfi
+                        break;
+                    case "Kamyonet":
+                        harf = "B";  // Kamyonet türü için B harfi
+                        break;
+                }
+
+                // Araçla ilişkili park yeri bilgisine erişim
+                var parkyeriBul = entities.AracGiris
+                    .FirstOrDefault(k => k.ParkYeri == arac.ParkYeri);
+
+                if (parkyeriBul != null)
+                {
+                    // Park yeri bilgisi ve harfi birleştirip ekranda göstermek
+                    string parkYeri = $"{harf}{parkyeriBul.ParkYeri}"; // Örneğin: A5, B2 vb.
+                    _lblAracYeri.Text = $"Şurada: {parkYeri}";
                 }
                 else
                 {
-                    _lblAracYeri.Text = "Araç bulunamadı!";
+                    _lblAracYeri.Text = "Araç için park yeri bilgisi bulunamadı!";
                 }
             }
             catch (Exception ex)
             {
+                // Hata mesajı gösterimi
                 MesajGoster.Hata(ex.Message);
             }
         }
+
+
+
     }
 }

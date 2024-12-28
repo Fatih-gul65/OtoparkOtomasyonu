@@ -28,14 +28,12 @@ namespace OtoparkOtomasyon
             _rdbtnKrediKart = rdbtnKrediKart;
             _lblTutar = lblTutar;
         }
-
         public void yukle()
         {
             _cmbAracTuru.Items.AddRange(new string[] { "Otomobil", "Kamyonet", "Minibüs / Kamyon" });
 
             _cmbAbonelikSuresi.Items.AddRange(new string[] { "1 Ay", "2 Ay", "3 Ay", "4 Ay", "5 Ay", "6 Ay", "7 Ay", "8 Ay", "9 Ay", "10 Ay", "11 Ay", "12 Ay" });
         }
-
         public void CmbSureSecim(string abonelikSuresi)
         {
             abonelikSuresi = _cmbAbonelikSuresi.SelectedItem?.ToString();
@@ -88,7 +86,6 @@ namespace OtoparkOtomasyon
                 }
             }
         }
-
         public void fiyatGoster()
         {
             string aracTuru = _cmbAracTuru.SelectedItem?.ToString();
@@ -138,6 +135,15 @@ namespace OtoparkOtomasyon
                 }
             }            
         }
+        public void PlakaKontrol(string plaka)
+        {
+            plaka = plaka.ToUpper();
+
+            if (!PlakaKontrolu.PlakaKontrol(plaka))
+            {
+                throw new Exception("Plaka formatı geçersiz.");
+            }
+        }
         public void kaydet()
         {
             string AboneTipi = "";
@@ -145,7 +151,7 @@ namespace OtoparkOtomasyon
             string aracTuru = _cmbAracTuru.SelectedItem?.ToString();
             string abonelikSuresi = _cmbAbonelikSuresi.SelectedItem?.ToString();
             string tutarStr = _lblTutar.Text.Replace("TL" , " ");
-
+            
             if (!_rdbtnNakit.Checked && !_rdbtnKrediKart.Checked)
             {
                 MesajGoster.Uyari("Lütfen bir ödeme yöntemi seçin!");
@@ -158,7 +164,7 @@ namespace OtoparkOtomasyon
             {
                 MesajGoster.Uyari("Lütfen tüm bilgileri eksiksiz doldurun ve 'Fiyat Göster' butonuna tıkladıktan sonra kaydetme işlemini tamamlayın!");
                 return;
-            } 
+            }
 
             decimal tutar = 0;
             tutar = Convert.ToDecimal(tutarStr);
@@ -180,6 +186,8 @@ namespace OtoparkOtomasyon
 
             try
             {
+                PlakaKontrol(plaka);
+
                 var entities = _baglanti.Entity();
                 int aboneUcret = entities.AboneUcret
                           .Where(u => u.AboneAracTuru == aracTuru)
@@ -210,14 +218,12 @@ namespace OtoparkOtomasyon
 
                 entities.Abonelikler.Add(yeniAbonelik);
                 entities.SaveChanges();
-
                 MesajGoster.Bilgi("Abonelik başarıyla kaydedildi!");
             }
             catch (Exception ex)
             {
                 MesajGoster.Hata($"Hata: {ex.Message}");
-            }
-        
-        }
+            }      
+        }       
     }
-}
+} 

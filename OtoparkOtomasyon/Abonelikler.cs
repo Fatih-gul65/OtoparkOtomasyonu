@@ -24,9 +24,9 @@ namespace OtoparkOtomasyon
         public string AbonePlaka { get; set; }
         public Nullable<System.DateTime> AbonelikBaslangicTarihi { get; set; }
         public Nullable<System.DateTime> AbonelikBitisTarihi { get; set; }
+        public Nullable<decimal> AbonelikUcreti { get; set; }
         public string AbonelikTipi { get; set; }
         public Nullable<int> AboneUcretID { get; set; }
-        public Nullable<decimal> AbonelikUcreti { get; set; }
         public string OdemeYontemi { get; set; }
     
         public virtual AboneUcret AboneUcret { get; set; }

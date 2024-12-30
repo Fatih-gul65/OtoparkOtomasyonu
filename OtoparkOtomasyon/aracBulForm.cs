@@ -31,7 +31,13 @@ namespace OtoparkOtomasyon
                     MesajGoster.Uyari("Lütfen bir plaka girin!");
                     return;
                 }
-
+                // Önce araç çıkış yapmış mı kontrol edelim
+                var aracCikisKontrol = entities.AracCikis.FirstOrDefault(c => c.Plaka.ToLower() == plaka.ToLower());
+                if (aracCikisKontrol != null)
+                {
+                    MesajGoster.Uyari("Bu araç çıkış yapmış.");
+                    return;
+                }
                 // Plakaya göre aracın bilgilerini alıyoruz
                 var arac = entities.AracGiris.FirstOrDefault(a => a.Plaka.ToLower() == plaka.ToLower());
 

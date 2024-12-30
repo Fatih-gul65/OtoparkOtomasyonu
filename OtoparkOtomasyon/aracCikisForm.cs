@@ -17,6 +17,7 @@ namespace OtoparkOtomasyon
         private Label _lblKalinanSure;
         private RadioButton _rdbtnNakit;
         private RadioButton _rdbtnKrediKart;
+        private bool _hesaplandiMi = false; // Başlangıçta false
 
 
         public aracCikisForm(Baglanti baglanti, TextBox txtAracPlakasi, TextBox txtDogrulamaKodu, Label lblTutar, Label lblKalinanSure, RadioButton rdbtnNakit, RadioButton rdbtnKrediKart)
@@ -36,6 +37,7 @@ namespace OtoparkOtomasyon
             _lblTutar.Text = "0 TL";
             _lblKalinanSure.Text = "0 saat";
             _rdbtnNakit.Checked = true;
+            _hesaplandiMi = false;
         }
         public void Hesapla()
         {
@@ -45,6 +47,12 @@ namespace OtoparkOtomasyon
                 string plaka = _txtAracPlakasi.Text.Trim();
                 string dogrulamaKodu = _txtDogrulamaKodu.Text.Trim();
 
+                // Ödeme türü seçimi kontrolü
+                if (!_rdbtnNakit.Checked && !_rdbtnKrediKart.Checked)
+                {
+                    MesajGoster.Uyari("Lütfen bir ödeme türü seçiniz!");
+                    return;
+                }
                 // Giris kaydı kontrol et
                 var girisKaydi = entities.AracGiris
                                         .FirstOrDefault(g => g.Plaka == plaka && g.DogrulamaKodu == dogrulamaKodu);
@@ -54,12 +62,15 @@ namespace OtoparkOtomasyon
                     MesajGoster.Hata("Bu plakaya ait giriş kaydı bulunamadı!");
                     return;
                 }
-                // Ödeme türü seçimi kontrolü
-                if (!_rdbtnNakit.Checked && !_rdbtnKrediKart.Checked)
+                // Çıkış kaydı kontrolü
+                var cikisKaydi = entities.AracCikis.FirstOrDefault(c => c.Plaka == plaka && c.DogrulamaKodu == dogrulamaKodu);
+                if (cikisKaydi != null)
                 {
-                    MesajGoster.Uyari("Lütfen bir ödeme türü seçiniz!");
+                    MesajGoster.Hata("Bu plakaya ait çıkış işlemi zaten yapılmış!");
                     return;
                 }
+             
+              
                 var aracTuru = girisKaydi.AracTuru;
                 var UcretTarifesi = entities.AracUcretleri.FirstOrDefault(u => u.AracTuru == aracTuru);
                 DateTime cikisTarihi = DateTime.Now;
@@ -89,6 +100,9 @@ namespace OtoparkOtomasyon
 
                 _lblTutar.Text = $"{ToplamUcret} TL";
                 _lblKalinanSure.Text = $"{Math.Ceiling(kalinanSure.TotalHours)} saat"; // Kalınan süreyi göster
+
+                // Hesaplama başarılı, kontrol değişkenini true yap
+                _hesaplandiMi = true;
             }
             catch (Exception ex)
             {
@@ -105,12 +119,6 @@ namespace OtoparkOtomasyon
                 string plaka = _txtAracPlakasi.Text.Trim();
                 string dogrulamaKodu = _txtDogrulamaKodu.Text.Trim();
 
-                // Ödeme türü seçimi kontrolü
-                if (!_rdbtnNakit.Checked && !_rdbtnKrediKart.Checked)
-                {
-                    MesajGoster.Uyari("Lütfen bir ödeme türü seçiniz!");
-                    return;
-                }
                 // Giris kaydı kontrol et
                 var girisKaydi = entities.AracGiris
                                         .FirstOrDefault(g => g.Plaka == plaka && g.DogrulamaKodu == dogrulamaKodu);
@@ -120,6 +128,13 @@ namespace OtoparkOtomasyon
                     MesajGoster.Hata("Bu plakaya ait giriş kaydı bulunamadı!");
                     return;
                 }
+                // Hesaplama yapılmış mı kontrolü
+                if (!_hesaplandiMi)
+                {
+                    MesajGoster.Uyari("Lütfen önce ücreti hesaplayınız!");
+                    return;
+                }
+                
 
                 var UcretTarifesi = entities.AracUcretleri.FirstOrDefault(u => u.AracTuru == girisKaydi.AracTuru);
 

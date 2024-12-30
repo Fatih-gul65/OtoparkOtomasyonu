@@ -211,9 +211,6 @@
     <Compile Include="RaporOlustur.Designer.cs">
       <DependentUpon>RaporOlustur.cs</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagrams.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="UcretsizAracGiris.cs" />
     <Compile Include="UcretsizAraçGirisiTanimla.cs">
       <SubType>Form</SubType>

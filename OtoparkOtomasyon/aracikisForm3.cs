@@ -19,7 +19,7 @@ namespace OtoparkOtomasyon
         public aracikisForm3()
         {
             InitializeComponent();
-            _islemler = new aracCikisForm(baglanti, txtAracPlakasi, txtDogrulamaKodu, lblTutar, lblKalinanSure, rdbtnNakit);
+            _islemler = new aracCikisForm(baglanti, txtAracPlakasi, txtDogrulamaKodu, lblTutar, lblKalinanSure, rdbtnNakit,rdbtnKrediKart);
         }
 
         private void btnGeri_Click(object sender, EventArgs e)

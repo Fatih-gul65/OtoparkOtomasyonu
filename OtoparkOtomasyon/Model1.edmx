@@ -53,7 +53,7 @@
           <Property Name="AracTuru" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="TelefonNo" Type="int" />
           <Property Name="DogrulamaKodu" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="ParkYeri" Type="int" Nullable="false" />
+          <Property Name="ParkYeri" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="GirisTarihi" Type="datetime" Nullable="false" />
           <Property Name="UcretsizGirisID" Type="int" />
         </EntityType>
@@ -65,7 +65,6 @@
           <Property Name="OtomobilKapasitesi" Type="int" />
           <Property Name="KamyonetKapasitesi" Type="int" />
           <Property Name="MinibusKapasitesi" Type="int" />
-          <Property Name="ParkYeri" Type="nchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="AracUcretleri">
           <Key>
@@ -87,6 +86,14 @@
           <Property Name="Doluluk" Type="int" />
           <Property Name="BosAlan" Type="int" />
           <Property Name="ParkYeriDurumu" Type="bit" />
+        </EntityType>
+        <EntityType Name="ParkYeri">
+          <Key>
+            <PropertyRef Name="ParkYeriID" />
+          </Key>
+          <Property Name="ParkYeriID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GirisID" Type="int" />
+          <Property Name="ParkYeri" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="PersonelGirisTanimla">
           <Key>
@@ -209,6 +216,18 @@ warning 6002: The table/view 'OtoparkOtomasyon.dbo.Rapor' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ParkYeri_AracGiris">
+          <End Role="AracGiris" Type="Self.AracGiris" Multiplicity="0..1" />
+          <End Role="ParkYeri" Type="Self.ParkYeri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AracGiris">
+              <PropertyRef Name="GirisID" />
+            </Principal>
+            <Dependent Role="ParkYeri">
+              <PropertyRef Name="GirisID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Rapor_AracCikis">
           <End Role="AracCikis" Type="Self.AracCikis" Multiplicity="0..1" />
           <End Role="Rapor" Type="Self.Rapor" Multiplicity="*" />
@@ -253,6 +272,7 @@ warning 6002: The table/view 'OtoparkOtomasyon.dbo.Rapor' does not have a primar
           <EntitySet Name="AracKapasitesi" EntityType="Self.AracKapasitesi" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AracUcretleri" EntityType="Self.AracUcretleri" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OtoparkDurumu" EntityType="Self.OtoparkDurumu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ParkYeri" EntityType="Self.ParkYeri" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PersonelGirisTanimla" EntityType="Self.PersonelGirisTanimla" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UcretsizGiris" EntityType="Self.UcretsizGiris" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Yonetici" EntityType="Self.Yonetici" Schema="dbo" store:Type="Tables" />
@@ -292,6 +312,10 @@ warning 6002: The table/view 'OtoparkOtomasyon.dbo.Rapor' does not have a primar
           <AssociationSet Name="FK_OtoparkDurumu_AracKapasitesi" Association="Self.FK_OtoparkDurumu_AracKapasitesi">
             <End Role="AracKapasitesi" EntitySet="AracKapasitesi" />
             <End Role="OtoparkDurumu" EntitySet="OtoparkDurumu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ParkYeri_AracGiris" Association="Self.FK_ParkYeri_AracGiris">
+            <End Role="AracGiris" EntitySet="AracGiris" />
+            <End Role="ParkYeri" EntitySet="ParkYeri" />
           </AssociationSet>
           <AssociationSet Name="FK_Rapor_AracCikis" Association="Self.FK_Rapor_AracCikis">
             <End Role="AracCikis" EntitySet="AracCikis" />
@@ -367,11 +391,12 @@ warning 6002: The table/view 'OtoparkOtomasyon.dbo.Rapor' does not have a primar
           <Property Name="AracTuru" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TelefonNo" Type="Int32" />
           <Property Name="DogrulamaKodu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ParkYeri" Type="Int32" Nullable="false" />
+          <Property Name="ParkYeri" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="GirisTarihi" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UcretsizGirisID" Type="Int32" />
           <NavigationProperty Name="AracCikis" Relationship="Self.FK_AracCikis_AracGiris" FromRole="AracGiris" ToRole="AracCikis" />
           <NavigationProperty Name="UcretsizGiris" Relationship="Self.FK_AracGiris_UcretsizGiris" FromRole="AracGiris" ToRole="UcretsizGiris" />
+          <NavigationProperty Name="ParkYeri1" Relationship="Self.FK_ParkYeri_AracGiris" FromRole="AracGiris" ToRole="ParkYeri" />
           <NavigationProperty Name="Rapor" Relationship="Self.FK_Rapor_AracGiris" FromRole="AracGiris" ToRole="Rapor" />
         </EntityType>
         <EntityType Name="AracKapasitesi">
@@ -382,7 +407,6 @@ warning 6002: The table/view 'OtoparkOtomasyon.dbo.Rapor' does not have a primar
           <Property Name="OtomobilKapasitesi" Type="Int32" />
           <Property Name="KamyonetKapasitesi" Type="Int32" />
           <Property Name="MinibusKapasitesi" Type="Int32" />
-          <Property Name="ParkYeri" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="OtoparkDurumu" Relationship="Self.FK_OtoparkDurumu_AracKapasitesi" FromRole="AracKapasitesi" ToRole="OtoparkDurumu" />
         </EntityType>
         <EntityType Name="AracUcretleri">
@@ -408,6 +432,15 @@ warning 6002: The table/view 'OtoparkOtomasyon.dbo.Rapor' does not have a primar
           <Property Name="ParkYeriDurumu" Type="Boolean" />
           <NavigationProperty Name="AracKapasitesi" Relationship="Self.FK_OtoparkDurumu_AracKapasitesi" FromRole="OtoparkDurumu" ToRole="AracKapasitesi" />
           <NavigationProperty Name="Rapor" Relationship="Self.FK_Rapor_OtoparkDurumu" FromRole="OtoparkDurumu" ToRole="Rapor" />
+        </EntityType>
+        <EntityType Name="ParkYeri">
+          <Key>
+            <PropertyRef Name="ParkYeriID" />
+          </Key>
+          <Property Name="ParkYeriID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GirisID" Type="Int32" />
+          <Property Name="ParkYeri1" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AracGiris" Relationship="Self.FK_ParkYeri_AracGiris" FromRole="ParkYeri" ToRole="AracGiris" />
         </EntityType>
         <EntityType Name="PersonelGirisTanimla">
           <Key>
@@ -533,6 +566,18 @@ warning 6002: The table/view 'OtoparkOtomasyon.dbo.Rapor' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ParkYeri_AracGiris">
+          <End Role="AracGiris" Type="Self.AracGiris" Multiplicity="0..1" />
+          <End Role="ParkYeri" Type="Self.ParkYeri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AracGiris">
+              <PropertyRef Name="GirisID" />
+            </Principal>
+            <Dependent Role="ParkYeri">
+              <PropertyRef Name="GirisID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Rapor_AracGiris">
           <End Role="AracGiris" Type="Self.AracGiris" Multiplicity="0..1" />
           <End Role="Rapor" Type="Self.Rapor" Multiplicity="*" />
@@ -577,6 +622,7 @@ warning 6002: The table/view 'OtoparkOtomasyon.dbo.Rapor' does not have a primar
           <EntitySet Name="AracKapasitesi" EntityType="Self.AracKapasitesi" />
           <EntitySet Name="AracUcretleri" EntityType="Self.AracUcretleri" />
           <EntitySet Name="OtoparkDurumu" EntityType="Self.OtoparkDurumu" />
+          <EntitySet Name="ParkYeri" EntityType="Self.ParkYeri" />
           <EntitySet Name="PersonelGirisTanimla" EntityType="Self.PersonelGirisTanimla" />
           <EntitySet Name="UcretsizGiris" EntityType="Self.UcretsizGiris" />
           <EntitySet Name="Yonetici" EntityType="Self.Yonetici" />
@@ -608,6 +654,10 @@ warning 6002: The table/view 'OtoparkOtomasyon.dbo.Rapor' does not have a primar
           <AssociationSet Name="FK_AracGiris_UcretsizGiris" Association="Self.FK_AracGiris_UcretsizGiris">
             <End Role="UcretsizGiris" EntitySet="UcretsizGiris" />
             <End Role="AracGiris" EntitySet="AracGiris" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ParkYeri_AracGiris" Association="Self.FK_ParkYeri_AracGiris">
+            <End Role="AracGiris" EntitySet="AracGiris" />
+            <End Role="ParkYeri" EntitySet="ParkYeri" />
           </AssociationSet>
           <AssociationSet Name="FK_Rapor_AracGiris" Association="Self.FK_Rapor_AracGiris">
             <End Role="AracGiris" EntitySet="AracGiris" />
@@ -691,7 +741,6 @@ warning 6002: The table/view 'OtoparkOtomasyon.dbo.Rapor' does not have a primar
                 <ScalarProperty Name="OtomobilKapasitesi" ColumnName="OtomobilKapasitesi" />
                 <ScalarProperty Name="KamyonetKapasitesi" ColumnName="KamyonetKapasitesi" />
                 <ScalarProperty Name="MinibusKapasitesi" ColumnName="MinibusKapasitesi" />
-                <ScalarProperty Name="ParkYeri" ColumnName="ParkYeri" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -715,6 +764,15 @@ warning 6002: The table/view 'OtoparkOtomasyon.dbo.Rapor' does not have a primar
                 <ScalarProperty Name="Doluluk" ColumnName="Doluluk" />
                 <ScalarProperty Name="BosAlan" ColumnName="BosAlan" />
                 <ScalarProperty Name="ParkYeriDurumu" ColumnName="ParkYeriDurumu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ParkYeri">
+            <EntityTypeMapping TypeName="OtoparkOtomasyonModel.ParkYeri">
+              <MappingFragment StoreEntitySet="ParkYeri">
+                <ScalarProperty Name="ParkYeriID" ColumnName="ParkYeriID" />
+                <ScalarProperty Name="GirisID" ColumnName="GirisID" />
+                <ScalarProperty Name="ParkYeri1" ColumnName="ParkYeri" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

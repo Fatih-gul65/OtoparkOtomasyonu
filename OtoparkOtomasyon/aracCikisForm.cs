@@ -162,44 +162,21 @@ namespace OtoparkOtomasyon
                 // Veritabanına kaydet
                 entities.AracCikis.Add(aracCikis);
 
-                // Araç türüne göre harfi belirlemek için switch kullanımı
-                string harf = "";
-                switch (girisKaydi.AracTuru)
-                {
-                    case "Otomobil":
-                        harf = "A";  // Otomobil türü için A harfi
-                        break;
-                    case "Minibüs/Kamyon":
-                        harf = "C";  // Minibüs/Kamyon türü için C harfi
-                        break;
-                    case "Kamyonet":
-                        harf = "B";  // Kamyonet türü için B harfi
-                        break;
-                }
-
                 // Park yerini aldık
                 string parkYeri = girisKaydi.ParkYeri.ToString();
 
-                // Park yerinin tam kodunu oluşturuyoruz (örneğin A1, B2, vb.)
-
-
-                parkYeri = $"{harf}{parkYeri}";
-
                 // Dolu park yerleri listesinden bu park yerini kaldırıyoruz
-                var silinecek = entities.AracKapasitesi.FirstOrDefault(a => a.ParkYeri == parkYeri);
+                var silinecek = entities.ParkYeri.FirstOrDefault(a => a.ParkYeri1 == parkYeri);
                 if (silinecek != null)
                 {
-                    entities.AracKapasitesi.Remove(silinecek);
+                    entities.ParkYeri.Remove(silinecek);
                     entities.SaveChanges();
                 }
                 // Park yeri artık boşaldı
-                //Giriş kaydını sil 
-                //entities.AracGiris.Remove(girisKaydi);
                 entities.SaveChanges();
 
                 MesajGoster.Bilgi("Çıkış başarıyla kaydedildi!");
 
-                // Formu temizle
                 TemizleForm();
             }
             catch (Exception ex)

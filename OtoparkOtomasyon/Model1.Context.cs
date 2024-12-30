@@ -32,6 +32,7 @@ namespace OtoparkOtomasyon
         public virtual DbSet<AracKapasitesi> AracKapasitesi { get; set; }
         public virtual DbSet<AracUcretleri> AracUcretleri { get; set; }
         public virtual DbSet<OtoparkDurumu> OtoparkDurumu { get; set; }
+        public virtual DbSet<ParkYeri> ParkYeri { get; set; }
         public virtual DbSet<PersonelGirisTanimla> PersonelGirisTanimla { get; set; }
         public virtual DbSet<UcretsizGiris> UcretsizGiris { get; set; }
         public virtual DbSet<Yonetici> Yonetici { get; set; }

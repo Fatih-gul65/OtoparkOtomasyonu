@@ -177,6 +177,9 @@
     <Compile Include="OtoparkDurumu.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="ParkYeri.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Personel.cs" />
     <Compile Include="PersonelDogrula.cs">
       <SubType>Form</SubType>

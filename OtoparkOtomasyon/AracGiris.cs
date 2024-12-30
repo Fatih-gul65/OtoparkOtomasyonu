@@ -18,6 +18,7 @@ namespace OtoparkOtomasyon
         public AracGiris()
         {
             this.AracCikis = new HashSet<AracCikis>();
+            this.ParkYeri1 = new HashSet<ParkYeri>();
             this.Rapor = new HashSet<Rapor>();
         }
     
@@ -28,13 +29,15 @@ namespace OtoparkOtomasyon
         public string AracTuru { get; set; }
         public Nullable<int> TelefonNo { get; set; }
         public string DogrulamaKodu { get; set; }
-        public int ParkYeri { get; set; }
+        public string ParkYeri { get; set; }
         public System.DateTime GirisTarihi { get; set; }
         public Nullable<int> UcretsizGirisID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AracCikis> AracCikis { get; set; }
         public virtual UcretsizGiris UcretsizGiris { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ParkYeri> ParkYeri1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rapor> Rapor { get; set; }
     }

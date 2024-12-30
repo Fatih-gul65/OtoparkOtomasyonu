@@ -53,9 +53,9 @@ namespace OtoparkOtomasyon
             _aracTuruKapasiteleri.Clear(); // Önce dictionary'yi temizle
             foreach (var aracKapasitesi in aracKapasiteleri)
             {
-                _aracTuruKapasiteleri["Otomobil"] = aracKapasitesi.OtomobilKapasitesi ?? 0;
-                _aracTuruKapasiteleri["Minibüs/Kamyon"] = aracKapasitesi.MinibusKapasitesi ?? 0;
-                _aracTuruKapasiteleri["Kamyonet"] = aracKapasitesi.KamyonetKapasitesi ?? 0;
+                _aracTuruKapasiteleri["Otomobil"] = aracKapasitesi.OtomobilKapasitesi ?? -1;
+                _aracTuruKapasiteleri["Minibüs/Kamyon"] = aracKapasitesi.MinibusKapasitesi ?? -1;
+                _aracTuruKapasiteleri["Kamyonet"] = aracKapasitesi.KamyonetKapasitesi ?? -1;
             }
         }
 
@@ -86,17 +86,25 @@ namespace OtoparkOtomasyon
                     break;
             }
 
-            if (!_aracTuruKapasiteleri.TryGetValue(aracTuru, out int kapasite))
+            if (!_aracTuruKapasiteleri.TryGetValue(aracTuru, out int kapasite) || kapasite == -1)
             {
                 _lblParkYeri.Text = "Kapasite bilgisi bulunamadı.";
                 return;
             }
+            // Dolu park yerlerini kontrol et ve boş park yeri olup olmadığını kontrol et
+            int mevcutKapasite = kapasite - entities.ParkYeri.Count(a => a.ParkYeri1.StartsWith(harf));
 
+            if (mevcutKapasite <= 0)
+            {
+                // Kapasite dolmuşsa kullanıcıya bilgi ver
+                _lblParkYeri.Text = "Kapasite dolmuş, boş park yeri yok!";
+                return;
+            }
             string parkYeri;
             do
             {
                 parkYeri = $"{harf}{_rnd.Next(1, kapasite + 1)}";
-            } while (entities.AracKapasitesi.Any(a => a.ParkYeri == parkYeri));
+            } while (entities.ParkYeri.Any(a => a.ParkYeri1 == parkYeri));
 
 
             _lblParkYeri.Text = parkYeri;
@@ -131,7 +139,7 @@ namespace OtoparkOtomasyon
                     return;
                 }
 
-                int parkYeri = int.Parse(_lblParkYeri.Text.Substring(1));
+               
 
                 if (entities.AracGiris.Any(x => x.Plaka == _txtPlaka.Text))
                 {
@@ -145,11 +153,11 @@ namespace OtoparkOtomasyon
                 {
                     MusteriAdi = _txtMusteriAdi.Text,
                     MusteriSoyadi = _txtMusteriSoyadi.Text,
-                    Plaka = _txtPlaka.Text.Trim().ToUpper(),
+                    Plaka = _txtPlaka.Text.Trim(),
                     AracTuru = _cmbAracTuru.SelectedItem.ToString(),
                     TelefonNo = Convert.ToInt32(_txtTelefonNo.Text),
                     DogrulamaKodu = _lblDogrulamaKodu.Text,
-                    ParkYeri = parkYeri,
+                    ParkYeri = _lblParkYeri.Text,
                     GirisTarihi = tarihGiris
                 };
 
@@ -157,9 +165,9 @@ namespace OtoparkOtomasyon
 
                 MesajGoster.Bilgi("Araç başarıyla kaydedildi!");
 
-                entities.AracKapasitesi.Add(new AracKapasitesi
+                entities.ParkYeri.Add(new ParkYeri
                 {
-                    ParkYeri = _lblParkYeri.Text
+                    ParkYeri1 = _lblParkYeri.Text
                 });
 
                 entities.SaveChanges();

@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace OtoparkOtomasyon
@@ -47,30 +44,14 @@ namespace OtoparkOtomasyon
                     return;
                 }
 
-                // Araç türüne göre harfi belirlemek için switch kullanımı
-                string harf = "";
-                switch (arac.AracTuru)
-                {
-                    case "Otomobil":
-                        harf = "A";  // Otomobil türü için A harfi
-                        break;
-                    case "Minibüs/Kamyon":
-                        harf = "C";  // Minibüs/Kamyon türü için C harfi
-                        break;
-                    case "Kamyonet":
-                        harf = "B";  // Kamyonet türü için B harfi
-                        break;
-                }
-
                 // Araçla ilişkili park yeri bilgisine erişim
                 var parkyeriBul = entities.AracGiris
                     .FirstOrDefault(k => k.ParkYeri == arac.ParkYeri);
 
                 if (parkyeriBul != null)
                 {
-                    // Park yeri bilgisi ve harfi birleştirip ekranda göstermek
-                    string parkYeri = $"{harf}{parkyeriBul.ParkYeri}"; // Örneğin: A5, B2 vb.
-                    _lblAracYeri.Text = $"Şurada: {parkYeri}";
+                    // Sadece park yeri bilgisini ekranda göster
+                    _lblAracYeri.Text = $"Şurada: {parkyeriBul.ParkYeri}"; 
                 }
                 else
                 {
@@ -83,8 +64,5 @@ namespace OtoparkOtomasyon
                 MesajGoster.Hata(ex.Message);
             }
         }
-
-
-
     }
 }

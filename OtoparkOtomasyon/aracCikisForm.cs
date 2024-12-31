@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using System.Windows.Forms;
 
 namespace OtoparkOtomasyon
@@ -17,8 +14,7 @@ namespace OtoparkOtomasyon
         private Label _lblKalinanSure;
         private RadioButton _rdbtnNakit;
         private RadioButton _rdbtnKrediKart;
-        private bool _hesaplandiMi = false; // Başlangıçta false
-
+        private bool _hesaplandiMi;
 
         public aracCikisForm(Baglanti baglanti, TextBox txtAracPlakasi, TextBox txtDogrulamaKodu, Label lblTutar, Label lblKalinanSure, RadioButton rdbtnNakit, RadioButton rdbtnKrediKart)
         {
@@ -29,16 +25,19 @@ namespace OtoparkOtomasyon
             _lblKalinanSure = lblKalinanSure;
             _rdbtnNakit = rdbtnNakit;
             _rdbtnKrediKart = rdbtnKrediKart;
+            _hesaplandiMi = false;
         }
+
         public void TemizleForm()
         {
-            _txtAracPlakasi.Text = "";
-            _txtDogrulamaKodu.Text = "";
+            _txtAracPlakasi.Clear();
+            _txtDogrulamaKodu.Clear();
             _lblTutar.Text = "0 TL";
             _lblKalinanSure.Text = "0 saat";
             _rdbtnNakit.Checked = true;
             _hesaplandiMi = false;
         }
+
         public void Hesapla()
         {
             try
@@ -47,134 +46,153 @@ namespace OtoparkOtomasyon
                 string plaka = _txtAracPlakasi.Text.Trim();
                 string dogrulamaKodu = _txtDogrulamaKodu.Text.Trim();
 
-                // Ödeme türü seçimi kontrolü
-                if (!_rdbtnNakit.Checked && !_rdbtnKrediKart.Checked)
+                if (entities.AracCikis.Any(c => c.Plaka == plaka && c.DogrulamaKodu == dogrulamaKodu))
                 {
-                    MesajGoster.Uyari("Lütfen bir ödeme türü seçiniz!");
+                    MesajGoster.Hata("Bu plakaya ait çıkış işlemi zaten yapılmış!");
                     return;
                 }
-                // Giris kaydı kontrol et
-                var girisKaydi = entities.AracGiris
-                                        .FirstOrDefault(g => g.Plaka == plaka && g.DogrulamaKodu == dogrulamaKodu);
 
+                var girisKaydi = entities.AracGiris.FirstOrDefault(g => g.Plaka == plaka && g.DogrulamaKodu == dogrulamaKodu);
                 if (girisKaydi == null)
                 {
                     MesajGoster.Hata("Bu plakaya ait giriş kaydı bulunamadı!");
                     return;
                 }
-                // Çıkış kaydı kontrolü
-                var cikisKaydi = entities.AracCikis.FirstOrDefault(c => c.Plaka == plaka && c.DogrulamaKodu == dogrulamaKodu);
-                if (cikisKaydi != null)
+
+                if (!_rdbtnNakit.Checked && !_rdbtnKrediKart.Checked)
                 {
-                    MesajGoster.Hata("Bu plakaya ait çıkış işlemi zaten yapılmış!");
+                    MesajGoster.Uyari("Lütfen bir ödeme türü seçiniz!");
                     return;
                 }
-             
-              
+                // Ücretsiz Giriş Kontrolü
+                if (entities.UcretsizGiris.Any(u => u.Plaka == plaka))
+                {
+                    MesajGoster.Bilgi("Bu Araç Ücretsiz Giriş Listesinde, Ücretsiz Çıkış.");
+                    _lblTutar.Text = "0 TL";
+                    _lblKalinanSure.Text = $"{Math.Ceiling((DateTime.Now - girisKaydi.GirisTarihi).TotalHours)} saat";
+                    _hesaplandiMi = true;
+                    return;
+                }
                 var aracTuru = girisKaydi.AracTuru;
-                var UcretTarifesi = entities.AracUcretleri.FirstOrDefault(u => u.AracTuru == aracTuru);
-                DateTime cikisTarihi = DateTime.Now;
-                TimeSpan kalinanSure = cikisTarihi - girisKaydi.GirisTarihi;
-                double toplamSaat = Math.Ceiling(kalinanSure.TotalHours);
-                decimal ToplamUcret = 0;
+                var ucretTarifesi = entities.AracUcretleri.FirstOrDefault(u => u.AracTuru == aracTuru);
+                if (ucretTarifesi == null)
+                {
+                    MesajGoster.Hata("Ücret tarifesi bulunamadı!");
+                    return;
+                }
 
-                if (toplamSaat <= 3)
+                TimeSpan kalinanSure = DateTime.Now - girisKaydi.GirisTarihi;
+                double toplamSaat = Math.Ceiling(kalinanSure.TotalHours);
+                decimal toplamUcret = HesaplaUcret(toplamSaat, ucretTarifesi);
+
+                _lblTutar.Text = $"{toplamUcret} TL";
+                _lblKalinanSure.Text = $"{Math.Ceiling(kalinanSure.TotalHours)} saat";
+
+                // Tarihi ve saati dikkate alarak biten abonelikleri kontrol ediyoruz
+                var bitenAbonelik = entities.Abonelikler
+                    .Where(a => a.AbonePlaka == plaka &&
+                                a.AbonelikBitisTarihi <= DateTime.Now) // Süresi bitmiş aboneleri seç
+                    .FirstOrDefault();
+
+                // Abonelik durumu kontrol ediliyor
+                if (bitenAbonelik != null)
                 {
-                    ToplamUcret = Convert.ToDecimal(UcretTarifesi.AracUcret03);
-                }
-                else if (toplamSaat > 3 && toplamSaat <= 6)
-                {
-                    ToplamUcret = Convert.ToDecimal(UcretTarifesi.AracUcret36);
-                }
-                else if (toplamSaat > 6 && toplamSaat <= 24)
-                {
-                    ToplamUcret = Convert.ToDecimal(UcretTarifesi.AracUcret61);
+                    MesajGoster.Bilgi("Süresi Dolmuş Abonelik. Normal Ücret.");
                 }
                 else
                 {
-                    int gunSayisi = (int)Math.Ceiling(toplamSaat / 24.0);
-                    ToplamUcret = gunSayisi * Convert.ToDecimal(UcretTarifesi.AracUcretBirGunUzeri);
+                    // Araç hâlâ abone mi?
+                    var aktifAbonelik = entities.Abonelikler
+                        .Where(a => a.AbonePlaka == plaka &&
+                                    a.AbonelikBitisTarihi > DateTime.Now) // Süresi bitmemiş aboneler
+                        .FirstOrDefault();
+
+                    if (aktifAbonelik != null)
+                    {
+                        MesajGoster.Bilgi("Abone Araç, Ücretsiz Çıkış.");
+                        _lblTutar.Text = "0 TL";
+                        _lblKalinanSure.Text = $"{Math.Ceiling(kalinanSure.TotalHours)} saat";
+                        _hesaplandiMi = true;
+                        return;
+                    }
                 }
 
-
-
-                _lblTutar.Text = $"{ToplamUcret} TL";
-                _lblKalinanSure.Text = $"{Math.Ceiling(kalinanSure.TotalHours)} saat"; // Kalınan süreyi göster
-
-                // Hesaplama başarılı, kontrol değişkenini true yap
                 _hesaplandiMi = true;
             }
             catch (Exception ex)
             {
                 MesajGoster.Hata(ex.Message);
             }
-
         }
+
+        private decimal HesaplaUcret(double toplamSaat, AracUcretleri ucretTarifesi)
+        {
+            if (toplamSaat <= 3)
+                return Convert.ToDecimal(ucretTarifesi.AracUcret03);
+            if (toplamSaat <= 6)
+                return Convert.ToDecimal(ucretTarifesi.AracUcret36);
+            if (toplamSaat <= 24)
+                return Convert.ToDecimal(ucretTarifesi.AracUcret61);
+
+            int gunSayisi = (int)Math.Ceiling(toplamSaat / 24.0);
+            return gunSayisi * Convert.ToDecimal(ucretTarifesi.AracUcretBirGunUzeri);
+        }
+
         public void Kaydet()
         {
-
             try
             {
-                var entities = _baglanti.Entity();
-                string plaka = _txtAracPlakasi.Text.Trim();
-                string dogrulamaKodu = _txtDogrulamaKodu.Text.Trim();
-
-                // Giris kaydı kontrol et
-                var girisKaydi = entities.AracGiris
-                                        .FirstOrDefault(g => g.Plaka == plaka && g.DogrulamaKodu == dogrulamaKodu);
-
-                if (girisKaydi == null)
-                {
-                    MesajGoster.Hata("Bu plakaya ait giriş kaydı bulunamadı!");
-                    return;
-                }
-                // Hesaplama yapılmış mı kontrolü
                 if (!_hesaplandiMi)
                 {
                     MesajGoster.Uyari("Lütfen önce ücreti hesaplayınız!");
                     return;
                 }
-                
 
-                var UcretTarifesi = entities.AracUcretleri.FirstOrDefault(u => u.AracTuru == girisKaydi.AracTuru);
+                var entities = _baglanti.Entity();
+                string plaka = _txtAracPlakasi.Text.Trim();
+                string dogrulamaKodu = _txtDogrulamaKodu.Text.Trim();
 
-                if (UcretTarifesi == null)
+                var girisKaydi = entities.AracGiris.FirstOrDefault(g => g.Plaka == plaka && g.DogrulamaKodu == dogrulamaKodu);
+                if (girisKaydi == null)
                 {
-                    MesajGoster.Hata("ücret tarifesi bulunamadı!");
+                    MesajGoster.Hata("Bu plakaya ait giriş kaydı bulunamadı!");
                     return;
                 }
-                // Çıkış işlemi için kaydı oluştur
-                DateTime cikisTarihi = DateTime.Now; // Çıkış anı
-                decimal? toplamUcret = Convert.ToDecimal(_lblTutar.Text.Replace(" TL", ""));
 
+                var ucretTarifesi = entities.AracUcretleri.FirstOrDefault(u => u.AracTuru == girisKaydi.AracTuru);
+                if (ucretTarifesi == null)
+                {
+                    MesajGoster.Hata("Ücret tarifesi bulunamadı!");
+                    return;
+                }
+                // Abone ve Ücretsiz Giriş ID'lerini sorgula
+                var aboneKaydi = entities.Abonelikler
+                    .FirstOrDefault(a => a.AbonePlaka == plaka && a.AbonelikBitisTarihi > DateTime.Now);
+                var ucretsizGirisKaydi = entities.UcretsizGiris.FirstOrDefault(u => u.Plaka == plaka);
 
                 var aracCikis = new AracCikis
                 {
                     Plaka = plaka,
-                    CikisTarihi = cikisTarihi,
-                    ToplamUcret = toplamUcret,
+                    CikisTarihi = DateTime.Now,
+                    ToplamUcret = Convert.ToDecimal(_lblTutar.Text.Replace(" TL", "")),
                     OdemeTuru = _rdbtnNakit.Checked ? "Nakit" : "Kredi Kartı",
                     DogrulamaKodu = dogrulamaKodu,
                     GirisID = girisKaydi.GirisID,
-                    AracUcretID = UcretTarifesi.AracUcretID
+                    AracUcretID = ucretTarifesi.AracUcretID,
+                    AboneID = aboneKaydi?.AboneID,
+                    UcretsizGirisID = ucretsizGirisKaydi?.UcretsizGirisID
                 };
 
-                // Veritabanına kaydet
+
                 entities.AracCikis.Add(aracCikis);
 
-                // Park yerini aldık
-                string parkYeri = girisKaydi.ParkYeri.ToString();
-
-                // Dolu park yerleri listesinden bu park yerini kaldırıyoruz
-                var silinecek = entities.ParkYeri.FirstOrDefault(a => a.ParkYeri1 == parkYeri);
-                if (silinecek != null)
+                var parkYeri = entities.ParkYeri.FirstOrDefault(a => a.ParkYeri1 == girisKaydi.ParkYeri);
+                if (parkYeri != null)
                 {
-                    entities.ParkYeri.Remove(silinecek);
-                    entities.SaveChanges();
+                    entities.ParkYeri.Remove(parkYeri);
                 }
-                // Park yeri artık boşaldı
-                entities.SaveChanges();
 
+                entities.SaveChanges();
                 MesajGoster.Bilgi("Çıkış başarıyla kaydedildi!");
 
                 TemizleForm();
@@ -183,10 +201,6 @@ namespace OtoparkOtomasyon
             {
                 MesajGoster.Hata(ex.Message);
             }
-
         }
-
-
     }
-
 }

@@ -139,11 +139,41 @@ namespace OtoparkOtomasyon
                     return;
                 }
 
-               
-
-                if (entities.AracGiris.Any(x => x.Plaka == _txtPlaka.Text))
+                if (!_aracTuruKapasiteleri.TryGetValue(_cmbAracTuru.SelectedItem.ToString(), out int kapasite) || kapasite == -1)
                 {
-                    MesajGoster.Uyari("Bu plaka  zaten var. Lütfen başka bir plaka seçiniz.");
+                    MesajGoster.Uyari("Seçilen araç türü için kapasite bilgisi bulunamadı.");
+                    return;
+                }
+
+                // Mevcut kapasiteyi kontrol et
+                string aracTuru = _cmbAracTuru.SelectedItem.ToString();
+                string harf = "";
+                switch (aracTuru)
+                {
+                    case "Otomobil":
+                        harf = "A";
+                        break;
+                    case "Minibüs/Kamyon":
+                        harf = "C";
+                        break;
+                    case "Kamyonet":
+                        harf = "B";
+                        break;
+                    default:
+                        throw new InvalidOperationException("Geçersiz araç türü.");
+                }
+                
+
+                int mevcutKapasite = kapasite - entities.ParkYeri.Count(a => a.ParkYeri1.StartsWith(harf));
+                if (mevcutKapasite <= 0)
+                {
+                    MesajGoster.Uyari("Kapasite dolmuş, yeni araç eklenemez.");
+                    return;
+                }
+
+                if (entities.AracGiris.Any(x => x.Plaka == _txtPlaka.Text && !entities.AracCikis.Any(c => c.Plaka == x.Plaka)))
+                {
+                    MesajGoster.Uyari("Bu plaka zaten var. Lütfen başka bir plaka seçiniz.");
                     return;
                 }
 
@@ -181,5 +211,6 @@ namespace OtoparkOtomasyon
                 MesajGoster.Hata(ex.Message);
             }
         }
+
     }
 }

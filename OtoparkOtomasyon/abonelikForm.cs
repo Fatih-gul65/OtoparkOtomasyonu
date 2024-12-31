@@ -27,6 +27,7 @@ namespace OtoparkOtomasyon
             _rdbtnNakit = rdbtnNakit;
             _rdbtnKrediKart = rdbtnKrediKart;
             _lblTutar = lblTutar;
+
         }
         public void yukle()
         {
@@ -90,50 +91,61 @@ namespace OtoparkOtomasyon
         {
             string aracTuru = _cmbAracTuru.SelectedItem?.ToString();
             string aboneSuresi = _cmbAbonelikSuresi.SelectedItem?.ToString();
-
-            if (string.IsNullOrEmpty(aracTuru) || string.IsNullOrEmpty(aboneSuresi))
-            {
-                MesajGoster.Uyari("Lütfen araç türünü ve abonelik süresini seçin!");
-                return;
-            }
-            
-            if (aracTuru == "Otomobil")
-            {
-                var Kayit = _baglanti.Entity().AboneUcret.FirstOrDefault(u => u.AboneAracTuru == "Otomobil");
-                if (Kayit != null)
+            try { 
+                if (aracTuru == "Otomobil")
                 {
-                    decimal fiyatOtomobil = 0;
-                    decimal fiyat = Kayit.AboneUcreti.GetValueOrDefault();
-                    CmbSureSecim(aboneSuresi);
+                    var Kayit = _baglanti.Entity().AboneUcret.FirstOrDefault(u => u.AboneAracTuru == "Otomobil");
+                    if (Kayit != null)
+                    {
+                        decimal fiyatOtomobil = 0;
+                        decimal fiyat = Kayit.AboneUcreti.GetValueOrDefault();
+                        CmbSureSecim(aboneSuresi);
 
-                    fiyatOtomobil = fiyat * carpan;
-                    _lblTutar.Text = fiyatOtomobil.ToString() + " TL";
+                        fiyatOtomobil = fiyat * carpan;
+                        _lblTutar.Text = fiyatOtomobil.ToString() + " TL";
+                    }
+                    else
+                    {
+                        _lblTutar.Text = "0 TL";
+                    }
                 }
-            }
-            if (aracTuru == "Kamyonet")
-            {
-                var Kayit = _baglanti.Entity().AboneUcret.FirstOrDefault(u => u.AboneAracTuru == "Kamyonet");
-                if (Kayit != null) {
-
-                    decimal fiyatKamyonet = 0;
-                    decimal fiyat = Kayit.AboneUcreti.GetValueOrDefault();
-                    CmbSureSecim(aboneSuresi);
-                    fiyatKamyonet = fiyat * carpan;
-                    _lblTutar.Text = fiyatKamyonet.ToString() + " TL";
-                }
-            }
-            if (aracTuru == "Minibüs / Kamyon")
-            {
-                var Kayit = _baglanti.Entity().AboneUcret.FirstOrDefault(u => u.AboneAracTuru == "Minibüs / Kamyon");
-                if (Kayit != null)
+                if (aracTuru == "Kamyonet")
                 {
-                    decimal fiyatMinibus = 0;
-                    decimal fiyat = Kayit.AboneUcreti.GetValueOrDefault();
-                    CmbSureSecim(aboneSuresi);
-                    fiyatMinibus = fiyat * carpan;
-                    _lblTutar.Text = fiyatMinibus.ToString() + " TL";
+                    var Kayit = _baglanti.Entity().AboneUcret.FirstOrDefault(u => u.AboneAracTuru == "Kamyonet");
+                    if (Kayit != null) {
+
+                        decimal fiyatKamyonet = 0;
+                        decimal fiyat = Kayit.AboneUcreti.GetValueOrDefault();
+                        CmbSureSecim(aboneSuresi);
+                        fiyatKamyonet = fiyat * carpan;
+                        _lblTutar.Text = fiyatKamyonet.ToString() + " TL";
+                    }
+                    else
+                    {
+                        _lblTutar.Text = "0 TL";
+                    }
                 }
-            }            
+                if (aracTuru == "Minibüs / Kamyon")
+                {
+                    var Kayit = _baglanti.Entity().AboneUcret.FirstOrDefault(u => u.AboneAracTuru == "Minibüs / Kamyon");
+                    if (Kayit != null)
+                    {
+                        decimal fiyatMinibus = 0;
+                        decimal fiyat = Kayit.AboneUcreti.GetValueOrDefault();
+                        CmbSureSecim(aboneSuresi);
+                        fiyatMinibus = fiyat * carpan;
+                        _lblTutar.Text = fiyatMinibus.ToString() + " TL";
+                    }
+                    else
+                    {
+                        _lblTutar.Text = "0 TL";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MesajGoster.Hata(ex.Message);
+            }
         }
         public void PlakaKontrol(string plaka)
         {
@@ -151,7 +163,13 @@ namespace OtoparkOtomasyon
             string aracTuru = _cmbAracTuru.SelectedItem?.ToString();
             string abonelikSuresi = _cmbAbonelikSuresi.SelectedItem?.ToString();
             string tutarStr = _lblTutar.Text.Replace("TL" , " ");
-            
+
+            if (string.IsNullOrEmpty(aracTuru) || string.IsNullOrEmpty(abonelikSuresi))
+            {
+                MesajGoster.Uyari("Lütfen araç türünü ve abonelik süresini seçin!");
+                return;
+            }
+
             if (!_rdbtnNakit.Checked && !_rdbtnKrediKart.Checked)
             {
                 MesajGoster.Uyari("Lütfen bir ödeme yöntemi seçin!");
@@ -162,7 +180,7 @@ namespace OtoparkOtomasyon
 
             if (string.IsNullOrEmpty(plaka) || string.IsNullOrEmpty(aracTuru) || string.IsNullOrEmpty(abonelikSuresi) || string.IsNullOrEmpty(tutarStr))
             {
-                MesajGoster.Uyari("Lütfen tüm bilgileri eksiksiz doldurun ve 'Fiyat Göster' butonuna tıkladıktan sonra kaydetme işlemini tamamlayın!");
+                MesajGoster.Uyari("Lütfen tüm bilgileri eksiksiz doldurun!");
                 return;
             }
 
@@ -172,12 +190,12 @@ namespace OtoparkOtomasyon
             if (carpan > 0 && carpan <= 11)
             {
                 bitisTarihi = baslangicTarihi.AddMonths(carpan);
-                AboneTipi = carpan + " Aylık";
+                AboneTipi = carpan + " Ay";
             }
             else if (carpan == 12)
             {
                 bitisTarihi = baslangicTarihi.AddYears(1);
-                AboneTipi = "1 Yıllık";
+                AboneTipi = "1 Yıl";
             }
             else
             {
@@ -187,21 +205,26 @@ namespace OtoparkOtomasyon
             try
             {
                 PlakaKontrol(plaka);
-
                 var entities = _baglanti.Entity();
-                int aboneUcret = entities.AboneUcret
-                          .Where(u => u.AboneAracTuru == aracTuru)
-                          .Select(u => u.AboneUcretID)
-                          .FirstOrDefault();
 
-                int aboneUcretID = entities.AboneUcret
+                var mevcutAbonelik = entities.Abonelikler
+                    .Where(abone => abone.AbonePlaka == plaka && abone.AbonelikBitisTarihi >= DateTime.Now)
+                    .FirstOrDefault();
+
+                if (mevcutAbonelik != null)
+                {
+                    MesajGoster.Uyari("Bu plakaya ait abonelik hizmeti devam etmektedir!");
+                    return;
+                }
+
+                int aboneUcret = entities.AboneUcret
                           .Where(u => u.AboneAracTuru == aracTuru)
                           .Select(u => u.AboneUcretID)
                           .FirstOrDefault();
 
                 if (aboneUcret == 0)
                 {
-                    MesajGoster.Hata("Geçerli bir ücret bulunamadı! Lütfen ücret tablosunu kontrol edin.");
+                    MesajGoster.Hata("Seçilen araç türü için geçerli bir ücret bulunamadı! Lütfen ücret tablosunu kontrol edin.");
                     return;
                 }
 
@@ -212,18 +235,17 @@ namespace OtoparkOtomasyon
                     AbonelikBitisTarihi = bitisTarihi,
                     AbonelikUcreti = tutar,
                     AbonelikTipi = AboneTipi,
-                    AboneUcretID = aboneUcretID,
+                    AboneUcretID = aboneUcret,
                     OdemeYontemi = odemeTuru
                 };
-
                 entities.Abonelikler.Add(yeniAbonelik);
                 entities.SaveChanges();
                 MesajGoster.Bilgi("Abonelik başarıyla kaydedildi!");
             }
             catch (Exception ex)
             {
-                MesajGoster.Hata($"Hata: {ex.Message}");
+                MesajGoster.Hata(ex.Message);
             }      
         }       
     }
-} 
+}

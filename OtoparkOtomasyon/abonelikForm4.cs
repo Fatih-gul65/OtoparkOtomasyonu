@@ -19,7 +19,6 @@ namespace OtoparkOtomasyon
         {
             InitializeComponent();
             _islemler = new abonelikForm(baglanti, cmbAracTuru, cmbAbonelikSuresi, txtAracPlakasi, rdbtnNakit ,rdbtnKrediKart,lblTutar);
-
         }
 
         private void abonelikForm4_Load(object sender, EventArgs e)
@@ -34,16 +33,19 @@ namespace OtoparkOtomasyon
             this.Close();
         }
 
-        private void btnFiyatGoster_Click(object sender, EventArgs e)
-        {
-            _islemler.fiyatGoster();
-        }
-
         private void btnKaydet_Click(object sender, EventArgs e)
         {
             _islemler.kaydet();
         }
-        
 
+        private void cmbAracTuru_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _islemler.fiyatGoster();
+        }
+
+        private void cmbAbonelikSuresi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _islemler.fiyatGoster();
+        }
     }
 }

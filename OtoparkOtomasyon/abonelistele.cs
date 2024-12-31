@@ -19,8 +19,15 @@ namespace OtoparkOtomasyon
         public abonelistele()
         {
             InitializeComponent();
-            _islemler = new AboneListe(baglanti , datagridAboneListele);
+            _islemler = new AboneListe(baglanti , datagridAboneListele , txtAboneSuresiSorgula , txtUcretSorgula, txtAracTuruSorgula, txtPlakaSorgula, rdbtnTarihSorgula,
+                rdbtnSureSorgula, rdbtnUcretSorgula, rdbtnAracTuruSorgula , rdbtnPlakaSorgula, dateTimePickerBaslangic);
+
+            txtUcretSorgula.TextChanged += TxtUcretSorgula_TextChanged;
+            txtAboneSuresiSorgula.TextChanged += txtAboneSuresiSorgula_TextChanged;
+            txtAracTuruSorgula.TextChanged += txtAracTuruSorgula_TextChanged;
+            txtPlakaSorgula.TextChanged += txtPlakaSorgula_TextChanged;
         }
+
         private void btnGeri_Click(object sender, EventArgs e)
         {
             PersonelGirisi personelGirisi = new PersonelGirisi();
@@ -32,6 +39,44 @@ namespace OtoparkOtomasyon
             _islemler.Listele();
         }
 
-       
+        private void TxtUcretSorgula_TextChanged(object sender, EventArgs e)
+        {
+            if (rdbtnUcretSorgula.Checked)
+            {
+                _islemler.UcretListele();
+            }
+        }
+        private void txtAboneSuresiSorgula_TextChanged(object sender, EventArgs e)
+        {
+            if (rdbtnSureSorgula.Checked)
+            {
+                _islemler.SureListele();
+            }
+        }
+        private void txtAracTuruSorgula_TextChanged(object sender, EventArgs e)
+        {
+            if (rdbtnAracTuruSorgula.Checked)
+            {
+                _islemler.AracTuruListele();
+            }
+        }
+        private void txtPlakaSorgula_TextChanged(object sender, EventArgs e)
+        {
+            if (rdbtnPlakaSorgula.Checked)
+            {
+                _islemler.PlakaListele();
+            }
+        }
+        private void dateTimePickerBaslangic_ValueChanged(object sender, EventArgs e)
+        {
+            if (rdbtnTarihSorgula.Checked)
+            {
+               _islemler.TarihListele();
+            }
+        }
+        private void btnSonuclariListele_Click(object sender, EventArgs e)
+        {
+            _islemler.Listele();
+        }
     }
 }

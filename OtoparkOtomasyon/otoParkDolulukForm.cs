@@ -56,7 +56,7 @@ namespace OtoparkOtomasyon
                 }
                 else
                 {
-                    MesajGoster.Uyari("Otopark kapasitesi bilgileri bulunamadı.");
+                    throw new Exception("Otopark kapasitesi bilgileri bulunamadı.");
                 }
             }
             catch (Exception ex)

@@ -52,7 +52,32 @@ namespace OtoparkOtomasyon
                     
                     _lblKapasite.Text = sonucKapasite;
                     _lblDoluAlan.Text = sonucDolu; 
-                    _lblBosAlan.Text = sonucBos;                    
+                    _lblBosAlan.Text = sonucBos; 
+                    
+                    int ToplamDolu = otomobilDolu + kamyonetDolu + minibusDolu;
+                    int ToplamBos = otomobilBos + kamyonetBos + minibusBos;
+                    int ToplamKapasite = otomobilKapasite + kamyonetKapasite + minibusKapasite;
+
+                    var otoparkDurumu = entities.OtoparkDurumu.FirstOrDefault(o => o.OtoparkID == 1);
+
+                    if (otoparkDurumu != null)
+                    {
+                        otoparkDurumu.ToplamDoluAlan = ToplamDolu;
+                        otoparkDurumu.ToplamBosAlan = ToplamBos;
+                        otoparkDurumu.ToplamKapasite = ToplamKapasite;
+                    }
+                    else
+                    {
+                        otoparkDurumu = new OtoparkDurumu
+                        {
+                            OtoparkID = 1,
+                            ToplamDoluAlan = ToplamDolu,
+                            ToplamBosAlan = ToplamBos,
+                            ToplamKapasite = ToplamKapasite
+                        };
+                        entities.OtoparkDurumu.Add(otoparkDurumu);
+                    }
+                    entities.SaveChanges();
                 }
                 else
                 {

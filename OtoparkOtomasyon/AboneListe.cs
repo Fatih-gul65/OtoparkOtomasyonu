@@ -35,6 +35,13 @@ namespace OtoparkOtomasyon
             _dateTimePickerBaslangic = dateTimePickerBaslangic;
         }
 
+        public void Temizle()
+        {
+            _txtAboneSuresiSorgula.Clear();
+            _txtUcretSorgula.Clear();
+            _txtAracTuruSorgula.Clear();
+            _txtPlakaSorgula.Clear();
+        }
         public void Listele()
         {
             try
@@ -64,10 +71,7 @@ namespace OtoparkOtomasyon
                 _datagridAboneListele.Columns["OdemeYontemi"].HeaderText = "Ödeme Yöntemi";
                 _datagridAboneListele.Columns["AboneAracTuru"].HeaderText = "Araç Türü";
 
-                _txtAboneSuresiSorgula.Clear();
-                _txtUcretSorgula.Clear();
-                _txtAracTuruSorgula.Clear();
-                _txtPlakaSorgula.Clear();
+                Temizle();
             }
             catch (Exception ex)
             {

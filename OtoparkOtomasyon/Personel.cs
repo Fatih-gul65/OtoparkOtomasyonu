@@ -56,7 +56,6 @@ namespace OtoparkOtomasyon
                 }
                 else
                 {
-
                     bool kullaniciVarMi = entities.PersonelGirisTanimla.Any(x => x.KullaniciAdi == _txtKullaniciAdi.Text.Trim());
 
                     if (kullaniciVarMi)
@@ -81,7 +80,6 @@ namespace OtoparkOtomasyon
                 MesajGoster.Hata(ex.Message);
             }
         }
-
         public void Sil()
         {
             try

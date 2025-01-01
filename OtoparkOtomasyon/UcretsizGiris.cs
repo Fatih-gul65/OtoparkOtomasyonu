@@ -18,7 +18,6 @@ namespace OtoparkOtomasyon
         public UcretsizGiris()
         {
             this.AracCikis = new HashSet<AracCikis>();
-            this.AracGiris = new HashSet<AracGiris>();
         }
     
         public int UcretsizGirisID { get; set; }
@@ -27,7 +26,5 @@ namespace OtoparkOtomasyon
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AracCikis> AracCikis { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AracGiris> AracGiris { get; set; }
     }
 }

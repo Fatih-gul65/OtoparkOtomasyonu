@@ -38,7 +38,6 @@ namespace OtoparkOtomasyon
         {
             _islemler.Listele();
         }
-
         private void TxtUcretSorgula_TextChanged(object sender, EventArgs e)
         {
             if (rdbtnUcretSorgula.Checked)
@@ -76,7 +75,72 @@ namespace OtoparkOtomasyon
         }
         private void btnSonuclariListele_Click(object sender, EventArgs e)
         {
+            _islemler.Temizle();
             _islemler.Listele();
+        }
+        private void rdbtnUcretSorgula_CheckedChanged(object sender, EventArgs e)
+        {
+            _islemler.Temizle();
+            _islemler.Listele();
+            if (rdbtnUcretSorgula.Checked)
+            {
+                txtUcretSorgula.Visible = true;
+            }
+            else
+            {
+                txtUcretSorgula.Visible = false;
+            }
+        }
+        private void rdbtnTarihSorgula_CheckedChanged(object sender, EventArgs e)
+        {
+            _islemler.Temizle();
+            _islemler.Listele();
+            if (rdbtnTarihSorgula.Checked)
+            {
+                dateTimePickerBaslangic.Visible = true;
+            }
+            else
+            {
+                dateTimePickerBaslangic.Visible = false;
+            }
+        }
+        private void rdbtnSureSorgula_CheckedChanged(object sender, EventArgs e)
+        {
+            _islemler.Temizle();
+            _islemler.Listele();
+            if (rdbtnSureSorgula.Checked)
+            {
+                txtAboneSuresiSorgula.Visible = true;
+            }
+            else
+            {
+                txtAboneSuresiSorgula.Visible = false;
+            }
+        }
+        private void rdbtnPlakaSorgula_CheckedChanged(object sender, EventArgs e)
+        {
+            _islemler.Temizle();
+            _islemler.Listele();
+            if (rdbtnPlakaSorgula.Checked)
+            {
+                txtPlakaSorgula.Visible = true;
+            }
+            else
+            {
+                txtPlakaSorgula.Visible = false;
+            }
+        }
+        private void rdbtnAracTuruSorgula_CheckedChanged(object sender, EventArgs e)
+        {
+            _islemler.Temizle();
+            if (rdbtnAracTuruSorgula.Checked)
+            {
+                txtAracTuruSorgula.Visible = true;
+            }
+            else
+            {
+                txtAracTuruSorgula.Visible = false;
+            }
         }
     }
 }

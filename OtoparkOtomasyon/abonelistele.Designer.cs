@@ -64,7 +64,7 @@
             this.btnGeri.Image = ((System.Drawing.Image)(resources.GetObject("btnGeri.Image")));
             this.btnGeri.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnGeri.ImageSize = new System.Drawing.Size(30, 35);
-            this.btnGeri.Location = new System.Drawing.Point(51, 704);
+            this.btnGeri.Location = new System.Drawing.Point(51, 693);
             this.btnGeri.Margin = new System.Windows.Forms.Padding(4);
             this.btnGeri.Name = "btnGeri";
             this.btnGeri.Size = new System.Drawing.Size(240, 55);
@@ -101,7 +101,7 @@
             // datagridAboneListele
             // 
             this.datagridAboneListele.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datagridAboneListele.Location = new System.Drawing.Point(617, 194);
+            this.datagridAboneListele.Location = new System.Drawing.Point(617, 195);
             this.datagridAboneListele.Margin = new System.Windows.Forms.Padding(4);
             this.datagridAboneListele.Name = "datagridAboneListele";
             this.datagridAboneListele.RowHeadersWidth = 51;
@@ -138,6 +138,7 @@
             this.txtAracTuruSorgula.Name = "txtAracTuruSorgula";
             this.txtAracTuruSorgula.Size = new System.Drawing.Size(137, 27);
             this.txtAracTuruSorgula.TabIndex = 63;
+            this.txtAracTuruSorgula.Visible = false;
             this.txtAracTuruSorgula.TextChanged += new System.EventHandler(this.txtAracTuruSorgula_TextChanged);
             // 
             // rdbtnAracTuruSorgula
@@ -160,6 +161,7 @@
             this.rdbtnAracTuruSorgula.UncheckedState.BorderThickness = 2;
             this.rdbtnAracTuruSorgula.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.rdbtnAracTuruSorgula.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.rdbtnAracTuruSorgula.CheckedChanged += new System.EventHandler(this.rdbtnAracTuruSorgula_CheckedChanged);
             // 
             // txtAboneSuresiSorgula
             // 
@@ -168,6 +170,7 @@
             this.txtAboneSuresiSorgula.Name = "txtAboneSuresiSorgula";
             this.txtAboneSuresiSorgula.Size = new System.Drawing.Size(137, 27);
             this.txtAboneSuresiSorgula.TabIndex = 61;
+            this.txtAboneSuresiSorgula.Visible = false;
             this.txtAboneSuresiSorgula.TextChanged += new System.EventHandler(this.txtAboneSuresiSorgula_TextChanged);
             // 
             // txtUcretSorgula
@@ -177,6 +180,7 @@
             this.txtUcretSorgula.Name = "txtUcretSorgula";
             this.txtUcretSorgula.Size = new System.Drawing.Size(137, 27);
             this.txtUcretSorgula.TabIndex = 60;
+            this.txtUcretSorgula.Visible = false;
             // 
             // rdbtnUcretSorgula
             // 
@@ -198,6 +202,7 @@
             this.rdbtnUcretSorgula.UncheckedState.BorderThickness = 2;
             this.rdbtnUcretSorgula.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.rdbtnUcretSorgula.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.rdbtnUcretSorgula.CheckedChanged += new System.EventHandler(this.rdbtnUcretSorgula_CheckedChanged);
             // 
             // rdbtnSureSorgula
             // 
@@ -219,6 +224,7 @@
             this.rdbtnSureSorgula.UncheckedState.BorderThickness = 2;
             this.rdbtnSureSorgula.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.rdbtnSureSorgula.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.rdbtnSureSorgula.CheckedChanged += new System.EventHandler(this.rdbtnSureSorgula_CheckedChanged);
             // 
             // txtPlakaSorgula
             // 
@@ -227,6 +233,7 @@
             this.txtPlakaSorgula.Name = "txtPlakaSorgula";
             this.txtPlakaSorgula.Size = new System.Drawing.Size(137, 27);
             this.txtPlakaSorgula.TabIndex = 57;
+            this.txtPlakaSorgula.Visible = false;
             this.txtPlakaSorgula.TextChanged += new System.EventHandler(this.txtPlakaSorgula_TextChanged);
             // 
             // rdbtnPlakaSorgula
@@ -249,6 +256,7 @@
             this.rdbtnPlakaSorgula.UncheckedState.BorderThickness = 2;
             this.rdbtnPlakaSorgula.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.rdbtnPlakaSorgula.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.rdbtnPlakaSorgula.CheckedChanged += new System.EventHandler(this.rdbtnPlakaSorgula_CheckedChanged);
             // 
             // dateTimePickerBaslangic
             // 
@@ -257,6 +265,7 @@
             this.dateTimePickerBaslangic.Name = "dateTimePickerBaslangic";
             this.dateTimePickerBaslangic.Size = new System.Drawing.Size(200, 27);
             this.dateTimePickerBaslangic.TabIndex = 53;
+            this.dateTimePickerBaslangic.Visible = false;
             this.dateTimePickerBaslangic.ValueChanged += new System.EventHandler(this.dateTimePickerBaslangic_ValueChanged);
             // 
             // rdbtnTarihSorgula
@@ -279,6 +288,7 @@
             this.rdbtnTarihSorgula.UncheckedState.BorderThickness = 2;
             this.rdbtnTarihSorgula.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.rdbtnTarihSorgula.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.rdbtnTarihSorgula.CheckedChanged += new System.EventHandler(this.rdbtnTarihSorgula_CheckedChanged);
             // 
             // btnSonuclariListele
             // 
@@ -290,7 +300,7 @@
             this.btnSonuclariListele.FillColor = System.Drawing.Color.White;
             this.btnSonuclariListele.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.btnSonuclariListele.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(42)))), ((int)(((byte)(59)))));
-            this.btnSonuclariListele.Location = new System.Drawing.Point(1171, 704);
+            this.btnSonuclariListele.Location = new System.Drawing.Point(1161, 693);
             this.btnSonuclariListele.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSonuclariListele.Name = "btnSonuclariListele";
             this.btnSonuclariListele.Size = new System.Drawing.Size(199, 55);
@@ -303,7 +313,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(42)))), ((int)(((byte)(59)))));
-            this.ClientSize = new System.Drawing.Size(1403, 776);
+            this.ClientSize = new System.Drawing.Size(1403, 777);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.datagridAboneListele);
             this.Controls.Add(this.label1);

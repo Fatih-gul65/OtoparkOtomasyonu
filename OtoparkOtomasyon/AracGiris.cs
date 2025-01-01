@@ -31,11 +31,9 @@ namespace OtoparkOtomasyon
         public string DogrulamaKodu { get; set; }
         public string ParkYeri { get; set; }
         public System.DateTime GirisTarihi { get; set; }
-        public Nullable<int> UcretsizGirisID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AracCikis> AracCikis { get; set; }
-        public virtual UcretsizGiris UcretsizGiris { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ParkYeri> ParkYeri1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

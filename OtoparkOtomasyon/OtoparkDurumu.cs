@@ -12,20 +12,20 @@ namespace OtoparkOtomasyon
     using System;
     using System.Collections.Generic;
     
-    public partial class AboneUcret
+    public partial class OtoparkDurumu
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public AboneUcret()
+        public OtoparkDurumu()
         {
-            this.Abonelikler = new HashSet<Abonelikler>();
+            this.Rapor = new HashSet<Rapor>();
         }
     
-        public int AboneUcretID { get; set; }
-        public Nullable<int> AboneSuresi { get; set; }
-        public string AboneAracTuru { get; set; }
-        public Nullable<decimal> AboneUcreti { get; set; }
+        public int OtoparkID { get; set; }
+        public Nullable<int> ToplamDoluAlan { get; set; }
+        public Nullable<int> ToplamBosAlan { get; set; }
+        public Nullable<int> ToplamKapasite { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Abonelikler> Abonelikler { get; set; }
+        public virtual ICollection<Rapor> Rapor { get; set; }
     }
 }

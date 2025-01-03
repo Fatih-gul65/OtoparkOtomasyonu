@@ -17,7 +17,7 @@ namespace OtoparkOtomasyon
         public aracgirisForm2()
         {
             InitializeComponent();
-            _islemler = new aracGirisForm(baglanti, txtMusteriAdi, txtMusteriSoyadi, txtPlaka, txtTelefonNo, cmbAracTuru, lblDogrulamaKodu, lblParkYeri);           
+            _islemler = new aracGirisForm(baglanti,txtPlaka, txtTelefonNo, cmbAracTuru, lblDogrulamaKodu, lblParkYeri);           
         }
         private void aracgirisForm2_Load(object sender, EventArgs e)
         {

@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace OtoparkOtomasyon
@@ -10,53 +8,139 @@ namespace OtoparkOtomasyon
     internal class otoParkDolulukForm
     {
         private Baglanti _baglanti;
-        private Label _lblDoluAlan, _lblBosAlan, _lblKapasite;
-        public otoParkDolulukForm(Baglanti baglanti, Label lblDoluAlan, Label lblBosAlan, Label lblKapasite)
+        private FlowLayoutPanel _otomobilPanel;
+        private FlowLayoutPanel _kamyonetPanel;
+        private FlowLayoutPanel _minibusPanel;
+
+        public otoParkDolulukForm(Baglanti baglanti, FlowLayoutPanel otomobilPanel, FlowLayoutPanel kamyonetPanel, FlowLayoutPanel minibusPanel)
         {
             _baglanti = baglanti;
-            _lblDoluAlan = lblDoluAlan;
-            _lblBosAlan = lblBosAlan;
-            _lblKapasite = lblKapasite;
+            _otomobilPanel = otomobilPanel;
+            _kamyonetPanel = kamyonetPanel;
+            _minibusPanel = minibusPanel;
+
+            ParkYeriGetir();
         }
-        public void GuncelleDoluluk()
+
+        private void ParkYeriGetir()
         {
             try
             {
                 var entities = _baglanti.Entity();
+                var kapasite = entities.AracKapasitesi.FirstOrDefault();
 
-                var kapasiteBilgisi = entities.AracKapasitesi.FirstOrDefault();
-                if (kapasiteBilgisi != null)
+                if (kapasite != null)
                 {
-                    int otomobilKapasite = kapasiteBilgisi.OtomobilKapasitesi.HasValue ? kapasiteBilgisi.OtomobilKapasitesi.Value : 0;
-                    int otomobilGiris = entities.AracGiris.Count(ag => ag.AracTuru == "Otomobil");
-                    int otomobilCikis = entities.AracCikis.Count(ac => entities.AracGiris.Any(ag => ag.GirisID == ac.GirisID && ag.AracTuru == "Otomobil"));
-                    int otomobilDolu = otomobilGiris - otomobilCikis;
-                    int otomobilBos = otomobilKapasite - otomobilDolu;
+                    // Nullable değerleri sıfırla veya bir değer ata
+                    int otomobilKapasitesi = kapasite.OtomobilKapasitesi ?? 0;
+                    int kamyonetKapasitesi = kapasite.KamyonetKapasitesi ?? 0;
+                    int minibusKapasitesi = kapasite.MinibusKapasitesi ?? 0;
 
-                    int kamyonetKapasite = kapasiteBilgisi.KamyonetKapasitesi.HasValue ? kapasiteBilgisi.KamyonetKapasitesi.Value : 0;
-                    int kamyonetGiris = entities.AracGiris.Count(ag => ag.AracTuru == "Kamyonet");
-                    int kamyonetCikis = entities.AracCikis.Count(ac => entities.AracGiris.Any(ag => ag.GirisID == ac.GirisID && ag.AracTuru == "Kamyonet"));
-                    int kamyonetDolu = kamyonetGiris - kamyonetCikis;
-                    int kamyonetBos = kamyonetKapasite - kamyonetDolu;
 
-                    int minibusKapasite = kapasiteBilgisi.MinibusKapasitesi.HasValue ? kapasiteBilgisi.MinibusKapasitesi.Value : 0;
-                    int minibusGiris = entities.AracGiris.Count(ag => ag.AracTuru == "Minibüs/Kamyon");
-                    int minibusCikis = entities.AracCikis.Count(ac => entities.AracGiris.Any(ag => ag.GirisID == ac.GirisID && ag.AracTuru == "Minibüs/Kamyon"));
-                    int minibusDolu = minibusGiris - minibusCikis;
-                    int minibusBos = minibusKapasite - minibusDolu;
+                    // Kapasitelere göre panelleri doldur
+                    ButonYap(_otomobilPanel, otomobilKapasitesi, "A");
+                    ButonYap(_kamyonetPanel, kamyonetKapasitesi, "B");
+                    ButonYap(_minibusPanel, minibusKapasitesi, "C");
+                }
+                else
+                {
+                    MessageBox.Show("Veritabanında kapasite bilgisi bulunamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
-                    string sonucKapasite = $"Otomobil Kapasitesi : {otomobilKapasite} \nKamyonet Kapasitesi : {kamyonetKapasite} \nMinibüs/Kamyon Kapasitesi : {minibusKapasite} \n \nToplam Kapasite : " + (otomobilKapasite + kamyonetKapasite + minibusKapasite);
-                    string sonucDolu = $"Otomobil Dolu Alan : {otomobilDolu} \nKamyonet Dolu Alan : {kamyonetDolu} \nMinibüs/Kamyon Dolu Alan : {minibusDolu} \n \nToplam Dolu Alan : " + (otomobilDolu + kamyonetDolu + minibusDolu);
-                    string sonucBos = $"Otomobil Bos Alan : {otomobilBos} \nKamyonet Bos Alan : {kamyonetBos} \nMinibüs/Kamyon Bos Alan : {minibusBos} \n \nToplam Bos Alan : " + (otomobilBos + kamyonetBos + minibusBos);
+                // Park yerlerini al
+                var parkYerleri = entities.ParkYeri.ToList();
 
-                    _lblKapasite.Text = sonucKapasite;
-                    _lblDoluAlan.Text = sonucDolu;
-                    _lblBosAlan.Text = sonucBos;
+                // Park yerlerini her araç tipine göre işle
+                foreach (var parkYeri in parkYerleri)
+                {
+                    FlowLayoutPanel panel = null;  // Paneli burada tanımlıyoruz
+                    Button btn = null;
+
+                    // Araç tipi kontrolü
+                    if (parkYeri.ParkYeri1.Contains("A"))
+                    {
+                        panel = _otomobilPanel;
+                    }
+                    else if (parkYeri.ParkYeri1.Contains("B"))
+                    {
+                        panel = _kamyonetPanel;
+                    }
+                    else if (parkYeri.ParkYeri1.Contains("C"))
+                    {
+                        panel = _minibusPanel;
+                    }
+
+                    // Eğer panel bulunduysa, butonu kontrol et
+                    if (panel != null)
+                    {
+                        string parkYerii = $"{parkYeri.ParkYeri1}"; // Park yeri etiketi oluştur
+
+                        // Park yeri etiketi ile mevcut butonu bul
+                        btn = panel.Controls
+                                    .Cast<Button>()
+                                    .FirstOrDefault(b => b.Text == parkYerii);
+
+                        // Eğer buton bulunursa, doluluk durumuna göre rengini değiştir
+                        if (btn != null)
+                        {
+                            // Araç varsa, buton rengini kırmızı yap
+                            if (parkYeri.ParkYeriID != 0) // Eğer park yerinde araç varsa
+                            {
+                                btn.BackColor = Color.Red; // Dolu
+                            }
+                            else
+                            {
+                                btn.BackColor = Color.Green; // Boş
+                            }
+                        }
+                    }
+
                 }
             }
             catch (Exception ex)
             {
-                MesajGoster.Hata(ex.Message);
+                MessageBox.Show($"Park yerleri getirilirken hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ButonYap(FlowLayoutPanel panel, int kapasite, string aracTipi)
+        {
+            try
+            {
+                panel.Controls.Clear(); // Paneli temizle
+
+                if (kapasite == 0)
+                {
+                    Label lbl = new Label
+                    {
+                        Text = $"{aracTipi} kapasitesi bulunamadı.",
+                        ForeColor = Color.Red, // Hata mesajı kırmızı
+                        Font = new Font("Arial", 12, FontStyle.Bold),
+                        Width = 200,
+                        Height = 100,
+                        TextAlign = ContentAlignment.MiddleCenter
+                    };
+                    panel.Controls.Add(lbl);
+                }
+                else
+                {
+                    for (int i = 1; i <= kapasite; i++)
+                    {
+                        Button btn = new Button
+                        {
+                            Text = $"{aracTipi}{i}",
+                            BackColor = Color.Chartreuse, // Başlangıçta boş
+                            Width = 100,
+                            Height = 50,
+                            Enabled = false // Tıklanamaz
+                        };
+                        panel.Controls.Add(btn);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Butonlar oluşturulurken hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

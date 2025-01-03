@@ -23,8 +23,6 @@ namespace OtoparkOtomasyon
         }
     
         public int GirisID { get; set; }
-        public string MusteriAdi { get; set; }
-        public string MusteriSoyadi { get; set; }
         public string Plaka { get; set; }
         public string AracTuru { get; set; }
         public Nullable<int> TelefonNo { get; set; }

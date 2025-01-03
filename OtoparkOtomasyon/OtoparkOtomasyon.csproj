@@ -178,6 +178,9 @@
     <Compile Include="otoparkdolulukForm6.Designer.cs">
       <DependentUpon>otoparkdolulukForm6.cs</DependentUpon>
     </Compile>
+    <Compile Include="OtoparkDurumu.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="ParkYeri.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -216,9 +219,6 @@
       <DependentUpon>RaporOlustur.cs</DependentUpon>
     </Compile>
     <Compile Include="RaporSinif.cs" />
-    <Compile Include="sysdiagrams.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="UcretsizAracGiris.cs" />
     <Compile Include="UcretsizAraçGirisiTanimla.cs">
       <SubType>Form</SubType>

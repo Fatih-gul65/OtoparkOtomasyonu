@@ -13,10 +13,10 @@ namespace OtoparkOtomasyon
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class OtoparkOtomasyonEntities : DbContext
+    public partial class OtoparkOtomasyonEntities1 : DbContext
     {
-        public OtoparkOtomasyonEntities()
-            : base("name=OtoparkOtomasyonEntities")
+        public OtoparkOtomasyonEntities1()
+            : base("name=OtoparkOtomasyonEntities1")
         {
         }
     
@@ -31,10 +31,10 @@ namespace OtoparkOtomasyon
         public virtual DbSet<AracGiris> AracGiris { get; set; }
         public virtual DbSet<AracKapasitesi> AracKapasitesi { get; set; }
         public virtual DbSet<AracUcretleri> AracUcretleri { get; set; }
+        public virtual DbSet<OtoparkDurumu> OtoparkDurumu { get; set; }
         public virtual DbSet<ParkYeri> ParkYeri { get; set; }
         public virtual DbSet<PersonelGirisTanimla> PersonelGirisTanimla { get; set; }
         public virtual DbSet<Rapor> Rapor { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<UcretsizGiris> UcretsizGiris { get; set; }
         public virtual DbSet<Yonetici> Yonetici { get; set; }
     }

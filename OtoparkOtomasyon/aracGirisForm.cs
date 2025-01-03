@@ -10,16 +10,15 @@ namespace OtoparkOtomasyon
     internal class aracGirisForm
     {
         private Baglanti _baglanti;
-        private TextBox _txtMusteriAdi, _txtMusteriSoyadi, _txtPlaka, _txtTelefonNo;
+        private TextBox _txtPlaka, _txtTelefonNo;
         private ComboBox _cmbAracTuru;
         private Label _lblDogrulamaKodu, _lblParkYeri;
         private Random _rnd = new Random();
         private Dictionary<string, int> _aracTuruKapasiteleri = new Dictionary<string, int>();
-        public aracGirisForm(Baglanti baglanti, TextBox txtMusteriAdi, TextBox txtMusteriSoyadi, TextBox txtPlaka, TextBox txtTelefonNo, ComboBox cmbAracTuru, Label lblDogrulamaKodu, Label lblParkYeri)
+
+        public aracGirisForm(Baglanti baglanti, TextBox txtPlaka, TextBox txtTelefonNo, ComboBox cmbAracTuru, Label lblDogrulamaKodu, Label lblParkYeri)
         {
             _baglanti = baglanti;
-            _txtMusteriAdi = txtMusteriAdi;
-            _txtMusteriSoyadi = txtMusteriSoyadi;
             _txtPlaka = txtPlaka;
             _txtTelefonNo = txtTelefonNo;
             _cmbAracTuru = cmbAracTuru;
@@ -100,8 +99,6 @@ namespace OtoparkOtomasyon
         }
         public void TemizleForm()
         {
-            _txtMusteriAdi.Clear();
-            _txtMusteriSoyadi.Clear();
             _txtPlaka.Clear();
             _txtTelefonNo.Clear();
             _cmbAracTuru.SelectedIndex = -1;
@@ -114,8 +111,7 @@ namespace OtoparkOtomasyon
             {
                 var entities = _baglanti.Entity();
 
-                if (string.IsNullOrWhiteSpace(_txtMusteriAdi.Text) ||
-                    string.IsNullOrWhiteSpace(_txtMusteriSoyadi.Text) ||
+                if (
                     string.IsNullOrWhiteSpace(_txtPlaka.Text) ||
                     _cmbAracTuru.SelectedItem == null ||
                     string.IsNullOrWhiteSpace(_txtTelefonNo.Text) ||
@@ -146,8 +142,8 @@ namespace OtoparkOtomasyon
                         break;
                     default:
                         throw new InvalidOperationException("Geçersiz araç türü.");
-                }   
-                
+                }
+
                 int mevcutKapasite = kapasite - entities.ParkYeri.Count(a => a.ParkYeri1.StartsWith(harf));
                 if (mevcutKapasite <= 0)
                 {
@@ -164,8 +160,6 @@ namespace OtoparkOtomasyon
 
                 AracGiris yeniKayit = new AracGiris
                 {
-                    MusteriAdi = _txtMusteriAdi.Text,
-                    MusteriSoyadi = _txtMusteriSoyadi.Text,
                     Plaka = _txtPlaka.Text.Trim(),
                     AracTuru = _cmbAracTuru.SelectedItem.ToString(),
                     TelefonNo = Convert.ToInt32(_txtTelefonNo.Text),

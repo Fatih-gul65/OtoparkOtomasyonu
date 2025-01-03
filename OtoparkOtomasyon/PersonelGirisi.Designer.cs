@@ -129,7 +129,7 @@
             this.btnAboneListele.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnAboneListele.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnAboneListele.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAboneListele.FillColor = System.Drawing.Color.Yellow;
+            this.btnAboneListele.FillColor = System.Drawing.Color.Aqua;
             this.btnAboneListele.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.btnAboneListele.ForeColor = System.Drawing.Color.Black;
             this.btnAboneListele.Location = new System.Drawing.Point(73, 178);
@@ -163,7 +163,7 @@
             this.btnAracBul.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnAracBul.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnAracBul.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAracBul.FillColor = System.Drawing.Color.Yellow;
+            this.btnAracBul.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnAracBul.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.btnAracBul.ForeColor = System.Drawing.Color.Black;
             this.btnAracBul.Location = new System.Drawing.Point(74, 178);

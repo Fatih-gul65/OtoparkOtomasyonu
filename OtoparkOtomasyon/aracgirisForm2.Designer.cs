@@ -29,14 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(aracgirisForm2));
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbAracTuru = new System.Windows.Forms.ComboBox();
-            this.txtMusteriAdi = new System.Windows.Forms.TextBox();
-            this.txtMusteriSoyadi = new System.Windows.Forms.TextBox();
             this.txtPlaka = new System.Windows.Forms.TextBox();
             this.txtTelefonNo = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -51,35 +47,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(42)))), ((int)(((byte)(56)))));
-            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(316, 190);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 19);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Müşteri Adı:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(287, 249);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(128, 19);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Müşteri Soyadı:";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(358, 308);
+            this.label3.Location = new System.Drawing.Point(347, 237);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 19);
             this.label3.TabIndex = 0;
@@ -90,7 +63,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(325, 368);
+            this.label4.Location = new System.Drawing.Point(314, 297);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 19);
             this.label4.TabIndex = 0;
@@ -101,7 +74,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(318, 427);
+            this.label5.Location = new System.Drawing.Point(307, 356);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(97, 19);
             this.label5.TabIndex = 0;
@@ -110,35 +83,21 @@
             // cmbAracTuru
             // 
             this.cmbAracTuru.FormattingEnabled = true;
-            this.cmbAracTuru.Location = new System.Drawing.Point(458, 366);
+            this.cmbAracTuru.Location = new System.Drawing.Point(447, 295);
             this.cmbAracTuru.Name = "cmbAracTuru";
             this.cmbAracTuru.Size = new System.Drawing.Size(100, 21);
             this.cmbAracTuru.TabIndex = 1;
             // 
-            // txtMusteriAdi
-            // 
-            this.txtMusteriAdi.Location = new System.Drawing.Point(458, 189);
-            this.txtMusteriAdi.Name = "txtMusteriAdi";
-            this.txtMusteriAdi.Size = new System.Drawing.Size(100, 20);
-            this.txtMusteriAdi.TabIndex = 2;
-            // 
-            // txtMusteriSoyadi
-            // 
-            this.txtMusteriSoyadi.Location = new System.Drawing.Point(458, 248);
-            this.txtMusteriSoyadi.Name = "txtMusteriSoyadi";
-            this.txtMusteriSoyadi.Size = new System.Drawing.Size(100, 20);
-            this.txtMusteriSoyadi.TabIndex = 2;
-            // 
             // txtPlaka
             // 
-            this.txtPlaka.Location = new System.Drawing.Point(458, 307);
+            this.txtPlaka.Location = new System.Drawing.Point(447, 236);
             this.txtPlaka.Name = "txtPlaka";
             this.txtPlaka.Size = new System.Drawing.Size(100, 20);
             this.txtPlaka.TabIndex = 2;
             // 
             // txtTelefonNo
             // 
-            this.txtTelefonNo.Location = new System.Drawing.Point(458, 426);
+            this.txtTelefonNo.Location = new System.Drawing.Point(447, 355);
             this.txtTelefonNo.Name = "txtTelefonNo";
             this.txtTelefonNo.Size = new System.Drawing.Size(100, 20);
             this.txtTelefonNo.TabIndex = 2;
@@ -286,14 +245,10 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtTelefonNo);
             this.Controls.Add(this.txtPlaka);
-            this.Controls.Add(this.txtMusteriSoyadi);
-            this.Controls.Add(this.txtMusteriAdi);
             this.Controls.Add(this.cmbAracTuru);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "aracgirisForm2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -306,15 +261,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cmbAracTuru;
-        private System.Windows.Forms.TextBox txtMusteriAdi;
-        private System.Windows.Forms.TextBox txtMusteriSoyadi;
         private System.Windows.Forms.TextBox txtPlaka;
         private System.Windows.Forms.TextBox txtTelefonNo;
         private System.Windows.Forms.Label label6;

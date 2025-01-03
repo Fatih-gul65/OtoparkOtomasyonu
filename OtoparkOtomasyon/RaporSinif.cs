@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,12 +13,12 @@ namespace OtoparkOtomasyon
     internal class RaporSinif
     {
         private Baglanti _baglanti;
-        private Label _lblGunlukKazanc, _lblHaftalikKazanc, _lblAylikKazanc;
+        private Label _lblGunlukKazanc, _lblHaftalikKazanc, _lblAylikKazanc, _lblAboneGunluk , _lblAboneHaftalik, _lblAboneAylik;
         private TextBox _txtUcretSorgula, _txtAracTuruSorgula, _txtPlakaSorgula;
         private DateTimePicker _dateTimePickerGirisTarihi;
         private DataGridView _datagridRapor;
         public RaporSinif(Baglanti baglanti, DataGridView datagridRapor, TextBox txtUcretSorgula, TextBox txtAracTuruSorgula, TextBox txtPlakaSorgula,
-            Label lblGunlukKazanc, Label lblHaftalikKazanc, Label lblAylikKazanc, DateTimePicker dateTimePickerGirisTarihi)
+            Label lblGunlukKazanc, Label lblHaftalikKazanc, Label lblAylikKazanc, Label lblAboneGunluk, Label lblAboneHaftalik, Label lblAboneAylik, DateTimePicker dateTimePickerGirisTarihi)
         {
             _baglanti = baglanti;
             _datagridRapor = datagridRapor;
@@ -27,6 +28,9 @@ namespace OtoparkOtomasyon
             _lblGunlukKazanc = lblGunlukKazanc;
             _lblHaftalikKazanc = lblHaftalikKazanc;
             _lblAylikKazanc = lblAylikKazanc;
+            _lblAboneGunluk = lblAboneGunluk;
+            _lblAboneHaftalik = lblAboneHaftalik;
+            _lblAboneAylik = lblAboneAylik;
             _dateTimePickerGirisTarihi = dateTimePickerGirisTarihi;
         }
         public void Temizle()
@@ -101,9 +105,9 @@ namespace OtoparkOtomasyon
         }
         public void KazancHesapla()
         {
-            double toplamUcretBugun = 0;
-            double toplamUcretHaftalik = 0;
-            double toplamUcretAylik = 0;
+            double MusteriGunlukUcret = 0;
+            double MusteriHaftalikUcret = 0;
+            double MusteriAylikUcret = 0;
 
             DateTime bugun = DateTime.Today;
             DateTime birHaftaOnce = bugun.AddDays(-7);
@@ -120,28 +124,56 @@ namespace OtoparkOtomasyon
                     {
                         if (girisTarihi.Value.Date == bugun)
                         {
-                            toplamUcretBugun += ucret;
+                            MusteriGunlukUcret += ucret;
                         }
 
                         if (girisTarihi.Value.Date >= birHaftaOnce)
                         {
-                            toplamUcretHaftalik += ucret;
+                            MusteriHaftalikUcret += ucret;
                         }
 
                         if (girisTarihi.Value.Date >= birAyOnce)
                         {
-                            toplamUcretAylik += ucret;
+                            MusteriAylikUcret += ucret;
                         }
                     }
                 }
             }
-            double gunlukKazanc = toplamUcretBugun;
-            double haftalikKazanc = toplamUcretHaftalik;
-            double aylikKazanc = toplamUcretAylik;
+            _lblGunlukKazanc.Text = $"Müşteri Günlük Kazanç: {MusteriGunlukUcret:C}";
+            _lblHaftalikKazanc.Text = $"Müşteri Haftalık Kazanç: {MusteriHaftalikUcret:C}";
+            _lblAylikKazanc.Text = $"Müşteri Aylık Kazanç: {MusteriAylikUcret:C}";
 
-            _lblGunlukKazanc.Text = $"Günlük Kazanç: {gunlukKazanc:C}";
-            _lblHaftalikKazanc.Text = $"Haftalık Kazanç: {haftalikKazanc:C}";
-            _lblAylikKazanc.Text = $"Aylık Kazanç: {aylikKazanc:C}";
+            double AboneGunlukUcret = 0;
+            double AboneHaftalikUcret = 0;
+            double AboneAylikUcret = 0;
+                       
+            var entities = _baglanti.Entity();
+            
+                var abonelikUcretleri = entities.Abonelikler
+                    .Where(a => a.AbonelikBitisTarihi >= birAyOnce)
+                    .Select(a => new { a.AbonelikBaslangicTarihi, a.AbonelikUcreti })
+                    .ToList();
+
+                foreach (var ucret in abonelikUcretleri)
+                {
+                    if (ucret.AbonelikBaslangicTarihi.Value.Date == bugun)
+                    {
+                        AboneGunlukUcret += Convert.ToDouble(ucret.AbonelikUcreti);
+                    }
+
+                    if (ucret.AbonelikBaslangicTarihi.Value.Date >= birHaftaOnce)
+                    {
+                        AboneHaftalikUcret += Convert.ToDouble(ucret.AbonelikUcreti);
+                }
+
+                    if (ucret.AbonelikBaslangicTarihi.Value.Date >= birAyOnce)
+                    {
+                        AboneAylikUcret += Convert.ToDouble(ucret.AbonelikUcreti);
+                    }
+                }
+            _lblAboneGunluk.Text = $"Abone Günlük Kazanç: {AboneGunlukUcret:C}";
+            _lblAboneHaftalik.Text = $"Abone Haftalık Kazanç: {AboneHaftalikUcret:C}";
+            _lblAboneAylik.Text = $"Abone Aylık Kazanç: {AboneAylikUcret:C}";
         }
         public void ExcelAktar(DataGridView dataGridView)
         {

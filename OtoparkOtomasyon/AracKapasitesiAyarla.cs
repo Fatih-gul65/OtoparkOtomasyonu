@@ -13,19 +13,16 @@ namespace OtoparkOtomasyon
             InitializeComponent();
             _islemler = new KapasiteAyarla(rdbtnOtomobil, rdbtnKamyonet, rdbtnMinibus, txtKapasiteAyarla);
         }
-
         private void btnGeri_Click(object sender, EventArgs e)
         {
             YoneticiGiris yoneticiGiris = new YoneticiGiris();
             this.Close();
             yoneticiGiris.Show();
         }       
-
         private void btnKaydet_Click(object sender, EventArgs e)
         {
             _islemler.Ekle();
         }
-
         private void txtKapasiteAyarla_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
@@ -37,7 +34,6 @@ namespace OtoparkOtomasyon
                 e.Handled = true;
             }
         }
-
         private void rdbtnOtomobil_CheckedChanged(object sender, EventArgs e)
         {
             if (rdbtnOtomobil.Checked)
@@ -45,7 +41,6 @@ namespace OtoparkOtomasyon
                 _islemler.AracKapasitesiniYazdir("Otomobil");
             }
         }
-
         private void rdbtnKamyonet_CheckedChanged(object sender, EventArgs e)
         {
             if (rdbtnKamyonet.Checked)
@@ -53,7 +48,6 @@ namespace OtoparkOtomasyon
                 _islemler.AracKapasitesiniYazdir("Kamyonet");
             }
         }
-
         private void rdbtnMinibus_CheckedChanged(object sender, EventArgs e)
         {
             if (rdbtnMinibus.Checked)

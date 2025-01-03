@@ -20,7 +20,7 @@ namespace OtoparkOtomasyon
         {
             InitializeComponent();
             _islemler = new RaporSinif(baglanti, datagridRapor, txtUcretSorgula, txtAracTuruSorgula, 
-                txtPlakaSorgula, lblGunlukKazanc, lblHaftalikKazanc, lblAylikKazanc, dateTimePickerGirisTarihi);
+                txtPlakaSorgula, lblGunlukKazanc, lblHaftalikKazanc, lblAylikKazanc, lblAboneGunluk , lblAboneHaftalik, lblAboneAylik, dateTimePickerGirisTarihi);
 
             txtUcretSorgula.TextChanged += txtUcretSorgula_TextChanged;
             txtAracTuruSorgula.TextChanged += txtAracTuruSorgula_TextChanged;

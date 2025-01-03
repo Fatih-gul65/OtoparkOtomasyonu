@@ -32,7 +32,6 @@ namespace OtoparkOtomasyon
                 if (Yazdir != null)
                 {
                     _txtAboneUcreti.Text = Yazdir.AboneUcreti.ToString();
-
                 }
                 else
                 {
@@ -44,14 +43,12 @@ namespace OtoparkOtomasyon
                 MesajGoster.Hata(ex.Message);
             }
         }
-
         public void Ekle(int AUcretID , string AracTuru)
         {
             if (AUcretID == 0 || string.IsNullOrWhiteSpace(_txtAboneUcreti.Text))
             {
                 MesajGoster.Uyari("Lütfen bir araç türü seçin ve abone ücretini girin!");
             }
-
             else
             {
                 try
@@ -73,7 +70,6 @@ namespace OtoparkOtomasyon
                         Ekle.AboneUcretID = AUcretID;
                         Ekle.AboneAracTuru = AracTuru;
                         Ekle.AboneUcreti = Convert.ToDecimal(_txtAboneUcreti.Text.Trim());
-                        Ekle.AboneSuresi = 30;
 
                         entities.AboneUcret.Add(Ekle);
                         entities.SaveChanges();
@@ -86,7 +82,5 @@ namespace OtoparkOtomasyon
                 }
             }
         }
-
-
     } 
 }

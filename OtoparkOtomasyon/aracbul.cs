@@ -19,18 +19,13 @@ namespace OtoparkOtomasyon
         {
             InitializeComponent();
             _islemler = new aracBulForm(baglanti, txtPlaka, lblAracYeri);
-
         }
-
         private void btnGeri_Click(object sender, EventArgs e)
         {
             PersonelGirisi personelGirisi = new PersonelGirisi();
             personelGirisi.Show();
             this.Close();
         }
-
-       
-
         private void btnAracBul_Click_1(object sender, EventArgs e)
         {
             _islemler.aracBul();

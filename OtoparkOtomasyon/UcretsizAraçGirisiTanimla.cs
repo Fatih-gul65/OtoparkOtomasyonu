@@ -12,19 +12,16 @@ namespace OtoparkOtomasyon
             InitializeComponent();
             _islemler = new UcretsizAracGiris(datagridUcretsizGiris, txtUcretsizPlaka, lblUcretsizGiris);
         }
-
         private void btnGeri_Click(object sender, EventArgs e)
         {
             YoneticiGiris yoneticiGiris = new YoneticiGiris();
             this.Close();
             yoneticiGiris.Show();
         }
-
         private void UcretsizAraçGirisiTanimla_Load(object sender, EventArgs e)
         {
             _islemler.TumKayitlariGoster();
         }
-
         private void btnPlakaEkle_Click(object sender, EventArgs e)
         {
             string plaka = txtUcretsizPlaka.Text.Trim();

@@ -12,7 +12,6 @@ namespace OtoparkOtomasyon
         private Baglanti _baglanti;
         private TextBox _txtKullaniciID, _txtKullaniciAdi, _txtKullaniciSifre;
         private DataGridView _datagridPersonelTanimla;
-
         public Personel(TextBox txtKullaniciID, TextBox txtKullaniciAdi, TextBox txtKullaniciSifre, DataGridView datagridPersonelTanimla)
         {
             _baglanti = new Baglanti();
@@ -21,29 +20,26 @@ namespace OtoparkOtomasyon
             _txtKullaniciSifre = txtKullaniciSifre;
             _datagridPersonelTanimla = datagridPersonelTanimla;
         }
-
         public void TumKayitlariGoster()
         {
             try { 
-            var entities = _baglanti.Entity();
-            var personeller = entities.PersonelGirisTanimla.ToList();
-            _datagridPersonelTanimla.DataSource = personeller;
-            _datagridPersonelTanimla.ClearSelection();
-            KutulariBosalt();
+                var entities = _baglanti.Entity();
+                var personeller = entities.PersonelGirisTanimla.ToList();
+                _datagridPersonelTanimla.DataSource = personeller;
+                _datagridPersonelTanimla.ClearSelection();
+                KutulariBosalt();
             }
             catch (Exception ex)
             {
                 MesajGoster.Hata(ex.Message);
             }
         }
-
         public void KutulariBosalt()
         {
             _txtKullaniciID.Clear();
             _txtKullaniciAdi.Clear();
             _txtKullaniciSifre.Clear();
         }
-
         public void Ekle()
         {
             try
@@ -98,15 +94,12 @@ namespace OtoparkOtomasyon
                 {
                     MesajGoster.Uyari("Lütfen Silme İşlemi Yapmak İçin Bir Kayıt Seçiniz !");
                 }
-
-
             }
             catch (Exception ex)
             {
                 MesajGoster.Hata(ex.Message);
             }
         }
-
         public void Guncelle()
         {
             try
@@ -149,7 +142,5 @@ namespace OtoparkOtomasyon
                 MesajGoster.Hata(ex.Message);
             }
         }
-
-
     }
 }

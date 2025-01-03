@@ -21,7 +21,6 @@ namespace OtoparkOtomasyon
             _rdbtnMinibus = rdbtnMinibus;
             _txtKapasiteAyarla = txtKapasiteAyarla;
         }
-
         public void KaydetVeyaGuncelle(string secim , int kapasiteDegeri)
         {
             try
@@ -48,7 +47,6 @@ namespace OtoparkOtomasyon
                 MesajGoster.Hata(ex.Message);
             }
         }
-
         public void Ekle()
         {
             string secim = "";
@@ -60,29 +58,23 @@ namespace OtoparkOtomasyon
             {
                 MesajGoster.Uyari("Lütfen bir araç türü seçin ve otoparkın seçtiğiniz araç türü için kapasitesini girin!");
             }
-
             else
-            {
-                
+            {               
                 int kapasiteDegeri = Convert.ToInt32(_txtKapasiteAyarla.Text);
                 KaydetVeyaGuncelle(secim, kapasiteDegeri);
                 MesajGoster.Bilgi(secim + " Kapasiteniz : " + _txtKapasiteAyarla.Text + " Olarak Belirlendi.");
                 _txtKapasiteAyarla.Clear();
-
             }
         }
-
         public void AracKapasitesiniYazdir(string secim)
         {
             try
             {
                 var entities = _baglanti.Entity();
-
                 var kapasite = entities.AracKapasitesi.FirstOrDefault(x => x.KapasiteID == 1);
 
                 if (kapasite != null)
                 {
-                    // Seçilen araç türüne göre kapasiteyi yazdır
                     if (secim == "Otomobil")
                     {
                         _txtKapasiteAyarla.Text = kapasite.OtomobilKapasitesi.ToString();

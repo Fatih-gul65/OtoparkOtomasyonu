@@ -11,7 +11,6 @@ namespace OtoparkOtomasyon
     {
         private Baglanti _baglanti;
         private Label _lblDoluAlan, _lblBosAlan, _lblKapasite;
-
         public otoParkDolulukForm(Baglanti baglanti, Label lblDoluAlan, Label lblBosAlan, Label lblKapasite)
         {
             _baglanti = baglanti;
@@ -49,39 +48,10 @@ namespace OtoparkOtomasyon
                     string sonucKapasite = $"Otomobil Kapasitesi : {otomobilKapasite} \nKamyonet Kapasitesi : {kamyonetKapasite} \nMinibüs/Kamyon Kapasitesi : {minibusKapasite} \n \nToplam Kapasite : " + (otomobilKapasite + kamyonetKapasite + minibusKapasite);
                     string sonucDolu = $"Otomobil Dolu Alan : {otomobilDolu} \nKamyonet Dolu Alan : {kamyonetDolu} \nMinibüs/Kamyon Dolu Alan : {minibusDolu} \n \nToplam Dolu Alan : " + (otomobilDolu + kamyonetDolu + minibusDolu);
                     string sonucBos = $"Otomobil Bos Alan : {otomobilBos} \nKamyonet Bos Alan : {kamyonetBos} \nMinibüs/Kamyon Bos Alan : {minibusBos} \n \nToplam Bos Alan : " + (otomobilBos + kamyonetBos + minibusBos);
-                    
+
                     _lblKapasite.Text = sonucKapasite;
-                    _lblDoluAlan.Text = sonucDolu; 
-                    _lblBosAlan.Text = sonucBos; 
-                    
-                    int ToplamDolu = otomobilDolu + kamyonetDolu + minibusDolu;
-                    int ToplamBos = otomobilBos + kamyonetBos + minibusBos;
-                    int ToplamKapasite = otomobilKapasite + kamyonetKapasite + minibusKapasite;
-
-                    var otoparkDurumu = entities.OtoparkDurumu.FirstOrDefault(o => o.OtoparkID == 1);
-
-                    if (otoparkDurumu != null)
-                    {
-                        otoparkDurumu.ToplamDoluAlan = ToplamDolu;
-                        otoparkDurumu.ToplamBosAlan = ToplamBos;
-                        otoparkDurumu.ToplamKapasite = ToplamKapasite;
-                    }
-                    else
-                    {
-                        otoparkDurumu = new OtoparkDurumu
-                        {
-                            OtoparkID = 1,
-                            ToplamDoluAlan = ToplamDolu,
-                            ToplamBosAlan = ToplamBos,
-                            ToplamKapasite = ToplamKapasite
-                        };
-                        entities.OtoparkDurumu.Add(otoparkDurumu);
-                    }
-                    entities.SaveChanges();
-                }
-                else
-                {
-                    throw new Exception("Otopark kapasitesi bilgileri bulunamadı.");
+                    _lblDoluAlan.Text = sonucDolu;
+                    _lblBosAlan.Text = sonucBos;
                 }
             }
             catch (Exception ex)

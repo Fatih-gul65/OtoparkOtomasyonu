@@ -21,6 +21,5 @@ namespace OtoparkOtomasyon
     
         public virtual AracCikis AracCikis { get; set; }
         public virtual AracGiris AracGiris { get; set; }
-        public virtual OtoparkDurumu OtoparkDurumu { get; set; }
     }
 }

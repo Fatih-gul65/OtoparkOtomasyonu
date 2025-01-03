@@ -17,7 +17,6 @@ namespace OtoparkOtomasyon
         {
             InitializeComponent();
         }
-
         private void btnGiris_Click(object sender, EventArgs e)
         {
             try
@@ -47,7 +46,6 @@ namespace OtoparkOtomasyon
             anasayfa.Show();
             this.Close();
         }
-
         private void PersonelDogrula_Load(object sender, EventArgs e)
         {
             try {
@@ -61,7 +59,6 @@ namespace OtoparkOtomasyon
                 }
                 else
                 {
-                    // Eğer Kayıtlı Kullanıcı Varsa Label Ve TextBox'ları göster
                     txtKullaniciAdiGiris.Visible = true;
                     txtKullaniciSifreGiris.Visible = true;
                     lblKullaniciAdi.Visible = true;

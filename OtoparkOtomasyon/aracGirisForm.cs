@@ -15,10 +15,6 @@ namespace OtoparkOtomasyon
         private Label _lblDogrulamaKodu, _lblParkYeri;
         private Random _rnd = new Random();
         private Dictionary<string, int> _aracTuruKapasiteleri = new Dictionary<string, int>();
-
-
-
-
         public aracGirisForm(Baglanti baglanti, TextBox txtMusteriAdi, TextBox txtMusteriSoyadi, TextBox txtPlaka, TextBox txtTelefonNo, ComboBox cmbAracTuru, Label lblDogrulamaKodu, Label lblParkYeri)
         {
             _baglanti = baglanti;
@@ -29,9 +25,7 @@ namespace OtoparkOtomasyon
             _cmbAracTuru = cmbAracTuru;
             _lblDogrulamaKodu = lblDogrulamaKodu;
             _lblParkYeri = lblParkYeri;
-
         }
-
         public void yukle()
         {
             _cmbAracTuru.Items.Clear();
@@ -45,7 +39,6 @@ namespace OtoparkOtomasyon
             // Araç kapasitelerini yükle
             Task.Run(AraçKapasiteleriniYukle);
         }
-
         private async Task AraçKapasiteleriniYukle()
         {
             var aracKapasiteleri = await Task.Run(() => _baglanti.Entity().AracKapasitesi.ToList());
@@ -58,11 +51,8 @@ namespace OtoparkOtomasyon
                 _aracTuruKapasiteleri["Kamyonet"] = aracKapasitesi.KamyonetKapasitesi ?? -1;
             }
         }
-
-
         private void CmbAracTuru_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             var entities = _baglanti.Entity();
             if (_cmbAracTuru.SelectedItem == null)
             {
@@ -106,10 +96,8 @@ namespace OtoparkOtomasyon
                 parkYeri = $"{harf}{_rnd.Next(1, kapasite + 1)}";
             } while (entities.ParkYeri.Any(a => a.ParkYeri1 == parkYeri));
 
-
             _lblParkYeri.Text = parkYeri;
         }
-
         public void TemizleForm()
         {
             _txtMusteriAdi.Clear();
@@ -120,7 +108,6 @@ namespace OtoparkOtomasyon
             _lblDogrulamaKodu.Text = string.Empty;
             _lblParkYeri.Text = string.Empty;
         }
-
         public async void kaydet()
         {
             try
@@ -138,13 +125,11 @@ namespace OtoparkOtomasyon
                     MesajGoster.Uyari("Lütfen tüm zorunlu alanları doldurunuz.");
                     return;
                 }
-
                 if (!_aracTuruKapasiteleri.TryGetValue(_cmbAracTuru.SelectedItem.ToString(), out int kapasite) || kapasite == -1)
                 {
                     MesajGoster.Uyari("Seçilen araç türü için kapasite bilgisi bulunamadı.");
                     return;
                 }
-
                 // Mevcut kapasiteyi kontrol et
                 string aracTuru = _cmbAracTuru.SelectedItem.ToString();
                 string harf = "";
@@ -161,16 +146,14 @@ namespace OtoparkOtomasyon
                         break;
                     default:
                         throw new InvalidOperationException("Geçersiz araç türü.");
-                }
+                }   
                 
-
                 int mevcutKapasite = kapasite - entities.ParkYeri.Count(a => a.ParkYeri1.StartsWith(harf));
                 if (mevcutKapasite <= 0)
                 {
                     MesajGoster.Uyari("Kapasite dolmuş, yeni araç eklenemez.");
                     return;
                 }
-
                 if (entities.AracGiris.Any(x => x.Plaka == _txtPlaka.Text && !entities.AracCikis.Any(c => c.Plaka == x.Plaka)))
                 {
                     MesajGoster.Uyari("Bu plaka zaten var. Lütfen başka bir plaka seçiniz.");
@@ -211,6 +194,5 @@ namespace OtoparkOtomasyon
                 MesajGoster.Hata(ex.Message);
             }
         }
-
     }
 }

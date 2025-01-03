@@ -13,55 +13,40 @@ namespace OtoparkOtomasyon
     {
         private Baglanti _baglanti;
         private TextBox _txtYoneticiAdi, _txtYoneticiSifre;
-
         public YoneticiSifre(TextBox txtYoneticiAdi , TextBox txtYoneticiSifre) {
             _baglanti = new Baglanti();
             _txtYoneticiAdi = txtYoneticiAdi;
             _txtYoneticiSifre = txtYoneticiSifre;
         }
-
         public void Ekle()
         {
             string YoneticiAdi = _txtYoneticiAdi.Text.Trim();
             string YoneticiSifre = _txtYoneticiSifre.Text.Trim();
-            SqlConnection con = null;
             try
-            {                
-                con = _baglanti.SqlBaglanti();
-
-                if (YoneticiAdi == "" || YoneticiSifre == "")
+            {
+                if (string.IsNullOrEmpty(YoneticiAdi) || string.IsNullOrEmpty(YoneticiSifre))
                 {
                     MesajGoster.Uyari("Lütfen Boş Olan Alanları Doldurunuz");
                 }
                 else
                 {
-                    con.Open();
-                    string guncelle = "update Yonetici SET YoneticiAdi = @YoneticiAdi , YoneticiSifre = @YoneticiSifre where YoneticiID = 1";
-                    SqlCommand komut = new SqlCommand(guncelle, con);
-                    komut.Parameters.AddWithValue("@YoneticiAdi", YoneticiAdi);
-                    komut.Parameters.AddWithValue("@YoneticiSifre", YoneticiSifre);
-                    int sonuc = komut.ExecuteNonQuery();
-
-                    if (sonuc == 1)
+                    var entities = _baglanti.Entity();                    
+                    var yonetici = entities.Yonetici.SingleOrDefault(y => y.YoneticiID == 1);
+                    if (yonetici != null)
                     {
-                        MesajGoster.Bilgi("Yönetici Adınız : " + YoneticiAdi + "\n Yönetici Şifreniz : " + YoneticiSifre + "\n Olarak belirlenmiştir !");
+                        yonetici.YoneticiAdi = YoneticiAdi;
+                        yonetici.YoneticiSifre = YoneticiSifre;
+                        entities.SaveChanges();
+                        MesajGoster.Bilgi("Yönetici Adınız : " + YoneticiAdi + "\n Yönetici Şifreniz : " + YoneticiSifre + "\n Olarak Güncellenmiştir !");
                         _txtYoneticiAdi.Clear();
                         _txtYoneticiSifre.Clear();
-                    }
-                    else
-                    {
-                        MesajGoster.Hata("Güncelleme tamamlanamadı");
-                    }
+                    }                  
                 }
             }
             catch (Exception ex)
             {
                 MesajGoster.Hata(ex.Message);
             }
-            finally
-            {
-                con.Close();
-            }
-        }       
+        }
     }
 }

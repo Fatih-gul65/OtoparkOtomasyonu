@@ -19,11 +19,6 @@ namespace OtoparkOtomasyon
         {
             InitializeComponent();
             _islemler = new AboneListe(baglanti, datagridAboneListele, txtAboneSuresiSorgula, txtUcretSorgula, txtAracTuruSorgula, txtPlakaSorgula, dateTimePickerBaslangic);
-
-            txtUcretSorgula.TextChanged += TxtUcretSorgula_TextChanged;
-            txtAboneSuresiSorgula.TextChanged += txtAboneSuresiSorgula_TextChanged;
-            txtAracTuruSorgula.TextChanged += txtAracTuruSorgula_TextChanged;
-            txtPlakaSorgula.TextChanged += txtPlakaSorgula_TextChanged;
         }
         private void btnGeri_Click(object sender, EventArgs e)
         {
@@ -35,7 +30,7 @@ namespace OtoparkOtomasyon
         {
             _islemler.Listele();
         }
-        private void TxtUcretSorgula_TextChanged(object sender, EventArgs e)
+        private void txtUcretSorgula_TextChanged_1(object sender, EventArgs e)
         {
             _islemler.Listele();
         }

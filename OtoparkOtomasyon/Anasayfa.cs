@@ -16,21 +16,16 @@ namespace OtoparkOtomasyon
         {
             InitializeComponent();
         }
-
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             YoneticiDogrulama yonetici = new YoneticiDogrulama();
             yonetici.Show();
             this.Hide();
         }
-
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
-      
-
         private void btnPersonelGiris_Click(object sender, EventArgs e)
         {
             PersonelDogrula personeldogrula = new PersonelDogrula();

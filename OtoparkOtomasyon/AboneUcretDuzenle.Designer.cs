@@ -317,7 +317,6 @@
             this.Name = "AboneUcretDuzenle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AboneUcretDuzenle";
-            this.Load += new System.EventHandler(this.AboneUcretDuzenle_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

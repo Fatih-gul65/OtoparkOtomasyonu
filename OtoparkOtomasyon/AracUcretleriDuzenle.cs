@@ -12,7 +12,6 @@ namespace OtoparkOtomasyon
         private Baglanti _baglanti;
         private RadioButton _rdbtnOtomobil, _rdbtnKamyonet, _rdbtnMinibus;
         private TextBox _txt_0_3_Saat, _txt_3_6_Saat, _txt_6_24_Saat, _txt_24_SaatUzeri;
-
         public AracUcretleriDuzenle(RadioButton rdbtnOtomobil , RadioButton rdbtnKamyonet , RadioButton rdbtnMinibus,
            TextBox txt_0_3_Saat, TextBox txt_3_6_Saat, TextBox txt_6_24_Saat, TextBox txt_24_SaatUzeri )
         {
@@ -25,7 +24,6 @@ namespace OtoparkOtomasyon
             _txt_6_24_Saat = txt_6_24_Saat;
             _txt_24_SaatUzeri = txt_24_SaatUzeri;
         }
-
         public void UcretYazdir(int AracID)
         {
             try
@@ -52,8 +50,7 @@ namespace OtoparkOtomasyon
             {
                 MesajGoster.Hata(ex.Message);
             }
-        }       
-
+        }
         public void Ekle(int AracID , string aracTuru)
         {
             if (AracID == 0 || string.IsNullOrWhiteSpace(_txt_0_3_Saat.Text) ||
@@ -63,10 +60,8 @@ namespace OtoparkOtomasyon
             {
                 MesajGoster.Uyari("Lütfen tüm alanları doldurun ve araç türünü seçin!");
             }
-
             else
             {
-
                 try
                 {
                     var entities = _baglanti.Entity();

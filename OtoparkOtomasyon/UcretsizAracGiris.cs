@@ -13,7 +13,6 @@ namespace OtoparkOtomasyon
         private DataGridView _datagridUcretsizGiris;
         private TextBox _txtUcretsizPlaka;
         private Label _lblUcretsizGiris;
-
         public UcretsizAracGiris(DataGridView datagridUcretsizGiris, TextBox txtUcretsizPlaka, Label lblUcretsizGiris)
         {
             _baglanti = new Baglanti();
@@ -21,7 +20,6 @@ namespace OtoparkOtomasyon
             _txtUcretsizPlaka = txtUcretsizPlaka;
             _lblUcretsizGiris = lblUcretsizGiris;
         }
-
         public void TumKayitlariGoster()
         {
             try
@@ -46,7 +44,6 @@ namespace OtoparkOtomasyon
                 MesajGoster.Hata(ex.Message);
             }
         }
-
         public void PlakaEkle(string plaka)
         {
             if (string.IsNullOrEmpty(plaka.Trim()))
@@ -95,8 +92,6 @@ namespace OtoparkOtomasyon
                 }
             }
         }
-
-
         public void PlakaSil(int ucretsizGirisID)
         {
             try
@@ -113,7 +108,5 @@ namespace OtoparkOtomasyon
                 MesajGoster.Hata(ex.Message);
             }
         }
-
-
     }
 }

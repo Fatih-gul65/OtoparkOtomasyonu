@@ -8,8 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
-
 namespace OtoparkOtomasyon
 {
     public partial class PersonelGirisi : Form
@@ -18,61 +16,47 @@ namespace OtoparkOtomasyon
         {
             InitializeComponent();
         }
-
-
-        private void PersonelGirisi_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnAracGiris_Click_1(object sender, EventArgs e)
         {
             aracgirisForm2 form2 = new aracgirisForm2();
             form2.Show();
-            Hide();
+            this.Close();
         }
-
         private void btnAracCikis_Click_1(object sender, EventArgs e)
         {
             aracikisForm3 form3 = new aracikisForm3();
             form3.Show();
-            Hide();
+            this.Close();
         }
-
         private void btnOtoparkDoluluk_Click_1(object sender, EventArgs e)
         {
             otoparkdolulukForm6 form4 = new otoparkdolulukForm6();
             form4.Show();
-            Hide();
+            this.Close();
         }
-
         private void btnAracBul_Click_1(object sender, EventArgs e)
         {
             aracbul form5 = new aracbul();
             form5.Show();
-            Hide();
+            this.Close();
         }
-
         private void btnAboneEkle_Click_1(object sender, EventArgs e)
         {
             abonelikForm4 form6 = new abonelikForm4();
             form6.Show();
-            Hide();
+            this.Close();
         }
-
         private void btnAboneListele_Click_1(object sender, EventArgs e)
         {
             abonelistele form7 = new abonelistele();
             form7.Show();
-            Hide();
+            this.Close();
         }
-
         private void btnGeri_Click(object sender, EventArgs e)
         {
             PersonelDogrula personeldogrula = new PersonelDogrula();
             personeldogrula.Show();
             this.Close();
         }
-    }
-    
+    }   
 }

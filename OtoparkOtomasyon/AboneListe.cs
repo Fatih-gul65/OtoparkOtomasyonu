@@ -16,7 +16,7 @@ namespace OtoparkOtomasyon
         private DataGridView _datagridAboneListele;
         private TextBox _txtAboneSuresiSorgula, _txtUcretSorgula, _txtAracTuruSorgula, _txtPlakaSorgula;
         private DateTimePicker _dateTimePickerBaslangic;
-        public AboneListe(Baglanti baglanti, DataGridView datagridAboneListele, TextBox txtAboneSuresiSorgula, TextBox txtUcretSorgula, 
+        public AboneListe(Baglanti baglanti, DataGridView datagridAboneListele, TextBox txtAboneSuresiSorgula, TextBox txtUcretSorgula,
                           TextBox txtAracTuruSorgula, TextBox txtPlakaSorgula, DateTimePicker dateTimePickerBaslangic)
         {
             _baglanti = baglanti;
@@ -86,7 +86,7 @@ namespace OtoparkOtomasyon
 
                 _datagridAboneListele.DataSource = aboneListesi;
                 _datagridAboneListele.ClearSelection();
-   
+
                 _datagridAboneListele.Columns["AbonePlaka"].HeaderText = "Plaka";
                 _datagridAboneListele.Columns["AbonelikTipi"].HeaderText = "Abonelik Süresi";
                 _datagridAboneListele.Columns["AbonelikBaslangicTarihi"].HeaderText = "Başlangıç Tarihi";

@@ -52,11 +52,11 @@
             this.groupBox1.BackColor = System.Drawing.Color.White;
             this.groupBox1.Controls.Add(this.lblKapasite);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(67, 263);
+            this.groupBox1.Location = new System.Drawing.Point(62, 203);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(424, 385);
+            this.groupBox1.Size = new System.Drawing.Size(408, 285);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -65,7 +65,7 @@
             this.lblKapasite.AutoSize = true;
             this.lblKapasite.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblKapasite.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.lblKapasite.Location = new System.Drawing.Point(8, 170);
+            this.lblKapasite.Location = new System.Drawing.Point(8, 113);
             this.lblKapasite.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblKapasite.Name = "lblKapasite";
             this.lblKapasite.Size = new System.Drawing.Size(43, 24);
@@ -89,11 +89,11 @@
             this.groupBox2.BackColor = System.Drawing.Color.White;
             this.groupBox2.Controls.Add(this.lblBosAlan);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Location = new System.Drawing.Point(592, 263);
+            this.groupBox2.Location = new System.Drawing.Point(587, 203);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(424, 385);
+            this.groupBox2.Size = new System.Drawing.Size(408, 285);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             // 
@@ -102,7 +102,7 @@
             this.lblBosAlan.AutoSize = true;
             this.lblBosAlan.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBosAlan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.lblBosAlan.Location = new System.Drawing.Point(8, 170);
+            this.lblBosAlan.Location = new System.Drawing.Point(8, 113);
             this.lblBosAlan.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBosAlan.Name = "lblBosAlan";
             this.lblBosAlan.Size = new System.Drawing.Size(32, 24);
@@ -125,11 +125,11 @@
             this.groupBox3.BackColor = System.Drawing.Color.White;
             this.groupBox3.Controls.Add(this.lblDoluAlan);
             this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Location = new System.Drawing.Point(1107, 263);
+            this.groupBox3.Location = new System.Drawing.Point(1102, 203);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox3.Size = new System.Drawing.Size(424, 385);
+            this.groupBox3.Size = new System.Drawing.Size(408, 285);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             // 
@@ -138,7 +138,7 @@
             this.lblDoluAlan.AutoSize = true;
             this.lblDoluAlan.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDoluAlan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblDoluAlan.Location = new System.Drawing.Point(8, 170);
+            this.lblDoluAlan.Location = new System.Drawing.Point(8, 113);
             this.lblDoluAlan.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDoluAlan.Name = "lblDoluAlan";
             this.lblDoluAlan.Size = new System.Drawing.Size(21, 24);

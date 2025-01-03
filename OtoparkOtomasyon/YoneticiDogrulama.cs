@@ -61,31 +61,12 @@ namespace OtoparkOtomasyon
             {
                 con.Close();
             }
-        }
-            
-            
-            
-
-            
-            
-            
-            
-            
-            
-           
-            
-        
-
+        }                                                                                                                                    
         private void btnGeri_Click(object sender, EventArgs e)
         {
             Anasayfa anasayfa = new Anasayfa();
             anasayfa.Show();
             this.Close();
-        }
-
-        private void YoneticiDogrulama_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -248,7 +248,6 @@
             this.Name = "PersonelGirisi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PersonelGirisi";
-            this.Load += new System.EventHandler(this.PersonelGirisi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

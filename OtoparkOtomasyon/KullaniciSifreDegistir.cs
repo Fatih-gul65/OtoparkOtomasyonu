@@ -19,13 +19,11 @@ namespace OtoparkOtomasyon
             InitializeComponent();
             _islemler = new YoneticiSifre(txtYoneticiAdi, txtYoneticiSifre);
         }
-
         private void btnGeri_Click(object sender, EventArgs e)
         {
             YoneticiGiris yoneticiGiris = new YoneticiGiris();
             yoneticiGiris.Show();
             this.Close();
-
         }
         private void btnKaydet_Click(object sender, EventArgs e)
         {

@@ -15,7 +15,6 @@ namespace OtoparkOtomasyon
             InitializeComponent();
             _islemler = new AracUcretleriDuzenle(rdbtnOtomobil, rdbtnKamyonet, rdbtnMinibus, txt_0_3_Saat, txt_3_6_Saat, txt_6_24_Saat, txt_24_SaatUzeri);
         }
-
         private void btnGeri_Click(object sender, EventArgs e)
         {
             YoneticiGiris geri = new YoneticiGiris();
@@ -26,7 +25,6 @@ namespace OtoparkOtomasyon
         {
             _islemler.Ekle(AracID, aracTuru);
         }
- 
         private void rdbtnOtomobil_CheckedChanged(object sender, EventArgs e)
         {
             if (rdbtnOtomobil.Checked)
@@ -36,7 +34,6 @@ namespace OtoparkOtomasyon
                 _islemler.UcretYazdir(AracID);
             }
         }
-
         private void rdbtnKamyonet_CheckedChanged(object sender, EventArgs e)
         {
             if (rdbtnKamyonet.Checked)
@@ -46,7 +43,6 @@ namespace OtoparkOtomasyon
                 _islemler.UcretYazdir(AracID);
             }
         }
-
         private void rdbtnMinibus_CheckedChanged(object sender, EventArgs e)
         {
             if (rdbtnMinibus.Checked)
@@ -56,20 +52,14 @@ namespace OtoparkOtomasyon
                 _islemler.UcretYazdir(AracID);
             }
         }
-
         private void txtBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBox txtBox = sender as TextBox;
-            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
-            {
-                e.Handled = true;
-            }          
-            else if (txtBox.Text.Length >= 10 && e.KeyChar != (char)8)
+            if ((!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8) || (txtBox.Text.Length >= 10 && e.KeyChar != (char)8))
             {
                 e.Handled = true;
             }
         }
-
         private void AracUcretDuzenle_Load(object sender, EventArgs e)
         {
             txt_0_3_Saat.KeyPress += txtBox_KeyPress;

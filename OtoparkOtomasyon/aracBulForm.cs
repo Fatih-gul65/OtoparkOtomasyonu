@@ -9,7 +9,6 @@ namespace OtoparkOtomasyon
         private Baglanti _baglanti;
         private TextBox _txtPlaka;
         private Label _lblAracYeri;
-
         public aracBulForm(Baglanti baglanti, TextBox txtPlaka, Label lblAracYeri)
         {
             _baglanti = baglanti;

@@ -18,8 +18,6 @@ namespace OtoparkOtomasyon
         {
             InitializeComponent();
             _islemler = new otoParkDolulukForm(baglanti, lblDoluAlan, lblBosAlan, lblKapasite);
-
-
         }
         private void otoparkdolulukForm6_Load(object sender, EventArgs e)
         {

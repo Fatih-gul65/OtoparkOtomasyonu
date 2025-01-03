@@ -21,14 +21,12 @@ namespace OtoparkOtomasyon
 
         int AUcretID = 0;
         string AracTuru = "";
-
         private void btnGeri_Click(object sender, EventArgs e)
         {
             YoneticiGiris geri = new YoneticiGiris();
             geri.Show();
             this.Close();
         }
-
         private void rdbtnOtomobil_CheckedChanged(object sender, EventArgs e)
         {
             if (rdbtnOtomobil.Checked)
@@ -38,7 +36,6 @@ namespace OtoparkOtomasyon
                 _islemler.UcretYazdir(AUcretID);
             }
         }
-
         private void rdbtnKamyonet_CheckedChanged(object sender, EventArgs e)
         {
             if (rdbtnKamyonet.Checked)
@@ -48,7 +45,6 @@ namespace OtoparkOtomasyon
                 _islemler.UcretYazdir(AUcretID);
             }
         }
-
         private void rdbtnMinibus_CheckedChanged(object sender, EventArgs e)
         {
             if (rdbtnMinibus.Checked)
@@ -58,24 +54,13 @@ namespace OtoparkOtomasyon
                 _islemler.UcretYazdir(AUcretID);
             }
         }
-
-        private void AboneUcretDuzenle_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnKaydet_Click(object sender, EventArgs e)
         {
             _islemler.Ekle(AUcretID, AracTuru);
         }
-
         private void txtAboneUcreti_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-            else if (txtAboneUcreti.Text.Length >= 10 && e.KeyChar != (char)8)
+            if ((!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar)) || (txtAboneUcreti.Text.Length >= 10 && e.KeyChar != (char)8))
             {
                 e.Handled = true;
             }

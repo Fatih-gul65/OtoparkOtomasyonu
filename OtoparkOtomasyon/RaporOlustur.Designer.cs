@@ -29,51 +29,28 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RaporOlustur));
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.datagridRapor = new System.Windows.Forms.DataGridView();
             this.btnSonuclariListele = new Guna.UI2.WinForms.Guna2Button();
             this.btnExcelAktar = new Guna.UI2.WinForms.Guna2Button();
             this.lblGunlukKazanc = new System.Windows.Forms.Label();
             this.btnGeri = new Guna.UI2.WinForms.Guna2Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.txtAracTuruSorgula = new System.Windows.Forms.TextBox();
             this.txtUcretSorgula = new System.Windows.Forms.TextBox();
             this.txtPlakaSorgula = new System.Windows.Forms.TextBox();
             this.dateTimePickerGirisTarihi = new System.Windows.Forms.DateTimePicker();
             this.lblHaftalikKazanc = new System.Windows.Forms.Label();
             this.lblAylikKazanc = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.lblAboneAylik = new System.Windows.Forms.Label();
+            this.lblAboneHaftalik = new System.Windows.Forms.Label();
+            this.lblAboneGunluk = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.datagridRapor)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(459, 113);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(360, 24);
-            this.label1.TabIndex = 29;
-            this.label1.Text = "Otopark Yönetiminde Ustalık Zamanı!";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(351, 12);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(544, 98);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 28;
-            this.pictureBox1.TabStop = false;
             // 
             // datagridRapor
             // 
@@ -131,7 +108,7 @@
             this.lblGunlukKazanc.AutoSize = true;
             this.lblGunlukKazanc.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblGunlukKazanc.ForeColor = System.Drawing.Color.White;
-            this.lblGunlukKazanc.Location = new System.Drawing.Point(929, 18);
+            this.lblGunlukKazanc.Location = new System.Drawing.Point(12, 82);
             this.lblGunlukKazanc.Name = "lblGunlukKazanc";
             this.lblGunlukKazanc.Size = new System.Drawing.Size(16, 24);
             this.lblGunlukKazanc.TabIndex = 37;
@@ -180,6 +157,42 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Yapmak İstediğiniz İşlemi Seçiniz !";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 176);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(101, 22);
+            this.label5.TabIndex = 67;
+            this.label5.Text = "Plakaya Göre";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(286, 176);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(93, 22);
+            this.label4.TabIndex = 66;
+            this.label4.Text = "Ücrete Göre";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(286, 43);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(134, 22);
+            this.label3.TabIndex = 65;
+            this.label3.Text = "Araç Türüne Göre";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 43);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(92, 22);
+            this.label2.TabIndex = 64;
+            this.label2.Text = "Tarihe Göre";
+            // 
             // txtAracTuruSorgula
             // 
             this.txtAracTuruSorgula.Location = new System.Drawing.Point(290, 85);
@@ -221,7 +234,7 @@
             this.lblHaftalikKazanc.AutoSize = true;
             this.lblHaftalikKazanc.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblHaftalikKazanc.ForeColor = System.Drawing.Color.White;
-            this.lblHaftalikKazanc.Location = new System.Drawing.Point(929, 62);
+            this.lblHaftalikKazanc.Location = new System.Drawing.Point(439, 82);
             this.lblHaftalikKazanc.Name = "lblHaftalikKazanc";
             this.lblHaftalikKazanc.Size = new System.Drawing.Size(16, 24);
             this.lblHaftalikKazanc.TabIndex = 57;
@@ -232,47 +245,44 @@
             this.lblAylikKazanc.AutoSize = true;
             this.lblAylikKazanc.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblAylikKazanc.ForeColor = System.Drawing.Color.White;
-            this.lblAylikKazanc.Location = new System.Drawing.Point(929, 108);
+            this.lblAylikKazanc.Location = new System.Drawing.Point(869, 82);
             this.lblAylikKazanc.Name = "lblAylikKazanc";
             this.lblAylikKazanc.Size = new System.Drawing.Size(16, 24);
             this.lblAylikKazanc.TabIndex = 58;
             this.lblAylikKazanc.Text = " ";
             // 
-            // label2
+            // lblAboneAylik
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 43);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 22);
-            this.label2.TabIndex = 64;
-            this.label2.Text = "Tarihe Göre";
+            this.lblAboneAylik.AutoSize = true;
+            this.lblAboneAylik.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblAboneAylik.ForeColor = System.Drawing.Color.White;
+            this.lblAboneAylik.Location = new System.Drawing.Point(869, 18);
+            this.lblAboneAylik.Name = "lblAboneAylik";
+            this.lblAboneAylik.Size = new System.Drawing.Size(16, 24);
+            this.lblAboneAylik.TabIndex = 61;
+            this.lblAboneAylik.Text = " ";
             // 
-            // label3
+            // lblAboneHaftalik
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(286, 43);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(134, 22);
-            this.label3.TabIndex = 65;
-            this.label3.Text = "Araç Türüne Göre";
+            this.lblAboneHaftalik.AutoSize = true;
+            this.lblAboneHaftalik.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblAboneHaftalik.ForeColor = System.Drawing.Color.White;
+            this.lblAboneHaftalik.Location = new System.Drawing.Point(439, 18);
+            this.lblAboneHaftalik.Name = "lblAboneHaftalik";
+            this.lblAboneHaftalik.Size = new System.Drawing.Size(16, 24);
+            this.lblAboneHaftalik.TabIndex = 60;
+            this.lblAboneHaftalik.Text = " ";
             // 
-            // label4
+            // lblAboneGunluk
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(286, 176);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(93, 22);
-            this.label4.TabIndex = 66;
-            this.label4.Text = "Ücrete Göre";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 176);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(101, 22);
-            this.label5.TabIndex = 67;
-            this.label5.Text = "Plakaya Göre";
+            this.lblAboneGunluk.AutoSize = true;
+            this.lblAboneGunluk.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblAboneGunluk.ForeColor = System.Drawing.Color.White;
+            this.lblAboneGunluk.Location = new System.Drawing.Point(12, 18);
+            this.lblAboneGunluk.Name = "lblAboneGunluk";
+            this.lblAboneGunluk.Size = new System.Drawing.Size(16, 24);
+            this.lblAboneGunluk.TabIndex = 59;
+            this.lblAboneGunluk.Text = " ";
             // 
             // RaporOlustur
             // 
@@ -280,6 +290,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(42)))), ((int)(((byte)(59)))));
             this.ClientSize = new System.Drawing.Size(1291, 700);
+            this.Controls.Add(this.lblAboneAylik);
+            this.Controls.Add(this.lblAboneHaftalik);
+            this.Controls.Add(this.lblAboneGunluk);
             this.Controls.Add(this.lblAylikKazanc);
             this.Controls.Add(this.lblHaftalikKazanc);
             this.Controls.Add(this.groupBox1);
@@ -287,15 +300,12 @@
             this.Controls.Add(this.lblGunlukKazanc);
             this.Controls.Add(this.btnExcelAktar);
             this.Controls.Add(this.datagridRapor);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "RaporOlustur";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RaporOlustur";
             this.Load += new System.EventHandler(this.RaporOlustur_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.datagridRapor)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -305,8 +315,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridView datagridRapor;
         private Guna.UI2.WinForms.Guna2Button btnSonuclariListele;
         private Guna.UI2.WinForms.Guna2Button btnExcelAktar;
@@ -323,5 +331,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblAboneAylik;
+        private System.Windows.Forms.Label lblAboneHaftalik;
+        private System.Windows.Forms.Label lblAboneGunluk;
     }
 }

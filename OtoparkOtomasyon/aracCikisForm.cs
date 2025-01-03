@@ -27,7 +27,6 @@ namespace OtoparkOtomasyon
             _rdbtnKrediKart = rdbtnKrediKart;
             _hesaplandiMi = false;
         }
-
         public void TemizleForm()
         {
             _txtAracPlakasi.Clear();
@@ -37,7 +36,6 @@ namespace OtoparkOtomasyon
             _rdbtnNakit.Checked = true;
             _hesaplandiMi = false;
         }
-
         public void Hesapla()
         {
             try
@@ -116,7 +114,6 @@ namespace OtoparkOtomasyon
                         return;
                     }
                 }
-
                 _hesaplandiMi = true;
             }
             catch (Exception ex)
@@ -124,7 +121,6 @@ namespace OtoparkOtomasyon
                 MesajGoster.Hata(ex.Message);
             }
         }
-
         private decimal HesaplaUcret(double toplamSaat, AracUcretleri ucretTarifesi)
         {
             if (toplamSaat <= 3)
@@ -137,7 +133,6 @@ namespace OtoparkOtomasyon
             int gunSayisi = (int)Math.Ceiling(toplamSaat / 24.0);
             return gunSayisi * Convert.ToDecimal(ucretTarifesi.AracUcretBirGunUzeri);
         }
-
         public void Kaydet()
         {
             try
@@ -182,7 +177,6 @@ namespace OtoparkOtomasyon
                     AboneID = aboneKaydi?.AboneID,
                     UcretsizGirisID = ucretsizGirisKaydi?.UcretsizGirisID
                 };
-
 
                 entities.AracCikis.Add(aracCikis);
 

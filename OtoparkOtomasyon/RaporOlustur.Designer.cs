@@ -38,15 +38,15 @@
             this.btnGeri = new Guna.UI2.WinForms.Guna2Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtAracTuruSorgula = new System.Windows.Forms.TextBox();
-            this.rdbtnAracTuruSorgula = new Guna.UI2.WinForms.Guna2RadioButton();
             this.txtUcretSorgula = new System.Windows.Forms.TextBox();
-            this.rdbtnUcretSorgula = new Guna.UI2.WinForms.Guna2RadioButton();
             this.txtPlakaSorgula = new System.Windows.Forms.TextBox();
-            this.rdbtnPlakaSorgula = new Guna.UI2.WinForms.Guna2RadioButton();
             this.dateTimePickerGirisTarihi = new System.Windows.Forms.DateTimePicker();
-            this.rdbtnTarihSorgula = new Guna.UI2.WinForms.Guna2RadioButton();
             this.lblHaftalikKazanc = new System.Windows.Forms.Label();
             this.lblAylikKazanc = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datagridRapor)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -96,12 +96,12 @@
             this.btnSonuclariListele.FillColor = System.Drawing.Color.White;
             this.btnSonuclariListele.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.btnSonuclariListele.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(42)))), ((int)(((byte)(59)))));
-            this.btnSonuclariListele.Location = new System.Drawing.Point(148, 298);
+            this.btnSonuclariListele.Location = new System.Drawing.Point(106, 298);
             this.btnSonuclariListele.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSonuclariListele.Name = "btnSonuclariListele";
-            this.btnSonuclariListele.Size = new System.Drawing.Size(185, 53);
+            this.btnSonuclariListele.Size = new System.Drawing.Size(239, 58);
             this.btnSonuclariListele.TabIndex = 34;
-            this.btnSonuclariListele.Text = "Sonuçları Listele";
+            this.btnSonuclariListele.Text = "Tüm Sonuçları Listele";
             this.btnSonuclariListele.Click += new System.EventHandler(this.btnSonuclariListele_Click);
             // 
             // btnExcelAktar
@@ -160,15 +160,15 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtAracTuruSorgula);
-            this.groupBox1.Controls.Add(this.rdbtnAracTuruSorgula);
             this.groupBox1.Controls.Add(this.txtUcretSorgula);
-            this.groupBox1.Controls.Add(this.rdbtnUcretSorgula);
             this.groupBox1.Controls.Add(this.txtPlakaSorgula);
-            this.groupBox1.Controls.Add(this.rdbtnPlakaSorgula);
             this.groupBox1.Controls.Add(this.btnSonuclariListele);
             this.groupBox1.Controls.Add(this.dateTimePickerGirisTarihi);
-            this.groupBox1.Controls.Add(this.rdbtnTarihSorgula);
             this.groupBox1.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(28, 175);
@@ -187,30 +187,7 @@
             this.txtAracTuruSorgula.Name = "txtAracTuruSorgula";
             this.txtAracTuruSorgula.Size = new System.Drawing.Size(137, 27);
             this.txtAracTuruSorgula.TabIndex = 63;
-            this.txtAracTuruSorgula.Visible = false;
             this.txtAracTuruSorgula.TextChanged += new System.EventHandler(this.txtAracTuruSorgula_TextChanged);
-            // 
-            // rdbtnAracTuruSorgula
-            // 
-            this.rdbtnAracTuruSorgula.AutoSize = true;
-            this.rdbtnAracTuruSorgula.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.rdbtnAracTuruSorgula.CheckedState.BorderThickness = 0;
-            this.rdbtnAracTuruSorgula.CheckedState.FillColor = System.Drawing.Color.LimeGreen;
-            this.rdbtnAracTuruSorgula.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.rdbtnAracTuruSorgula.CheckedState.InnerOffset = -4;
-            this.rdbtnAracTuruSorgula.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold);
-            this.rdbtnAracTuruSorgula.ForeColor = System.Drawing.Color.White;
-            this.rdbtnAracTuruSorgula.Location = new System.Drawing.Point(290, 42);
-            this.rdbtnAracTuruSorgula.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rdbtnAracTuruSorgula.Name = "rdbtnAracTuruSorgula";
-            this.rdbtnAracTuruSorgula.Size = new System.Drawing.Size(171, 23);
-            this.rdbtnAracTuruSorgula.TabIndex = 62;
-            this.rdbtnAracTuruSorgula.Text = "Araç Türüne Göre";
-            this.rdbtnAracTuruSorgula.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.rdbtnAracTuruSorgula.UncheckedState.BorderThickness = 2;
-            this.rdbtnAracTuruSorgula.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.rdbtnAracTuruSorgula.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            this.rdbtnAracTuruSorgula.CheckedChanged += new System.EventHandler(this.rdbtnAracTuruSorgula_CheckedChanged);
             // 
             // txtUcretSorgula
             // 
@@ -219,30 +196,7 @@
             this.txtUcretSorgula.Name = "txtUcretSorgula";
             this.txtUcretSorgula.Size = new System.Drawing.Size(137, 27);
             this.txtUcretSorgula.TabIndex = 60;
-            this.txtUcretSorgula.Visible = false;
             this.txtUcretSorgula.TextChanged += new System.EventHandler(this.txtUcretSorgula_TextChanged);
-            // 
-            // rdbtnUcretSorgula
-            // 
-            this.rdbtnUcretSorgula.AutoSize = true;
-            this.rdbtnUcretSorgula.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.rdbtnUcretSorgula.CheckedState.BorderThickness = 0;
-            this.rdbtnUcretSorgula.CheckedState.FillColor = System.Drawing.Color.LimeGreen;
-            this.rdbtnUcretSorgula.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.rdbtnUcretSorgula.CheckedState.InnerOffset = -4;
-            this.rdbtnUcretSorgula.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold);
-            this.rdbtnUcretSorgula.ForeColor = System.Drawing.Color.White;
-            this.rdbtnUcretSorgula.Location = new System.Drawing.Point(290, 175);
-            this.rdbtnUcretSorgula.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rdbtnUcretSorgula.Name = "rdbtnUcretSorgula";
-            this.rdbtnUcretSorgula.Size = new System.Drawing.Size(126, 23);
-            this.rdbtnUcretSorgula.TabIndex = 59;
-            this.rdbtnUcretSorgula.Text = "Ücrete Göre";
-            this.rdbtnUcretSorgula.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.rdbtnUcretSorgula.UncheckedState.BorderThickness = 2;
-            this.rdbtnUcretSorgula.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.rdbtnUcretSorgula.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            this.rdbtnUcretSorgula.CheckedChanged += new System.EventHandler(this.rdbtnUcretSorgula_CheckedChanged);
             // 
             // txtPlakaSorgula
             // 
@@ -251,30 +205,7 @@
             this.txtPlakaSorgula.Name = "txtPlakaSorgula";
             this.txtPlakaSorgula.Size = new System.Drawing.Size(137, 27);
             this.txtPlakaSorgula.TabIndex = 57;
-            this.txtPlakaSorgula.Visible = false;
             this.txtPlakaSorgula.TextChanged += new System.EventHandler(this.txtPlakaSorgula_TextChanged);
-            // 
-            // rdbtnPlakaSorgula
-            // 
-            this.rdbtnPlakaSorgula.AutoSize = true;
-            this.rdbtnPlakaSorgula.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.rdbtnPlakaSorgula.CheckedState.BorderThickness = 0;
-            this.rdbtnPlakaSorgula.CheckedState.FillColor = System.Drawing.Color.LimeGreen;
-            this.rdbtnPlakaSorgula.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.rdbtnPlakaSorgula.CheckedState.InnerOffset = -4;
-            this.rdbtnPlakaSorgula.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.rdbtnPlakaSorgula.ForeColor = System.Drawing.Color.White;
-            this.rdbtnPlakaSorgula.Location = new System.Drawing.Point(16, 175);
-            this.rdbtnPlakaSorgula.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rdbtnPlakaSorgula.Name = "rdbtnPlakaSorgula";
-            this.rdbtnPlakaSorgula.Size = new System.Drawing.Size(200, 23);
-            this.rdbtnPlakaSorgula.TabIndex = 56;
-            this.rdbtnPlakaSorgula.Text = "Plakaya Göre Sorgula";
-            this.rdbtnPlakaSorgula.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.rdbtnPlakaSorgula.UncheckedState.BorderThickness = 2;
-            this.rdbtnPlakaSorgula.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.rdbtnPlakaSorgula.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            this.rdbtnPlakaSorgula.CheckedChanged += new System.EventHandler(this.rdbtnPlakaSorgula_CheckedChanged);
             // 
             // dateTimePickerGirisTarihi
             // 
@@ -283,30 +214,7 @@
             this.dateTimePickerGirisTarihi.Name = "dateTimePickerGirisTarihi";
             this.dateTimePickerGirisTarihi.Size = new System.Drawing.Size(200, 27);
             this.dateTimePickerGirisTarihi.TabIndex = 53;
-            this.dateTimePickerGirisTarihi.Visible = false;
             this.dateTimePickerGirisTarihi.ValueChanged += new System.EventHandler(this.dateTimePickerGirisTarihi_ValueChanged);
-            // 
-            // rdbtnTarihSorgula
-            // 
-            this.rdbtnTarihSorgula.AutoSize = true;
-            this.rdbtnTarihSorgula.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.rdbtnTarihSorgula.CheckedState.BorderThickness = 0;
-            this.rdbtnTarihSorgula.CheckedState.FillColor = System.Drawing.Color.LimeGreen;
-            this.rdbtnTarihSorgula.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.rdbtnTarihSorgula.CheckedState.InnerOffset = -4;
-            this.rdbtnTarihSorgula.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold);
-            this.rdbtnTarihSorgula.ForeColor = System.Drawing.Color.White;
-            this.rdbtnTarihSorgula.Location = new System.Drawing.Point(16, 42);
-            this.rdbtnTarihSorgula.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rdbtnTarihSorgula.Name = "rdbtnTarihSorgula";
-            this.rdbtnTarihSorgula.Size = new System.Drawing.Size(122, 23);
-            this.rdbtnTarihSorgula.TabIndex = 52;
-            this.rdbtnTarihSorgula.Text = "Tarihe Göre";
-            this.rdbtnTarihSorgula.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.rdbtnTarihSorgula.UncheckedState.BorderThickness = 2;
-            this.rdbtnTarihSorgula.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.rdbtnTarihSorgula.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            this.rdbtnTarihSorgula.CheckedChanged += new System.EventHandler(this.rdbtnTarihSorgula_CheckedChanged);
             // 
             // lblHaftalikKazanc
             // 
@@ -329,6 +237,42 @@
             this.lblAylikKazanc.Size = new System.Drawing.Size(16, 24);
             this.lblAylikKazanc.TabIndex = 58;
             this.lblAylikKazanc.Text = " ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 43);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(92, 22);
+            this.label2.TabIndex = 64;
+            this.label2.Text = "Tarihe Göre";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(286, 43);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(134, 22);
+            this.label3.TabIndex = 65;
+            this.label3.Text = "Araç Türüne Göre";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(286, 176);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(93, 22);
+            this.label4.TabIndex = 66;
+            this.label4.Text = "Ücrete Göre";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 176);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(101, 22);
+            this.label5.TabIndex = 67;
+            this.label5.Text = "Plakaya Göre";
             // 
             // RaporOlustur
             // 
@@ -370,14 +314,14 @@
         private Guna.UI2.WinForms.Guna2Button btnGeri;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtAracTuruSorgula;
-        private Guna.UI2.WinForms.Guna2RadioButton rdbtnAracTuruSorgula;
         private System.Windows.Forms.TextBox txtUcretSorgula;
-        private Guna.UI2.WinForms.Guna2RadioButton rdbtnUcretSorgula;
         private System.Windows.Forms.TextBox txtPlakaSorgula;
-        private Guna.UI2.WinForms.Guna2RadioButton rdbtnPlakaSorgula;
         private System.Windows.Forms.DateTimePicker dateTimePickerGirisTarihi;
-        private Guna.UI2.WinForms.Guna2RadioButton rdbtnTarihSorgula;
         private System.Windows.Forms.Label lblHaftalikKazanc;
         private System.Windows.Forms.Label lblAylikKazanc;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
     }
 }

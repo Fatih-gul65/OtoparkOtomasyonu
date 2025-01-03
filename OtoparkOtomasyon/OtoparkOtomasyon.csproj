@@ -78,7 +78,9 @@
     <Compile Include="Abonelikler.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="AboneListe.cs" />
+    <Compile Include="AboneListe.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="abonelistele.cs">
       <SubType>Form</SubType>
     </Compile>

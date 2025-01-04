@@ -21,7 +21,6 @@ namespace OtoparkOtomasyon
         }
     
         public int AboneUcretID { get; set; }
-        public Nullable<int> AboneSuresi { get; set; }
         public string AboneAracTuru { get; set; }
         public Nullable<decimal> AboneUcreti { get; set; }
     

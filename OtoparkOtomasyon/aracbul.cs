@@ -30,5 +30,20 @@ namespace OtoparkOtomasyon
         {
             _islemler.aracBul();
         }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+            DialogResult sonuc = MesajGoster.OnayAl("Uygulamayı kapatmak istiyor musunuz?");
+
+            if (sonuc == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                aracbul ac = new aracbul();
+                ac.Show();
+            }
+        }
     }
 }

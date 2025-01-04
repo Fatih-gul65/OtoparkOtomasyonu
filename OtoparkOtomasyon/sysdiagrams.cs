@@ -12,14 +12,12 @@ namespace OtoparkOtomasyon
     using System;
     using System.Collections.Generic;
     
-    public partial class Rapor
+    public partial class sysdiagrams
     {
-        public int RaporID { get; set; }
-        public Nullable<int> OtoparkID { get; set; }
-        public Nullable<int> GirisID { get; set; }
-        public Nullable<int> CikisID { get; set; }
-    
-        public virtual AracCikis AracCikis { get; set; }
-        public virtual AracGiris AracGiris { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

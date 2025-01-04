@@ -41,6 +41,21 @@ namespace OtoparkOtomasyon
             txtKullaniciID.Text = datagridPersonelTanimla.Rows[secilenSatır].Cells[0].Value.ToString();
             txtKullaniciAdi.Text = datagridPersonelTanimla.Rows[secilenSatır].Cells[1].Value.ToString();
             txtKullaniciSifre.Text = datagridPersonelTanimla.Rows[secilenSatır].Cells[2].Value.ToString();
-        }        
+        }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+            DialogResult sonuc = MesajGoster.OnayAl("Uygulamayı kapatmak istiyor musunuz?");
+
+            if (sonuc == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                PersonelTanimla ac = new PersonelTanimla();
+                ac.Show();
+            }
+        }
     }
 }

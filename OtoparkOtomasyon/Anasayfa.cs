@@ -32,5 +32,20 @@ namespace OtoparkOtomasyon
             personeldogrula.Show();
             this.Hide();
         }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+            DialogResult sonuc = MesajGoster.OnayAl("Uygulamayı kapatmak istiyor musunuz?");
+
+            if (sonuc == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                Anasayfa ac = new Anasayfa();
+                ac.Show();
+            }
+        }
     }
 }

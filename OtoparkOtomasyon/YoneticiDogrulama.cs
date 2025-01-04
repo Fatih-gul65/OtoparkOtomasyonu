@@ -68,5 +68,38 @@ namespace OtoparkOtomasyon
             anasayfa.Show();
             this.Close();
         }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+            DialogResult sonuc = MesajGoster.OnayAl("Uygulamayı kapatmak istiyor musunuz?");
+
+            if (sonuc == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                YoneticiDogrulama ac = new YoneticiDogrulama();
+                ac.Show();
+            }
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            if(txtYoneticiSifreGiris.PasswordChar == '*')
+            {
+                txtYoneticiSifreGiris.PasswordChar = '\0';
+                pictureBox3.Image = Properties.Resources.acikgoz;
+            }
+            else
+            {
+                txtYoneticiSifreGiris.PasswordChar = '*';
+                pictureBox3.Image = Properties.Resources.kapaligoz;
+            }
+        }
+        private void YoneticiDogrulama_Load(object sender, EventArgs e)
+        {
+            txtYoneticiSifreGiris.PasswordChar = '*';
+        }
     }
 }

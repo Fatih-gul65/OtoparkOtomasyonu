@@ -48,13 +48,14 @@ namespace OtoparkOtomasyon
         }
         private void PersonelDogrula_Load(object sender, EventArgs e)
         {
+            txtKullaniciSifreGiris.PasswordChar = '*';
             try {
                 var entities = baglanti.Entity();
                 bool KullaniciVarMi = entities.PersonelGirisTanimla.Any();
 
                 if (KullaniciVarMi == false)
                 {
-                    MessageBox.Show("Herhangi Bir Kullanıcı Bulunamadı ! \n Yönetici ,Panelden Kullanıcı Tanımlayın Ve Sonra Tekrar Deneyiniz. \n Sayfa Açılacak Fakat Giriş İçin Gerekli Elemanlar Gelmeyecektir. \n Giriş Elemanlarının Gelmesi İçin Yönetici Panelinden Kullanıcı Tanımlayınız !", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MesajGoster.Bilgi("Herhangi Bir Kullanıcı Bulunamadı ! \n Yönetici ,Panelden Kullanıcı Tanımlayın Ve Sonra Tekrar Deneyiniz. \n Sayfa Açılacak Fakat Giriş İçin Gerekli Elemanlar Gelmeyecektir. \n Giriş Elemanlarının Gelmesi İçin Yönetici Panelinden Kullanıcı Tanımlayınız !");
                     btnGiris.Visible = false;
                 }
                 else
@@ -67,7 +68,36 @@ namespace OtoparkOtomasyon
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Bir hata ile karşılaşıldı : " + ex.Message);
+                MesajGoster.Hata(ex.Message);
+            }
+        }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+            DialogResult sonuc = MesajGoster.OnayAl("Uygulamayı kapatmak istiyor musunuz?");
+
+            if (sonuc == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                PersonelDogrula ac = new PersonelDogrula();
+                ac.Show();
+            }
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            if (txtKullaniciSifreGiris.PasswordChar == '*')
+            {
+                txtKullaniciSifreGiris.PasswordChar = '\0';
+                pictureBox3.Image = Properties.Resources.acikgoz;
+            }
+            else
+            {
+                txtKullaniciSifreGiris.PasswordChar = '*';
+                pictureBox3.Image = Properties.Resources.kapaligoz;
             }
         }
     }

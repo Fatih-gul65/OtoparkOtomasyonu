@@ -31,11 +31,11 @@ namespace OtoparkOtomasyon
         public virtual DbSet<AracGiris> AracGiris { get; set; }
         public virtual DbSet<AracKapasitesi> AracKapasitesi { get; set; }
         public virtual DbSet<AracUcretleri> AracUcretleri { get; set; }
-        public virtual DbSet<OtoparkDurumu> OtoparkDurumu { get; set; }
         public virtual DbSet<ParkYeri> ParkYeri { get; set; }
         public virtual DbSet<PersonelGirisTanimla> PersonelGirisTanimla { get; set; }
         public virtual DbSet<Rapor> Rapor { get; set; }
         public virtual DbSet<UcretsizGiris> UcretsizGiris { get; set; }
         public virtual DbSet<Yonetici> Yonetici { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

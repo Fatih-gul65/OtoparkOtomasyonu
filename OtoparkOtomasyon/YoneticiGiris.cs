@@ -12,8 +12,8 @@ namespace OtoparkOtomasyon
         }
         private void btnUcretDuzenle_Click(object sender, EventArgs e)
         {
-            btnAracUcretiDuzenle.Visible = true;
-            btnAboneUcretiDuzenle.Visible=true;
+            btnAracUcretiDuzenle.Visible = !btnAracUcretiDuzenle.Visible;
+            btnAboneUcretiDuzenle.Visible= !btnAboneUcretiDuzenle.Visible;
         }
         private void btnAracUcretiDuzenle_Click(object sender, EventArgs e)
         {
@@ -53,7 +53,7 @@ namespace OtoparkOtomasyon
         }
         private void btnUcretsizAracGirisi_Click(object sender, EventArgs e)
         {
-            UcretsizAraçGirisiTanimla ucretsizAraçGirisiTanimla = new UcretsizAraçGirisiTanimla();
+            UcretsizAracGirisiTanimla ucretsizAraçGirisiTanimla = new UcretsizAracGirisiTanimla();
             ucretsizAraçGirisiTanimla.Show();
             this.Close();
         }
@@ -62,6 +62,21 @@ namespace OtoparkOtomasyon
             RaporOlustur raporOlustur = new RaporOlustur();
             raporOlustur.Show();
             this.Close();
+        }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+            DialogResult sonuc = MesajGoster.OnayAl("Uygulamayı kapatmak istiyor musunuz?");
+
+            if (sonuc == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                YoneticiGiris ac = new YoneticiGiris();
+                ac.Show();
+            }
         }
     }
 }

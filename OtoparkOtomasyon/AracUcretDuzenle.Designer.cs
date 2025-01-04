@@ -48,6 +48,9 @@
             this.rdbtnMinibus = new Guna.UI2.WinForms.Guna2RadioButton();
             this.rdbtnKamyonet = new Guna.UI2.WinForms.Guna2RadioButton();
             this.rdbtnOtomobil = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -59,7 +62,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(351, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(316, 12);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(544, 98);
@@ -72,7 +75,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(459, 113);
+            this.label1.Location = new System.Drawing.Point(424, 113);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(360, 24);
             this.label1.TabIndex = 9;
@@ -83,7 +86,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(335, 497);
+            this.label2.Location = new System.Drawing.Point(291, 495);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(453, 24);
             this.label2.TabIndex = 17;
@@ -91,7 +94,7 @@
             // 
             // txt_0_3_Saat
             // 
-            this.txt_0_3_Saat.Location = new System.Drawing.Point(821, 450);
+            this.txt_0_3_Saat.Location = new System.Drawing.Point(777, 448);
             this.txt_0_3_Saat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_0_3_Saat.Name = "txt_0_3_Saat";
             this.txt_0_3_Saat.Size = new System.Drawing.Size(119, 22);
@@ -102,7 +105,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(335, 450);
+            this.label3.Location = new System.Drawing.Point(291, 448);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(453, 24);
             this.label3.TabIndex = 19;
@@ -113,7 +116,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(335, 543);
+            this.label4.Location = new System.Drawing.Point(291, 541);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(453, 24);
             this.label4.TabIndex = 20;
@@ -121,7 +124,7 @@
             // 
             // txt_6_24_Saat
             // 
-            this.txt_6_24_Saat.Location = new System.Drawing.Point(821, 543);
+            this.txt_6_24_Saat.Location = new System.Drawing.Point(777, 541);
             this.txt_6_24_Saat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_6_24_Saat.Name = "txt_6_24_Saat";
             this.txt_6_24_Saat.Size = new System.Drawing.Size(119, 22);
@@ -129,7 +132,7 @@
             // 
             // txt_3_6_Saat
             // 
-            this.txt_3_6_Saat.Location = new System.Drawing.Point(821, 497);
+            this.txt_3_6_Saat.Location = new System.Drawing.Point(777, 495);
             this.txt_3_6_Saat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_3_6_Saat.Name = "txt_3_6_Saat";
             this.txt_3_6_Saat.Size = new System.Drawing.Size(119, 22);
@@ -140,7 +143,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(336, 590);
+            this.label5.Location = new System.Drawing.Point(292, 588);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(453, 24);
             this.label5.TabIndex = 25;
@@ -148,7 +151,7 @@
             // 
             // txt_24_SaatUzeri
             // 
-            this.txt_24_SaatUzeri.Location = new System.Drawing.Point(821, 590);
+            this.txt_24_SaatUzeri.Location = new System.Drawing.Point(777, 588);
             this.txt_24_SaatUzeri.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_24_SaatUzeri.Name = "txt_24_SaatUzeri";
             this.txt_24_SaatUzeri.Size = new System.Drawing.Size(119, 22);
@@ -167,7 +170,7 @@
             this.btnKaydet.Image = ((System.Drawing.Image)(resources.GetObject("btnKaydet.Image")));
             this.btnKaydet.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnKaydet.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnKaydet.Location = new System.Drawing.Point(1060, 634);
+            this.btnKaydet.Location = new System.Drawing.Point(978, 666);
             this.btnKaydet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnKaydet.Name = "btnKaydet";
             this.btnKaydet.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -189,7 +192,7 @@
             this.btnGeri.Image = ((System.Drawing.Image)(resources.GetObject("btnGeri.Image")));
             this.btnGeri.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnGeri.ImageSize = new System.Drawing.Size(30, 35);
-            this.btnGeri.Location = new System.Drawing.Point(51, 634);
+            this.btnGeri.Location = new System.Drawing.Point(12, 666);
             this.btnGeri.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGeri.Name = "btnGeri";
             this.btnGeri.Size = new System.Drawing.Size(180, 46);
@@ -200,7 +203,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(525, 44);
+            this.pictureBox2.Location = new System.Drawing.Point(499, 44);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(184, 137);
@@ -211,7 +214,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(987, 44);
+            this.pictureBox3.Location = new System.Drawing.Point(931, 44);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(184, 137);
@@ -222,7 +225,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(53, 44);
+            this.pictureBox4.Location = new System.Drawing.Point(37, 44);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(184, 137);
@@ -240,11 +243,11 @@
             this.groupBox1.Controls.Add(this.pictureBox2);
             this.groupBox1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(35, 149);
+            this.groupBox1.Location = new System.Drawing.Point(12, 149);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(1221, 265);
+            this.groupBox1.Size = new System.Drawing.Size(1146, 265);
             this.groupBox1.TabIndex = 36;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Araç Türü Seçiniz !";
@@ -259,7 +262,7 @@
             this.rdbtnMinibus.CheckedState.InnerOffset = -4;
             this.rdbtnMinibus.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.rdbtnMinibus.ForeColor = System.Drawing.Color.White;
-            this.rdbtnMinibus.Location = new System.Drawing.Point(987, 187);
+            this.rdbtnMinibus.Location = new System.Drawing.Point(931, 187);
             this.rdbtnMinibus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdbtnMinibus.Name = "rdbtnMinibus";
             this.rdbtnMinibus.Size = new System.Drawing.Size(200, 28);
@@ -281,7 +284,7 @@
             this.rdbtnKamyonet.CheckedState.InnerOffset = -4;
             this.rdbtnKamyonet.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.rdbtnKamyonet.ForeColor = System.Drawing.Color.White;
-            this.rdbtnKamyonet.Location = new System.Drawing.Point(525, 187);
+            this.rdbtnKamyonet.Location = new System.Drawing.Point(499, 187);
             this.rdbtnKamyonet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdbtnKamyonet.Name = "rdbtnKamyonet";
             this.rdbtnKamyonet.Size = new System.Drawing.Size(126, 28);
@@ -303,7 +306,7 @@
             this.rdbtnOtomobil.CheckedState.InnerOffset = -4;
             this.rdbtnOtomobil.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.rdbtnOtomobil.ForeColor = System.Drawing.Color.White;
-            this.rdbtnOtomobil.Location = new System.Drawing.Point(53, 187);
+            this.rdbtnOtomobil.Location = new System.Drawing.Point(37, 187);
             this.rdbtnOtomobil.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdbtnOtomobil.Name = "rdbtnOtomobil";
             this.rdbtnOtomobil.Size = new System.Drawing.Size(117, 28);
@@ -315,12 +318,47 @@
             this.rdbtnOtomobil.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.rdbtnOtomobil.CheckedChanged += new System.EventHandler(this.rdbtnOtomobil_CheckedChanged);
             // 
+            // guna2ControlBox3
+            // 
+            this.guna2ControlBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox3.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
+            this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox3.Location = new System.Drawing.Point(1011, 12);
+            this.guna2ControlBox3.Name = "guna2ControlBox3";
+            this.guna2ControlBox3.Size = new System.Drawing.Size(45, 29);
+            this.guna2ControlBox3.TabIndex = 39;
+            // 
+            // guna2ControlBox2
+            // 
+            this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
+            this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
+            this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox2.Location = new System.Drawing.Point(1062, 12);
+            this.guna2ControlBox2.Name = "guna2ControlBox2";
+            this.guna2ControlBox2.Size = new System.Drawing.Size(45, 29);
+            this.guna2ControlBox2.TabIndex = 38;
+            // 
+            // guna2ControlBox1
+            // 
+            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
+            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox1.Location = new System.Drawing.Point(1113, 12);
+            this.guna2ControlBox1.Name = "guna2ControlBox1";
+            this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
+            this.guna2ControlBox1.TabIndex = 37;
+            this.guna2ControlBox1.Click += new System.EventHandler(this.guna2ControlBox1_Click);
+            // 
             // AracUcretDuzenle
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(42)))), ((int)(((byte)(59)))));
-            this.ClientSize = new System.Drawing.Size(1291, 700);
+            this.ClientSize = new System.Drawing.Size(1170, 723);
+            this.Controls.Add(this.guna2ControlBox3);
+            this.Controls.Add(this.guna2ControlBox2);
+            this.Controls.Add(this.guna2ControlBox1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnGeri);
             this.Controls.Add(this.btnKaydet);
@@ -334,6 +372,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AracUcretDuzenle";
@@ -372,5 +411,8 @@
         private Guna.UI2.WinForms.Guna2RadioButton rdbtnMinibus;
         private Guna.UI2.WinForms.Guna2RadioButton rdbtnKamyonet;
         private Guna.UI2.WinForms.Guna2RadioButton rdbtnOtomobil;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox3;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
     }
 }

@@ -121,6 +121,14 @@ namespace OtoparkOtomasyon
                     MesajGoster.Uyari("Lütfen tüm zorunlu alanları doldurunuz.");
                     return;
                 }
+
+                var plaka = _txtPlaka.Text.Trim().ToUpper();
+
+                if (!PlakaKontrolu.PlakaKontrol(plaka))
+                {
+                    throw new Exception("Plaka formatı geçersiz.");
+                }
+
                 if (!_aracTuruKapasiteleri.TryGetValue(_cmbAracTuru.SelectedItem.ToString(), out int kapasite) || kapasite == -1)
                 {
                     MesajGoster.Uyari("Seçilen araç türü için kapasite bilgisi bulunamadı.");
@@ -160,7 +168,7 @@ namespace OtoparkOtomasyon
 
                 AracGiris yeniKayit = new AracGiris
                 {
-                    Plaka = _txtPlaka.Text.Trim(),
+                    Plaka = _txtPlaka.Text.Trim().ToUpper(),
                     AracTuru = _cmbAracTuru.SelectedItem.ToString(),
                     TelefonNo = Convert.ToInt32(_txtTelefonNo.Text),
                     DogrulamaKodu = _lblDogrulamaKodu.Text,

@@ -55,5 +55,20 @@ namespace OtoparkOtomasyon
                 _islemler.AracKapasitesiniYazdir("Minibüs/Kamyon");
             }
         }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+            DialogResult sonuc = MesajGoster.OnayAl("Uygulamayı kapatmak istiyor musunuz?");
+
+            if (sonuc == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                AracKapasitesiAyarla ac = new AracKapasitesiAyarla();
+                ac.Show();
+            }
+        }
     }
 }

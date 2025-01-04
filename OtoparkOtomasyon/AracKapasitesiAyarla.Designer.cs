@@ -42,6 +42,9 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -54,7 +57,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(459, 113);
+            this.label1.Location = new System.Drawing.Point(428, 112);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(360, 24);
             this.label1.TabIndex = 11;
@@ -64,7 +67,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(351, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(320, 11);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(544, 98);
@@ -75,7 +78,7 @@
             // txtKapasiteAyarla
             // 
             this.txtKapasiteAyarla.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtKapasiteAyarla.Location = new System.Drawing.Point(824, 527);
+            this.txtKapasiteAyarla.Location = new System.Drawing.Point(783, 486);
             this.txtKapasiteAyarla.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtKapasiteAyarla.Name = "txtKapasiteAyarla";
             this.txtKapasiteAyarla.Size = new System.Drawing.Size(177, 30);
@@ -95,7 +98,7 @@
             this.btnGeri.Image = ((System.Drawing.Image)(resources.GetObject("btnGeri.Image")));
             this.btnGeri.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnGeri.ImageSize = new System.Drawing.Size(30, 35);
-            this.btnGeri.Location = new System.Drawing.Point(51, 634);
+            this.btnGeri.Location = new System.Drawing.Point(12, 666);
             this.btnGeri.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGeri.Name = "btnGeri";
             this.btnGeri.Size = new System.Drawing.Size(180, 46);
@@ -116,7 +119,7 @@
             this.btnKaydet.Image = ((System.Drawing.Image)(resources.GetObject("btnKaydet.Image")));
             this.btnKaydet.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnKaydet.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnKaydet.Location = new System.Drawing.Point(1060, 634);
+            this.btnKaydet.Location = new System.Drawing.Point(978, 666);
             this.btnKaydet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnKaydet.Name = "btnKaydet";
             this.btnKaydet.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -135,11 +138,11 @@
             this.groupBox1.Controls.Add(this.pictureBox2);
             this.groupBox1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(33, 168);
+            this.groupBox1.Location = new System.Drawing.Point(12, 168);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(1221, 265);
+            this.groupBox1.Size = new System.Drawing.Size(1146, 265);
             this.groupBox1.TabIndex = 37;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Araç Türü Seçiniz !";
@@ -154,7 +157,7 @@
             this.rdbtnMinibus.CheckedState.InnerOffset = -4;
             this.rdbtnMinibus.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.rdbtnMinibus.ForeColor = System.Drawing.Color.White;
-            this.rdbtnMinibus.Location = new System.Drawing.Point(987, 187);
+            this.rdbtnMinibus.Location = new System.Drawing.Point(923, 187);
             this.rdbtnMinibus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdbtnMinibus.Name = "rdbtnMinibus";
             this.rdbtnMinibus.Size = new System.Drawing.Size(200, 28);
@@ -176,7 +179,7 @@
             this.rdbtnKamyonet.CheckedState.InnerOffset = -4;
             this.rdbtnKamyonet.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.rdbtnKamyonet.ForeColor = System.Drawing.Color.White;
-            this.rdbtnKamyonet.Location = new System.Drawing.Point(525, 187);
+            this.rdbtnKamyonet.Location = new System.Drawing.Point(488, 187);
             this.rdbtnKamyonet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdbtnKamyonet.Name = "rdbtnKamyonet";
             this.rdbtnKamyonet.Size = new System.Drawing.Size(126, 28);
@@ -224,7 +227,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(987, 44);
+            this.pictureBox3.Location = new System.Drawing.Point(923, 44);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(184, 137);
@@ -235,7 +238,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(525, 44);
+            this.pictureBox2.Location = new System.Drawing.Point(488, 44);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(184, 137);
@@ -248,18 +251,53 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(255, 530);
+            this.label3.Location = new System.Drawing.Point(214, 489);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(520, 24);
             this.label3.TabIndex = 38;
             this.label3.Text = "Seçtiğiniz Araç Türünün Otopark Kapasitesini Giriniz :";
             // 
+            // guna2ControlBox3
+            // 
+            this.guna2ControlBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox3.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
+            this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox3.Location = new System.Drawing.Point(1011, 12);
+            this.guna2ControlBox3.Name = "guna2ControlBox3";
+            this.guna2ControlBox3.Size = new System.Drawing.Size(45, 29);
+            this.guna2ControlBox3.TabIndex = 41;
+            // 
+            // guna2ControlBox2
+            // 
+            this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
+            this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
+            this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox2.Location = new System.Drawing.Point(1062, 12);
+            this.guna2ControlBox2.Name = "guna2ControlBox2";
+            this.guna2ControlBox2.Size = new System.Drawing.Size(45, 29);
+            this.guna2ControlBox2.TabIndex = 40;
+            // 
+            // guna2ControlBox1
+            // 
+            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
+            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox1.Location = new System.Drawing.Point(1113, 12);
+            this.guna2ControlBox1.Name = "guna2ControlBox1";
+            this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
+            this.guna2ControlBox1.TabIndex = 39;
+            this.guna2ControlBox1.Click += new System.EventHandler(this.guna2ControlBox1_Click);
+            // 
             // AracKapasitesiAyarla
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(42)))), ((int)(((byte)(59)))));
-            this.ClientSize = new System.Drawing.Size(1291, 700);
+            this.ClientSize = new System.Drawing.Size(1170, 723);
+            this.Controls.Add(this.guna2ControlBox3);
+            this.Controls.Add(this.guna2ControlBox2);
+            this.Controls.Add(this.guna2ControlBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnKaydet);
@@ -267,6 +305,7 @@
             this.Controls.Add(this.txtKapasiteAyarla);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AracKapasitesiAyarla";
@@ -298,5 +337,8 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label3;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox3;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
     }
 }

@@ -33,5 +33,10 @@ namespace OtoparkOtomasyon
         {
             Uyari("Bu Plaka Zaten Sistemde Kayıtlı!");
         }
+
+        public static DialogResult OnayAl(string mesaj)
+        {
+            return MessageBox.Show(mesaj, "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        }
     }
 }

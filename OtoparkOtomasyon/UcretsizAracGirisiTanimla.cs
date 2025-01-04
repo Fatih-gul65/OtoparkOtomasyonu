@@ -4,10 +4,10 @@ using System.Windows.Forms;
 
 namespace OtoparkOtomasyon
 {
-    public partial class UcretsizAraçGirisiTanimla : Form
+    public partial class UcretsizAracGirisiTanimla : Form
     {
         private UcretsizAracGiris _islemler;
-        public UcretsizAraçGirisiTanimla()
+        public UcretsizAracGirisiTanimla()
         {
             InitializeComponent();
             _islemler = new UcretsizAracGiris(datagridUcretsizGiris, txtUcretsizPlaka, lblUcretsizGiris);
@@ -44,6 +44,21 @@ namespace OtoparkOtomasyon
             {
                 MesajGoster.Uyari("Lütfen Kayıt Seçiniz");
             }
-        }       
+        }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+            DialogResult sonuc = MesajGoster.OnayAl("Uygulamayı kapatmak istiyor musunuz?");
+
+            if (sonuc == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                UcretsizAracGirisiTanimla ac = new UcretsizAracGirisiTanimla();
+                ac.Show();
+            }
+        }
     }
 }

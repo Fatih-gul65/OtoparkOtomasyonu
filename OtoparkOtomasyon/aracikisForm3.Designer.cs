@@ -47,6 +47,9 @@
             this.lblKalinanSure = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnKaydet = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -57,7 +60,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(465, 236);
+            this.label1.Location = new System.Drawing.Point(201, 226);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(133, 24);
@@ -69,7 +72,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(379, 325);
+            this.label2.Location = new System.Drawing.Point(125, 294);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(209, 24);
@@ -78,16 +81,16 @@
             // 
             // txtAracPlakasi
             // 
-            this.txtAracPlakasi.Location = new System.Drawing.Point(665, 235);
-            this.txtAracPlakasi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAracPlakasi.Location = new System.Drawing.Point(401, 225);
+            this.txtAracPlakasi.Margin = new System.Windows.Forms.Padding(4);
             this.txtAracPlakasi.Name = "txtAracPlakasi";
             this.txtAracPlakasi.Size = new System.Drawing.Size(132, 22);
             this.txtAracPlakasi.TabIndex = 1;
             // 
             // txtDogrulamaKodu
             // 
-            this.txtDogrulamaKodu.Location = new System.Drawing.Point(665, 326);
-            this.txtDogrulamaKodu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDogrulamaKodu.Location = new System.Drawing.Point(401, 297);
+            this.txtDogrulamaKodu.Margin = new System.Windows.Forms.Padding(4);
             this.txtDogrulamaKodu.Name = "txtDogrulamaKodu";
             this.txtDogrulamaKodu.Size = new System.Drawing.Size(132, 22);
             this.txtDogrulamaKodu.TabIndex = 1;
@@ -97,7 +100,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(993, 234);
+            this.label3.Location = new System.Drawing.Point(726, 222);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(135, 24);
@@ -115,10 +118,10 @@
             this.btnUcretHesapla.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnUcretHesapla.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.btnUcretHesapla.ForeColor = System.Drawing.Color.Black;
-            this.btnUcretHesapla.Location = new System.Drawing.Point(716, 622);
-            this.btnUcretHesapla.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUcretHesapla.Location = new System.Drawing.Point(434, 529);
+            this.btnUcretHesapla.Margin = new System.Windows.Forms.Padding(4);
             this.btnUcretHesapla.Name = "btnUcretHesapla";
-            this.btnUcretHesapla.Size = new System.Drawing.Size(323, 102);
+            this.btnUcretHesapla.Size = new System.Drawing.Size(276, 77);
             this.btnUcretHesapla.TabIndex = 3;
             this.btnUcretHesapla.Text = "Ücret Hesapla";
             this.btnUcretHesapla.Click += new System.EventHandler(this.btnUcretHesapla_Click_1);
@@ -128,7 +131,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(747, 500);
+            this.label4.Location = new System.Drawing.Point(288, 393);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(67, 24);
@@ -140,12 +143,11 @@
             this.lblTutar.AutoSize = true;
             this.lblTutar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTutar.ForeColor = System.Drawing.Color.White;
-            this.lblTutar.Location = new System.Drawing.Point(945, 500);
+            this.lblTutar.Location = new System.Drawing.Point(486, 393);
             this.lblTutar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTutar.Name = "lblTutar";
-            this.lblTutar.Size = new System.Drawing.Size(53, 24);
+            this.lblTutar.Size = new System.Drawing.Size(0, 24);
             this.lblTutar.TabIndex = 0;
-            this.lblTutar.Text = "...TL";
             // 
             // rdbtnNakit
             // 
@@ -157,8 +159,8 @@
             this.rdbtnNakit.CheckedState.InnerOffset = -4;
             this.rdbtnNakit.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.rdbtnNakit.ForeColor = System.Drawing.Color.White;
-            this.rdbtnNakit.Location = new System.Drawing.Point(999, 416);
-            this.rdbtnNakit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdbtnNakit.Location = new System.Drawing.Point(745, 402);
+            this.rdbtnNakit.Margin = new System.Windows.Forms.Padding(4);
             this.rdbtnNakit.Name = "rdbtnNakit";
             this.rdbtnNakit.Size = new System.Drawing.Size(79, 28);
             this.rdbtnNakit.TabIndex = 4;
@@ -178,8 +180,8 @@
             this.rdbtnKrediKart.CheckedState.InnerOffset = -4;
             this.rdbtnKrediKart.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.rdbtnKrediKart.ForeColor = System.Drawing.Color.White;
-            this.rdbtnKrediKart.Location = new System.Drawing.Point(1224, 416);
-            this.rdbtnKrediKart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdbtnKrediKart.Location = new System.Drawing.Point(931, 402);
+            this.rdbtnKrediKart.Margin = new System.Windows.Forms.Padding(4);
             this.rdbtnKrediKart.Name = "rdbtnKrediKart";
             this.rdbtnKrediKart.Size = new System.Drawing.Size(191, 28);
             this.rdbtnKrediKart.TabIndex = 5;
@@ -194,7 +196,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(613, 139);
+            this.label6.Location = new System.Drawing.Point(376, 138);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(360, 24);
@@ -206,8 +208,8 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(468, 15);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(173, 13);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(725, 121);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -229,10 +231,10 @@
             this.btnGeri.Image = ((System.Drawing.Image)(resources.GetObject("btnGeri.Image")));
             this.btnGeri.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnGeri.ImageSize = new System.Drawing.Size(30, 35);
-            this.btnGeri.Location = new System.Drawing.Point(67, 780);
-            this.btnGeri.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGeri.Location = new System.Drawing.Point(13, 608);
+            this.btnGeri.Margin = new System.Windows.Forms.Padding(4);
             this.btnGeri.Name = "btnGeri";
-            this.btnGeri.Size = new System.Drawing.Size(240, 55);
+            this.btnGeri.Size = new System.Drawing.Size(219, 55);
             this.btnGeri.TabIndex = 18;
             this.btnGeri.Text = "Geri";
             this.btnGeri.Click += new System.EventHandler(this.btnGeri_Click);
@@ -240,8 +242,8 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(984, 274);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Location = new System.Drawing.Point(730, 260);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(168, 134);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -251,8 +253,8 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(1244, 274);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Location = new System.Drawing.Point(951, 260);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(156, 134);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -264,19 +266,18 @@
             this.lblKalinanSure.AutoSize = true;
             this.lblKalinanSure.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblKalinanSure.ForeColor = System.Drawing.Color.White;
-            this.lblKalinanSure.Location = new System.Drawing.Point(945, 561);
+            this.lblKalinanSure.Location = new System.Drawing.Point(486, 454);
             this.lblKalinanSure.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblKalinanSure.Name = "lblKalinanSure";
-            this.lblKalinanSure.Size = new System.Drawing.Size(54, 24);
+            this.lblKalinanSure.Size = new System.Drawing.Size(0, 24);
             this.lblKalinanSure.TabIndex = 20;
-            this.lblKalinanSure.Text = "Süre";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(668, 561);
+            this.label5.Location = new System.Drawing.Point(209, 454);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(137, 24);
@@ -297,21 +298,56 @@
             this.btnKaydet.Image = ((System.Drawing.Image)(resources.GetObject("btnKaydet.Image")));
             this.btnKaydet.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnKaydet.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnKaydet.Location = new System.Drawing.Point(1413, 780);
-            this.btnKaydet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnKaydet.Location = new System.Drawing.Point(920, 608);
+            this.btnKaydet.Margin = new System.Windows.Forms.Padding(4);
             this.btnKaydet.Name = "btnKaydet";
             this.btnKaydet.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnKaydet.Size = new System.Drawing.Size(240, 55);
+            this.btnKaydet.Size = new System.Drawing.Size(219, 55);
             this.btnKaydet.TabIndex = 24;
             this.btnKaydet.Text = "Kaydet";
             this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
             // 
+            // guna2ControlBox3
+            // 
+            this.guna2ControlBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox3.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
+            this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox3.Location = new System.Drawing.Point(993, 15);
+            this.guna2ControlBox3.Name = "guna2ControlBox3";
+            this.guna2ControlBox3.Size = new System.Drawing.Size(45, 29);
+            this.guna2ControlBox3.TabIndex = 49;
+            // 
+            // guna2ControlBox2
+            // 
+            this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
+            this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
+            this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox2.Location = new System.Drawing.Point(1044, 15);
+            this.guna2ControlBox2.Name = "guna2ControlBox2";
+            this.guna2ControlBox2.Size = new System.Drawing.Size(45, 29);
+            this.guna2ControlBox2.TabIndex = 48;
+            // 
+            // guna2ControlBox1
+            // 
+            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
+            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox1.Location = new System.Drawing.Point(1095, 15);
+            this.guna2ControlBox1.Name = "guna2ControlBox1";
+            this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
+            this.guna2ControlBox1.TabIndex = 47;
+            this.guna2ControlBox1.Click += new System.EventHandler(this.guna2ControlBox1_Click);
+            // 
             // aracikisForm3
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(42)))), ((int)(((byte)(56)))));
-            this.ClientSize = new System.Drawing.Size(1723, 871);
+            this.ClientSize = new System.Drawing.Size(1152, 676);
+            this.Controls.Add(this.guna2ControlBox3);
+            this.Controls.Add(this.guna2ControlBox2);
+            this.Controls.Add(this.guna2ControlBox1);
             this.Controls.Add(this.btnKaydet);
             this.Controls.Add(this.lblKalinanSure);
             this.Controls.Add(this.label5);
@@ -330,8 +366,9 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "aracikisForm3";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "aracikisForm3";
@@ -363,5 +400,8 @@
         private System.Windows.Forms.Label lblKalinanSure;
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2Button btnKaydet;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox3;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
     }
 }

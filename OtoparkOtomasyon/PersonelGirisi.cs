@@ -58,5 +58,20 @@ namespace OtoparkOtomasyon
             personeldogrula.Show();
             this.Close();
         }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+            DialogResult sonuc = MesajGoster.OnayAl("Uygulamayı kapatmak istiyor musunuz?");
+
+            if (sonuc == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                PersonelGirisi ac = new PersonelGirisi();
+                ac.Show();
+            }
+        }
     }   
 }

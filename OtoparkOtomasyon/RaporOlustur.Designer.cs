@@ -48,6 +48,9 @@
             this.lblAboneAylik = new System.Windows.Forms.Label();
             this.lblAboneHaftalik = new System.Windows.Forms.Label();
             this.lblAboneGunluk = new System.Windows.Forms.Label();
+            this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             ((System.ComponentModel.ISupportInitialize)(this.datagridRapor)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -60,7 +63,7 @@
             this.datagridRapor.Name = "datagridRapor";
             this.datagridRapor.RowHeadersWidth = 51;
             this.datagridRapor.RowTemplate.Height = 24;
-            this.datagridRapor.Size = new System.Drawing.Size(716, 363);
+            this.datagridRapor.Size = new System.Drawing.Size(628, 363);
             this.datagridRapor.TabIndex = 33;
             // 
             // btnSonuclariListele
@@ -94,7 +97,7 @@
             this.btnExcelAktar.Image = ((System.Drawing.Image)(resources.GetObject("btnExcelAktar.Image")));
             this.btnExcelAktar.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnExcelAktar.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnExcelAktar.Location = new System.Drawing.Point(1003, 634);
+            this.btnExcelAktar.Location = new System.Drawing.Point(906, 659);
             this.btnExcelAktar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnExcelAktar.Name = "btnExcelAktar";
             this.btnExcelAktar.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -106,11 +109,11 @@
             // lblGunlukKazanc
             // 
             this.lblGunlukKazanc.AutoSize = true;
-            this.lblGunlukKazanc.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblGunlukKazanc.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblGunlukKazanc.ForeColor = System.Drawing.Color.White;
             this.lblGunlukKazanc.Location = new System.Drawing.Point(12, 82);
             this.lblGunlukKazanc.Name = "lblGunlukKazanc";
-            this.lblGunlukKazanc.Size = new System.Drawing.Size(16, 24);
+            this.lblGunlukKazanc.Size = new System.Drawing.Size(14, 19);
             this.lblGunlukKazanc.TabIndex = 37;
             this.lblGunlukKazanc.Text = " ";
             // 
@@ -127,7 +130,7 @@
             this.btnGeri.Image = ((System.Drawing.Image)(resources.GetObject("btnGeri.Image")));
             this.btnGeri.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnGeri.ImageSize = new System.Drawing.Size(30, 35);
-            this.btnGeri.Location = new System.Drawing.Point(51, 634);
+            this.btnGeri.Location = new System.Drawing.Point(12, 666);
             this.btnGeri.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGeri.Name = "btnGeri";
             this.btnGeri.Size = new System.Drawing.Size(180, 46);
@@ -232,64 +235,99 @@
             // lblHaftalikKazanc
             // 
             this.lblHaftalikKazanc.AutoSize = true;
-            this.lblHaftalikKazanc.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblHaftalikKazanc.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblHaftalikKazanc.ForeColor = System.Drawing.Color.White;
-            this.lblHaftalikKazanc.Location = new System.Drawing.Point(439, 82);
+            this.lblHaftalikKazanc.Location = new System.Drawing.Point(368, 82);
             this.lblHaftalikKazanc.Name = "lblHaftalikKazanc";
-            this.lblHaftalikKazanc.Size = new System.Drawing.Size(16, 24);
+            this.lblHaftalikKazanc.Size = new System.Drawing.Size(14, 19);
             this.lblHaftalikKazanc.TabIndex = 57;
             this.lblHaftalikKazanc.Text = " ";
             // 
             // lblAylikKazanc
             // 
             this.lblAylikKazanc.AutoSize = true;
-            this.lblAylikKazanc.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblAylikKazanc.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblAylikKazanc.ForeColor = System.Drawing.Color.White;
-            this.lblAylikKazanc.Location = new System.Drawing.Point(869, 82);
+            this.lblAylikKazanc.Location = new System.Drawing.Point(674, 82);
             this.lblAylikKazanc.Name = "lblAylikKazanc";
-            this.lblAylikKazanc.Size = new System.Drawing.Size(16, 24);
+            this.lblAylikKazanc.Size = new System.Drawing.Size(14, 19);
             this.lblAylikKazanc.TabIndex = 58;
             this.lblAylikKazanc.Text = " ";
             // 
             // lblAboneAylik
             // 
             this.lblAboneAylik.AutoSize = true;
-            this.lblAboneAylik.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblAboneAylik.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblAboneAylik.ForeColor = System.Drawing.Color.White;
-            this.lblAboneAylik.Location = new System.Drawing.Point(869, 18);
+            this.lblAboneAylik.Location = new System.Drawing.Point(674, 18);
             this.lblAboneAylik.Name = "lblAboneAylik";
-            this.lblAboneAylik.Size = new System.Drawing.Size(16, 24);
+            this.lblAboneAylik.Size = new System.Drawing.Size(14, 19);
             this.lblAboneAylik.TabIndex = 61;
             this.lblAboneAylik.Text = " ";
             // 
             // lblAboneHaftalik
             // 
             this.lblAboneHaftalik.AutoSize = true;
-            this.lblAboneHaftalik.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblAboneHaftalik.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblAboneHaftalik.ForeColor = System.Drawing.Color.White;
-            this.lblAboneHaftalik.Location = new System.Drawing.Point(439, 18);
+            this.lblAboneHaftalik.Location = new System.Drawing.Point(368, 18);
             this.lblAboneHaftalik.Name = "lblAboneHaftalik";
-            this.lblAboneHaftalik.Size = new System.Drawing.Size(16, 24);
+            this.lblAboneHaftalik.Size = new System.Drawing.Size(14, 19);
             this.lblAboneHaftalik.TabIndex = 60;
             this.lblAboneHaftalik.Text = " ";
             // 
             // lblAboneGunluk
             // 
             this.lblAboneGunluk.AutoSize = true;
-            this.lblAboneGunluk.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblAboneGunluk.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblAboneGunluk.ForeColor = System.Drawing.Color.White;
             this.lblAboneGunluk.Location = new System.Drawing.Point(12, 18);
             this.lblAboneGunluk.Name = "lblAboneGunluk";
-            this.lblAboneGunluk.Size = new System.Drawing.Size(16, 24);
+            this.lblAboneGunluk.Size = new System.Drawing.Size(14, 19);
             this.lblAboneGunluk.TabIndex = 59;
             this.lblAboneGunluk.Text = " ";
             // 
+            // guna2ControlBox3
+            // 
+            this.guna2ControlBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox3.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
+            this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox3.Location = new System.Drawing.Point(1011, 12);
+            this.guna2ControlBox3.Name = "guna2ControlBox3";
+            this.guna2ControlBox3.Size = new System.Drawing.Size(45, 29);
+            this.guna2ControlBox3.TabIndex = 64;
+            // 
+            // guna2ControlBox2
+            // 
+            this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
+            this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
+            this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox2.Location = new System.Drawing.Point(1062, 12);
+            this.guna2ControlBox2.Name = "guna2ControlBox2";
+            this.guna2ControlBox2.Size = new System.Drawing.Size(45, 29);
+            this.guna2ControlBox2.TabIndex = 63;
+            // 
+            // guna2ControlBox1
+            // 
+            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
+            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox1.Location = new System.Drawing.Point(1113, 12);
+            this.guna2ControlBox1.Name = "guna2ControlBox1";
+            this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
+            this.guna2ControlBox1.TabIndex = 62;
+            this.guna2ControlBox1.Click += new System.EventHandler(this.guna2ControlBox1_Click);
+            // 
             // RaporOlustur
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(42)))), ((int)(((byte)(59)))));
-            this.ClientSize = new System.Drawing.Size(1291, 700);
+            this.ClientSize = new System.Drawing.Size(1170, 723);
+            this.Controls.Add(this.guna2ControlBox3);
+            this.Controls.Add(this.guna2ControlBox2);
+            this.Controls.Add(this.guna2ControlBox1);
             this.Controls.Add(this.lblAboneAylik);
             this.Controls.Add(this.lblAboneHaftalik);
             this.Controls.Add(this.lblAboneGunluk);
@@ -300,6 +338,7 @@
             this.Controls.Add(this.lblGunlukKazanc);
             this.Controls.Add(this.btnExcelAktar);
             this.Controls.Add(this.datagridRapor);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "RaporOlustur";
@@ -334,5 +373,8 @@
         private System.Windows.Forms.Label lblAboneAylik;
         private System.Windows.Forms.Label lblAboneHaftalik;
         private System.Windows.Forms.Label lblAboneGunluk;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox3;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
     }
 }

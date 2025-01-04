@@ -37,14 +37,11 @@
             this.btnAboneListele = new Guna.UI2.WinForms.Guna2Button();
             this.btnOtoparkDoluluk = new Guna.UI2.WinForms.Guna2Button();
             this.btnAracBul = new Guna.UI2.WinForms.Guna2Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnGeri = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -52,9 +49,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(479, 113);
+            this.label1.Location = new System.Drawing.Point(384, 136);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(288, 19);
+            this.label1.Size = new System.Drawing.Size(360, 24);
             this.label1.TabIndex = 21;
             this.label1.Text = "Otopark Yönetiminde Ustalık Zamanı!";
             this.label1.UseWaitCursor = true;
@@ -63,9 +61,10 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(351, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(213, 12);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(544, 98);
+            this.pictureBox1.Size = new System.Drawing.Size(725, 121);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 20;
             this.pictureBox1.TabStop = false;
@@ -81,9 +80,10 @@
             this.btnAracGiris.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnAracGiris.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.btnAracGiris.ForeColor = System.Drawing.Color.Black;
-            this.btnAracGiris.Location = new System.Drawing.Point(67, 48);
+            this.btnAracGiris.Location = new System.Drawing.Point(46, 281);
+            this.btnAracGiris.Margin = new System.Windows.Forms.Padding(4);
             this.btnAracGiris.Name = "btnAracGiris";
-            this.btnAracGiris.Size = new System.Drawing.Size(219, 90);
+            this.btnAracGiris.Size = new System.Drawing.Size(292, 111);
             this.btnAracGiris.TabIndex = 22;
             this.btnAracGiris.Text = "Araç Giriş";
             this.btnAracGiris.Click += new System.EventHandler(this.btnAracGiris_Click_1);
@@ -98,9 +98,10 @@
             this.btnAracCikis.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnAracCikis.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.btnAracCikis.ForeColor = System.Drawing.Color.Black;
-            this.btnAracCikis.Location = new System.Drawing.Point(67, 178);
+            this.btnAracCikis.Location = new System.Drawing.Point(46, 441);
+            this.btnAracCikis.Margin = new System.Windows.Forms.Padding(4);
             this.btnAracCikis.Name = "btnAracCikis";
-            this.btnAracCikis.Size = new System.Drawing.Size(219, 90);
+            this.btnAracCikis.Size = new System.Drawing.Size(292, 111);
             this.btnAracCikis.TabIndex = 22;
             this.btnAracCikis.Text = "Araç Çıkış";
             this.btnAracCikis.Click += new System.EventHandler(this.btnAracCikis_Click_1);
@@ -115,9 +116,10 @@
             this.btnAboneEkle.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnAboneEkle.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.btnAboneEkle.ForeColor = System.Drawing.Color.Black;
-            this.btnAboneEkle.Location = new System.Drawing.Point(73, 48);
+            this.btnAboneEkle.Location = new System.Drawing.Point(810, 281);
+            this.btnAboneEkle.Margin = new System.Windows.Forms.Padding(4);
             this.btnAboneEkle.Name = "btnAboneEkle";
-            this.btnAboneEkle.Size = new System.Drawing.Size(219, 90);
+            this.btnAboneEkle.Size = new System.Drawing.Size(292, 111);
             this.btnAboneEkle.TabIndex = 22;
             this.btnAboneEkle.Text = "Abone Ekle";
             this.btnAboneEkle.Click += new System.EventHandler(this.btnAboneEkle_Click_1);
@@ -132,9 +134,10 @@
             this.btnAboneListele.FillColor = System.Drawing.Color.Aqua;
             this.btnAboneListele.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.btnAboneListele.ForeColor = System.Drawing.Color.Black;
-            this.btnAboneListele.Location = new System.Drawing.Point(73, 178);
+            this.btnAboneListele.Location = new System.Drawing.Point(810, 441);
+            this.btnAboneListele.Margin = new System.Windows.Forms.Padding(4);
             this.btnAboneListele.Name = "btnAboneListele";
-            this.btnAboneListele.Size = new System.Drawing.Size(219, 90);
+            this.btnAboneListele.Size = new System.Drawing.Size(292, 111);
             this.btnAboneListele.TabIndex = 22;
             this.btnAboneListele.Text = "Aboneleri Listele";
             this.btnAboneListele.Click += new System.EventHandler(this.btnAboneListele_Click_1);
@@ -149,9 +152,10 @@
             this.btnOtoparkDoluluk.FillColor = System.Drawing.Color.Yellow;
             this.btnOtoparkDoluluk.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.btnOtoparkDoluluk.ForeColor = System.Drawing.Color.Black;
-            this.btnOtoparkDoluluk.Location = new System.Drawing.Point(74, 48);
+            this.btnOtoparkDoluluk.Location = new System.Drawing.Point(426, 281);
+            this.btnOtoparkDoluluk.Margin = new System.Windows.Forms.Padding(4);
             this.btnOtoparkDoluluk.Name = "btnOtoparkDoluluk";
-            this.btnOtoparkDoluluk.Size = new System.Drawing.Size(219, 90);
+            this.btnOtoparkDoluluk.Size = new System.Drawing.Size(292, 111);
             this.btnOtoparkDoluluk.TabIndex = 22;
             this.btnOtoparkDoluluk.Text = "Otopoark Doluluk";
             this.btnOtoparkDoluluk.Click += new System.EventHandler(this.btnOtoparkDoluluk_Click_1);
@@ -166,51 +170,13 @@
             this.btnAracBul.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnAracBul.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.btnAracBul.ForeColor = System.Drawing.Color.Black;
-            this.btnAracBul.Location = new System.Drawing.Point(74, 178);
+            this.btnAracBul.Location = new System.Drawing.Point(426, 441);
+            this.btnAracBul.Margin = new System.Windows.Forms.Padding(4);
             this.btnAracBul.Name = "btnAracBul";
-            this.btnAracBul.Size = new System.Drawing.Size(219, 90);
+            this.btnAracBul.Size = new System.Drawing.Size(292, 111);
             this.btnAracBul.TabIndex = 22;
             this.btnAracBul.Text = "Araç Bul";
             this.btnAracBul.Click += new System.EventHandler(this.btnAracBul_Click_1);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.btnAracCikis);
-            this.groupBox1.Controls.Add(this.btnAracGiris);
-            this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(69, 239);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(360, 300);
-            this.groupBox1.TabIndex = 23;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Araç İşlemleri";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.btnAboneListele);
-            this.groupBox2.Controls.Add(this.btnAboneEkle);
-            this.groupBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(877, 239);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(360, 300);
-            this.groupBox2.TabIndex = 24;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Abonelik İşlemleri";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.btnAracBul);
-            this.groupBox3.Controls.Add(this.btnOtoparkDoluluk);
-            this.groupBox3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.ForeColor = System.Drawing.Color.White;
-            this.groupBox3.Location = new System.Drawing.Point(474, 239);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(360, 300);
-            this.groupBox3.TabIndex = 24;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Raporlama İşlemleri";
             // 
             // btnGeri
             // 
@@ -226,32 +192,70 @@
             this.btnGeri.Image = ((System.Drawing.Image)(resources.GetObject("btnGeri.Image")));
             this.btnGeri.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnGeri.ImageSize = new System.Drawing.Size(30, 35);
-            this.btnGeri.Location = new System.Drawing.Point(50, 634);
+            this.btnGeri.Location = new System.Drawing.Point(13, 655);
+            this.btnGeri.Margin = new System.Windows.Forms.Padding(4);
             this.btnGeri.Name = "btnGeri";
-            this.btnGeri.Size = new System.Drawing.Size(180, 45);
+            this.btnGeri.Size = new System.Drawing.Size(209, 55);
             this.btnGeri.TabIndex = 25;
             this.btnGeri.Text = "Geri";
             this.btnGeri.Click += new System.EventHandler(this.btnGeri_Click);
             // 
+            // guna2ControlBox3
+            // 
+            this.guna2ControlBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox3.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
+            this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox3.Location = new System.Drawing.Point(1011, 12);
+            this.guna2ControlBox3.Name = "guna2ControlBox3";
+            this.guna2ControlBox3.Size = new System.Drawing.Size(45, 29);
+            this.guna2ControlBox3.TabIndex = 49;
+            // 
+            // guna2ControlBox2
+            // 
+            this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
+            this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
+            this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox2.Location = new System.Drawing.Point(1062, 12);
+            this.guna2ControlBox2.Name = "guna2ControlBox2";
+            this.guna2ControlBox2.Size = new System.Drawing.Size(45, 29);
+            this.guna2ControlBox2.TabIndex = 48;
+            // 
+            // guna2ControlBox1
+            // 
+            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
+            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox1.Location = new System.Drawing.Point(1113, 12);
+            this.guna2ControlBox1.Name = "guna2ControlBox1";
+            this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
+            this.guna2ControlBox1.TabIndex = 47;
+            this.guna2ControlBox1.Click += new System.EventHandler(this.guna2ControlBox1_Click);
+            // 
             // PersonelGirisi
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(42)))), ((int)(((byte)(59)))));
-            this.ClientSize = new System.Drawing.Size(1292, 708);
+            this.ClientSize = new System.Drawing.Size(1170, 723);
+            this.Controls.Add(this.btnAracCikis);
+            this.Controls.Add(this.btnAracGiris);
+            this.Controls.Add(this.btnAracBul);
+            this.Controls.Add(this.btnOtoparkDoluluk);
+            this.Controls.Add(this.btnAboneListele);
+            this.Controls.Add(this.guna2ControlBox3);
+            this.Controls.Add(this.btnAboneEkle);
+            this.Controls.Add(this.guna2ControlBox2);
+            this.Controls.Add(this.guna2ControlBox1);
             this.Controls.Add(this.btnGeri);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PersonelGirisi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PersonelGirisi";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -266,9 +270,9 @@
         private Guna.UI2.WinForms.Guna2Button btnAboneListele;
         private Guna.UI2.WinForms.Guna2Button btnOtoparkDoluluk;
         private Guna.UI2.WinForms.Guna2Button btnAracBul;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
         private Guna.UI2.WinForms.Guna2Button btnGeri;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox3;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
     }
 }

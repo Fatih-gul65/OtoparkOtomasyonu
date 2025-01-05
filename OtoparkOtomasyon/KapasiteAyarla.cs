@@ -21,8 +21,9 @@ namespace OtoparkOtomasyon
             _rdbtnMinibus = rdbtnMinibus;
             _txtKapasiteAyarla = txtKapasiteAyarla;
         }
-        public void KaydetVeyaGuncelle(string secim , int kapasiteDegeri)
+        public void KaydetVeyaGuncelle(string secim , int kapasiteDegeri ,out bool basarili)
         {
+            basarili = false;
             try
             {
                 var entities = _baglanti.Entity();
@@ -36,11 +37,32 @@ namespace OtoparkOtomasyon
                     entities.AracKapasitesi.Add(kontrol);
                 }
 
+                int mevcutAracSayisi = 0;
+                if (secim == "Otomobil")
+                {
+                    mevcutAracSayisi = entities.AracGiris.Count(x => x.AracTuru == "Otomobil");
+                }
+                else if (secim == "Kamyonet")
+                {
+                    mevcutAracSayisi = entities.AracGiris.Count(x => x.AracTuru == "Kamyonet");
+                }
+                else if (secim == "Minibüs/Kamyon")
+                {
+                    mevcutAracSayisi = entities.AracGiris.Count(x => x.AracTuru == "Minibüs/Kamyon");
+                }
+
+                if (mevcutAracSayisi > 0)
+                {
+                    MesajGoster.Uyari($"İçeride {secim} türünde araç(lar) olduğu için kapasite değiştirilemez!");
+                    return;
+                }
+
                 if (secim == "Otomobil") kontrol.OtomobilKapasitesi = kapasiteDegeri;
                 else if (secim == "Kamyonet") kontrol.KamyonetKapasitesi = kapasiteDegeri;
                 else if (secim == "Minibüs/Kamyon") kontrol.MinibusKapasitesi = kapasiteDegeri;
 
                 entities.SaveChanges();
+                basarili = true;
             }
             catch (Exception ex)
             {
@@ -59,11 +81,15 @@ namespace OtoparkOtomasyon
                 MesajGoster.Uyari("Lütfen bir araç türü seçin ve otoparkın seçtiğiniz araç türü için kapasitesini girin!");
             }
             else
-            {               
+            {
+                bool basarili = false;
                 int kapasiteDegeri = Convert.ToInt32(_txtKapasiteAyarla.Text);
-                KaydetVeyaGuncelle(secim, kapasiteDegeri);
-                MesajGoster.Bilgi(secim + " Kapasiteniz : " + _txtKapasiteAyarla.Text + " Olarak Belirlendi.");
-                _txtKapasiteAyarla.Clear();
+                KaydetVeyaGuncelle(secim, kapasiteDegeri, out basarili);
+
+                if (basarili)
+                {
+                    MesajGoster.Bilgi(secim + " Kapasiteniz : " + _txtKapasiteAyarla.Text + " Olarak Belirlendi.");
+                }
             }
         }
         public void AracKapasitesiniYazdir(string secim)

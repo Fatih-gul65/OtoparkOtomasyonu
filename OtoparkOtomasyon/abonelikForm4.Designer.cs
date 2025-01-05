@@ -50,6 +50,12 @@
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblOtomobilAbone = new System.Windows.Forms.Label();
+            this.lblKamyonetAbone = new System.Windows.Forms.Label();
+            this.lblMinibusAbone = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -80,6 +86,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblMinibusAbone);
+            this.groupBox1.Controls.Add(this.lblKamyonetAbone);
+            this.groupBox1.Controls.Add(this.lblOtomobilAbone);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.pictureBox3);
             this.groupBox1.Controls.Add(this.pictureBox2);
             this.groupBox1.Controls.Add(this.rdbtnKrediKart);
@@ -102,15 +114,15 @@
             this.groupBox1.Size = new System.Drawing.Size(1144, 424);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Abonelik İşlemleri";
+            this.groupBox1.Text = "t";
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(938, 176);
+            this.pictureBox3.Location = new System.Drawing.Point(920, 205);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(156, 134);
+            this.pictureBox3.Size = new System.Drawing.Size(193, 134);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 26;
             this.pictureBox3.TabStop = false;
@@ -118,7 +130,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(678, 176);
+            this.pictureBox2.Location = new System.Drawing.Point(680, 205);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(168, 134);
@@ -136,7 +148,7 @@
             this.rdbtnKrediKart.CheckedState.InnerOffset = -4;
             this.rdbtnKrediKart.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.rdbtnKrediKart.ForeColor = System.Drawing.Color.White;
-            this.rdbtnKrediKart.Location = new System.Drawing.Point(918, 318);
+            this.rdbtnKrediKart.Location = new System.Drawing.Point(920, 347);
             this.rdbtnKrediKart.Margin = new System.Windows.Forms.Padding(4);
             this.rdbtnKrediKart.Name = "rdbtnKrediKart";
             this.rdbtnKrediKart.Size = new System.Drawing.Size(209, 28);
@@ -157,7 +169,7 @@
             this.rdbtnNakit.CheckedState.InnerOffset = -4;
             this.rdbtnNakit.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.rdbtnNakit.ForeColor = System.Drawing.Color.White;
-            this.rdbtnNakit.Location = new System.Drawing.Point(693, 318);
+            this.rdbtnNakit.Location = new System.Drawing.Point(695, 347);
             this.rdbtnNakit.Margin = new System.Windows.Forms.Padding(4);
             this.rdbtnNakit.Name = "rdbtnNakit";
             this.rdbtnNakit.Size = new System.Drawing.Size(79, 28);
@@ -173,7 +185,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(687, 136);
+            this.label6.Location = new System.Drawing.Point(689, 165);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(135, 24);
@@ -253,7 +265,7 @@
             this.lblTutar.AutoSize = true;
             this.lblTutar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTutar.ForeColor = System.Drawing.Color.White;
-            this.lblTutar.Location = new System.Drawing.Point(869, 286);
+            this.lblTutar.Location = new System.Drawing.Point(312, 286);
             this.lblTutar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTutar.Name = "lblTutar";
             this.lblTutar.Size = new System.Drawing.Size(0, 24);
@@ -365,6 +377,75 @@
             this.guna2ControlBox1.TabIndex = 44;
             this.guna2ControlBox1.Click += new System.EventHandler(this.guna2ControlBox1_Click);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(674, 27);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(291, 24);
+            this.label7.TabIndex = 28;
+            this.label7.Text = "Otomobil Aylık Abone Ücreti : ";
+            // 
+            // lblOtomobilAbone
+            // 
+            this.lblOtomobilAbone.AutoSize = true;
+            this.lblOtomobilAbone.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOtomobilAbone.ForeColor = System.Drawing.Color.White;
+            this.lblOtomobilAbone.Location = new System.Drawing.Point(973, 27);
+            this.lblOtomobilAbone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblOtomobilAbone.Name = "lblOtomobilAbone";
+            this.lblOtomobilAbone.Size = new System.Drawing.Size(0, 24);
+            this.lblOtomobilAbone.TabIndex = 29;
+            // 
+            // lblKamyonetAbone
+            // 
+            this.lblKamyonetAbone.AutoSize = true;
+            this.lblKamyonetAbone.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKamyonetAbone.ForeColor = System.Drawing.Color.White;
+            this.lblKamyonetAbone.Location = new System.Drawing.Point(973, 109);
+            this.lblKamyonetAbone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblKamyonetAbone.Name = "lblKamyonetAbone";
+            this.lblKamyonetAbone.Size = new System.Drawing.Size(0, 24);
+            this.lblKamyonetAbone.TabIndex = 29;
+            // 
+            // lblMinibusAbone
+            // 
+            this.lblMinibusAbone.AutoSize = true;
+            this.lblMinibusAbone.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMinibusAbone.ForeColor = System.Drawing.Color.White;
+            this.lblMinibusAbone.Location = new System.Drawing.Point(973, 69);
+            this.lblMinibusAbone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMinibusAbone.Name = "lblMinibusAbone";
+            this.lblMinibusAbone.Size = new System.Drawing.Size(0, 24);
+            this.lblMinibusAbone.TabIndex = 29;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(665, 69);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(300, 24);
+            this.label10.TabIndex = 28;
+            this.label10.Text = "Kamyonet Aylık Abone Ücreti : ";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(686, 109);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(279, 24);
+            this.label11.TabIndex = 28;
+            this.label11.Text = "Minibüs Aylık Abone Ücreti : ";
+            // 
             // abonelikForm4
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -417,5 +498,11 @@
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox3;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
+        private System.Windows.Forms.Label lblOtomobilAbone;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblMinibusAbone;
+        private System.Windows.Forms.Label lblKamyonetAbone;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
     }
 }

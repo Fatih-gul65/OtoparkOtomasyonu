@@ -12,13 +12,14 @@ namespace OtoparkOtomasyon
         private Baglanti _baglanti;
         private ComboBox _cmbAracTuru, _cmbAbonelikSuresi;
         private TextBox _txtAracPlakasi;
-        private Label _lblTutar;
+        private Label _lblTutar , _lblOtomobilAbone, _lblKamyonetAbone , _lblMinibusAbone;
         private RadioButton _rdbtnNakit, _rdbtnKrediKart;
         private int carpan;
         private DateTime baslangicTarihi = DateTime.Now;
         private DateTime bitisTarihi;
 
-        public abonelikForm(Baglanti baglanti, ComboBox cmbAracTuru, ComboBox cmbAbonelikSuresi, TextBox txtAracPlakasi, RadioButton rdbtnNakit, RadioButton rdbtnKrediKart, Label lblTutar)
+        public abonelikForm(Baglanti baglanti, ComboBox cmbAracTuru, ComboBox cmbAbonelikSuresi, TextBox txtAracPlakasi, RadioButton rdbtnNakit, RadioButton rdbtnKrediKart, Label lblTutar, Label lblOtomobilAbone,
+            Label lblKamyonetAbone , Label lblMinibusAbone)
         {
             _baglanti = baglanti;
             _cmbAracTuru = cmbAracTuru;
@@ -27,6 +28,9 @@ namespace OtoparkOtomasyon
             _rdbtnNakit = rdbtnNakit;
             _rdbtnKrediKart = rdbtnKrediKart;
             _lblTutar = lblTutar;
+            _lblOtomobilAbone = lblOtomobilAbone;
+            _lblKamyonetAbone = lblKamyonetAbone;
+            _lblMinibusAbone = lblMinibusAbone;
 
         }
         public void yukle()
@@ -246,6 +250,35 @@ namespace OtoparkOtomasyon
             {
                 MesajGoster.Hata(ex.Message);
             }      
-        }       
+        }
+        public void AboneUcretGoster()
+        {
+            try
+            {
+                var entities = _baglanti.Entity();
+                var otomobilUcret = entities.AboneUcret
+                    .Where(a => a.AboneAracTuru == "Otomobil")
+                    .Select(a => a.AboneUcreti)
+                    .FirstOrDefault();
+
+                var kamyonetUcret = entities.AboneUcret
+                    .Where(a => a.AboneAracTuru == "Kamyonet")
+                    .Select(a => a.AboneUcreti)
+                    .FirstOrDefault();
+
+                var minibusUcret = entities.AboneUcret
+                    .Where(a => a.AboneAracTuru == "Minibüs / Kamyon")
+                    .Select(a => a.AboneUcreti)
+                    .FirstOrDefault();
+
+                _lblOtomobilAbone.Text = otomobilUcret.HasValue ? otomobilUcret.Value.ToString("C") : "Ücret bulunamadı";
+                _lblKamyonetAbone.Text = kamyonetUcret.HasValue ? kamyonetUcret.Value.ToString("C") : "Ücret bulunamadı";
+                _lblMinibusAbone.Text = minibusUcret.HasValue ? minibusUcret.Value.ToString("C") : "Ücret bulunamadı";
+            }
+            catch (Exception ex)
+            {
+                MesajGoster.Hata(ex.Message);
+            }
+        }
     }
 }

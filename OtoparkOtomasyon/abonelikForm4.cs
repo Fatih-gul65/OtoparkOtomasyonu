@@ -17,11 +17,12 @@ namespace OtoparkOtomasyon
         public abonelikForm4()
         {
             InitializeComponent();
-            _islemler = new abonelikForm(baglanti, cmbAracTuru, cmbAbonelikSuresi, txtAracPlakasi, rdbtnNakit ,rdbtnKrediKart,lblTutar);
+            _islemler = new abonelikForm(baglanti, cmbAracTuru, cmbAbonelikSuresi, txtAracPlakasi, rdbtnNakit ,rdbtnKrediKart,lblTutar , lblOtomobilAbone , lblMinibusAbone , lblKamyonetAbone);
         }
         private void abonelikForm4_Load(object sender, EventArgs e)
         {
          _islemler.yukle();
+        _islemler.AboneUcretGoster();
         }
         private void btnGeri_Click(object sender, EventArgs e)
         {

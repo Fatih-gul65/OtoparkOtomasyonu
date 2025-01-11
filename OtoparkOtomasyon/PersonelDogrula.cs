@@ -32,7 +32,7 @@ namespace OtoparkOtomasyon
                 }
                 else
                 {
-                    MessageBox.Show("Kullanıcı Adı Veya Şifresi Yanlış \n Lütfen Bilgileri Kontrol Edip Tekrar Deneyin !", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MesajGoster.Hata("Kullanıcı Adı Veya Şifresi Yanlış \n Lütfen Bilgileri Kontrol Edip Tekrar Deneyin !");
                 }
             }
             catch (Exception ex) {
@@ -55,7 +55,7 @@ namespace OtoparkOtomasyon
 
                 if (KullaniciVarMi == false)
                 {
-                    MesajGoster.Bilgi("Herhangi Bir Kullanıcı Bulunamadı ! \n Yönetici ,Panelden Kullanıcı Tanımlayın Ve Sonra Tekrar Deneyiniz. \n Sayfa Açılacak Fakat Giriş İçin Gerekli Elemanlar Gelmeyecektir. \n Giriş Elemanlarının Gelmesi İçin Yönetici Panelinden Kullanıcı Tanımlayınız !");
+                    MesajGoster.Bilgi(" Herhangi Bir Kullanıcı Bulunamadı ! \n Yönetici ,Panelden Kullanıcı Tanımlayın Ve Sonra Tekrar Deneyiniz. \n Sayfa Açılacak Fakat Giriş İçin Gerekli Elemanlar Gelmeyecektir. \n Giriş Elemanlarının Gelmesi İçin Yönetici Panelinden Kullanıcı Tanımlayınız !");
                     btnGiris.Visible = false;
                 }
                 else
@@ -64,6 +64,7 @@ namespace OtoparkOtomasyon
                     txtKullaniciSifreGiris.Visible = true;
                     lblKullaniciAdi.Visible = true;
                     lblKullaniciSifre.Visible = true;
+                    pictureBox3.Visible = true;
                 }
             }
             catch (Exception ex)
@@ -71,7 +72,6 @@ namespace OtoparkOtomasyon
                 MesajGoster.Hata(ex.Message);
             }
         }
-
         private void guna2ControlBox1_Click(object sender, EventArgs e)
         {
             DialogResult sonuc = MesajGoster.OnayAl("Uygulamayı kapatmak istiyor musunuz?");

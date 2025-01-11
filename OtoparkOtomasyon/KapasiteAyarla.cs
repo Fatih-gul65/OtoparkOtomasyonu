@@ -38,22 +38,47 @@ namespace OtoparkOtomasyon
                 }
 
                 int mevcutAracSayisi = 0;
+                int mevcutKapasite = 0;
+                int sonuc = 0;
                 if (secim == "Otomobil")
                 {
                     mevcutAracSayisi = entities.AracGiris.Count(x => x.AracTuru == "Otomobil");
+                    mevcutKapasite = kontrol.OtomobilKapasitesi ?? 0;
+                    sonuc = mevcutAracSayisi - entities.AracCikis.Count(x => x.AracGiris.AracTuru == "Otomobil");
                 }
                 else if (secim == "Kamyonet")
                 {
                     mevcutAracSayisi = entities.AracGiris.Count(x => x.AracTuru == "Kamyonet");
+                    mevcutKapasite = kontrol.KamyonetKapasitesi ?? 0;
+                    sonuc = mevcutAracSayisi - entities.AracCikis.Count(x => x.AracGiris.AracTuru == "Kamyonet");
                 }
                 else if (secim == "Minibüs/Kamyon")
                 {
                     mevcutAracSayisi = entities.AracGiris.Count(x => x.AracTuru == "Minibüs/Kamyon");
+                    mevcutKapasite = kontrol.MinibusKapasitesi ?? 0;
+                    sonuc = mevcutAracSayisi - entities.AracCikis.Count(x => x.AracGiris.AracTuru == "Minibüs/Kamyon");
                 }
 
-                if (mevcutAracSayisi > 0)
+
+                if (kapasiteDegeri < mevcutKapasite)
                 {
-                    MesajGoster.Uyari($"İçeride {secim} türünde araç(lar) olduğu için kapasite değiştirilemez!");
+                    if (sonuc > 0)
+                    {
+                        MesajGoster.Uyari($"İçeride {secim} türünde araç olduğu için kapasite azaltılamaz!");
+                        return;
+                    }
+                    else
+                    {
+                        MesajGoster.Bilgi($"{secim} kapasitesi başarıyla azaltıldı.");
+                    }
+                }
+                else if (kapasiteDegeri > mevcutKapasite)
+                {
+                    MesajGoster.Bilgi($"{secim} kapasitesi başarıyla artırıldı.");
+                }
+                else
+                {
+                    MesajGoster.Bilgi($"{secim} kapasitesi zaten {mevcutKapasite}. Değişiklik yapılmadı.");
                     return;
                 }
 
@@ -85,11 +110,6 @@ namespace OtoparkOtomasyon
                 bool basarili = false;
                 int kapasiteDegeri = Convert.ToInt32(_txtKapasiteAyarla.Text);
                 KaydetVeyaGuncelle(secim, kapasiteDegeri, out basarili);
-
-                if (basarili)
-                {
-                    MesajGoster.Bilgi(secim + " Kapasiteniz : " + _txtKapasiteAyarla.Text + " Olarak Belirlendi.");
-                }
             }
         }
         public void AracKapasitesiniYazdir(string secim)

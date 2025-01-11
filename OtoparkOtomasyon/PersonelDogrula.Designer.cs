@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PersonelDogrula));
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txtKullaniciSifreGiris = new System.Windows.Forms.TextBox();
             this.txtKullaniciAdiGiris = new System.Windows.Forms.TextBox();
             this.lblKullaniciSifre = new System.Windows.Forms.Label();
             this.lblKullaniciAdi = new System.Windows.Forms.Label();
@@ -42,6 +41,7 @@
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.txtKullaniciSifreGiris = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -70,17 +70,9 @@
             this.pictureBox1.TabIndex = 37;
             this.pictureBox1.TabStop = false;
             // 
-            // txtKullaniciSifreGiris
-            // 
-            this.txtKullaniciSifreGiris.Location = new System.Drawing.Point(621, 543);
-            this.txtKullaniciSifreGiris.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtKullaniciSifreGiris.Name = "txtKullaniciSifreGiris";
-            this.txtKullaniciSifreGiris.Size = new System.Drawing.Size(167, 22);
-            this.txtKullaniciSifreGiris.TabIndex = 48;
-            this.txtKullaniciSifreGiris.Visible = false;
-            // 
             // txtKullaniciAdiGiris
             // 
+            this.txtKullaniciAdiGiris.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtKullaniciAdiGiris.Location = new System.Drawing.Point(621, 491);
             this.txtKullaniciAdiGiris.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtKullaniciAdiGiris.Name = "txtKullaniciAdiGiris";
@@ -209,7 +201,18 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 57;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Visible = false;
             this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            // 
+            // txtKullaniciSifreGiris
+            // 
+            this.txtKullaniciSifreGiris.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtKullaniciSifreGiris.Location = new System.Drawing.Point(621, 543);
+            this.txtKullaniciSifreGiris.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtKullaniciSifreGiris.Name = "txtKullaniciSifreGiris";
+            this.txtKullaniciSifreGiris.Size = new System.Drawing.Size(167, 22);
+            this.txtKullaniciSifreGiris.TabIndex = 48;
+            this.txtKullaniciSifreGiris.Visible = false;
             // 
             // PersonelDogrula
             // 
@@ -248,7 +251,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox txtKullaniciSifreGiris;
         private System.Windows.Forms.TextBox txtKullaniciAdiGiris;
         private System.Windows.Forms.Label lblKullaniciSifre;
         private System.Windows.Forms.Label lblKullaniciAdi;
@@ -259,5 +261,6 @@
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.TextBox txtKullaniciSifreGiris;
     }
 }

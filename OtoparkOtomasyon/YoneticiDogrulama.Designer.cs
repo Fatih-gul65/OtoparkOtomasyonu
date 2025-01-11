@@ -107,6 +107,7 @@
             // 
             // txtYoneticiAdiGiris
             // 
+            this.txtYoneticiAdiGiris.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtYoneticiAdiGiris.Location = new System.Drawing.Point(653, 518);
             this.txtYoneticiAdiGiris.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtYoneticiAdiGiris.Name = "txtYoneticiAdiGiris";
@@ -115,6 +116,7 @@
             // 
             // txtYoneticiSifreGiris
             // 
+            this.txtYoneticiSifreGiris.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtYoneticiSifreGiris.Location = new System.Drawing.Point(653, 571);
             this.txtYoneticiSifreGiris.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtYoneticiSifreGiris.Name = "txtYoneticiSifreGiris";

@@ -13,62 +13,50 @@ namespace OtoparkOtomasyon
 {
     public partial class YoneticiDogrulama : Form
     {
+        Baglanti baglanti = new Baglanti();
         public YoneticiDogrulama()
         {
-            InitializeComponent();           
+            InitializeComponent();
         }
         private void btnGiris_Click(object sender, EventArgs e)
         {
             string YoneticiAdi = txtYoneticiAdiGiris.Text.Trim();
             string YoneticiSifre = txtYoneticiSifreGiris.Text.Trim();
-            SqlConnection con = null;
             try
             {
-                Baglanti baglanti  = new Baglanti();
-
-                con = baglanti.SqlBaglanti();
-
                 if (YoneticiAdi == "" || YoneticiSifre == "")
                 {
                     MesajGoster.Uyari("Lütfen Boş Olan Alanları Doldurunuz");
                 }
                 else
                 {
-                    con.Open();
-                    string kontrol = "Select * from Yonetici where YoneticiAdi = @YoneticiAdi AND YoneticiSifre = @YoneticiSifre";
-                    SqlCommand komut = new SqlCommand(kontrol, con);
-                    komut.Parameters.AddWithValue("@YoneticiAdi", YoneticiAdi);
-                    komut.Parameters.AddWithValue("@YoneticiSifre", YoneticiSifre);
-                    SqlDataReader sdr = komut.ExecuteReader();
-                    if (sdr.Read())
+                    var entities = baglanti.Entity();
+                    
+                    var yonetici = entities.Yonetici.FirstOrDefault(y => y.YoneticiAdi == YoneticiAdi && y.YoneticiSifre == YoneticiSifre);
+
+                    if (yonetici != null)
                     {
                         YoneticiGiris giris = new YoneticiGiris();
-                        YoneticiDogrulama sayfa = new YoneticiDogrulama();
                         giris.Show();
-                        sayfa.Close();
+                        this.Close();
                     }
                     else
                     {
                         MesajGoster.Hata("Hatalı Bilgi Girişi Yaptınız , Lütfen Tekrar Deneyiniz !");
-                    }
+                    }                    
                 }
             }
             catch (Exception ex)
             {
                 MesajGoster.Hata(ex.Message);
             }
-            finally
-            {
-                con.Close();
-            }
-        }                                                                                                                                    
+        }
         private void btnGeri_Click(object sender, EventArgs e)
         {
             Anasayfa anasayfa = new Anasayfa();
             anasayfa.Show();
             this.Close();
         }
-
         private void guna2ControlBox1_Click(object sender, EventArgs e)
         {
             DialogResult sonuc = MesajGoster.OnayAl("Uygulamayı kapatmak istiyor musunuz?");
@@ -83,10 +71,9 @@ namespace OtoparkOtomasyon
                 ac.Show();
             }
         }
-
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            if(txtYoneticiSifreGiris.PasswordChar == '*')
+            if (txtYoneticiSifreGiris.PasswordChar == '*')
             {
                 txtYoneticiSifreGiris.PasswordChar = '\0';
                 pictureBox3.Image = Properties.Resources.acikgoz;

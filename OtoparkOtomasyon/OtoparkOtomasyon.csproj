@@ -68,94 +68,94 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="abonelikForm.cs" />
-    <Compile Include="abonelikForm4.cs">
+    <Compile Include="cs_Abonelik.cs" />
+    <Compile Include="frm_Abonelik.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="abonelikForm4.Designer.cs">
-      <DependentUpon>abonelikForm4.cs</DependentUpon>
+    <Compile Include="frm_Abonelik.Designer.cs">
+      <DependentUpon>frm_Abonelik.cs</DependentUpon>
     </Compile>
     <Compile Include="Abonelikler.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="AboneListe.cs" />
-    <Compile Include="abonelistele.cs">
+    <Compile Include="cs_AboneListe.cs" />
+    <Compile Include="frm_AboneListele.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="abonelistele.Designer.cs">
-      <DependentUpon>abonelistele.cs</DependentUpon>
+    <Compile Include="frm_AboneListele.Designer.cs">
+      <DependentUpon>frm_AboneListele.cs</DependentUpon>
     </Compile>
     <Compile Include="AboneUcret.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="AboneUcretDuzenle.cs">
+    <Compile Include="frm_AboneUcretDuzenle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AboneUcretDuzenle.Designer.cs">
-      <DependentUpon>AboneUcretDuzenle.cs</DependentUpon>
+    <Compile Include="frm_AboneUcretDuzenle.Designer.cs">
+      <DependentUpon>frm_AboneUcretDuzenle.cs</DependentUpon>
     </Compile>
-    <Compile Include="AboneUcretleriDuzenle.cs" />
-    <Compile Include="Anasayfa.cs">
+    <Compile Include="cs_AboneUcretDuzenle.cs" />
+    <Compile Include="frm_Anasayfa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Anasayfa.Designer.cs">
-      <DependentUpon>Anasayfa.cs</DependentUpon>
+    <Compile Include="frm_Anasayfa.Designer.cs">
+      <DependentUpon>frm_Anasayfa.cs</DependentUpon>
     </Compile>
-    <Compile Include="aracbul.cs">
+    <Compile Include="frm_AracBul.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="aracbul.Designer.cs">
-      <DependentUpon>aracbul.cs</DependentUpon>
+    <Compile Include="frm_AracBul.Designer.cs">
+      <DependentUpon>frm_AracBul.cs</DependentUpon>
     </Compile>
-    <Compile Include="aracBulForm.cs" />
+    <Compile Include="cs_AracBul.cs" />
     <Compile Include="AracCikis.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="aracCikisForm.cs" />
+    <Compile Include="cs_AracCikis.cs" />
     <Compile Include="AracGiris.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="aracGirisForm.cs" />
-    <Compile Include="aracgirisForm2.cs">
+    <Compile Include="cs_AracGirisForm.cs" />
+    <Compile Include="frm_AracGiris.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="aracgirisForm2.Designer.cs">
-      <DependentUpon>aracgirisForm2.cs</DependentUpon>
+    <Compile Include="frm_AracGiris.Designer.cs">
+      <DependentUpon>frm_AracGiris.cs</DependentUpon>
     </Compile>
-    <Compile Include="aracikisForm3.cs">
+    <Compile Include="frm_AracCikis.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="aracikisForm3.Designer.cs">
-      <DependentUpon>aracikisForm3.cs</DependentUpon>
+    <Compile Include="frm_AracCikis.Designer.cs">
+      <DependentUpon>frm_AracCikis.cs</DependentUpon>
     </Compile>
     <Compile Include="AracKapasitesi.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="AracKapasitesiAyarla.cs">
+    <Compile Include="frm_KapasiteAyarla.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AracKapasitesiAyarla.Designer.cs">
-      <DependentUpon>AracKapasitesiAyarla.cs</DependentUpon>
+    <Compile Include="frm_KapasiteAyarla.Designer.cs">
+      <DependentUpon>frm_KapasiteAyarla.cs</DependentUpon>
     </Compile>
-    <Compile Include="AracUcretDuzenle.cs">
+    <Compile Include="frm_AracUcretDuzenle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AracUcretDuzenle.Designer.cs">
-      <DependentUpon>AracUcretDuzenle.cs</DependentUpon>
+    <Compile Include="frm_AracUcretDuzenle.Designer.cs">
+      <DependentUpon>frm_AracUcretDuzenle.cs</DependentUpon>
     </Compile>
     <Compile Include="AracUcretleri.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="AracUcretleriDuzenle.cs" />
-    <Compile Include="Baglanti.cs" />
-    <Compile Include="KapasiteAyarla.cs" />
-    <Compile Include="KullaniciSifreDegistir.cs">
+    <Compile Include="cs_AracUcretDuzenle.cs" />
+    <Compile Include="cs_Baglanti.cs" />
+    <Compile Include="cs_KapasiteAyarla.cs" />
+    <Compile Include="frm_KullaniciSifreDegistir.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KullaniciSifreDegistir.Designer.cs">
-      <DependentUpon>KullaniciSifreDegistir.cs</DependentUpon>
+    <Compile Include="frm_KullaniciSifreDegistir.Designer.cs">
+      <DependentUpon>frm_KullaniciSifreDegistir.cs</DependentUpon>
     </Compile>
-    <Compile Include="MesajGoster.cs" />
+    <Compile Include="cs_MesajGoster.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -171,60 +171,60 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="otoParkDolulukForm.cs" />
-    <Compile Include="otoparkdolulukForm6.cs">
+    <Compile Include="cs_OtoparkDoluluk.cs" />
+    <Compile Include="frm_OtoparkDoluluk.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="otoparkdolulukForm6.Designer.cs">
-      <DependentUpon>otoparkdolulukForm6.cs</DependentUpon>
+    <Compile Include="frm_OtoparkDoluluk.Designer.cs">
+      <DependentUpon>frm_OtoparkDoluluk.cs</DependentUpon>
     </Compile>
     <Compile Include="ParkYeri.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Personel.cs" />
-    <Compile Include="PersonelDogrula.cs">
+    <Compile Include="cs_Personel.cs" />
+    <Compile Include="frm_PersonelDogrula.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PersonelDogrula.Designer.cs">
-      <DependentUpon>PersonelDogrula.cs</DependentUpon>
+    <Compile Include="frm_PersonelDogrula.Designer.cs">
+      <DependentUpon>frm_PersonelDogrula.cs</DependentUpon>
     </Compile>
-    <Compile Include="PersonelGirisi.cs">
+    <Compile Include="frm_PersonelGirisi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PersonelGirisi.Designer.cs">
-      <DependentUpon>PersonelGirisi.cs</DependentUpon>
+    <Compile Include="frm_PersonelGirisi.Designer.cs">
+      <DependentUpon>frm_PersonelGirisi.cs</DependentUpon>
     </Compile>
     <Compile Include="PersonelGirisTanimla.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="PersonelTanimla.cs">
+    <Compile Include="frm_PersonelTanimla.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PersonelTanimla.Designer.cs">
-      <DependentUpon>PersonelTanimla.cs</DependentUpon>
+    <Compile Include="frm_PersonelTanimla.Designer.cs">
+      <DependentUpon>frm_PersonelTanimla.cs</DependentUpon>
     </Compile>
-    <Compile Include="PlakaKontrolu.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="cs_PlakaKontrolu.cs" />
+    <Compile Include="cs_Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rapor.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="RaporOlustur.cs">
+    <Compile Include="frm_Rapor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RaporOlustur.Designer.cs">
-      <DependentUpon>RaporOlustur.cs</DependentUpon>
+    <Compile Include="frm_Rapor.Designer.cs">
+      <DependentUpon>frm_Rapor.cs</DependentUpon>
     </Compile>
-    <Compile Include="RaporSinif.cs" />
+    <Compile Include="cs_Rapor.cs" />
     <Compile Include="sysdiagrams.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="UcretsizAracGiris.cs" />
-    <Compile Include="UcretsizAracGirisiTanimla.cs">
+    <Compile Include="cs_UcretsizAracGiris.cs" />
+    <Compile Include="frm_UcretsizAracGiris.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UcretsizAracGirisiTanimla.Designer.cs">
-      <DependentUpon>UcretsizAracGirisiTanimla.cs</DependentUpon>
+    <Compile Include="frm_UcretsizAracGiris.Designer.cs">
+      <DependentUpon>frm_UcretsizAracGiris.cs</DependentUpon>
     </Compile>
     <Compile Include="UcretsizGiris.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -232,60 +232,60 @@
     <Compile Include="Yonetici.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="YoneticiDogrulama.cs">
+    <Compile Include="frm_YoneticiDogrulama.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="YoneticiDogrulama.Designer.cs">
-      <DependentUpon>YoneticiDogrulama.cs</DependentUpon>
+    <Compile Include="frm_YoneticiDogrulama.Designer.cs">
+      <DependentUpon>frm_YoneticiDogrulama.cs</DependentUpon>
     </Compile>
-    <Compile Include="YoneticiGiris.cs">
+    <Compile Include="frm_YoneticiGiris.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="YoneticiGiris.Designer.cs">
-      <DependentUpon>YoneticiGiris.cs</DependentUpon>
+    <Compile Include="frm_YoneticiGiris.Designer.cs">
+      <DependentUpon>frm_YoneticiGiris.cs</DependentUpon>
     </Compile>
-    <Compile Include="YoneticiSifre.cs" />
-    <EmbeddedResource Include="abonelikForm4.resx">
-      <DependentUpon>abonelikForm4.cs</DependentUpon>
+    <Compile Include="cs_YoneticiSifre.cs" />
+    <EmbeddedResource Include="frm_Abonelik.resx">
+      <DependentUpon>frm_Abonelik.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="abonelistele.resx">
-      <DependentUpon>abonelistele.cs</DependentUpon>
+    <EmbeddedResource Include="frm_AboneListele.resx">
+      <DependentUpon>frm_AboneListele.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AboneUcretDuzenle.resx">
-      <DependentUpon>AboneUcretDuzenle.cs</DependentUpon>
+    <EmbeddedResource Include="frm_AboneUcretDuzenle.resx">
+      <DependentUpon>frm_AboneUcretDuzenle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Anasayfa.resx">
-      <DependentUpon>Anasayfa.cs</DependentUpon>
+    <EmbeddedResource Include="frm_Anasayfa.resx">
+      <DependentUpon>frm_Anasayfa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="aracbul.resx">
-      <DependentUpon>aracbul.cs</DependentUpon>
+    <EmbeddedResource Include="frm_AracBul.resx">
+      <DependentUpon>frm_AracBul.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="aracgirisForm2.resx">
-      <DependentUpon>aracgirisForm2.cs</DependentUpon>
+    <EmbeddedResource Include="frm_AracGiris.resx">
+      <DependentUpon>frm_AracGiris.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="aracikisForm3.resx">
-      <DependentUpon>aracikisForm3.cs</DependentUpon>
+    <EmbeddedResource Include="frm_AracCikis.resx">
+      <DependentUpon>frm_AracCikis.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AracKapasitesiAyarla.resx">
-      <DependentUpon>AracKapasitesiAyarla.cs</DependentUpon>
+    <EmbeddedResource Include="frm_KapasiteAyarla.resx">
+      <DependentUpon>frm_KapasiteAyarla.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AracUcretDuzenle.resx">
-      <DependentUpon>AracUcretDuzenle.cs</DependentUpon>
+    <EmbeddedResource Include="frm_AracUcretDuzenle.resx">
+      <DependentUpon>frm_AracUcretDuzenle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KullaniciSifreDegistir.resx">
-      <DependentUpon>KullaniciSifreDegistir.cs</DependentUpon>
+    <EmbeddedResource Include="frm_KullaniciSifreDegistir.resx">
+      <DependentUpon>frm_KullaniciSifreDegistir.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="otoparkdolulukForm6.resx">
-      <DependentUpon>otoparkdolulukForm6.cs</DependentUpon>
+    <EmbeddedResource Include="frm_OtoparkDoluluk.resx">
+      <DependentUpon>frm_OtoparkDoluluk.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PersonelDogrula.resx">
-      <DependentUpon>PersonelDogrula.cs</DependentUpon>
+    <EmbeddedResource Include="frm_PersonelDogrula.resx">
+      <DependentUpon>frm_PersonelDogrula.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PersonelGirisi.resx">
-      <DependentUpon>PersonelGirisi.cs</DependentUpon>
+    <EmbeddedResource Include="frm_PersonelGirisi.resx">
+      <DependentUpon>frm_PersonelGirisi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PersonelTanimla.resx">
-      <DependentUpon>PersonelTanimla.cs</DependentUpon>
+    <EmbeddedResource Include="frm_PersonelTanimla.resx">
+      <DependentUpon>frm_PersonelTanimla.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -297,17 +297,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="RaporOlustur.resx">
-      <DependentUpon>RaporOlustur.cs</DependentUpon>
+    <EmbeddedResource Include="frm_Rapor.resx">
+      <DependentUpon>frm_Rapor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UcretsizAracGirisiTanimla.resx">
-      <DependentUpon>UcretsizAracGirisiTanimla.cs</DependentUpon>
+    <EmbeddedResource Include="frm_UcretsizAracGiris.resx">
+      <DependentUpon>frm_UcretsizAracGiris.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="YoneticiDogrulama.resx">
-      <DependentUpon>YoneticiDogrulama.cs</DependentUpon>
+    <EmbeddedResource Include="frm_YoneticiDogrulama.resx">
+      <DependentUpon>frm_YoneticiDogrulama.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="YoneticiGiris.resx">
-      <DependentUpon>YoneticiGiris.cs</DependentUpon>
+    <EmbeddedResource Include="frm_YoneticiGiris.resx">
+      <DependentUpon>frm_YoneticiGiris.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

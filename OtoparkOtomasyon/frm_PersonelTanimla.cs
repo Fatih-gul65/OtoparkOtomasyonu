@@ -7,11 +7,11 @@ namespace OtoparkOtomasyon
 {
     public partial class frm_PersonelTanimla : Form
     {
-        cs_Personel _islemler;
+        cs_PersonelTanimla _islemler;
         public frm_PersonelTanimla()
         {
             InitializeComponent();
-            _islemler = new cs_Personel(txtKullaniciID, txtKullaniciAdi, txtKullaniciSifre, datagridPersonelTanimla);            
+            _islemler = new cs_PersonelTanimla(txtKullaniciID, txtKullaniciAdi, txtKullaniciSifre, datagridPersonelTanimla);            
         }
         private void btnGeri_Click(object sender, EventArgs e)
         {

@@ -208,10 +208,12 @@
             this.guna2ControlBox1.TabIndex = 52;
             this.guna2ControlBox1.Click += new System.EventHandler(this.guna2ControlBox1_Click);
             // 
-            // UcretsizAraçGirisiTanimla
+            // frm_UcretsizAracGiris
             // 
+            this.AcceptButton = this.btnPlakaEkle;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(42)))), ((int)(((byte)(59)))));
+            this.CancelButton = this.btnGeri;
             this.ClientSize = new System.Drawing.Size(1170, 723);
             this.Controls.Add(this.guna2ControlBox3);
             this.Controls.Add(this.guna2ControlBox2);
@@ -228,7 +230,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "UcretsizAraçGirisiTanimla";
+            this.Name = "frm_UcretsizAracGiris";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UcretsizAraçTanimla";
             this.Load += new System.EventHandler(this.UcretsizAraçGirisiTanimla_Load);

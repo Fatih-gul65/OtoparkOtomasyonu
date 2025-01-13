@@ -107,25 +107,26 @@
             // 
             // txtYoneticiAdiGiris
             // 
-            this.txtYoneticiAdiGiris.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtYoneticiAdiGiris.Font = new System.Drawing.Font("Arial Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtYoneticiAdiGiris.Location = new System.Drawing.Point(653, 518);
             this.txtYoneticiAdiGiris.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtYoneticiAdiGiris.Name = "txtYoneticiAdiGiris";
-            this.txtYoneticiAdiGiris.Size = new System.Drawing.Size(167, 22);
+            this.txtYoneticiAdiGiris.Size = new System.Drawing.Size(167, 31);
             this.txtYoneticiAdiGiris.TabIndex = 42;
             // 
             // txtYoneticiSifreGiris
             // 
-            this.txtYoneticiSifreGiris.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtYoneticiSifreGiris.Font = new System.Drawing.Font("Arial Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtYoneticiSifreGiris.Location = new System.Drawing.Point(653, 571);
             this.txtYoneticiSifreGiris.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtYoneticiSifreGiris.Name = "txtYoneticiSifreGiris";
-            this.txtYoneticiSifreGiris.Size = new System.Drawing.Size(167, 22);
+            this.txtYoneticiSifreGiris.Size = new System.Drawing.Size(167, 31);
             this.txtYoneticiSifreGiris.TabIndex = 43;
             // 
             // btnGeri
             // 
             this.btnGeri.BorderRadius = 15;
+            this.btnGeri.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnGeri.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnGeri.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnGeri.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -213,18 +214,20 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::OtoparkOtomasyon.Properties.Resources.kapaligoz;
-            this.pictureBox3.Location = new System.Drawing.Point(842, 568);
+            this.pictureBox3.Location = new System.Drawing.Point(836, 568);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(34, 25);
+            this.pictureBox3.Size = new System.Drawing.Size(54, 41);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 56;
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
-            // YoneticiDogrulama
+            // frm_YoneticiDogrulama
             // 
+            this.AcceptButton = this.btnGiris;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(42)))), ((int)(((byte)(59)))));
+            this.CancelButton = this.btnGeri;
             this.ClientSize = new System.Drawing.Size(1170, 723);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.guna2ControlBox3);
@@ -243,7 +246,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "YoneticiDogrulama";
+            this.Name = "frm_YoneticiDogrulama";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "YoneticiDogrulama";
             this.Load += new System.EventHandler(this.YoneticiDogrulama_Load);

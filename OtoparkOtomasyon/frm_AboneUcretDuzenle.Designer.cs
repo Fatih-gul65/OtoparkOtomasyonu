@@ -101,6 +101,7 @@
             // btnGeri
             // 
             this.btnGeri.BorderRadius = 15;
+            this.btnGeri.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnGeri.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnGeri.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnGeri.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -298,10 +299,12 @@
             this.guna2ControlBox3.Size = new System.Drawing.Size(45, 29);
             this.guna2ControlBox3.TabIndex = 32;
             // 
-            // AboneUcretDuzenle
+            // frm_AboneUcretDuzenle
             // 
+            this.AcceptButton = this.btnKaydet;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(42)))), ((int)(((byte)(59)))));
+            this.CancelButton = this.btnGeri;
             this.ClientSize = new System.Drawing.Size(1170, 723);
             this.Controls.Add(this.guna2ControlBox3);
             this.Controls.Add(this.guna2ControlBox2);
@@ -314,7 +317,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "AboneUcretDuzenle";
+            this.Name = "frm_AboneUcretDuzenle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AboneUcretDuzenle";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

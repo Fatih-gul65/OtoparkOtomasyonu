@@ -111,7 +111,7 @@
             this.lblGunlukKazanc.AutoSize = true;
             this.lblGunlukKazanc.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblGunlukKazanc.ForeColor = System.Drawing.Color.White;
-            this.lblGunlukKazanc.Location = new System.Drawing.Point(12, 82);
+            this.lblGunlukKazanc.Location = new System.Drawing.Point(97, 116);
             this.lblGunlukKazanc.Name = "lblGunlukKazanc";
             this.lblGunlukKazanc.Size = new System.Drawing.Size(14, 19);
             this.lblGunlukKazanc.TabIndex = 37;
@@ -120,6 +120,7 @@
             // btnGeri
             // 
             this.btnGeri.BorderRadius = 15;
+            this.btnGeri.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnGeri.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnGeri.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnGeri.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -237,7 +238,7 @@
             this.lblHaftalikKazanc.AutoSize = true;
             this.lblHaftalikKazanc.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblHaftalikKazanc.ForeColor = System.Drawing.Color.White;
-            this.lblHaftalikKazanc.Location = new System.Drawing.Point(368, 82);
+            this.lblHaftalikKazanc.Location = new System.Drawing.Point(453, 116);
             this.lblHaftalikKazanc.Name = "lblHaftalikKazanc";
             this.lblHaftalikKazanc.Size = new System.Drawing.Size(14, 19);
             this.lblHaftalikKazanc.TabIndex = 57;
@@ -248,7 +249,7 @@
             this.lblAylikKazanc.AutoSize = true;
             this.lblAylikKazanc.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblAylikKazanc.ForeColor = System.Drawing.Color.White;
-            this.lblAylikKazanc.Location = new System.Drawing.Point(674, 82);
+            this.lblAylikKazanc.Location = new System.Drawing.Point(759, 116);
             this.lblAylikKazanc.Name = "lblAylikKazanc";
             this.lblAylikKazanc.Size = new System.Drawing.Size(14, 19);
             this.lblAylikKazanc.TabIndex = 58;
@@ -259,7 +260,7 @@
             this.lblAboneAylik.AutoSize = true;
             this.lblAboneAylik.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblAboneAylik.ForeColor = System.Drawing.Color.White;
-            this.lblAboneAylik.Location = new System.Drawing.Point(674, 18);
+            this.lblAboneAylik.Location = new System.Drawing.Point(759, 52);
             this.lblAboneAylik.Name = "lblAboneAylik";
             this.lblAboneAylik.Size = new System.Drawing.Size(14, 19);
             this.lblAboneAylik.TabIndex = 61;
@@ -270,7 +271,7 @@
             this.lblAboneHaftalik.AutoSize = true;
             this.lblAboneHaftalik.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblAboneHaftalik.ForeColor = System.Drawing.Color.White;
-            this.lblAboneHaftalik.Location = new System.Drawing.Point(368, 18);
+            this.lblAboneHaftalik.Location = new System.Drawing.Point(453, 52);
             this.lblAboneHaftalik.Name = "lblAboneHaftalik";
             this.lblAboneHaftalik.Size = new System.Drawing.Size(14, 19);
             this.lblAboneHaftalik.TabIndex = 60;
@@ -281,7 +282,7 @@
             this.lblAboneGunluk.AutoSize = true;
             this.lblAboneGunluk.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblAboneGunluk.ForeColor = System.Drawing.Color.White;
-            this.lblAboneGunluk.Location = new System.Drawing.Point(12, 18);
+            this.lblAboneGunluk.Location = new System.Drawing.Point(97, 52);
             this.lblAboneGunluk.Name = "lblAboneGunluk";
             this.lblAboneGunluk.Size = new System.Drawing.Size(14, 19);
             this.lblAboneGunluk.TabIndex = 59;
@@ -320,10 +321,11 @@
             this.guna2ControlBox1.TabIndex = 62;
             this.guna2ControlBox1.Click += new System.EventHandler(this.guna2ControlBox1_Click);
             // 
-            // RaporOlustur
+            // frm_Rapor
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(42)))), ((int)(((byte)(59)))));
+            this.CancelButton = this.btnGeri;
             this.ClientSize = new System.Drawing.Size(1170, 723);
             this.Controls.Add(this.guna2ControlBox3);
             this.Controls.Add(this.guna2ControlBox2);
@@ -341,7 +343,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "RaporOlustur";
+            this.Name = "frm_Rapor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RaporOlustur";
             this.Load += new System.EventHandler(this.RaporOlustur_Load);

@@ -7,12 +7,12 @@ using System.Windows.Forms;
 
 namespace OtoparkOtomasyon
 {
-    internal class cs_Personel
+    internal class cs_PersonelTanimla
     {
         private cs_Baglanti _baglanti;
         private TextBox _txtKullaniciID, _txtKullaniciAdi, _txtKullaniciSifre;
         private DataGridView _datagridPersonelTanimla;
-        public cs_Personel(TextBox txtKullaniciID, TextBox txtKullaniciAdi, TextBox txtKullaniciSifre, DataGridView datagridPersonelTanimla)
+        public cs_PersonelTanimla(TextBox txtKullaniciID, TextBox txtKullaniciAdi, TextBox txtKullaniciSifre, DataGridView datagridPersonelTanimla)
         {
             _baglanti = new cs_Baglanti();
             _txtKullaniciID = txtKullaniciID;

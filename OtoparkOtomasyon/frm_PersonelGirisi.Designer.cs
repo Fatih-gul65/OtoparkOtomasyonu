@@ -182,6 +182,7 @@
             // 
             this.btnGeri.BorderRadius = 15;
             this.btnGeri.BorderThickness = 1;
+            this.btnGeri.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnGeri.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnGeri.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnGeri.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -233,10 +234,11 @@
             this.guna2ControlBox1.TabIndex = 47;
             this.guna2ControlBox1.Click += new System.EventHandler(this.guna2ControlBox1_Click);
             // 
-            // PersonelGirisi
+            // frm_PersonelGirisi
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(42)))), ((int)(((byte)(59)))));
+            this.CancelButton = this.btnGeri;
             this.ClientSize = new System.Drawing.Size(1170, 723);
             this.Controls.Add(this.btnAracCikis);
             this.Controls.Add(this.btnAracGiris);
@@ -251,8 +253,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "PersonelGirisi";
+            this.Name = "frm_PersonelGirisi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PersonelGirisi";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

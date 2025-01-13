@@ -72,11 +72,11 @@
             // 
             // txtKullaniciAdiGiris
             // 
-            this.txtKullaniciAdiGiris.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtKullaniciAdiGiris.Font = new System.Drawing.Font("Arial Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtKullaniciAdiGiris.Location = new System.Drawing.Point(621, 491);
             this.txtKullaniciAdiGiris.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtKullaniciAdiGiris.Name = "txtKullaniciAdiGiris";
-            this.txtKullaniciAdiGiris.Size = new System.Drawing.Size(167, 22);
+            this.txtKullaniciAdiGiris.Size = new System.Drawing.Size(167, 31);
             this.txtKullaniciAdiGiris.TabIndex = 47;
             this.txtKullaniciAdiGiris.Visible = false;
             // 
@@ -119,6 +119,7 @@
             // btnGiris
             // 
             this.btnGiris.BorderRadius = 15;
+            this.btnGiris.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnGiris.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnGiris.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnGiris.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -136,11 +137,13 @@
             this.btnGiris.Size = new System.Drawing.Size(180, 46);
             this.btnGiris.TabIndex = 52;
             this.btnGiris.Text = "Giriş";
+            this.btnGiris.Visible = false;
             this.btnGiris.Click += new System.EventHandler(this.btnGiris_Click);
             // 
             // btnGeri
             // 
             this.btnGeri.BorderRadius = 15;
+            this.btnGeri.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnGeri.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnGeri.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnGeri.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -206,18 +209,20 @@
             // 
             // txtKullaniciSifreGiris
             // 
-            this.txtKullaniciSifreGiris.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtKullaniciSifreGiris.Font = new System.Drawing.Font("Arial Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtKullaniciSifreGiris.Location = new System.Drawing.Point(621, 543);
             this.txtKullaniciSifreGiris.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtKullaniciSifreGiris.Name = "txtKullaniciSifreGiris";
-            this.txtKullaniciSifreGiris.Size = new System.Drawing.Size(167, 22);
+            this.txtKullaniciSifreGiris.Size = new System.Drawing.Size(167, 31);
             this.txtKullaniciSifreGiris.TabIndex = 48;
             this.txtKullaniciSifreGiris.Visible = false;
             // 
-            // PersonelDogrula
+            // frm_PersonelDogrula
             // 
+            this.AcceptButton = this.btnGiris;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(42)))), ((int)(((byte)(59)))));
+            this.CancelButton = this.btnGeri;
             this.ClientSize = new System.Drawing.Size(1170, 723);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.guna2ControlBox3);
@@ -235,7 +240,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "PersonelDogrula";
+            this.Name = "frm_PersonelDogrula";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PersonelDogrula";
             this.Load += new System.EventHandler(this.PersonelDogrula_Load);

@@ -37,7 +37,7 @@ namespace OtoparkOtomasyon
             }
             catch (Exception ex) {
       
-                MessageBox.Show("Bir hata ile karşılaşıldı : " + ex.Message);
+                cs_MesajGoster.Hata(ex.Message);
             }
         }
         private void btnGeri_Click(object sender, EventArgs e)
@@ -49,17 +49,18 @@ namespace OtoparkOtomasyon
         private void PersonelDogrula_Load(object sender, EventArgs e)
         {
             txtKullaniciSifreGiris.PasswordChar = '*';
-            try {
+            try
+            {
                 var entities = baglanti.Entity();
                 bool KullaniciVarMi = entities.PersonelGirisTanimla.Any();
 
                 if (KullaniciVarMi == false)
                 {
-                    cs_MesajGoster.Bilgi(" Herhangi Bir Kullanıcı Bulunamadı ! \n Yönetici ,Panelden Kullanıcı Tanımlayın Ve Sonra Tekrar Deneyiniz. \n Sayfa Açılacak Fakat Giriş İçin Gerekli Elemanlar Gelmeyecektir. \n Giriş Elemanlarının Gelmesi İçin Yönetici Panelinden Kullanıcı Tanımlayınız !");
-                    btnGiris.Visible = false;
+                    cs_MesajGoster.Bilgi(" Herhangi Bir Kullanıcı Bulunamadı !\n Giriş Elemanlarının Gelmesi İçin Yönetici Panelinden Kullanıcı Tanımlayınız !");
                 }
                 else
                 {
+                    btnGiris.Visible = true;
                     txtKullaniciAdiGiris.Visible = true;
                     txtKullaniciSifreGiris.Visible = true;
                     lblKullaniciAdi.Visible = true;

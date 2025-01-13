@@ -72,11 +72,11 @@
             // 
             // txtKullaniciAdiGiris
             // 
-            this.txtKullaniciAdiGiris.Font = new System.Drawing.Font("Arial Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtKullaniciAdiGiris.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtKullaniciAdiGiris.Location = new System.Drawing.Point(621, 491);
             this.txtKullaniciAdiGiris.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtKullaniciAdiGiris.Name = "txtKullaniciAdiGiris";
-            this.txtKullaniciAdiGiris.Size = new System.Drawing.Size(167, 31);
+            this.txtKullaniciAdiGiris.Size = new System.Drawing.Size(167, 34);
             this.txtKullaniciAdiGiris.TabIndex = 47;
             this.txtKullaniciAdiGiris.Visible = false;
             // 
@@ -209,12 +209,13 @@
             // 
             // txtKullaniciSifreGiris
             // 
-            this.txtKullaniciSifreGiris.Font = new System.Drawing.Font("Arial Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtKullaniciSifreGiris.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtKullaniciSifreGiris.Location = new System.Drawing.Point(621, 543);
             this.txtKullaniciSifreGiris.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtKullaniciSifreGiris.Name = "txtKullaniciSifreGiris";
-            this.txtKullaniciSifreGiris.Size = new System.Drawing.Size(167, 31);
+            this.txtKullaniciSifreGiris.Size = new System.Drawing.Size(167, 34);
             this.txtKullaniciSifreGiris.TabIndex = 48;
+            this.txtKullaniciSifreGiris.UseSystemPasswordChar = true;
             this.txtKullaniciSifreGiris.Visible = false;
             // 
             // frm_PersonelDogrula

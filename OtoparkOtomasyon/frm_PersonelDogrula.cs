@@ -35,8 +35,7 @@ namespace OtoparkOtomasyon
                     cs_MesajGoster.Hata("Kullanıcı Adı Veya Şifresi Yanlış \n Lütfen Bilgileri Kontrol Edip Tekrar Deneyin !");
                 }
             }
-            catch (Exception ex) {
-      
+            catch (Exception ex) {      
                 cs_MesajGoster.Hata(ex.Message);
             }
         }
@@ -48,7 +47,6 @@ namespace OtoparkOtomasyon
         }
         private void PersonelDogrula_Load(object sender, EventArgs e)
         {
-            txtKullaniciSifreGiris.PasswordChar = '*';
             try
             {
                 var entities = baglanti.Entity();
@@ -87,17 +85,16 @@ namespace OtoparkOtomasyon
                 ac.Show();
             }
         }
-
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            if (txtKullaniciSifreGiris.PasswordChar == '*')
+            txtKullaniciSifreGiris.UseSystemPasswordChar = !txtKullaniciSifreGiris.UseSystemPasswordChar;
+
+            if (txtKullaniciSifreGiris.UseSystemPasswordChar)
             {
-                txtKullaniciSifreGiris.PasswordChar = '\0';
                 pictureBox3.Image = Properties.Resources.acikgoz;
             }
             else
             {
-                txtKullaniciSifreGiris.PasswordChar = '*';
                 pictureBox3.Image = Properties.Resources.kapaligoz;
             }
         }

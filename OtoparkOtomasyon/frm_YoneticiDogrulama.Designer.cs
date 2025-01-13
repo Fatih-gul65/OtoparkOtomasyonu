@@ -107,21 +107,22 @@
             // 
             // txtYoneticiAdiGiris
             // 
-            this.txtYoneticiAdiGiris.Font = new System.Drawing.Font("Arial Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtYoneticiAdiGiris.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtYoneticiAdiGiris.Location = new System.Drawing.Point(653, 518);
             this.txtYoneticiAdiGiris.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtYoneticiAdiGiris.Name = "txtYoneticiAdiGiris";
-            this.txtYoneticiAdiGiris.Size = new System.Drawing.Size(167, 31);
+            this.txtYoneticiAdiGiris.Size = new System.Drawing.Size(167, 34);
             this.txtYoneticiAdiGiris.TabIndex = 42;
             // 
             // txtYoneticiSifreGiris
             // 
-            this.txtYoneticiSifreGiris.Font = new System.Drawing.Font("Arial Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtYoneticiSifreGiris.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtYoneticiSifreGiris.Location = new System.Drawing.Point(653, 571);
             this.txtYoneticiSifreGiris.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtYoneticiSifreGiris.Name = "txtYoneticiSifreGiris";
-            this.txtYoneticiSifreGiris.Size = new System.Drawing.Size(167, 31);
+            this.txtYoneticiSifreGiris.Size = new System.Drawing.Size(167, 34);
             this.txtYoneticiSifreGiris.TabIndex = 43;
+            this.txtYoneticiSifreGiris.UseSystemPasswordChar = true;
             // 
             // btnGeri
             // 
@@ -249,7 +250,6 @@
             this.Name = "frm_YoneticiDogrulama";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "YoneticiDogrulama";
-            this.Load += new System.EventHandler(this.YoneticiDogrulama_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

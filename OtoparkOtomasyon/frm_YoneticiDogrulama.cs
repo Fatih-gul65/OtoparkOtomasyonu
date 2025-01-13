@@ -73,20 +73,16 @@ namespace OtoparkOtomasyon
         }
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            if (txtYoneticiSifreGiris.PasswordChar == '*')
+            txtYoneticiSifreGiris.UseSystemPasswordChar = !txtYoneticiSifreGiris.UseSystemPasswordChar;
+
+            if (txtYoneticiSifreGiris.UseSystemPasswordChar)
             {
-                txtYoneticiSifreGiris.PasswordChar = '\0';
                 pictureBox3.Image = Properties.Resources.acikgoz;
             }
             else
             {
-                txtYoneticiSifreGiris.PasswordChar = '*';
                 pictureBox3.Image = Properties.Resources.kapaligoz;
             }
-        }
-        private void YoneticiDogrulama_Load(object sender, EventArgs e)
-        {
-            txtYoneticiSifreGiris.PasswordChar = '*';
         }
     }
 }

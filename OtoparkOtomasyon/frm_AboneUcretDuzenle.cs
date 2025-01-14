@@ -16,7 +16,7 @@ namespace OtoparkOtomasyon
         public frm_AboneUcretDuzenle()
         {
             InitializeComponent();
-            _islemler = new cs_AboneUcretDuzenle(rdbtnOtomobil, rdbtnKamyonet, rdbtnMinibus, txtAboneUcreti);
+            _islemler = new cs_AboneUcretDuzenle(txtAboneUcreti);
         }
 
         int AUcretID = 0;

@@ -31,13 +31,12 @@ namespace OtoparkOtomasyon
             _lblOtomobilAbone = lblOtomobilAbone;
             _lblKamyonetAbone = lblKamyonetAbone;
             _lblMinibusAbone = lblMinibusAbone;
-
         }
         public void yukle()
         {
             _cmbAracTuru.Items.AddRange(new string[] { "Otomobil", "Kamyonet", "Minibüs / Kamyon" });
 
-            _cmbAbonelikSuresi.Items.AddRange(new string[] { "1 Ay", "2 Ay", "3 Ay", "4 Ay", "5 Ay", "6 Ay", "7 Ay", "8 Ay", "9 Ay", "10 Ay", "11 Ay", "12 Ay" });
+            _cmbAbonelikSuresi.Items.AddRange(new string[] { "1 Ay", "2 Ay", "3 Ay", "4 Ay", "5 Ay", "6 Ay", "7 Ay", "8 Ay", "9 Ay", "10 Ay", "11 Ay", "1 Yıl" });
         }
         public void CmbSureSecim(string abonelikSuresi)
         {
@@ -82,7 +81,7 @@ namespace OtoparkOtomasyon
                     case "11 Ay":
                         carpan = 11;
                         break;
-                    case "12 Ay":
+                    case "1 Yıl":
                         carpan = 12;
                         break;
                     default:
@@ -177,7 +176,7 @@ namespace OtoparkOtomasyon
             if (!_rdbtnNakit.Checked && !_rdbtnKrediKart.Checked)
             {
                 cs_MesajGoster.Uyari("Lütfen bir ödeme yöntemi seçin!");
-                return;
+                return;    
             }
 
             string odemeTuru = _rdbtnNakit.Checked ? "Nakit" : "Banka / Kredi Kartı";

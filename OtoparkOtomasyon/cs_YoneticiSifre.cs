@@ -31,7 +31,7 @@ namespace OtoparkOtomasyon
                 else
                 {
                     var entities = _baglanti.Entity();                    
-                    var yonetici = entities.Yonetici.SingleOrDefault(y => y.YoneticiID == 1);
+                    var yonetici = entities.Yonetici.FirstOrDefault(y => y.YoneticiID == 1);
                     if (yonetici != null)
                     {
                         yonetici.YoneticiAdi = YoneticiAdi;

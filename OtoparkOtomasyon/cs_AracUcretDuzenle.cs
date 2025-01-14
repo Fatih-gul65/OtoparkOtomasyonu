@@ -10,15 +10,11 @@ namespace OtoparkOtomasyon
     internal class cs_AracUcretDuzenle
     {
         private cs_Baglanti _baglanti;
-        private RadioButton _rdbtnOtomobil, _rdbtnKamyonet, _rdbtnMinibus;
+
         private TextBox _txt_0_3_Saat, _txt_3_6_Saat, _txt_6_24_Saat, _txt_24_SaatUzeri;
-        public cs_AracUcretDuzenle(RadioButton rdbtnOtomobil , RadioButton rdbtnKamyonet , RadioButton rdbtnMinibus,
-           TextBox txt_0_3_Saat, TextBox txt_3_6_Saat, TextBox txt_6_24_Saat, TextBox txt_24_SaatUzeri )
+        public cs_AracUcretDuzenle(TextBox txt_0_3_Saat, TextBox txt_3_6_Saat, TextBox txt_6_24_Saat, TextBox txt_24_SaatUzeri )
         {
             _baglanti = new cs_Baglanti();
-            _rdbtnOtomobil = rdbtnOtomobil;
-            _rdbtnKamyonet = rdbtnKamyonet;
-            _rdbtnMinibus = rdbtnMinibus;
             _txt_0_3_Saat = txt_0_3_Saat;
             _txt_3_6_Saat = txt_3_6_Saat;
             _txt_6_24_Saat = txt_6_24_Saat;

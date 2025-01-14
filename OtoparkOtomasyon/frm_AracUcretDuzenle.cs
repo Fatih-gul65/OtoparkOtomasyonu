@@ -13,7 +13,7 @@ namespace OtoparkOtomasyon
         public frm_AracUcretDuzenle()
         {
             InitializeComponent();
-            _islemler = new cs_AracUcretDuzenle(rdbtnOtomobil, rdbtnKamyonet, rdbtnMinibus, txt_0_3_Saat, txt_3_6_Saat, txt_6_24_Saat, txt_24_SaatUzeri);
+            _islemler = new cs_AracUcretDuzenle(txt_0_3_Saat, txt_3_6_Saat, txt_6_24_Saat, txt_24_SaatUzeri);
         }
         private void btnGeri_Click(object sender, EventArgs e)
         {

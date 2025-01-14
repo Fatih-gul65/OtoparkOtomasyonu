@@ -115,7 +115,6 @@
             this.groupBox1.Size = new System.Drawing.Size(1144, 424);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "t";
             // 
             // lblMinibusAbone
             // 

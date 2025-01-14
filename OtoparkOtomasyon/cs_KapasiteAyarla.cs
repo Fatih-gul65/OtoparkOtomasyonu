@@ -21,9 +21,8 @@ namespace OtoparkOtomasyon
             _rdbtnMinibus = rdbtnMinibus;
             _txtKapasiteAyarla = txtKapasiteAyarla;
         }
-        public void KaydetVeyaGuncelle(string secim , int kapasiteDegeri ,out bool basarili)
+        public void KaydetVeyaGuncelle(string secim , int kapasiteDegeri)
         {
-            basarili = false;
             try
             {
                 var entities = _baglanti.Entity();
@@ -87,7 +86,6 @@ namespace OtoparkOtomasyon
                 else if (secim == "Minibüs/Kamyon") kontrol.MinibusKapasitesi = kapasiteDegeri;
 
                 entities.SaveChanges();
-                basarili = true;
             }
             catch (Exception ex)
             {
@@ -107,9 +105,8 @@ namespace OtoparkOtomasyon
             }
             else
             {
-                bool basarili = false;
                 int kapasiteDegeri = Convert.ToInt32(_txtKapasiteAyarla.Text);
-                KaydetVeyaGuncelle(secim, kapasiteDegeri, out basarili);
+                KaydetVeyaGuncelle(secim, kapasiteDegeri);
             }
         }
         public void AracKapasitesiniYazdir(string secim)

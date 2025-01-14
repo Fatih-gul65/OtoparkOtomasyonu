@@ -214,7 +214,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::OtoparkOtomasyon.Properties.Resources.kapaligoz;
+            this.pictureBox3.Image = global::OtoparkOtomasyon.Properties.Resources.acikgoz;
             this.pictureBox3.Location = new System.Drawing.Point(836, 568);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(54, 41);

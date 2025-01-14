@@ -10,15 +10,11 @@ namespace OtoparkOtomasyon
     internal class cs_AboneUcretDuzenle
     {
         private cs_Baglanti _baglanti;
-        private RadioButton _rdbtnOtomobil, _rdbtnKamyonet, _rdbtnMinibus;
         private TextBox _txtAboneUcreti;
 
-    public cs_AboneUcretDuzenle(RadioButton rdbtnOtomobil, RadioButton rdbtnKamyonet, RadioButton rdbtnMinibus, TextBox txtAboneUcreti)
+    public cs_AboneUcretDuzenle(TextBox txtAboneUcreti)
         {
             _baglanti = new cs_Baglanti();
-            _rdbtnOtomobil = rdbtnOtomobil;
-            _rdbtnKamyonet = rdbtnKamyonet;
-            _rdbtnMinibus = rdbtnMinibus;
             _txtAboneUcreti = txtAboneUcreti;
         }
 

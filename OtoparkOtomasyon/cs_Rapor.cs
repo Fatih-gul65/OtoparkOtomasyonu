@@ -60,7 +60,6 @@ namespace OtoparkOtomasyon
                                  aracCikis.OdemeTuru,
                                  AboneID = aracCikis.AboneID.HasValue ? aracCikis.AboneID.Value.ToString() : "Yok",
                                  UcretsizGirisID = aracCikis.UcretsizGirisID.HasValue ? aracCikis.UcretsizGirisID.Value.ToString() : "Yok"
-
                              }).AsQueryable();
 
                 if (_dateTimePickerGirisTarihi.Checked)
@@ -146,12 +145,13 @@ namespace OtoparkOtomasyon
             double AboneGunlukUcret = 0;
             double AboneHaftalikUcret = 0;
             double AboneAylikUcret = 0;
-                       
+
+            try { 
             var entities = _baglanti.Entity();
             
                 var abonelikUcretleri = entities.Abonelikler
-                    .Where(a => a.AbonelikBitisTarihi >= birAyOnce)
-                    .Select(a => new { a.AbonelikBaslangicTarihi, a.AbonelikUcreti })
+                    .Where(a => a.AbonelikBaslangicTarihi >= birAyOnce)
+                    .Select(b => new { b.AbonelikBaslangicTarihi, b.AbonelikUcreti })
                     .ToList();
 
                 foreach (var ucret in abonelikUcretleri)
@@ -164,16 +164,21 @@ namespace OtoparkOtomasyon
                     if (ucret.AbonelikBaslangicTarihi.Value.Date >= birHaftaOnce)
                     {
                         AboneHaftalikUcret += Convert.ToDouble(ucret.AbonelikUcreti);
-                }
+                    }
 
                     if (ucret.AbonelikBaslangicTarihi.Value.Date >= birAyOnce)
                     {
                         AboneAylikUcret += Convert.ToDouble(ucret.AbonelikUcreti);
                     }
                 }
-            _lblAboneGunluk.Text = $"Abone Günlük Kazanç: {AboneGunlukUcret:C}";
-            _lblAboneHaftalik.Text = $"Abone Haftalık Kazanç: {AboneHaftalikUcret:C}";
-            _lblAboneAylik.Text = $"Abone Aylık Kazanç: {AboneAylikUcret:C}";
+                _lblAboneGunluk.Text = $"Abone Günlük Kazanç: {AboneGunlukUcret:C}";
+                _lblAboneHaftalik.Text = $"Abone Haftalık Kazanç: {AboneHaftalikUcret:C}";
+                _lblAboneAylik.Text = $"Abone Aylık Kazanç: {AboneAylikUcret:C}";
+            }
+            catch (Exception ex)
+            {
+                cs_MesajGoster.Hata(ex.Message);
+            }
         }
         public void ExcelAktar(DataGridView dataGridView)
         {
